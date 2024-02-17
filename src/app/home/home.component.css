@@ -1,0 +1,351 @@
+
+.top-content {
+/* background-color: #608E88; */
+background-color: #AABCB4;
+/* background-color: #b5bef3; */
+padding: 30px;
+}
+
+.banner_sec {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.top-content h3 {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: .95em;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    /* max-width: 10em; */
+    padding: 20px 0px;
+}
+
+p {
+    color: #fff;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.tile-sec {
+    background-color: #f5f5f5;
+    padding: 50px 20px;
+}
+
+.tile-sec h3 {
+    text-align: center;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: .88em;
+    text-transform: uppercase;
+}
+.tile-sec h3 span {
+    display: block;
+}
+.text-align-start {
+    text-align: start;
+}
+.text-align-end {
+    text-align: end;
+}
+.tile-sec .body {
+    padding: 40px 10px;
+}
+.tile-card {
+    box-shadow: -1.8rem 0.2rem 1.2rem 0 rgba(23,39,59,.1);
+    transform: translateY(0);
+    transition: transform .3s ease-in-out,-webkit-transform .3s ease-in-out;
+    margin: 10px 0px;
+}
+
+.tile-card:hover {
+    box-shadow: 0.2rem 0.2rem 5rem 0 rgba(23,39,59,.15);
+    transform: translateY(-0.4rem);
+}
+.tile-card h5 {
+    color: #575a5d;
+}
+.tile-card p {
+    color: #8f9297;
+    font-size: 15px;
+    line-height: 1.5;
+}
+.tile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.tile-body {
+    font-size: 30px;
+    padding: 30px 20px;
+}
+
+mat-card-title {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+/* Customize slide appearance */
+.swiper-slide {
+    width: 300px;
+    height: 400px;
+    background: rgba(204,204,204,0.2);
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #000;
+  }
+
+.swiper-slide p{
+    color: #000;
+    padding: 10px 20px;
+}
+
+.swiper-slide img {
+    margin: 0px 20px;
+    height: 200px;
+    width: 200px;
+}
+  
+  /* Customize navigation buttons appearance */
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+.content-sec {
+    background-color: rgba(182, 71, 47, 0.1);
+    padding: 50px 20px;
+}
+.content-sec h3 {
+    text-align: center;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: .88em;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+.content-sec .card-sec {
+    padding: 30px;
+    border-radius: 12px;
+    height: 550px;
+    box-shadow: -1.8rem 0.2rem 1.2rem 0 rgba(23,39,59,.1);
+    transform: translateY(0);
+    transition: transform .3s ease-in-out,-webkit-transform .3s ease-in-out;
+    margin: 10px 0px;
+}
+.content-sec .title {
+    color: #000;
+    font-size: 30px;
+    /* text-transform: uppercase; */
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.content-sec p {
+    font-size: 20px;
+    color: #666;
+    font-weight: normal;
+}
+
+.content-sec .icon-img {
+    background-color: rgba(182, 71, 47, 0.1);
+    padding: 12px;
+    margin: 10px;
+    height: 70px;
+    width: 70px;
+    border-radius: 10px;
+}
+.keyframe-sec {
+    background-color: #061823;
+    /* background: linear-gradient(110deg, #7B7B7C 60%, #7b7b7cba 60%); */
+    padding: 50px 40px;
+}
+.keyframe-sec .row {
+    align-items: center;
+}
+.keyframe-sec .content-title {
+    font-size: 35px;
+    font-weight: 600;
+    line-height: .88em;
+    text-transform: capitalize;
+    color: #fff;
+    padding: 60px 10px;
+}
+.keyframe-sec #chart {
+    width: 100%;
+    height: 200px;
+}
+
+.circle-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.testimonials-sec {
+    background-color: #f0ebe3;
+    padding: 30px 20px;
+    /* background: linear-gradient(110deg, #f0ebe3 60%, #7b7b7cba 60%); */
+}
+
+.testimonials-sec h3 {
+    text-align: center;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: .88em;
+    text-transform: uppercase;
+}
+
+.world-map {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1em;
+    position: relative;
+}
+
+.world-map .map-img {
+    width: 100%;
+    /* max-width: calc(100% - 80px); */
+}
+.pin {
+    background: #FB8324;
+    position: absolute;
+    width: 0.7em;
+    height: 0.7em;
+    border-radius: 50%;
+}
+
+.pin::before {
+    content: '';
+    background: #FB8324;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: pulse 1.3s ease-in-out infinite;
+}
+
+.nig {
+    top: 63%;
+    left: 49%;
+}
+
+.ind {
+    top: 60%;
+    left: 68%;
+}
+.uae {
+    top: 59%;
+    left: 61%;
+}
+.raj {
+    top: 57%;
+    left: 66%;
+}
+.vtm {
+    top: 55%;
+    left: 77%;
+}
+
+@keyframes pulse {
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(2.5);
+    }
+}
+
+
+@media (min-width:0px) and (max-width: 479px) {
+    .banner_sec {
+        flex-direction: column;
+    }
+    .body {
+        padding: 10px;
+    }  
+    .top-content h3 {
+        font-size: 40px;
+    }
+    .tile-sec h3 {
+        font-size: 40px;
+    }
+    .swiper-slide {
+        height: 900px;
+        flex-wrap: wrap-reverse;
+    }
+    .testimonials-sec h3 {
+        font-size: 40px;
+    }
+    .keyframe-sec .content-title {
+        font-size: 20px;
+    }
+    .pin {
+        width: 0.2em;
+        height: 0.2em;
+    }    
+    .nig {
+        top: 63%;
+        left: 50%;
+    }
+    
+    .ind {
+        top: 60%;
+        left: 67%;
+    }
+    .uae {
+        top: 59%;
+        left: 60%;
+    }
+    .raj {
+        top: 58%;
+        left: 66%;
+    }
+    .vtm {
+        top: 54%;
+        left: 76%;
+    }
+    
+}
+@media (min-width:480px) and (max-width: 768px) {
+    .banner_sec {
+        flex-direction: column;
+    }
+    .swiper-slide {
+        height: 600px;
+        flex-wrap: wrap-reverse;
+    }
+    .keyframe-sec .content-title {
+        font-size: 25px;
+    }
+}
+
+.hs-ellipse {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    background: url(https://ik.imagekit.io/2eribsa8w/ellipse_0zs3q5ittMa.png) no-repeat center center / contain;
+    border-radius: 50%;
+    top: 30%;
+    left: 70%;
+    opacity: 0;
+    animation: ellipseRotate 10s linear infinite;
+}
+
+  

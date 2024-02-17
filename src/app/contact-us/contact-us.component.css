@@ -1,0 +1,103 @@
+.contact-sec {
+    padding: 40px 20px;
+    overflow: hidden;
+    background-color: #AABCB4;
+}
+.contact-sec .map-sec{
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4);
+    background-color: rgba(182, 71, 47, 0.1);
+    margin: 50px 0px;
+}
+.contact-sec h3 {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: .95em;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 20px 0px;
+}
+
+.contact-sec .contact-ico {
+    background-color: #fff;
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    padding: 16px;
+    border-radius: 23px;
+}
+
+.contact-sec .contact-form {
+    /* box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4); */
+    /* border-radius: 10px; */
+    /* background: rgba(255, 255, 255, 0.2); */
+    /* background-color: #061823; */
+    color: #fff;
+    padding: 40px 20px;
+    transition: transform .5s ease-in-out,-webkit-transform .5s ease-in-out;
+}
+
+.contact-sec .contact-form:hover {
+    transform: scale(1.02);
+    transition: .5s;
+}
+.contact-sec .form-group {
+    margin-bottom: 2rem;
+}
+.contact-sec .form-control {
+    background-color: #444;
+    height: 60px;
+    padding: 20px 25px;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    -webkit-box-shadow: 0px 0px 0px 2px transparent;
+    box-shadow: 0px 0px 0px 2px transparent;
+    -webkit-transition: 0.2s;
+    transition: 0.2s
+}
+
+.contact-sec .form-group textarea {
+    height: auto;
+}
+
+.contact-sec .form-control::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.5)
+}
+
+.contact-sec .form-control:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.5)
+}
+
+.contact-sec .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5)
+}
+
+.contact-sec .form-control:focus {
+    -webkit-box-shadow: 0px 0px 0px 2px #ff8846;
+    box-shadow: 0px 0px 0px 2px #ff8846
+}
+
+
+.contact-sec .submit-btn {
+    color: #fff;
+    background-color: #e35e0a;
+    font-weight: 700;
+    height: 60px;
+    padding: 10px 30px;
+    width: 300px;
+    margin: auto;
+    border-radius: 40px;
+    border: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 1.3px;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all
+}
+
+.contact-sec .submit-btn:hover,
+.ontact-sec .submit-btn:focus {
+    opacity: 0.9
+}

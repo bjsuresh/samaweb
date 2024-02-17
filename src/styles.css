@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Clarkson, "Helvetica", sans-serif; }
+@import 'node_modules/aos/dist/aos.css';
+@import "node_modules/swiper/swiper.scss";
+@import "node_modules/swiper/swiper-bundle.min.css";
+

@@ -1,0 +1,92 @@
+<div>
+    <div>
+        <dx-chart
+        id="chart"
+        [dataSource]="dataSource"
+        title="Data Analysis"
+        palette="Harmony Light"
+      >
+        <dxi-value-axis name="frequency" position="left" [tickInterval]="300">
+        </dxi-value-axis>
+        <dxi-value-axis
+          name="percentage"
+          position="right"
+          [showZero]="true"
+          [tickInterval]="20"
+          [valueMarginsEnabled]="false"
+        >
+          <dxo-label [customizeText]="customizeLabelText"></dxo-label>
+          <dxi-constant-line
+            [value]="80"
+            color="#fc3535"
+            dashStyle="dash"
+            [width]="2"
+          >
+            <dxo-label [visible]="false"></dxo-label>
+          </dxi-constant-line>
+        </dxi-value-axis>
+        <dxo-argument-axis>
+          <dxo-label overlappingBehavior="stagger"></dxo-label>
+        </dxo-argument-axis>
+        <dxo-tooltip
+          [enabled]="true"
+          [shared]="true"
+          [customizeTooltip]="customizeTooltip"
+        >
+        </dxo-tooltip>
+        <dxo-common-series-settings argumentField="complaint">
+        </dxo-common-series-settings>
+        <dxi-series
+          type="bar"
+          valueField="count"
+          axis="frequency"
+          name="Tagno Parameter"
+          color="#fac29a"
+        >
+        </dxi-series>
+        <dxi-series
+          type="spline"
+          valueField="cumulativePercent"
+          axis="percentage"
+          name="Cumulative percentage"
+          color="#6b71c3"
+        >
+        </dxi-series>
+        <dxo-legend verticalAlignment="top" horizontalAlignment="center">
+        </dxo-legend>
+      </dx-chart>    </div>  
+    <div>
+        <!-- <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource">
+          
+              <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="month">
+                <th mat-header-cell *matHeaderCellDef> Month </th>
+                <td mat-cell *matCellDef="let element"> {{element.month}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="datas">
+                <th mat-header-cell *matHeaderCellDef> Datas </th>
+                <td mat-cell *matCellDef="let element"> {{element.datas}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="no_of_orders">
+                <th mat-header-cell *matHeaderCellDef> No of Orders </th>
+                <td mat-cell *matCellDef="let element"> {{element.no_of_orders}} </td>
+              </ng-container>
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                           showFirstLastButtons
+                           aria-label="Select page of data analysis">
+            </mat-paginator>
+        </div>       -->
+    </div>
+</div>
