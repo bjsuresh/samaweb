@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,9 +8,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
-
+import {MatListModule} from '@angular/material/list';
 import { Page1Component } from './page1/page1.component';
-import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { Page2Component } from './page2/page2.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { DxChartModule, DxPieChartModule } from 'devextreme-angular';
@@ -22,7 +20,6 @@ import { AimsComponent } from './aims/aims.component';
 import { SwiperModule } from 'swiper/angular';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
 
 @NgModule({
   declarations: [
@@ -45,6 +42,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTableModule,
     MatMenuModule,
     MatCardModule,
+    MatListModule,
     DxChartModule,
     DxPieChartModule,
     SwiperModule,
