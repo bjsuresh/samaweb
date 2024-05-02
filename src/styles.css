@@ -6,3 +6,50 @@ body { margin: 0; font-family: Clarkson, "Helvetica", sans-serif; }
 @import "node_modules/swiper/swiper.scss";
 @import "node_modules/swiper/swiper-bundle.min.css";
 
+.mat-mdc-form-field-error {
+    font-size: 12px;
+}
+.mat-mdc-text-field-wrapper {
+    /* background-color: #444 !important; */
+    height: 60px;
+    /* padding: 20px 25px; */
+    border: none;
+    border-radius: 20px !important;
+    /* color: #fff; */
+    -webkit-box-shadow: 0px 0px 0px 2px transparent;
+    box-shadow: 0px 0px 0px 2px transparent;
+    -webkit-transition: 0.2s;
+    transition: 0.2s
+}
+
+.mat-mdc-form-field {
+    width: 100%;
+}
+/* .mdc-text-field__input {
+    color: #fff !important;
+} */
+/* .mat-mdc-select {
+    color: #fff !important;
+} */
+.captcha-container {
+    margin: auto;
+    box-shadow: none !important;
+}
+.dx-header-row {
+    background-color: #4747a3;
+    color: #fff;
+}
+.dx-popup-title.dx-toolbar {
+    background-color: #4747a3 !important;
+    padding: 0px 20px;
+    color: #fff;
+  }
+  .dx-popup-bottom .dx-button {
+    min-width: 100px;
+    background-color: #4747a3 ;
+    color: #fff !important;
+}
+.dx-popup-bottom .dx-button:hover {
+    background-color: #4747a3  !important;
+}
+  

@@ -80,12 +80,13 @@ export class AppComponent {
     const navlink = this.elementRef.nativeElement.querySelector('.dropdown-menu .nav-link');
 
     this.renderer.listen(navlink, 'click', () => {
-      // const navbarContentEl: HTMLElement = this.navbarContent.nativeElement;
-      if (navbarContent.classList.contains('show')) {
-        navbarContent.classList.removeClass('show');
+      if (navlink.classList.contains('show')) {
+        this.resetNavbarBackground(navbar);
+      } else {
+        this.toggleNavbarBackground(navbar);
       }
     });
-
+    
   }
 
   toggleNavbarBackground(navbar: HTMLElement) {

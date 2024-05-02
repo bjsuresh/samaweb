@@ -1,9 +1,9 @@
 <section class="top-content">
+
   <h3>
     Introducing SAMA: Empowering Your Data Analytics and Business Intelligence
     Journey
-  </h3>
-  <div class="banner_sec">
+  </h3>  <div class="banner_sec container">
     <div class="col" data-aos="zoom-in" data-aos-delay="100">
       <p>
         <span>
@@ -22,8 +22,6 @@
         src="../../assets/images/web_bg.png"
         height=""
         width="100%"
-        data-aos="zoom-in"
-        data-aos-delay="100"
       />
     </div>
   </div>
@@ -32,7 +30,7 @@
   <h3 data-aos="fade-down">
     <span class="text-center">Unleash the Power of Data</span>
   </h3>
-  <div class="body">
+  <div class="body container">
     <div class="swiper" #swiperContainer data-aos="zoom-in">
       <div class="swiper-wrapper">
         <div class="swiper-slide" *ngFor="let slide of slides">
@@ -49,7 +47,7 @@
   <h3 data-aos="fade-up">
     <span class="text-center">Testimonials</span>
   </h3>
-  <div class="body">
+  <div class="body container">
     <div class="swiper" #swiperContainer2 data-aos="zoom-in">
       <div class="swiper-wrapper">
         <div class="swiper-slide" *ngFor="let item of testimonialItems">
@@ -70,7 +68,7 @@
   <h3 data-aos="fade-down">
     <span class="text-center">News Updates</span>
   </h3>
-  <div class="body">
+  <div class="body container">
     <div class="swiper" #swiperContainer1 data-aos="zoom-in">
       <div class="swiper-wrapper">
         <div class="swiper-slide" *ngFor="let item of items">
@@ -86,139 +84,143 @@
   <h3 data-aos="fade-down">
     <span class="text-center">Why choose Supra Controls?</span>
   </h3>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
-      <mat-card class="card-sec">
-        <img
-          src="../../assets/images/user.svg"
-          class="icon-img"
-          alt=""
-          width="100%"
-        />
-        <mat-card-content>
-          <h5 class="title">User Friendly</h5>
-          <p>
-            Our intuitive interface and user-centric design ensure that anyone
-            can become a data analytics superhero, regardless of technical
-            expertise
-          </p>
-        </mat-card-content>
-      </mat-card>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
-      <mat-card class="card-sec">
-        <img
-          src="../../assets/images/scalable.svg"
-          class="icon-img"
-          alt=""
-          width="100%"
-        />
-        <mat-card-content>
-          <h5 class="title">Scalable</h5>
-          <p>
-            From startups to enterprise-level organizations, Supra Controls SAMA
-            line of products scales with your business needs, allowing you to
-            unlock new insights as your data grows
-          </p>
-        </mat-card-content>
-      </mat-card>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
-      <mat-card class="card-sec">
-        <img
-          src="../../assets/images/integration.svg"
-          class="icon-img"
-          alt=""
-          width="100%"
-        />
-        <mat-card-content>
-          <h5 class="title">Seamless Integration</h5>
-          <p>
-            Connect with a wide range of data sources and applications, enabling
-            you to leverage your existing data infrastructure and maximize ROI
-          </p>
-        </mat-card-content>
-      </mat-card>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
-      <mat-card class="card-sec">
-        <img
-          src="../../assets/images/support.svg"
-          class="icon-img"
-          alt=""
-          width="100%"
-        />
-        <mat-card-content>
-          <h5 class="title">Reliable Support</h5>
-          <p>
-            Our dedicated support team is always ready to assist you, ensuring a
-            smooth implementation process and providing ongoing support to drive
-            your success
-          </p>
-        </mat-card-content>
-      </mat-card>
-    </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
+        <mat-card class="card-sec">
+          <img
+            src="../../assets/images/user.svg"
+            class="icon-img"
+            alt=""
+            width="100%"
+          />
+          <mat-card-content>
+            <h5 class="title">User Friendly</h5>
+            <p>
+              Our intuitive interface and user-centric design ensure that anyone
+              can become a data analytics superhero, regardless of technical
+              expertise
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
+        <mat-card class="card-sec">
+          <img
+            src="../../assets/images/scalable.svg"
+            class="icon-img"
+            alt=""
+            width="100%"
+          />
+          <mat-card-content>
+            <h5 class="title">Scalable</h5>
+            <p>
+              From startups to enterprise-level organizations, Supra Controls SAMA
+              line of products scales with your business needs, allowing you to
+              unlock new insights as your data grows
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
+        <mat-card class="card-sec">
+          <img
+            src="../../assets/images/integration.svg"
+            class="icon-img"
+            alt=""
+            width="100%"
+          />
+          <mat-card-content>
+            <h5 class="title">Seamless Integration</h5>
+            <p>
+              Connect with a wide range of data sources and applications, enabling
+              you to leverage your existing data infrastructure and maximize ROI
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
+        <mat-card class="card-sec">
+          <img
+            src="../../assets/images/support.svg"
+            class="icon-img"
+            alt=""
+            width="100%"
+          />
+          <mat-card-content>
+            <h5 class="title">Reliable Support</h5>
+            <p>
+              Our dedicated support team is always ready to assist you, ensuring a
+              smooth implementation process and providing ongoing support to drive
+              your success
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>  
   </div>
 </section>
 <section class="keyframe-sec">
-  <div class="row">
-    <div class="col-md-6 col-lg-6 col-xs-12">
-      <div class="circle-indicator" data-aos="zoom-in">
-        <circle-progress
-          [percent]="85"
-          [radius]="100"
-          [outerStrokeWidth]="16"
-          [innerStrokeWidth]="1"
-          [outerStrokeColor]="'#FB8324'"
-          [innerStrokeColor]="'#FB8324'"
-          [backgroundColor]="'#061823'"
-          [animation]="true"
-          [lazy]="true"
-          [animationDuration]="800"
-          titleFontSize="40"
-          subtitleFontSize="25"
-          titleColor="#FB8324"
-          subtitleColor="#FB8324"
-          unitsColor="#FB8324"
-          unitsFontSize="15"
-        ></circle-progress>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-lg-6 col-xs-12">
+        <div class="circle-indicator" data-aos="zoom-in">
+          <circle-progress
+            [percent]="85"
+            [radius]="100"
+            [outerStrokeWidth]="16"
+            [innerStrokeWidth]="1"
+            [outerStrokeColor]="'#FB8324'"
+            [innerStrokeColor]="'#FB8324'"
+            [backgroundColor]="'#061823'"
+            [animation]="true"
+            [lazy]="true"
+            [animationDuration]="800"
+            titleFontSize="40"
+            subtitleFontSize="25"
+            titleColor="#FB8324"
+            subtitleColor="#FB8324"
+            unitsColor="#FB8324"
+            unitsFontSize="15"
+          ></circle-progress>
+        </div>
       </div>
-    </div>
-
-    <div class="col-md-6 col-lg-6 col-xs-12" data-aos="zoom-in">
-      <p class="content-title">
-        Our data analytics and alerting products power decision making in over
-        90% of refineries across India
-      </p>
-    </div>
-    <div class="col-md-6 col-lg-6 col-xs-12" data-aos="zoom-in">
-      <p class="content-title">
-        Our data driven products are utilized in almost all major critical
-        industries across India, South East Asia, Africa and the Middle East
-      </p>
-    </div>
-    <div class="col-md-6 col-lg-6 col-xs-12">
-      <div id="chart" #chart></div>
-      <!-- <dx-pie-chart
-                id="pie"
-                type="doughnut"
-                palette="Soft Pastel"
-                [dataSource]="populationByRegions"
-                [innerRadius]="0.85"
-                [animation]="false"
-                >
-                <dxi-series argumentField="region">
-                    <dxo-label [visible]="true" format="millions">
-                    <dxo-connector [visible]="true"></dxo-connector>
-                    </dxo-label>
-                </dxi-series>
-                <dxo-legend
-                    [margin]="0"
-                    horizontalAlignment="right"
-                    verticalAlignment="top"
-                ></dxo-legend>
-            </dx-pie-chart> -->
-    </div>
+  
+      <div class="col-md-6 col-lg-6 col-xs-12" data-aos="zoom-in">
+        <p class="content-title">
+          Our data analytics and alerting products power decision making in over
+          90% of refineries across India
+        </p>
+      </div>
+      <div class="col-md-6 col-lg-6 col-xs-12" data-aos="zoom-in">
+        <p class="content-title">
+          Our data driven products are utilized in almost all major critical
+          industries across India, South East Asia, Africa and the Middle East
+        </p>
+      </div>
+      <div class="col-md-6 col-lg-6 col-xs-12">
+        <div id="chart" #chart></div>
+        <!-- <dx-pie-chart
+                  id="pie"
+                  type="doughnut"
+                  palette="Soft Pastel"
+                  [dataSource]="populationByRegions"
+                  [innerRadius]="0.85"
+                  [animation]="false"
+                  >
+                  <dxi-series argumentField="region">
+                      <dxo-label [visible]="true" format="millions">
+                      <dxo-connector [visible]="true"></dxo-connector>
+                      </dxo-label>
+                  </dxi-series>
+                  <dxo-legend
+                      [margin]="0"
+                      horizontalAlignment="right"
+                      verticalAlignment="top"
+                  ></dxo-legend>
+              </dx-pie-chart> -->
+      </div>
+    </div>  
   </div>
 </section>
 <section class="testimonials-sec">

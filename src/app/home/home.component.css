@@ -23,7 +23,7 @@
 
 p {
   color: #fff;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 500;
 }
 
@@ -99,7 +99,7 @@ mat-card-title {
 
 .swiper-slide p {
   color: #000;
-  padding: 10px 20px;
+  padding: 10px 0px;
 }
 
 .swiper-slide img {
@@ -140,6 +140,18 @@ mat-card-title {
   transform: translateY(0);
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   margin: 10px 0px;
+}
+.content-sec .card-sec:hover {
+	background: #4747a3;
+}
+.content-sec .card-sec:hover .icon-img{
+	background-color: #fff;
+}
+.content-sec .card-sec:hover .title {
+  color: #fff;
+}
+.content-sec .card-sec:hover p {
+  color: #f5f5f5;
 }
 .content-sec .title {
   color: #000;

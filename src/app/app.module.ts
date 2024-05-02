@@ -12,7 +12,7 @@ import {MatListModule} from '@angular/material/list';
 import { Page1Component } from './page1/page1.component';
 import { Page2Component } from './page2/page2.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { DxChartModule, DxPieChartModule } from 'devextreme-angular';
+import { DxChartModule, DxDataGridModule, DxPieChartModule } from 'devextreme-angular';
 import { HomeComponent } from './home/home.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ProductsComponent } from './products/products.component';
@@ -20,6 +20,15 @@ import { AimsComponent } from './aims/aims.component';
 import { SwiperModule } from 'swiper/angular';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SupportComponent } from './support/support.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatIconModule} from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { NgxCaptchaModule } from '@binssoft/ngx-captcha';
+import {MatSelectModule} from '@angular/material/select';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { CustomCursorDirective } from './custom-cursor.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +38,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     ProductsComponent,
     AimsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    SupportComponent,
+    CustomCursorDirective,
   ],
   imports: [
     BrowserModule,
@@ -43,8 +54,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatMenuModule,
     MatCardModule,
     MatListModule,
+    MatSnackBarModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
     DxChartModule,
     DxPieChartModule,
+    DxDataGridModule,
     SwiperModule,
     ReactiveFormsModule,
     // Specify ng-circle-progress as an import
@@ -56,9 +73,12 @@ import { ReactiveFormsModule } from '@angular/forms';
       outerStrokeColor: "#78C000",
       innerStrokeColor: "#C7E596",
       animationDuration: 300,
-    })  
+    }),
+    NgxCaptchaModule
   ],
-  providers: [],
+  providers: [
+    // { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

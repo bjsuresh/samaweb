@@ -113,16 +113,24 @@ mat-toolbar.is-scrolled {
 }
 
 .navbar li a{
-  color: #f2f2f2;
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
   padding: 9px 15px;
   border-radius: 5px;
   transition: all 0.3s ease;
+  color: #fff;
+}
+.navbar li a::before {
+  color: #4747a3;
+  overflow: hidden;
+  transition: 1s;
+  -webkit-text-stroke: 2px #4747a3;
 }
 .navbar li a:hover{
   background: #3A3B3C;
+  width: 100%;
+  filter: drop-shadow(0 0 25px #4747a3)
 }
  .navbar li .heading {
   font-size: 20px;
@@ -294,3 +302,49 @@ mat-toolbar.is-scrolled {
 }
 
 
+.custom-cursor {
+  position: absolute;
+  z-index: 9999;
+  width: 35px; /* Adjust width as needed */
+  height: 35px; /* Adjust height as needed */
+  background-image: url('../assets/images/shape.png'); /* Path to your cursor image */
+  background-size: cover;
+  pointer-events: none; /* Ensure cursor doesn't interfere with mouse events */
+  transform: translate(-50%, -50%); /* Center the cursor on the mouse pointer */
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+  animation: cursorAnim .5s infinite alternate;
+  pointer-events: none;
+}
+
+
+@keyframes cursorAnim {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(.7);
+  }
+}
+
+@keyframes cursorAnim2 {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(.4);
+  }
+}
+
+@keyframes cursorAnim3 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(3);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}

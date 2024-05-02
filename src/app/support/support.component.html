@@ -1,0 +1,137 @@
+<section class="support-sec">
+
+  
+    <div class="login-container" [style.display]="loginSubmitted ? 'none' : 'flex'">
+        <mat-card class="example-card">
+            <mat-card-content id="login-sec" class="login-sec">
+              <h3>Login</h3>
+              <form class="example-form" >
+                <table class="example-full-width" cellspacing="0">
+                  <tr>
+                    <td>
+                      <mat-form-field class="example-full-width" appearance="fill">
+                      <input matInput placeholder="Username"  name="username" [formControl]="username">
+                      <mat-icon matSuffix>account_circle</mat-icon>
+                      <mat-error *ngIf="username.invalid">Username is mandatory</mat-error>
+                      </mat-form-field>
+                    </td>
+                    <td>
+                      <mat-form-field class="example-full-width" appearance="fill">
+                      <input matInput placeholder="Companyname"  name="companyname" [formControl]="companyname">
+                      <mat-icon matSuffix>account_circle</mat-icon>
+                      <mat-error *ngIf="username.invalid">Companyname is mandatory</mat-error>
+                      </mat-form-field>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-select [formControl]="areas" placeholder="Area Name">
+                          <mat-option value="pims">PIMS/UHN/EMS</mat-option>
+                          <mat-option value="aims">AIMS</mat-option>
+                          <mat-option value="analtics">ANALYTICS</mat-option>
+                          <mat-option value="dmsx">DMS</mat-option>
+                          <mat-option value="erp">ERP</mat-option>
+                        </mat-select>
+                        <!-- <input matInput placeholder="Area Name"  name="areas" >
+                        <mat-icon matSuffix>category</mat-icon> -->
+                        <mat-error *ngIf="areas.invalid">Areas is mandatory</mat-error>
+                      </mat-form-field>
+                    </td>
+
+                    <td colspan="2">
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <input matInput placeholder="Password" [formControl]="password" type="password" name="password" [type]="hide ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="password.invalid">Password is mandatory</mat-error>
+                      </mat-form-field>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <ngx-captcha  [config]="captchaConfig"></ngx-captcha>
+                    </td>
+                  </tr>
+                </table>
+                <mat-card-actions class="action_btn">
+                  <button mat-stroked-button color="primary" class="btn-block submit-btn" type="button" (click)="login()">Login</button>
+                </mat-card-actions>
+        
+              </form>
+              <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
+            </mat-card-content> 
+        </mat-card>
+    </div>
+    
+    <div class="table-sec" [style.display]="!loginSubmitted ? 'none' : 'block'">
+      <h5 class="main-title">Ticket Information</h5>
+      <dx-data-grid
+      id="gridContainer"
+      [dataSource]="employees"
+      keyExpr="Ticket_ID"
+      [showBorders]="true"
+      [columnAutoWidth]="true"
+      >
+        <dxo-search-panel
+          [visible]="true"
+          [width]="240"
+          placeholder="Search..."
+        ></dxo-search-panel>
+        <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+        <dxo-paging [enabled]="false"></dxo-paging>
+        <dxo-editing
+          mode="popup"
+          [allowUpdating]="true"
+          [allowAdding]="true"
+          [allowDeleting]="false"
+        >
+          <dxo-popup
+            title="Ticket Information"
+            [showTitle]="true"
+            [width]="600"
+            [height]="425"
+          >
+          </dxo-popup>
+          <dxo-form>
+            <dxi-item itemType="group" [colCount]="2" [colSpan]="2">
+              <dxi-item dataField="Title"></dxi-item>
+              <dxi-item dataField="Products"></dxi-item>
+              <dxi-item dataField="Types"></dxi-item>
+              <dxi-item dataField="Priority"></dxi-item>
+              <dxi-item dataField="Status"></dxi-item>
+            </dxi-item>
+            <dxi-item dataField="Description" [colCount]="2" [colSpan]="2"></dxi-item>
+
+          </dxo-form>
+        </dxo-editing>
+
+        <dxi-column dataField="Ticket_ID" [fixed]="true"></dxi-column>
+        <dxi-column dataField="Title" [fixed]="true"></dxi-column>
+        <dxi-column dataField="Products" caption="Products" dataType="string" [fixed]="true">
+          <dxo-lookup [dataSource]="products" >
+          </dxo-lookup>
+        </dxi-column>
+        <dxi-column dataField="Types" caption="Types" dataType="string" >
+          <dxo-lookup [dataSource]="types" >
+          </dxo-lookup>
+        </dxi-column>
+        <dxi-column dataField="Priority" caption="Priority" dataType="string" >
+          <dxo-lookup [dataSource]="priorities" >
+          </dxo-lookup>
+        </dxi-column>
+        <dxi-column dataField="Status" caption="Status" dataType="string" >
+          <dxo-lookup [dataSource]="status" >
+          </dxo-lookup>
+        </dxi-column>
+        <dxi-column dataField="Description"></dxi-column>
+        <dxi-column dataField="CreatesdBy"></dxi-column>
+        <dxi-column dataField="UpdatedBy"></dxi-column>
+        <dxi-column dataField="CreatedDate"></dxi-column>
+        <dxi-column dataField="UpdatedDate"></dxi-column>
+
+      </dx-data-grid>    
+    </div>
+
+</section>
