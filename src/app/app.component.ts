@@ -12,9 +12,19 @@ export class AppComponent {
   showScrollTop: boolean = false;
   @ViewChild('#navbarContent') navbarContent:any = ElementRef;
 
+  activeIndex: number = -1;
+
+  setActive(index: number): void {
+    this.activeIndex = index;
+    localStorage.setItem("activeIndex",this.activeIndex.toString());
+  }
   
   ngOnInit() {
-
+    const storedActiveIndex = localStorage.getItem("activeIndex");
+    if (storedActiveIndex !== null) {
+        this.activeIndex = parseInt(storedActiveIndex, 10);
+    }
+    this.setActive(this.activeIndex);
     setTimeout(() => {
       this.loaderVisible = false;
     }, 1500);

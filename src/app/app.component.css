@@ -1,5 +1,5 @@
 :host {
-  font-size: 18px;
+  font-size: 14px;
   color: #333;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -56,6 +56,7 @@ mat-toolbar.is-scrolled {
 
 .scrolltop:hover {
   opacity: 1;
+  /* cursor: url ('../assets/images/loading.png'), auto; */
 }
 
 .main-content {
@@ -69,6 +70,7 @@ mat-toolbar.is-scrolled {
 .logo-sec a {
   text-decoration: none;
   color: #fff;
+  cursor: url('../assets/images/loading.png'), auto;
 }
 .logo-sec .logo {
   padding: 5px;
@@ -114,12 +116,13 @@ mat-toolbar.is-scrolled {
 
 .navbar li a{
   text-decoration: none;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
   padding: 9px 15px;
   border-radius: 5px;
   transition: all 0.3s ease;
   color: #fff;
+  cursor: url('../assets/images/loading.png'), auto;
 }
 .navbar li a::before {
   color: #4747a3;
@@ -127,8 +130,13 @@ mat-toolbar.is-scrolled {
   transition: 1s;
   -webkit-text-stroke: 2px #4747a3;
 }
+.active .main-nav{
+  background: #3a444e;
+  width: 100%;
+  filter: drop-shadow(0 0 25px #4747a3)
+}
 .navbar li a:hover{
-  background: #3A3B3C;
+  background: #3a444e;
   width: 100%;
   filter: drop-shadow(0 0 25px #4747a3)
 }
@@ -154,7 +162,21 @@ mat-toolbar.is-scrolled {
 .megamenu:focus .dropdown-menu {
   background-color: #000;
 }
-
+.submenus-sec {
+  display: flex;
+  justify-content: center;
+}
+.submenus {
+  position: absolute;
+  width: 80%;
+  height: auto;
+  margin-top: 0.75rem !important;
+  border-radius: 0.25rem !important;
+  border-top: 3px solid #e35e0a;
+  background-color: var(--white-100);
+  box-shadow: var(--shadow-medium);
+  transition: all 0.25s ease-in-out;
+}
 .bg-black {
   background-color: #000;
 }
@@ -176,6 +198,9 @@ mat-toolbar.is-scrolled {
 .social-media-sec {
   padding: 5px 0px;
 }
+.social-media-sec a {
+  cursor: url('../assets/images/loading.png'), auto;
+}
 .social-media-sec a:hover svg {
   fill: #fff;
 }
@@ -188,7 +213,7 @@ mat-toolbar.is-scrolled {
 }
 
 .footer-sec .footer-heading {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   color: #fff;
   text-transform: uppercase;
@@ -202,6 +227,7 @@ mat-toolbar.is-scrolled {
   text-decoration: none !important;
   color: #999;
   font-size: 20px;
+  cursor: url('../assets/images/loading.png'), auto;
 }
 
 .footer-sec a:hover {
@@ -301,50 +327,3 @@ mat-toolbar.is-scrolled {
 
 }
 
-
-.custom-cursor {
-  position: absolute;
-  z-index: 9999;
-  width: 35px; /* Adjust width as needed */
-  height: 35px; /* Adjust height as needed */
-  background-image: url('../assets/images/shape.png'); /* Path to your cursor image */
-  background-size: cover;
-  pointer-events: none; /* Ensure cursor doesn't interfere with mouse events */
-  transform: translate(-50%, -50%); /* Center the cursor on the mouse pointer */
-  transition-duration: 200ms;
-  transition-timing-function: ease-out;
-  animation: cursorAnim .5s infinite alternate;
-  pointer-events: none;
-}
-
-
-@keyframes cursorAnim {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(.7);
-  }
-}
-
-@keyframes cursorAnim2 {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(.4);
-  }
-}
-
-@keyframes cursorAnim3 {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(3);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0;
-  }
-}

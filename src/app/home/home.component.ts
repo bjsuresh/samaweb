@@ -41,31 +41,62 @@ export class HomeComponent {
 
   testimonialItems: any = [
     {
-      title: 'Name',
-      company_name: 'Company Name',
+      title: 'SAMA Web Server & Alerts at REMC Telangana',
+      company_name: 'Hitachi Energy',
       description:
-        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate excepturi earum a nam assumenda animi consequuntur facilis pariatur esse inventore, doloribus dicta amet sed nesciunt qui unde nemo! Aliquid, ea!',
+        'We confirm that M/s Supra Controls has successfully completed the work pertaining to Telangana REMC project and the systems are in operation without any failures.',
     },
     {
-      title: 'Name',
-      company_name: 'Company Name',
+      title: 'CRUDE BLENDING & BOILER CONTROLS',
+      company_name: 'PETRONAS PENAPISAN (MELAKA) SDN BHD',
       description:
-        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate excepturi earum a nam assumenda animi consequuntur facilis pariatur esse inventore, doloribus dicta amet sed nesciunt qui unde nemo! Aliquid, ea!',
+        'With reference to the above work which you have completed last July 2000, we wish to express our appreciation for a job well done. I am sure you will be pleased to hear that the crude blending controls are now working very well',
     },
     {
-      title: 'Name',
-      company_name: 'Company Name',
+      title: 'UHN IOCL Bongaigaon LPG Unit',
+      company_name: 'Fabtech',
       description:
-        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate excepturi earum a nam assumenda animi consequuntur facilis pariatur esse inventore, doloribus dicta amet sed nesciunt qui unde nemo! Aliquid, ea!',
-    },
-    {
-      title: 'Name',
-      company_name: 'Company Name',
-      description:
-        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate excepturi earum a nam assumenda animi consequuntur facilis pariatur esse inventore, doloribus dicta amet sed nesciunt qui unde nemo! Aliquid, ea!',
-    },
+        'Nice working with you in IOCL BGR and we delighted to inform you that,BGR project successfully completion done'
+    }
   ];
-
+  bannerslides: any = [
+    {
+      text: 'Web Graphics',
+      imgSrc: '../../assets/images/webclient/1.jpg'
+    },
+    {
+      text: 'Dashboard',
+      imgSrc: '../../assets/images/webclient/2.jpg'
+    },
+    {
+      text: 'Dashboard',
+      imgSrc: '../../assets/images/webclient/3.jpg'
+    },
+    {
+      text: 'Web Graphics',
+      imgSrc: '../../assets/images/webclient/4.jpg'
+    },
+    {
+      text: 'Web Graphics',
+      imgSrc: '../../assets/images/webclient/5.jpg'
+    },
+    {
+      text: 'Web Graphics',
+      imgSrc: '../../assets/images/webclient/6.jpg'
+    },
+    {
+      text: 'Web Graphics',
+      imgSrc: '../../assets/images/webclient/7.jpg'
+    },
+    // {
+    //   text: 'Dashboard',
+    //   imgSrc: '../../assets/images/dashboard.png'
+    // },
+    // {
+    //   text: 'Connectivity',
+    //   imgSrc: '../../assets/images/Changemanager.png'
+    // }
+  ]
   slides: any = [
     {
       text: 'Data Integration: Seamlessly integrate and consolidate data from multiple sources with our robust data integration capabilities. Connect to various databases, data warehouses, cloud storage, and third-party applications to create a unified view of your data landscape. With streamlined data integration, you can ensure data accuracy, consistency, and accessibility across your organization',
@@ -82,7 +113,7 @@ export class HomeComponent {
     {
       text: 'Data Governance: Protect your data and maintain compliance with Supra Controls’ robust data governance capabilities. Implement data quality rules, define access controls, and monitor data usage to ensure data integrity, privacy, and security. Stay in full control of your data assets while adhering to industry regulations and best practices',
       imgSrc: '../../assets/images/factory.svg',
-    },
+    }
   ];
 
   // onSwiper([swiper]) {
@@ -116,29 +147,30 @@ export class HomeComponent {
 
   constructor(private renderer: Renderer2) {}
 
-  @ViewChild('swiperContainer') swiperContainer: any = ElementRef;
+  // @ViewChild('swiperContainer') swiperContainer: any = ElementRef;
+  @ViewChild('swiper1Container') swiper1Container: any = ElementRef;
   @ViewChild('swiperContainer1') swiperContainer1: any = ElementRef;
   @ViewChild('swiperContainer2') swiperContainer2: any = ElementRef;
   @ViewChild('chart') chartContainer: any = ElementRef;
 
   ngAfterViewInit() {
-    let swiper = new Swiper(this.swiperContainer.nativeElement, {
-      slidesPerView: 1,
-      loop: true,
-      speed: 300,
-      autoplay: {
-        delay: 8000,
-        pauseOnMouseEnter: true,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
-        clickable: true,
-      },
-    });
+    // let swiper = new Swiper(this.swiperContainer.nativeElement, {
+    //   slidesPerView: 1,
+    //   loop: true,
+    //   speed: 300,
+    //   autoplay: {
+    //     delay: 8000,
+    //     pauseOnMouseEnter: true,
+    //     disableOnInteraction: false,
+    //   },
+    //   pagination: {
+    //     el: '.swiper-pagination',
+    //     type: 'bullets',
+    //     clickable: true,
+    //   },
+    // });
 
-    swiper.on('slideChange', function () {});
+    // swiper.on('slideChange', function () {});
 
     let swiper1 = new Swiper(this.swiperContainer1.nativeElement, {
       slidesPerView: 1,
@@ -179,8 +211,23 @@ export class HomeComponent {
       },
     });
 
-    swiper2.on('slideChange', function () {});
-
+    let swiper3 = new Swiper(this.swiper1Container.nativeElement, {
+      slidesPerView: 1,
+      loop: true,
+      speed: 300,
+      autoplay: {
+        delay: 8000,
+        pauseOnMouseEnter: true,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true,
+      },
+    });
+    swiper3.on('slideChange', function () {});
+    
     const options = {
       chart: {
         type: 'donut',

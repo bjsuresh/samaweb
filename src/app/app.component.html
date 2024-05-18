@@ -28,7 +28,7 @@
 
 <nav id="navbar" class="navbar navbar-expand-lg fixed-top py-3 shadow-sm">
   <div class="logo-sec">
-    <a href="home">
+    <a href="home" (click)="setActive(5)">
       <img width="40" alt="Logo" src="../assets/images/scpl.png" class="logo" />
       <span class="title">Supra Controls Pvt ltd</span>
     </a>
@@ -52,21 +52,22 @@
   <div id="navbarContent" class="collapse navbar-collapse">
     <ul class="navbar-nav ml-auto">
       <!-- Megamenu-->
-      <li class="nav-item dropdown megamenu">
+      <li class="nav-item dropdown megamenu" [ngClass]="{ 'active': activeIndex === 0 }">
         <a
           id="megamneu"
           href="products"
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
-          class="nav-link dropdown-toggle font-weight-bold text-uppercase"
+          class="nav-link dropdown-toggle main-nav font-weight-bold text-uppercase"
+          (click)="setActive(0)"
           >Products</a
         >
         <div aria-labelledby="megamneu" class="dropdown-menu border-0 p-0 m-0">
-          <div class="">
-            <div class="row bg-black rounded-0 m-0 shadow-sm">
+          <div class="submenus-sec">
+            <div class="row bg-black submenus shadow-sm">
               <div class="col-lg-12 col-xl-12">
-                <div class="p-4">
+                <div class="">
                   <div class="row">
                     <div class="col-md-6 col-lg-2 col-xs-12 mb-4">
                       <h6 class="font-weight-bold heading text-uppercase">
@@ -75,44 +76,93 @@
                       <ul class="list-unstyled">
                         <li class="nav-item">
                           <a
-                            href="products#data_collector"
+                            href="dashboard"
                             class="nav-link text-small"
                             >Generation & Production</a
                           >
                         </li>
                         <li class="nav-item">
                           <a
-                            href="products#tunneller"
+                            href="dashboard"
                             class="nav-link text-small"
                             >Storage & Distribution</a
                           >
                         </li>
                         <li class="nav-item">
                           <a
-                            href="products#redundancy_server"
+                            href="dashboard"
                             class="nav-link text-small"
                             >Performance</a
                           >
                         </li>
                         <li class="nav-item">
                           <a
-                            href="products#rt_historian"
+                            href="dashboard"
                             class="nav-link text-small"
                             >Environmental</a
                           >
                         </li>
                         <li class="nav-item">
                           <a
-                            href="products#op_servers"
+                            href="dashboard"
                             class="nav-link text-small"
                             >Pollution</a
                           >
                         </li>
                         <li class="nav-item">
                           <a
-                            href="products#op_servers"
+                            href="dashboard"
                             class="nav-link text-small"
                             >Asset Status</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div  class="col-md-6 col-lg-3 col-xs-12 mb-4">
+                      <h6 class="font-weight-bold heading text-uppercase">
+                        Connectivity
+                      </h6>
+                      <ul class="list-unstyled">
+                        <li class="nav-item">
+                          <a href="connectivity#opc-ua" class="nav-link text-small"
+                            >OPC UA</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a href="connectivity#alrm-events" class="nav-link text-small"
+                            >OPC DA, HDA, AE</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a href="connectivity#opc-odbc" class="nav-link text-small"
+                            >ODBC, O DATA, FLAT FILES</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a href="connectivity#integrated_collector" class="nav-link text-small"
+                            >Data Collector</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a href="connectivity#modbus-opc-server" class="nav-link text-small"
+                            >OPC server for modbus, 60850, 60870
+                          </a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a href="connectivity#erp-interface" class="nav-link text-small"
+                            >ERP SAP Interface
+                            </a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a href="connectivity#tunneller" class="nav-link text-small"
+                            >Tunnellers</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a href="connectivity#redundancy" class="nav-link text-small"
+                            >Redundancy handlers</a
                           >
                         </li>
                       </ul>
@@ -124,39 +174,39 @@
                       <ul class="list-unstyled">
                         <li class="nav-item">
                           <a
-                            href="aims#data_collector"
+                            href="analytics#grid-analytics"
                             class="nav-link text-small"
                             >Grid Analytics</a
                           >
                         </li>
                         <li class="nav-item">
-                          <a href="aims#tunneller" class="nav-link text-small"
+                          <a href="analytics#rca" class="nav-link text-small"
                             >Root Cause Analysis</a
                           >
                         </li>
                         <li class="nav-item">
                           <a
-                            href="aims#alarm_sever_client"
+                            href="analytics#predictive-analysis"
                             class="nav-link text-small"
                             >Predictive Analytics</a
                           >
                         </li>
                         <li class="nav-item">
                           <a
-                            href="aims#opcda_client"
+                            href="analytics#alrm-analysis"
                             class="nav-link text-small"
                             >Alarm Analytics</a
                           >
                         </li>
                         <li class="nav-item">
                           <a
-                            href="aims#alarm_alerts"
+                            href="analytics#web-reports"
                             class="nav-link text-small"
                             >Web Reports</a
                           >
                         </li>
                         <li class="nav-item">
-                          <a href="aims#web_server" class="nav-link text-small"
+                          <a href="analytics#merit-order-listing" class="nav-link text-small"
                             >Merit Order Rating</a
                           >
                         </li>
@@ -168,32 +218,32 @@
                       </h6>
                       <ul class="list-unstyled">
                         <li class="nav-item">
-                          <a href="" class="nav-link text-small"
-                            >Control, measurand & indications</a
+                          <a href="historians#rt-historian" class="nav-link text-small"
+                            >RT Historians</a
                           >
                         </li>
                         <li class="nav-item">
-                          <a href="" class="nav-link text-small"
+                          <a href="historians#alrms-events" class="nav-link text-small"
                             >Alarms and events</a
                           >
                         </li>
                         <li class="nav-item">
-                          <a href="" class="nav-link text-small"
+                          <a href="historians#rt-calc" class="nav-link text-small"
                             >RT Calculator</a
                           >
                         </li>
                         <li class="nav-item">
-                          <a href="" class="nav-link text-small"
+                          <a href="historians#alerts" class="nav-link text-small"
                             >Alerts</a
                           >
                         </li>
                         <li class="nav-item">
-                          <a href="" class="nav-link text-small"
+                          <a href="historians#enterprise" class="nav-link text-small"
                             >Enterprise</a
                           >
                         </li>
                         <li class="nav-item">
-                          <a href="" class="nav-link text-small"
+                          <a href="historians#redundancy" class="nav-link text-small"
                             >Redundancy & Back fill</a
                           >
                         </li>
@@ -205,91 +255,42 @@
                       </h6>
                       <ul class="list-unstyled">
                         <li class="nav-item">
-                          <a href="" class="nav-link text-small"
+                          <a href="digitalisation#visualisation" class="nav-link text-small"
                             >Web & Mobile visualisation</a
                           >
                         </li>
                         <li class="nav-item">
-                          <a href="" class="nav-link text-small"
+                          <a href="digitalisation#doc-management" class="nav-link text-small"
                             >Document Management</a
                           >
                         </li>
                         <li class="nav-item">
-                          <a href="" class="nav-link text-small"
+                          <a href="digitalisation#alrm-management" class="nav-link text-small"
                             >Alarm Management</a
                           >
                         </li>
                         <li class="nav-item">
-                          <a href="" class="nav-link text-small"
+                          <a href="digitalisation#change-management" class="nav-link text-small"
                             >Change Management</a
                           >
                         </li>
                         <li class="nav-item">
-                          <a href="" class="nav-link text-small"
+                          <a href="digitalisation#rationalisation" class="nav-link text-small"
                             >Rationalisation</a
                           >
                         </li>
                         <li class="nav-item">
-                          <a href="" class="nav-link text-small"
+                          <a href="digitalisation#logbook" class="nav-link text-small"
                             >e Log Book</a
                           >
                         </li>
                         <li class="nav-item">
-                          <a href="" class="nav-link text-small"
+                          <a href="digitalisation#ems-pims" class="nav-link text-small"
                             >EMS, PIMS</a
                           >
                         </li>
                       </ul>
 
-                    </div>
-                    <div  class="col-md-6 col-lg-3 col-xs-12 mb-4">
-                      <h6 class="font-weight-bold heading text-uppercase">
-                        Connectivity
-                      </h6>
-                      <ul class="list-unstyled">
-                        <li class="nav-item">
-                          <a href="" class="nav-link text-small"
-                            >OPC UA</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="" class="nav-link text-small"
-                            >OPC DA, HDA, AE</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="" class="nav-link text-small"
-                            >ODBC, O DATA, FLAT FILES</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="" class="nav-link text-small"
-                            >Data Collector</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="" class="nav-link text-small"
-                            >OPC server for modbus, 60850, 60870
-                          </a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="" class="nav-link text-small"
-                            >ERP SAP Interface
-                            </a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="" class="nav-link text-small"
-                            >Tunnellers</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="" class="nav-link text-small"
-                            >Redundancy handlers</a
-                          >
-                        </li>
-                      </ul>
                     </div>
                   </div>
                 </div>
@@ -298,19 +299,20 @@
           </div>
         </div>
       </li>
-      <li class="nav-item dropdown megamenu">
+      <li class="nav-item dropdown megamenu" [ngClass]="{ 'active': activeIndex === 1 }">
         <a
           id="megamneu"
           href="industries"
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
-          class="nav-link dropdown-toggle font-weight-bold text-uppercase"
+          class="nav-link dropdown-toggle main-nav font-weight-bold text-uppercase"
+          (click)="setActive(1)"
           >Industries</a
         >
         <div aria-labelledby="megamneu" class="dropdown-menu border-0 p-0 m-0">
-          <div class="">
-            <div class="row bg-black rounded-0 m-0 shadow-sm">
+          <div class="submenus-sec">
+            <div class="row bg-black submenus shadow-sm">
               <div class="col-lg-12 col-xl-12">
                 <div class="p-4">
                   <div class="row">
@@ -369,19 +371,20 @@
           </div>
         </div>
       </li>
-      <li class="nav-item dropdown megamenu">
+      <li class="nav-item dropdown megamenu" [ngClass]="{ 'active': activeIndex === 2 }">
         <a
           id="megamneu"
           href="industries"
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
-          class="nav-link dropdown-toggle font-weight-bold text-uppercase"
+          class="nav-link dropdown-toggle main-nav font-weight-bold text-uppercase"
+          (click)="setActive(2)"
           >Services</a
         >
         <div aria-labelledby="megamneu" class="dropdown-menu border-0 p-0 m-0">
-          <div class="">
-            <div class="row bg-black rounded-0 m-0 shadow-sm">
+          <div class="submenus-sec">
+            <div class="row bg-black submenus shadow-sm">
               <div class="col-lg-12 col-xl-12">
                 <div class="p-4">
                   <div class="row">
@@ -452,13 +455,14 @@
           </div>
         </div>
       </li>
-      <li class="nav-item">
-        <a href="contact-us" class="nav-link font-weight-bold text-uppercase"
+      <li class="nav-item" [ngClass]="{ 'active': activeIndex === 3 }">
+        <a href="contact-us" class="nav-link main-nav font-weight-bold text-uppercase"
+        (click)="setActive(3)"
           >Contact US</a
         >
       </li>
-      <li class="nav-item">
-        <a href="support" class="nav-link font-weight-bold text-uppercase"
+      <li class="nav-item" [ngClass]="{ 'active': activeIndex === 4 }">
+        <a href="support" class="nav-link main-nav font-weight-bold text-uppercase" (click)="setActive(4)"
           >Support</a
         >
       </li>
@@ -478,7 +482,6 @@
 </button>
 
 <div class="main-content">
-  <div class="custom-cursor" appCustomCursor></div>
 
   <router-outlet></router-outlet>
 </div>
@@ -523,7 +526,7 @@
         </a>
       </div>
       <div class="copyright">
-        ©<span id="currentYear1">2023</span> copyright
+        ©<span id="currentYear1">2024</span> copyright
         <strong>Supra Controls Pvt Ltd </strong>. All Rights Reserved
       </div>
     </div>

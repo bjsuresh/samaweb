@@ -29,6 +29,11 @@ import { NgxCaptchaModule } from '@binssoft/ngx-captcha';
 import {MatSelectModule} from '@angular/material/select';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CustomCursorDirective } from './custom-cursor.directive';
+import { DashboardComponent } from './products/dashboard/dashboard.component';
+import { ConnectivityComponent } from './products/connectivity/connectivity.component';
+import { AnalyticsComponent } from './products/analytics/analytics.component';
+import { HistoriansComponent } from './products/historians/historians.component';
+import { DigitalisationComponent } from './products/digitalisation/digitalisation.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +46,11 @@ import { CustomCursorDirective } from './custom-cursor.directive';
     ContactUsComponent,
     SupportComponent,
     CustomCursorDirective,
+    DashboardComponent,
+    ConnectivityComponent,
+    AnalyticsComponent,
+    HistoriansComponent,
+    DigitalisationComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +87,7 @@ import { CustomCursorDirective } from './custom-cursor.directive';
     NgxCaptchaModule
   ],
   providers: [
-    // { provide: LocationStrategy, useClass: HashLocationStrategy }
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })

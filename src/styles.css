@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Clarkson, "Helvetica", sans-serif; }
+body { margin: 0; font-family: Clarkson, "Helvetica", sans-serif; cursor: url('../src/assets/images/mouse-cursor.png'), auto;}
 @import 'node_modules/aos/dist/aos.css';
 @import "node_modules/swiper/swiper.scss";
 @import "node_modules/swiper/swiper-bundle.min.css";
@@ -21,7 +21,9 @@ body { margin: 0; font-family: Clarkson, "Helvetica", sans-serif; }
     -webkit-transition: 0.2s;
     transition: 0.2s
 }
-
+.mat-mdc-card-content:first-child{
+    padding-top: 0px !important;
+}
 .mat-mdc-form-field {
     width: 100%;
 }

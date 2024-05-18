@@ -1,9 +1,81 @@
 <section class="top-content">
+  <div class="product-sec container">
+    <a class="menu-link" href="dashboard">
+      <mat-card class="card-sec">
+        <mat-card-content>
+          <h5 class="title">Dashboard</h5>
+        </mat-card-content>
 
+        <img
+          src="../../assets/images/dashboard-icon.png"
+          class="icon-img"
+          alt=""
+          width="100%"
+        />
+      </mat-card>
+    </a>
+    <a class="menu-link" href="connectivity">
+      <mat-card class="card-sec">
+        <mat-card-content>
+          <h5 class="title">Connectivity</h5>
+        </mat-card-content>
+
+        <img
+          src="../../assets/images/neural.png"
+          class="icon-img"
+          alt=""
+          width="100%"
+        />
+      </mat-card>
+    </a>
+    <a class="menu-link" href="analytics">
+    <mat-card class="card-sec">
+      <mat-card-content>
+        <h5 class="title">Analytics</h5>
+      </mat-card-content>
+
+      <img
+        src="../../assets/images/analysis.png"
+        class="icon-img"
+        alt=""
+        width="100%"
+      />
+    </mat-card>
+  </a>
+  <a class="menu-link" href="historians">
+    <mat-card class="card-sec">
+      <mat-card-content>
+        <h5 class="title">Historians</h5>
+      </mat-card-content>
+
+      <img
+        src="../../assets/images/trends.png"
+        class="icon-img"
+        alt=""
+        width="100%"
+      />
+    </mat-card>
+  </a>
+  <a class="menu-link" href="digitalisation">
+    <mat-card class="card-sec">
+      <mat-card-content>
+        <h5 class="title">Digitalisation</h5>
+      </mat-card-content>
+
+      <img
+        src="../../assets/images/management.png"
+        class="icon-img"
+        alt=""
+        width="100%"
+      />
+    </mat-card>
+  </a>
+  </div>
   <h3>
     Introducing SAMA: Empowering Your Data Analytics and Business Intelligence
     Journey
-  </h3>  <div class="banner_sec container">
+  </h3>  
+  <div class="banner_sec container">
     <div class="col" data-aos="zoom-in" data-aos-delay="100">
       <p>
         <span>
@@ -18,11 +90,27 @@
       </p>
     </div>
     <div class="col">
-      <img
-        src="../../assets/images/web_bg.png"
-        height=""
+      <!-- <div> -->
+        <video class="video-sec" autoplay="true" loop="true" preload="auto" >
+          <source src="../../assets/demo2.mp4" type="video/mp4">
+        </video>
+      <!-- </div> -->
+     
+      <!-- <div class="swiper banner-swiper" #swiperContainer>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" *ngFor="let slide of bannerslides">
+            <p>{{ slide.text }}</p>
+            <img [src]="slide.imgSrc" alt="svg" />
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>   -->
+      <!-- <img
+        src="../../assets/images/lap_mockup.png"
+        height="100%"
         width="100%"
-      />
+        class="banner-img"
+      /> -->
     </div>
   </div>
 </section>
@@ -31,7 +119,7 @@
     <span class="text-center">Unleash the Power of Data</span>
   </h3>
   <div class="body container">
-    <div class="swiper" #swiperContainer data-aos="zoom-in">
+    <div class="swiper" #swiper1Container data-aos="zoom-in">
       <div class="swiper-wrapper">
         <div class="swiper-slide" *ngFor="let slide of slides">
           <p>{{ slide.text }}</p>
@@ -55,7 +143,7 @@
             <span class="date">{{ item.title }}</span>
             <h2></h2>
             <span class="position">{{ item.company_name }}</span>
-            <p class="mt-2">{{ item.description }}</p>
+            <p class="mt-2">Dear Sir <br>{{ item.description }}</p>
           </div>
         </div>
       </div>
