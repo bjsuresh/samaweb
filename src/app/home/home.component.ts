@@ -246,7 +246,10 @@ export class HomeComponent {
         },
       },
       series: [100, 55, 15],
-      labels: ['Label 1', 'Label 2', 'Label 3'], // Add labels for each series item
+      fill: {
+        colors: ['#fb8324', '#fb8324', '#fb8324']
+      },
+      labels: ['Label 1', 'Label 2', 'Label 3'],
       formatter: function (val: any) {
         return val + '%';
       },
@@ -259,7 +262,7 @@ export class HomeComponent {
             size: '75%',
           },
           labels: {
-            show: true,
+            show: false,
           },
         },
       },

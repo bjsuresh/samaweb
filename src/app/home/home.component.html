@@ -1,6 +1,6 @@
 <section class="top-content">
   <div class="product-sec container">
-    <a class="menu-link" href="dashboard">
+    <a class="menu-link" href="#/dashboard">
       <mat-card class="card-sec">
         <mat-card-content>
           <h5 class="title">Dashboard</h5>
@@ -14,7 +14,7 @@
         />
       </mat-card>
     </a>
-    <a class="menu-link" href="connectivity">
+    <a class="menu-link" href="#/connectivity">
       <mat-card class="card-sec">
         <mat-card-content>
           <h5 class="title">Connectivity</h5>
@@ -28,7 +28,7 @@
         />
       </mat-card>
     </a>
-    <a class="menu-link" href="analytics">
+    <a class="menu-link" href="#/analytics">
     <mat-card class="card-sec">
       <mat-card-content>
         <h5 class="title">Analytics</h5>
@@ -42,7 +42,7 @@
       />
     </mat-card>
   </a>
-  <a class="menu-link" href="historians">
+  <a class="menu-link" href="#/historians">
     <mat-card class="card-sec">
       <mat-card-content>
         <h5 class="title">Historians</h5>
@@ -56,7 +56,7 @@
       />
     </mat-card>
   </a>
-  <a class="menu-link" href="digitalisation">
+  <a class="menu-link" href="#/digitalisation">
     <mat-card class="card-sec">
       <mat-card-content>
         <h5 class="title">Digitalisation</h5>
@@ -251,64 +251,52 @@
 <section class="keyframe-sec">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-lg-6 col-xs-12">
-        <div class="circle-indicator" data-aos="zoom-in">
-          <circle-progress
-            [percent]="85"
-            [radius]="100"
-            [outerStrokeWidth]="16"
-            [innerStrokeWidth]="1"
-            [outerStrokeColor]="'#FB8324'"
-            [innerStrokeColor]="'#FB8324'"
-            [backgroundColor]="'#061823'"
-            [animation]="true"
-            [lazy]="true"
-            [animationDuration]="800"
-            titleFontSize="40"
-            subtitleFontSize="25"
-            titleColor="#FB8324"
-            subtitleColor="#FB8324"
-            unitsColor="#FB8324"
-            unitsFontSize="15"
-          ></circle-progress>
-        </div>
+      <div class="col-md-8 col-lg-8 col-xs-12">
+        <div class="row">
+          <div class="col-md-6 col-lg-6 col-xs-12">
+            <div class="circle-indicator" data-aos="zoom-in">
+              <circle-progress
+                [percent]="85"
+                [radius]="100"
+                [outerStrokeWidth]="16"
+                [innerStrokeWidth]="1"
+                [outerStrokeColor]="'#FB8324'"
+                [innerStrokeColor]="'#FB8324'"
+                [backgroundColor]="'#061823'"
+                [animation]="true"
+                [lazy]="true"
+                [animationDuration]="800"
+                titleFontSize="40"
+                subtitleFontSize="25"
+                titleColor="#FB8324"
+                subtitleColor="#FB8324"
+                unitsColor="#FB8324"
+                unitsFontSize="15"
+              ></circle-progress>
+            </div>
+          </div>
+      
+          <div class="col-md-6 col-lg-6 col-xs-12" data-aos="zoom-in">
+            <p class="content-title">
+              Our data analytics and alerting products power decision making in over
+              90% of refineries across India
+            </p>
+          </div>
+          <div class="col-md-6 col-lg-6 col-xs-12" data-aos="zoom-in">
+            <p class="content-title">
+              Our data driven products are utilized in almost all major critical
+              industries across India, South East Asia, Africa and the Middle East
+            </p>
+          </div>
+          <div class="col-md-6 col-lg-6 col-xs-12">
+            <div id="chart" #chart></div>
+          </div>
+        </div>  
       </div>
-  
-      <div class="col-md-6 col-lg-6 col-xs-12" data-aos="zoom-in">
-        <p class="content-title">
-          Our data analytics and alerting products power decision making in over
-          90% of refineries across India
-        </p>
+      <div class="col-md-4 col-lg-4 col-xs-12">
+        
       </div>
-      <div class="col-md-6 col-lg-6 col-xs-12" data-aos="zoom-in">
-        <p class="content-title">
-          Our data driven products are utilized in almost all major critical
-          industries across India, South East Asia, Africa and the Middle East
-        </p>
-      </div>
-      <div class="col-md-6 col-lg-6 col-xs-12">
-        <div id="chart" #chart></div>
-        <!-- <dx-pie-chart
-                  id="pie"
-                  type="doughnut"
-                  palette="Soft Pastel"
-                  [dataSource]="populationByRegions"
-                  [innerRadius]="0.85"
-                  [animation]="false"
-                  >
-                  <dxi-series argumentField="region">
-                      <dxo-label [visible]="true" format="millions">
-                      <dxo-connector [visible]="true"></dxo-connector>
-                      </dxo-label>
-                  </dxi-series>
-                  <dxo-legend
-                      [margin]="0"
-                      horizontalAlignment="right"
-                      verticalAlignment="top"
-                  ></dxo-legend>
-              </dx-pie-chart> -->
-      </div>
-    </div>  
+    </div>
   </div>
 </section>
 <section class="testimonials-sec">

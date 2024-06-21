@@ -100,7 +100,7 @@
   transform: translateY(0);
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   margin: 10px 0px;
-  cursor: url('../../assets/images/loading.png'), auto;
+  /* cursor: url('../../assets/images/loading.png'), auto; */
 }
 .product-sec .card-sec .title {
   display: flex;
@@ -290,12 +290,12 @@ mat-card-title {
   align-items: center;
 }
 .keyframe-sec .content-title {
-  font-size: 35px;
+  font-size: 25px;
   font-weight: 600;
-  line-height: 0.88em;
+  line-height: 1em;
   text-transform: capitalize;
   color: #fff;
-  padding: 60px 10px;
+  padding: 10px;
 }
 .keyframe-sec #chart {
   width: 100%;
