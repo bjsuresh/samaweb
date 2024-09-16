@@ -1,31 +1,3 @@
-<!-- Toolbar -->
-
-<!-- <mat-toolbar color=""> -->
-<!-- <div class="header-sec">
-    <div class="">
-      <div class="logo-sec">
-        <img
-        width="40"
-        alt="Logo"
-        src="../assets/images/scpl.jpg"
-      />
-      <span>Supra Controls PVT LTD</span>
-      </div>
-    </div>
-    <div class="">
-      <div class="menu-sec">
-        <button mat-button [matMenuTriggerFor]="menu">Products</button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item>Item 1</button>
-          <button mat-menu-item>Item 2</button>
-        </mat-menu>
-        <button mat-button color="tertiary" routerLink="/page2">Contact Us</button>    
-        <button mat-button color="tertiary" routerLink="/page2">Login</button>    
-      </div>
-    </div>
-  </div> -->
-<!-- </mat-toolbar> -->
-
 <nav id="navbar" class="navbar navbar-expand-lg fixed-top py-3 shadow-sm">
   <div class="logo-sec">
     <a href="#/home" (click)="setActive(5)" class="">
@@ -49,7 +21,7 @@
     <span></span>
   </button>
 
-  <div id="navbarContent" class="collapse navbar-collapse">
+  <div id="navbarContent"  #navbarContent class="collapse navbar-collapse">
     <ul class="navbar-nav ml-auto">
       <!-- Megamenu-->
       <li class="nav-item dropdown megamenu" [ngClass]="{ 'active': activeIndex === 0 }">
@@ -60,7 +32,7 @@
           aria-haspopup="true"
           aria-expanded="false"
           class="nav-link dropdown-toggle main-nav font-weight-bold text-uppercase"
-          (click)="setActive(0)"
+          (click)="setActive(0);"
           >Products</a
         >
         <div aria-labelledby="megamneu" class="dropdown-menu border-0 p-0 m-0">
@@ -69,228 +41,170 @@
               <div class="col-lg-12 col-xl-12">
                 <div class="">
                   <div class="row">
-                    <div class="col-md-6 col-lg-2 col-xs-12 mb-4">
-                      <h6 class="font-weight-bold heading text-uppercase">
-                        Dashboards
+                    <div class="col-md-6 col-lg-3 col-xs-12 mb-4">
+                      <h6
+                        class="font-weight-bold heading text-uppercase dropdown-toggle "
+                        (click)="toggleDropdown(0); $event.stopPropagation()"
+                      >
+                        PIMS/EMS
                       </h6>
-                      <ul class="list-unstyled">
+                      <ul
+                        *ngIf="dropdownOpen[0]"
+                        class="list-unstyled"
+                      >
                         <li class="nav-item">
                           <a
-                            href="#/dashboard"
+                            href="#/products1#real-time-historian"
                             class="nav-link text-small"
-                            >Generation & Production</a
+                            (click)="closeNavbar()"
+                            >Real Time Historian</a
                           >
                         </li>
                         <li class="nav-item">
                           <a
-                            href="#/dashboard"
+                            href="#/products1#reporter"
                             class="nav-link text-small"
-                            >Storage & Distribution</a
+                            (click)="closeNavbar()"
+                            >Reporter</a
                           >
                         </li>
                         <li class="nav-item">
                           <a
-                            href="#/dashboard"
+                            href="#/products1#rt-calc"
                             class="nav-link text-small"
-                            >Performance</a
+                            (click)="closeNavbar()"
+                            >Real Time Calculator</a
                           >
                         </li>
                         <li class="nav-item">
                           <a
-                            href="#/dashboard"
+                            href="#/products2#web-clients"
                             class="nav-link text-small"
-                            >Environmental</a
+                            (click)="closeNavbar()"
+                            >Web Client and Dashboards</a
                           >
                         </li>
                         <li class="nav-item">
                           <a
-                            href="#/dashboard"
+                            href="#/products2#web-analytics"
                             class="nav-link text-small"
-                            >Pollution</a
+                            (click)="closeNavbar()"
+                            >Web Analytics</a
                           >
                         </li>
                         <li class="nav-item">
                           <a
-                            href="#/dashboard"
+                            href="#/products2#mobile-app"
                             class="nav-link text-small"
-                            >Asset Status</a
+                            (click)="closeNavbar()"
+                            >Mobile App</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            href="#/products5#sap-interface"
+                            class="nav-link text-small"
+                            (click)="closeNavbar()"
+                            >SAP Interface</a
                           >
                         </li>
                       </ul>
-                    </div>
+                    </div>                    
                     <div  class="col-md-6 col-lg-3 col-xs-12 mb-4">
-                      <h6 class="font-weight-bold heading text-uppercase">
-                        Connectivity
+                      <h6
+                        class="font-weight-bold heading text-uppercase dropdown-toggle "
+                        (click)="toggleDropdown(1); $event.stopPropagation()"
+                      >
+                        Common
                       </h6>
-                      <ul class="list-unstyled">
+                      <ul class="list-unstyled"  *ngIf="dropdownOpen[1]">
                         <li class="nav-item">
-                          <a href="#/connectivity#opc-ua" class="nav-link text-small"
-                            >OPC UA</a
+                          <a href="#/products2#web-server" class="nav-link text-small" (click)="closeNavbar()"
+                            >Web Server</a
                           >
                         </li>
                         <li class="nav-item">
-                          <a href="#/connectivity#alrm-events" class="nav-link text-small"
-                            >OPC DA, HDA, AE</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="#/connectivity#opc-odbc" class="nav-link text-small"
-                            >ODBC, O DATA, FLAT FILES</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="#/connectivity#integrated_collector" class="nav-link text-small"
-                            >Data Collector</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="#/connectivity#modbus-opc-server" class="nav-link text-small"
-                            >OPC Server For Modbus, 60850, 60870
-                          </a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="#/connectivity#erp-interface" class="nav-link text-small"
-                            >ERP SAP Interface
-                            </a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="#/connectivity#tunneller" class="nav-link text-small"
-                            >Tunnellers</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="#/connectivity#redundancy" class="nav-link text-small"
-                            >Redundancy Handlers</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-lg-2 col-xs-12 mb-4">
-                      <h6 class="font-weight-bold heading text-uppercase">
-                        ANALYTICS
-                      </h6>
-                      <ul class="list-unstyled">
-                        <li class="nav-item">
-                          <a
-                            href="#/analytics#grid-analytics"
-                            class="nav-link text-small"
-                            >Grid Analytics</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="#/analytics#rca" class="nav-link text-small"
-                            >Root Cause Analysis</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="#/analytics#predictive-analysis"
-                            class="nav-link text-small"
-                            >Predictive Analytics</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="#/analytics#alrm-analysis"
-                            class="nav-link text-small"
-                            >Alarm Analytics</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="#/analytics#web-reports"
-                            class="nav-link text-small"
-                            >Web Reports</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="#/analytics#merit-order-listing" class="nav-link text-small"
-                            >Merit Order Rating</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-lg-2 col-xs-12 mb-4">
-                      <h6 class="font-weight-bold heading text-uppercase">
-                        Historian
-                      </h6>
-                      <ul class="list-unstyled">
-                        <li class="nav-item">
-                          <a href="#/historians#rt-historian" class="nav-link text-small"
-                            >RT Historian</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="#/historians#alrms-events" class="nav-link text-small"
-                            >Alarms & Events</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="#/historians#rt-calc" class="nav-link text-small"
-                            >RT Calculator</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="#/historians#alerts" class="nav-link text-small"
-                            >Alerts</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="#/historians#enterprise" class="nav-link text-small"
-                            >Enterprise</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="#/historians#redundancy" class="nav-link text-small"
-                            >Redundancy & Backfill</a
+                          <a href="#/products4#opc-products" class="nav-link text-small" (click)="closeNavbar()"
+                            >Data Collectors and OPC Integrators</a
                           >
                         </li>
                       </ul>
                     </div>
                     <div class="col-md-6 col-lg-3 col-xs-12 mb-4">
-                      <h6 class="font-weight-bold heading text-uppercase">
-                        Digitalisation
+                      <h6
+                        class="font-weight-bold heading text-uppercase dropdown-toggle "
+                        (click)="toggleDropdown(2); $event.stopPropagation()"
+                      >
+                        AIMS
                       </h6>
-                      <ul class="list-unstyled">
+                      <ul class="list-unstyled"  *ngIf="dropdownOpen[2]">
                         <li class="nav-item">
-                          <a href="#/digitalisation#visualisation" class="nav-link text-small"
-                            >Web & Mobile Visualisation</a
+                          <a
+                            href="#/products3#alrm-info-mgnt"
+                            class="nav-link text-small" (click)="closeNavbar()"
+                            >Alarm Management System</a
                           >
                         </li>
                         <li class="nav-item">
-                          <a href="#/digitalisation#doc-management" class="nav-link text-small"
-                            >Document Management</a
+                          <a
+                            href="#/products1#reporter"
+                            class="nav-link text-small" (click)="closeNavbar()"
+                            >AE Reporter</a
                           >
                         </li>
                         <li class="nav-item">
-                          <a href="#/digitalisation#alrm-management" class="nav-link text-small"
-                            >Alarm Management</a
+                          <a
+                            href="#/products3#alrm-alerts" (click)="closeNavbar()"
+                            class="nav-link text-small"
+                            >Alarm Alerts</a
                           >
                         </li>
                         <li class="nav-item">
-                          <a href="#/digitalisation#change-management" class="nav-link text-small"
+                          <a href="#/products2#web-ae-client" class="nav-link text-small" (click)="closeNavbar()"
+                            >AE Web Client</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            href="#/products5#change-mgnt"
+                            class="nav-link text-small" (click)="closeNavbar()"
                             >Change Management</a
                           >
                         </li>
-                        <li class="nav-item">
-                          <a href="#/digitalisation#rationalisation" class="nav-link text-small"
-                            >Rationalisation</a
+                         <li class="nav-item">
+                          <a href="#/products5#root-cause-analysis" class="nav-link text-small" (click)="closeNavbar()"
+                            >Root Cause Analysis</a
                           >
                         </li>
                         <li class="nav-item">
-                          <a href="#/digitalisation#logbook" class="nav-link text-small"
-                            >E Log Book</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="#/digitalisation#ems-pims" class="nav-link text-small"
-                            >EMS, PIMS</a
+                          <a href="#/products3#alrm-rationalization" class="nav-link text-small" (click)="closeNavbar()"
+                            >Alarm Rationalisation</a
                           >
                         </li>
                       </ul>
-
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-xs-12 mb-4">
+                      <h6
+                        class="font-weight-bold heading text-uppercase dropdown-toggle "
+                        (click)="toggleDropdown(3); $event.stopPropagation()"
+                      >
+                        Other Products
+                      </h6>
+                      <ul class="list-unstyled"  *ngIf="dropdownOpen[3]">
+                        <li class="nav-item">
+                          <a href="#/products4#doc-mgnt" class="nav-link text-small" (click)="closeNavbar()"
+                            >Document Management System</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a href="#/products4#opc-products" class="nav-link text-small" (click)="closeNavbar()"
+                            >OPC Products</a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="#/products5#logbook" class="nav-link text-small" (click)="closeNavbar()"
+                            >Digital E-Logbook</a>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -302,15 +216,14 @@
       <li class="nav-item dropdown megamenu" [ngClass]="{ 'active': activeIndex === 1 }">
         <a
           id="megamneu"
-          href="industries"
-          data-toggle="dropdown"
+          href="#/product-list"
           aria-haspopup="true"
           aria-expanded="false"
-          class="nav-link dropdown-toggle main-nav font-weight-bold text-uppercase"
-          (click)="setActive(1)"
+          class="nav-link main-nav font-weight-bold text-uppercase"
+          (click)="setActive(1); closeNavbar()"
           >Industries</a
         >
-        <div aria-labelledby="megamneu" class="dropdown-menu border-0 p-0 m-0">
+        <!-- <div aria-labelledby="megamneu" class="dropdown-menu border-0 p-0 m-0">
           <div class="submenus-sec">
             <div class="row bg-black submenus shadow-sm">
               <div class="col-lg-12 col-xl-12">
@@ -369,100 +282,16 @@
               </div>
             </div>
           </div>
-        </div>
-      </li>
-      <li class="nav-item dropdown megamenu" [ngClass]="{ 'active': activeIndex === 2 }">
-        <a
-          id="megamneu"
-          href="industries"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-          class="nav-link dropdown-toggle main-nav font-weight-bold text-uppercase"
-          (click)="setActive(2)"
-          >Services</a
-        >
-        <div aria-labelledby="megamneu" class="dropdown-menu border-0 p-0 m-0">
-          <div class="submenus-sec">
-            <div class="row bg-black submenus shadow-sm">
-              <div class="col-lg-12 col-xl-12">
-                <div class="p-4">
-                  <div class="row">
-                    <div class="col-md-6 col-lg-4 col-xs-12 mb-4">
-                      <ul class="list-unstyled">
-                        <li class="nav-item">
-                          <a
-                            href="servies#rastionalisation
-                          "
-                            class="nav-link text-small"
-                            >Alarm Rationalisation
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="servies#change-management
-                          "
-                            class="nav-link text-small"
-                            >Change Management
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xs-12 mb-4">
-                      <ul class="list-unstyled">
-                        <li class="nav-item">
-                          <a
-                            href="servies#web_reports
-                          "
-                            class="nav-link text-small"
-                            >Dashboard & Reports
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="servies#OPCIntegration
-                          "
-                            class="nav-link text-small"
-                            >OPC Integration
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xs-12 mb-4">
-                      <ul class="list-unstyled">
-                        <li class="nav-item">
-                          <a
-                            href="servies#environment-engg
-                          "
-                            class="nav-link text-small"
-                            >Environmental Engg
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="servies#environment-engg
-                          "
-                            class="nav-link text-small"
-                            >Process Control
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </div> -->
       </li>
       <li class="nav-item" [ngClass]="{ 'active': activeIndex === 3 }">
         <a href="#/contact-us" class="nav-link main-nav font-weight-bold text-uppercase"
-        (click)="setActive(3)"
+        (click)="setActive(3); closeNavbar()"
           >Contact US</a
         >
       </li>
       <li class="nav-item" [ngClass]="{ 'active': activeIndex === 4 }">
-        <a href="#/support" class="nav-link main-nav font-weight-bold text-uppercase" (click)="setActive(4)"
+        <a href="#/support" class="nav-link main-nav font-weight-bold text-uppercase" (click)="setActive(4); closeNavbar()"
           >Support</a
         >
       </li>
@@ -493,7 +322,7 @@
         <span>Supra Controls Pvt ltd</span>
       </div>
       <div class="social-media-sec">
-        <a href="">
+        <a href="https://in.linkedin.com/company/supra-controls-pvt-ltd" target="_blank">
           <svg
             fill="#999"
             viewBox="0 0 64 64"
@@ -533,11 +362,10 @@
     <div class="col-md-6 col-lg-6 col-xs-12">
       <div class="footer-heading">Company</div>
       <div class="footer-content">
-        <li><a href="">About Us</a></li>
-        <li><a href="">Terms and Conditions</a></li>
-        <li><a href="">Privacy Policy</a></li>
-        <li><a href="">Contact Us</a></li>
-        <li><a href="">Careers</a></li>
+        <li><a href="#/about-us" (click)="setActive(5)">About Us</a></li>
+        <li><a href="#/privacy-policy">Privacy Policy</a></li>
+        <li><a href="#/contact-us" (click)="setActive(3)">Contact Us</a></li>
+        <li><a href="#/careers" (click)="setActive(5)">Careers</a></li>
       </div>
     </div>
   </div>

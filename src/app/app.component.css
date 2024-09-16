@@ -60,7 +60,7 @@ mat-toolbar.is-scrolled {
 }
 
 .main-content {
-  padding-top: 60px;
+  margin-top: 60px;
 }
 .header {
   display: flex;
@@ -96,7 +96,7 @@ mat-toolbar.is-scrolled {
   background-color: #000 !important;
 }
 .navbar {
-  background-color: #AABCB4;
+  background-color: #061823;
   color: #fff;
   padding: 0px 10px;
   /* position: fixed; */
@@ -118,7 +118,7 @@ mat-toolbar.is-scrolled {
 
 .navbar li a{
   text-decoration: none;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
   padding: 9px 5px;
   border-radius: 5px;
@@ -152,7 +152,7 @@ mat-toolbar.is-scrolled {
 }
 .navbar li .heading {
   font-size: 20px;
-  padding-left: 15px;
+  padding-left: 10px;
 }
 .bg-grey {
   background-color: #AABCB4;
@@ -223,10 +223,11 @@ mat-toolbar.is-scrolled {
 }
 
 .footer-sec .footer-heading {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   color: #fff;
   text-transform: uppercase;
+  margin-top: 10px;
 }
 
 .footer-sec .footer-content li {
@@ -283,7 +284,13 @@ mat-toolbar.is-scrolled {
     z-index: 9999;
   }
 
-  
+  .logo-sec .logo {
+    height: 30px;
+    width: 30px;
+  }
+  .logo-sec .title {
+    font-size: 16px;
+  }
   #navbarContent {
       height: 100%;
       width: 100%;
@@ -303,7 +310,7 @@ mat-toolbar.is-scrolled {
     
   .navbar-toggler span {
     display: block;
-    width: 30px;
+    width: 25px;
     height: 2px;
     margin: 6px auto;
     background: #fff;
@@ -314,18 +321,15 @@ mat-toolbar.is-scrolled {
   .navbar-toggler:focus span {
     background: #fff;
   }
-
-  /* rotate first span */
+/* 
   .navbar-toggler[aria-expanded="true"] span:first-of-type {
     transform: rotate(45deg) translate(6px, 6px);
   }
 
-  /* hide second span */
   .navbar-toggler[aria-expanded="true"] span:nth-of-type(2) {
     opacity: 0;
   }
 
-  /* rotate third span */
   .navbar-toggler[aria-expanded="true"] span:last-of-type {
     transform: rotate(-45deg) translate(5px, -5px);
   }
@@ -333,7 +337,12 @@ mat-toolbar.is-scrolled {
   .navbar-toggler[aria-expanded="false"] span {
     transform: none;
     opacity: 1;
+  } */
+  .submenus {
+    position: relative;
+    width: 100%;
+    border-top: none;
+    margin-top: 0px;
   }
-
 }
 

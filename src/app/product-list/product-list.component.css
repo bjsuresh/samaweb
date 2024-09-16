@@ -1,0 +1,235 @@
+.industry-sec {
+    background-color: #061823;
+    padding: 40px 0px;
+    color: #ffffff;
+}
+.industry-sec .flowchart-img {
+  margin: auto;
+  width: 100%;
+  object-fit: contain;
+}
+  
+.title {
+    width: 180px;
+    text-align: center;
+    margin: auto;
+    border: 4px solid #fb8324;
+    border-radius: 12px;
+    text-transform: uppercase;
+    padding: 8px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.topology-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0px;
+    flex-wrap: wrap;
+    position: relative; /* Important for relative positioning of lines */
+  }
+  .topology-container::before {
+    content: '';
+    background-color: orange; /* Line color */
+    position: absolute;
+    top: 0px;
+    left: 258px;
+    right: 0px;
+    height: 2px;
+    width: calc( 100% - 380px );
+  }
+  .power, .oil-gas, .chemical, .process, .smartcity {
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative; /* Important for connecting lines */
+  }
+  .power h5::before, .oil-gas h5::before, .chemical h5::before, .process h5::before, .smartcity h5::before {
+    content: '';
+    position: absolute;
+    width: 2px; /* Line thickness */
+    height: 30px; /* Vertical line height */
+    background-color: orange; /* Line color */
+  }
+  .power h5::before, .oil-gas h5::before, .chemical h5::before, .process h5::before, .smartcity h5::before {
+    top: -20px; /* Adjust to connect top */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .power .grp1, .power .grp2, .power .grp3 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    position: relative; /* For connecting lines */
+  }
+  
+  /* .power .grp1 div, .power .grp2 div, .power .grp3 div {
+    width: 48%;
+    position: relative;
+  } */
+  
+  /* Add pseudo-elements for lines   .power .grp1 div::after, .power .grp2 div::after, .power .grp3 div::after */
+  .power .grp1 div::before, .power .grp2 div::before, .power .grp3 div::before{
+    content: '';
+    position: absolute;
+    width: 2px; /* Line thickness */
+    height: 20px; /* Vertical line height */
+    background-color: orange; /* Line color */
+  }
+  
+  .power .grp1 div::before, .power .grp2 div::before, .power .grp3 div::before {
+    top: -20px; /* Adjust to connect top */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* .power .grp1 div::after, .power .grp2 div::after, .power .grp3 div::after {
+    top: 100%; 
+    left: 50%;
+    transform: translateX(-50%);
+  } */
+  
+  /* For horizontal lines between items */
+  .grp1::before, .grp2::before, .grp3::before {
+    content: '';
+    background-color: orange; /* Line color */
+    position: absolute;
+    top: -10px;
+    left: 59px;
+    right: 0px;
+    height: 2px;
+    width: 364px;
+  }
+  
+  .renewable, .non-renewable, .generation, .transmission, .distribution, .storage, .grid, .load, .energy, .battery {
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid orange;
+    border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    position: relative; /* For connecting lines */
+  }
+  
+  .renewable ul, .non-renewable ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .renewable ul li, .non-renewable ul li {
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid orange;
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  .oil-gas ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .oil-gas ul li {
+    margin: 10px;
+    border: 2px solid orange;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+  }
+  
+  h5 {
+    color: orange;
+    text-transform: uppercase;
+    width: 200px;
+    margin: auto;
+    padding: 10px;
+    border: 4px solid #fb8324;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .power::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 2px;
+    height: 30px;
+    background-color: orange;
+  }
+  
+/* Add vertical lines connecting Renewable and Non-Renewable to their sub-items */
+.renewable::after, .non-renewable::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 70px; /* Adjust this according to line length */
+    background-color: orange;
+    left: 50%;
+    top: 100%;
+}
+
+.renewable ul li::before, .non-renewable ul li::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 20px; /* Adjust for spacing */
+    background-color: orange;
+    top: -20px; /* Positioning the vertical line */
+    left: 50%;
+}
+
+.renewable ul li::after, .non-renewable ul li::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: calc(100% + 20px); /* Line spanning horizontally */
+    background-color: orange;
+    top: 0; /* Position the horizontal line */
+    left: -10px; /* Adjust to center the line */
+}
+.power .generation {
+    width: 250px;
+}
+.grp2 {
+    width: 250px;
+}
+/* Connect Renewable and Non-Renewable categories to their parent items */
+.grp2::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 40px;
+    width: 2px;
+    background-color: orange;
+}
+
+/* Horizontal line connecting Renewable and Non-Renewable boxes */
+.grp2::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: orange;
+}
+  @media (max-width: 768px) {
+    /* For smaller screens, stack the elements */
+    .topology-container {
+      flex-direction: column;
+    }
+  
+    .power, .oil-gas, .chemical, .process, .smartcity {
+      width: 100%;
+    }
+  }
+  
+  @media (min-width:0px) and (max-width: 479px) {
+
+  .industry-sec .flowchart-img {
+    height: 50vh;
+  }
+}

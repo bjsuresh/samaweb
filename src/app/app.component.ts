@@ -10,9 +10,16 @@ export class AppComponent {
   title = 'samamp_web';
   loaderVisible: boolean = true;
   showScrollTop: boolean = false;
-  @ViewChild('#navbarContent') navbarContent:any = ElementRef;
-
+  @ViewChild('navbarContent', { static: false }) navbarContent!: ElementRef;
+  year: number = new Date().getFullYear();
+  
   activeIndex: number = -1;
+  dropdownOpen: boolean[] = [false, false, false, false]; // Adjust the length based on the number of sections
+
+
+  toggleDropdown(index: number): void {
+    this.dropdownOpen[index] = !this.dropdownOpen[index];
+  }
 
   setActive(index: number): void {
     this.activeIndex = index;
@@ -60,7 +67,7 @@ export class AppComponent {
   constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 
   ngAfterViewInit() {
-
+    console.log(this.navbarContent);
     AOS.init();
 
     const navbar = this.elementRef.nativeElement.querySelector('#navbar');
@@ -108,7 +115,10 @@ export class AppComponent {
   }
 
   closeNavbar() {
-    
+    const navbar = this.navbarContent.nativeElement;
+    if (navbar.classList.contains('show')) {
+      navbar.classList.remove('show'); // Remove the 'show' class to collapse the navbar
+    }
   }
 
 }

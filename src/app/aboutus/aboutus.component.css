@@ -1,0 +1,19 @@
+
+h3 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: .88em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    color: #fb8324;
+}
+h5 {
+    font-size: 25px;
+    padding: 20px;
+}
+.aboutus-sec {
+    background-color: #061823;
+    padding: 40px 0px;
+    color: #ffffff;
+}

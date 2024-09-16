@@ -34,6 +34,15 @@ import { ConnectivityComponent } from './products/connectivity/connectivity.comp
 import { AnalyticsComponent } from './products/analytics/analytics.component';
 import { HistoriansComponent } from './products/historians/historians.component';
 import { DigitalisationComponent } from './products/digitalisation/digitalisation.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { Products1Component } from './pages/products1/products1.component';
+import { Products2Component } from './pages/products2/products2.component';
+import { Products3Component } from './pages/products3/products3.component';
+import { Products4Component } from './pages/products4/products4.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { Products5Component } from './pages/products5/products5.component';
+import { CareersComponent } from './careers/careers.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +60,15 @@ import { DigitalisationComponent } from './products/digitalisation/digitalisatio
     AnalyticsComponent,
     HistoriansComponent,
     DigitalisationComponent,
+    ProductListComponent,
+    Products1Component,
+    Products2Component,
+    Products3Component,
+    Products4Component,
+    AboutusComponent,
+    Products5Component,
+    CareersComponent,
+    PrivacyPolicyComponent,
   ],
   imports: [
     BrowserModule,

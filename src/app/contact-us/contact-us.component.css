@@ -1,21 +1,23 @@
 .contact-sec {
     padding: 40px 20px;
     overflow: hidden;
-    background-color: #AABCB4;
+    background-color: #061823;
 }
 .contact-sec .map-sec{
-    border-radius: 10px;
+    /* border-radius: 10px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4);
     background-color: rgba(182, 71, 47, 0.1);
-    margin: 50px 0px;
+    margin: 50px 0px; */
+    width: calc(100% - 700px);
+    margin: auto;
 }
 .contact-sec h3 {
-    font-size: 60px;
+    font-size: 45px;
     font-weight: 700;
     line-height: .95em;
     text-align: center;
     text-transform: uppercase;
-    color: #fff;
+    color: #fb8324;
     padding: 20px 0px;
 }
 
@@ -25,7 +27,7 @@
     height: 60px;
     object-fit: contain;
     padding: 16px;
-    border-radius: 23px;
+    border-radius: 12px;
 }
 
 .contact-sec .contact-form {
@@ -33,25 +35,26 @@
     /* border-radius: 10px; */
     /* background: rgba(255, 255, 255, 0.2); */
     /* background-color: #061823; */
-    color: #fff;
+    color: #fb8324;
     padding: 40px 20px;
     transition: transform .5s ease-in-out,-webkit-transform .5s ease-in-out;
 }
 
-.contact-sec .contact-form:hover {
+/* .contact-sec .contact-form:hover {
     transform: scale(1.02);
     transition: .5s;
-}
+} */
 .contact-sec .form-group {
     margin-bottom: 2rem;
 }
 .contact-sec .form-control {
-    background-color: #444;
+    background-color: #ffffff;
     height: 60px;
     padding: 20px 25px;
+    font-weight: 600;
     border: none;
     border-radius: 20px;
-    color: #fff;
+    color: #fb8324;
     -webkit-box-shadow: 0px 0px 0px 2px transparent;
     box-shadow: 0px 0px 0px 2px transparent;
     -webkit-transition: 0.2s;
@@ -223,3 +226,28 @@
       right: 0;    
     }
   }
+
+@media (min-width:0px) and (max-width: 479px) {
+
+  .contact-sec .map-sec {
+    width: 100%;
+  }
+
+  .contact-sec .submit-btn {
+    height: 55px;
+    width: calc(100% - 30px);
+    font-size: 16px;
+  }
+}
+
+@media (min-width:480px) and (max-width: 768px) {
+  .contact-sec .map-sec {
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1399px) {
+  .contact-sec .map-sec {
+    width: calc( 100% - 100px );
+  }
+}

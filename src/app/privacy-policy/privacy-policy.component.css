@@ -1,0 +1,50 @@
+.policy-sec {
+    background-color: #061823;
+    padding: 30px 20px;
+    color: #fff;
+}
+h3 {
+    text-align: start;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: .88em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    color: #fb8324;
+}
+h5 {
+    color: #fb8324; 
+    font-size: 30px;
+}
+p {
+    color: #ffffff;
+    font-size: 20px;
+}
+.body {
+    padding: 40px 10px;
+}
+.grp-bg-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.grp-bg-img .background-img {
+    width: 100%;
+}
+ul {
+	font-size: 20px;
+	line-height: 1.5em;
+	margin: 5px 0 15px;
+	padding: 10px 0px;
+	li {
+		list-style: none;
+		position: relative;
+		padding: 0 0 0 20px;
+        margin-bottom: 6px;
+	}
+}
+
+strong, b {
+    color: #fb8324; 
+    font-size: 20px;
+}

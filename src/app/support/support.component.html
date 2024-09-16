@@ -1,7 +1,11 @@
 <section class="support-sec">
-
+    <div class="container">
+      <div class="support-img">
+        <img src="../../assets/maintainweb.jpg" />
+      </div>
+    </div>
   
-    <div class="login-container" [style.display]="loginSubmitted ? 'none' : 'flex'">
+    <!-- <div class="login-container" [style.display]="loginSubmitted ? 'none' : 'flex'">
         <mat-card class="example-card">
             <mat-card-content id="login-sec" class="login-sec">
               <h3>Login</h3>
@@ -33,8 +37,6 @@
                           <mat-option value="dmsx">DMS</mat-option>
                           <mat-option value="erp">ERP</mat-option>
                         </mat-select>
-                        <!-- <input matInput placeholder="Area Name"  name="areas" >
-                        <mat-icon matSuffix>category</mat-icon> -->
                         <mat-error *ngIf="areas.invalid">Areas is mandatory</mat-error>
                       </mat-form-field>
                     </td>
@@ -60,12 +62,11 @@
                 </mat-card-actions>
         
               </form>
-              <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
             </mat-card-content> 
         </mat-card>
-    </div>
+    </div> -->
     
-    <div class="table-sec" [style.display]="!loginSubmitted ? 'none' : 'block'">
+    <!-- <div class="table-sec" [style.display]="!loginSubmitted ? 'none' : 'block'">
       <h5 class="main-title">Ticket Information</h5>
       <dx-data-grid
       id="gridContainer"
@@ -132,6 +133,6 @@
         <dxi-column dataField="UpdatedDate"></dxi-column>
 
       </dx-data-grid>    
-    </div>
+    </div> -->
 
 </section>

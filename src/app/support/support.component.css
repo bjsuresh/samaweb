@@ -1,6 +1,17 @@
 /* .support-sec {
     padding: 40px 10px;
 } */
+ .support-img {
+    margin: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+ }
+ .support-img img {
+    width: 100%;
+    height: 60vh;
+    object-fit: contain;
+ }
 .login-container {
     min-height: 80vh;
     display: flex;
