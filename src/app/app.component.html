@@ -44,12 +44,10 @@
                     <div class="col-md-6 col-lg-3 col-xs-12 mb-4">
                       <h6
                         class="font-weight-bold heading text-uppercase dropdown-toggle "
-                        (click)="toggleDropdown(0); $event.stopPropagation()"
                       >
                         PIMS/EMS
                       </h6>
                       <ul
-                        *ngIf="dropdownOpen[0]"
                         class="list-unstyled"
                       >
                         <li class="nav-item">
@@ -113,11 +111,10 @@
                     <div  class="col-md-6 col-lg-3 col-xs-12 mb-4">
                       <h6
                         class="font-weight-bold heading text-uppercase dropdown-toggle "
-                        (click)="toggleDropdown(1); $event.stopPropagation()"
                       >
                         Common
                       </h6>
-                      <ul class="list-unstyled"  *ngIf="dropdownOpen[1]">
+                      <ul class="list-unstyled">
                         <li class="nav-item">
                           <a href="#/products2#web-server" class="nav-link text-small" (click)="closeNavbar()"
                             >Web Server</a
@@ -133,11 +130,10 @@
                     <div class="col-md-6 col-lg-3 col-xs-12 mb-4">
                       <h6
                         class="font-weight-bold heading text-uppercase dropdown-toggle "
-                        (click)="toggleDropdown(2); $event.stopPropagation()"
                       >
                         AIMS
                       </h6>
-                      <ul class="list-unstyled"  *ngIf="dropdownOpen[2]">
+                      <ul class="list-unstyled" >
                         <li class="nav-item">
                           <a
                             href="#/products3#alrm-info-mgnt"
@@ -186,11 +182,11 @@
                     <div class="col-md-6 col-lg-3 col-xs-12 mb-4">
                       <h6
                         class="font-weight-bold heading text-uppercase dropdown-toggle "
-                        (click)="toggleDropdown(3); $event.stopPropagation()"
+                        (click)="$event.stopPropagation()"
                       >
                         Other Products
                       </h6>
-                      <ul class="list-unstyled"  *ngIf="dropdownOpen[3]">
+                      <ul class="list-unstyled">
                         <li class="nav-item">
                           <a href="#/products4#doc-mgnt" class="nav-link text-small" (click)="closeNavbar()"
                             >Document Management System</a
@@ -355,7 +351,7 @@
         </a>
       </div>
       <div class="copyright">
-        ©<span id="currentYear1">2024</span> copyright
+        ©<span id="currentYear1">{{currentYear}}</span> copyright
         <strong>Supra Controls Pvt Ltd </strong>. All Rights Reserved
       </div>
     </div>
@@ -363,7 +359,7 @@
       <div class="footer-heading">Company</div>
       <div class="footer-content">
         <li><a href="#/about-us" (click)="setActive(5)">About Us</a></li>
-        <li><a href="#/privacy-policy">Privacy Policy</a></li>
+        <li><a href="#/privacy-policy" (click)="setActive(5)">Privacy Policy</a></li>
         <li><a href="#/contact-us" (click)="setActive(3)">Contact Us</a></li>
         <li><a href="#/careers" (click)="setActive(5)">Careers</a></li>
       </div>

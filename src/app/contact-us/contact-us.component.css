@@ -36,8 +36,9 @@
     /* background: rgba(255, 255, 255, 0.2); */
     /* background-color: #061823; */
     color: #fb8324;
-    padding: 40px 20px;
+    padding: 0px 20px 10px 20px;
     transition: transform .5s ease-in-out,-webkit-transform .5s ease-in-out;
+    margin-bottom: 10px;
 }
 
 /* .contact-sec .contact-form:hover {

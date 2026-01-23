@@ -55,3 +55,7 @@ body { margin: 0; font-family: Clarkson, "Helvetica", sans-serif; cursor: url('.
     background-color: #4747a3  !important;
 }
   
+.invalid-feedback {
+    font-size: 18px !important;
+    color: #fb8324 !important;
+}

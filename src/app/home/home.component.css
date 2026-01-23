@@ -468,7 +468,7 @@ mat-card-title {
   }
   .banner_sec .banner-img {
     height:220px;
-    object-fit: fill;
+    /* object-fit: fill; */
   }
   .main-info {
     top: 50%;
@@ -590,7 +590,7 @@ mat-card-title {
   }
   .banner_sec .banner-img {
     height:350px;
-    object-fit: fill;
+    /* object-fit: fill; */
   }
   .main-info {
     top: 40%;

@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/samamp_web",
+            "outputPath": "dist/samamp_web/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -103,6 +103,60 @@
               "node_modules/swiper/swiper-bundle.min.js"
             ]
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/samamp_web/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "samamp_web:build:development",
+              "serverTarget": "samamp_web:server:development"
+            },
+            "production": {
+              "browserTarget": "samamp_web:build:production",
+              "serverTarget": "samamp_web:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "samamp_web:build:production",
+              "serverTarget": "samamp_web:server:production"
+            },
+            "development": {
+              "browserTarget": "samamp_web:build:development",
+              "serverTarget": "samamp_web:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

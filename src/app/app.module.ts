@@ -43,6 +43,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { Products5Component } from './pages/products5/products5.component';
 import { CareersComponent } from './careers/careers.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
       innerStrokeColor: "#C7E596",
       animationDuration: 300,
     }),
-    NgxCaptchaModule
+    NgxCaptchaModule,
+    HttpClientModule
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy }

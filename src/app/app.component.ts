@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
 import * as AOS from 'aos';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import * as AOS from 'aos';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'samamp_web';
+  
   loaderVisible: boolean = true;
   showScrollTop: boolean = false;
   @ViewChild('navbarContent', { static: false }) navbarContent!: ElementRef;
@@ -15,11 +16,11 @@ export class AppComponent {
   
   activeIndex: number = -1;
   dropdownOpen: boolean[] = [false, false, false, false]; // Adjust the length based on the number of sections
+  currentYear: any;
 
-
-  toggleDropdown(index: number): void {
-    this.dropdownOpen[index] = !this.dropdownOpen[index];
-  }
+  // toggleDropdown(index: number): void {
+  //   this.dropdownOpen[index] = !this.dropdownOpen[index];
+  // }
 
   setActive(index: number): void {
     this.activeIndex = index;
@@ -27,6 +28,15 @@ export class AppComponent {
   }
   
   ngOnInit() {
+
+      this.title.setTitle('SAMA Website');
+    this.meta.addTags([
+      { name: 'description', content: 'This is an awesome page description' },
+      { name: 'keywords', content: 'Supra controls,Real Time Historian,Real Time Calculator,Web Client and Dashboards,Web Analytics,Mobile App,Alerts,Reports,SAP Interface,Web Server,Data Collectors and OPC Integrators,Alarm Management System,AE Reporter,Alarm Alerts,AE Web Client,Change Management,Root Cause Analysis,Alarm Rationalisation,Document Management System,OPC Products,Digital E-Logbook, AIMS, PIMS,EMS,Supra Advanced Manufacturing Analytics, SAMA, Grid Management System, Smart City System, Pipeline Management System, IIOT, MES, Operations Technology, Web Reporter ' }
+    ]);
+
+    this.currentYear = new Date().getFullYear();
+
     const storedActiveIndex = localStorage.getItem("activeIndex");
     if (storedActiveIndex !== null) {
         this.activeIndex = parseInt(storedActiveIndex, 10);
@@ -64,7 +74,7 @@ export class AppComponent {
   }
 
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
+  constructor(private elementRef: ElementRef, private renderer: Renderer2,private title: Title, private meta: Meta) { }
 
   ngAfterViewInit() {
     console.log(this.navbarContent);

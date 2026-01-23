@@ -28,8 +28,8 @@ const routes: Routes = [
   { path: 'aims', component: AimsComponent },
   { path: 'contact-us', component: ContactUsComponent },
 
-  { path: 'page1', component: Page1Component },
-  { path: 'page2', component: Page2Component },
+  { path: 'page1supra', component: Page1Component },
+  // { path: 'page2', component: Page2Component },
   { path: 'support', component: SupportComponent },
 
   { path: 'dashboard', component: DashboardComponent },
@@ -51,10 +51,11 @@ const routes: Routes = [
 @NgModule({
   imports: [
   RouterModule.forRoot(routes, {
-    scrollPositionRestoration: 'enabled', // Restores scroll position when navigating back/forward
-    anchorScrolling: 'enabled', // Automatically scroll to anchors (ID elements)
-    useHash: false
-  })],
+    scrollPositionRestoration: 'enabled',
+    anchorScrolling: 'enabled',
+    useHash: false,
+    initialNavigation: 'enabledBlocking'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

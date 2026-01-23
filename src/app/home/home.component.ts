@@ -59,44 +59,7 @@ export class HomeComponent {
         'Nice working with you in IOCL BGR and we delighted to inform you that,BGR project successfully completion done'
     }
   ];
-  bannerslides: any = [
-    {
-      text: 'Web Graphics',
-      imgSrc: '../../assets/images/webclient/1.jpg'
-    },
-    {
-      text: 'Dashboard',
-      imgSrc: '../../assets/images/webclient/2.jpg'
-    },
-    {
-      text: 'Dashboard',
-      imgSrc: '../../assets/images/webclient/3.jpg'
-    },
-    {
-      text: 'Web Graphics',
-      imgSrc: '../../assets/images/webclient/4.jpg'
-    },
-    {
-      text: 'Web Graphics',
-      imgSrc: '../../assets/images/webclient/5.jpg'
-    },
-    {
-      text: 'Web Graphics',
-      imgSrc: '../../assets/images/webclient/6.jpg'
-    },
-    {
-      text: 'Web Graphics',
-      imgSrc: '../../assets/images/webclient/7.jpg'
-    },
-    // {
-    //   text: 'Dashboard',
-    //   imgSrc: '../../assets/images/dashboard.png'
-    // },
-    // {
-    //   text: 'Connectivity',
-    //   imgSrc: '../../assets/images/Changemanager.png'
-    // }
-  ]
+
   slides: any = [
     {
       text: 'Data Integration: Seamlessly integrate and consolidate data from multiple sources with our robust data integration capabilities. Connect to various databases, data warehouses, cloud storage, and third-party applications to create a unified view of your data landscape. With streamlined data integration, you can ensure data accuracy, consistency, and accessibility across your organization',
