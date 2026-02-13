@@ -31,179 +31,74 @@
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
-          class="nav-link dropdown-toggle main-nav font-weight-bold text-uppercase"
+          class="nav-link main-nav font-weight-bold text-uppercase"
           (click)="setActive(0);"
           >Products</a
         >
         <div aria-labelledby="megamneu" class="dropdown-menu border-0 p-0 m-0">
           <div class="submenus-sec">
-            <div class="row bg-black submenus shadow-sm">
-              <div class="col-lg-12 col-xl-12">
-                <div class="">
-                  <div class="row">
-                    <div class="col-md-6 col-lg-3 col-xs-12 mb-4">
-                      <h6
-                        class="font-weight-bold heading text-uppercase dropdown-toggle "
-                      >
-                        PIMS/EMS
-                      </h6>
-                      <ul
-                        class="list-unstyled"
-                      >
-                        <li class="nav-item">
-                          <a
-                            href="#/products1#real-time-historian"
-                            class="nav-link text-small"
-                            (click)="closeNavbar()"
-                            >Real Time Historian</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="#/products1#reporter"
-                            class="nav-link text-small"
-                            (click)="closeNavbar()"
-                            >Reporter</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="#/products1#rt-calc"
-                            class="nav-link text-small"
-                            (click)="closeNavbar()"
-                            >Real Time Calculator</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="#/products2#web-clients"
-                            class="nav-link text-small"
-                            (click)="closeNavbar()"
-                            >Web Client and Dashboards</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="#/products2#web-analytics"
-                            class="nav-link text-small"
-                            (click)="closeNavbar()"
-                            >Web Analytics</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="#/products2#mobile-app"
-                            class="nav-link text-small"
-                            (click)="closeNavbar()"
-                            >Mobile App</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="#/products5#sap-interface"
-                            class="nav-link text-small"
-                            (click)="closeNavbar()"
-                            >SAP Interface</a
-                          >
-                        </li>
-                      </ul>
-                    </div>                    
-                    <div  class="col-md-6 col-lg-3 col-xs-12 mb-4">
-                      <h6
-                        class="font-weight-bold heading text-uppercase dropdown-toggle "
-                      >
-                        Common
-                      </h6>
-                      <ul class="list-unstyled">
-                        <li class="nav-item">
-                          <a href="#/products2#web-server" class="nav-link text-small" (click)="closeNavbar()"
-                            >Web Server</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="#/products4#opc-products" class="nav-link text-small" (click)="closeNavbar()"
-                            >Data Collectors and OPC Integrators</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-lg-3 col-xs-12 mb-4">
-                      <h6
-                        class="font-weight-bold heading text-uppercase dropdown-toggle "
-                      >
-                        AIMS
-                      </h6>
-                      <ul class="list-unstyled" >
-                        <li class="nav-item">
-                          <a
-                            href="#/products3#alrm-info-mgnt"
-                            class="nav-link text-small" (click)="closeNavbar()"
-                            >Alarm Management System</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="#/products1#reporter"
-                            class="nav-link text-small" (click)="closeNavbar()"
-                            >AE Reporter</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="#/products3#alrm-alerts" (click)="closeNavbar()"
-                            class="nav-link text-small"
-                            >Alarm Alerts</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="#/products2#web-ae-client" class="nav-link text-small" (click)="closeNavbar()"
-                            >AE Web Client</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="#/products5#change-mgnt"
-                            class="nav-link text-small" (click)="closeNavbar()"
-                            >Change Management</a
-                          >
-                        </li>
-                         <li class="nav-item">
-                          <a href="#/products5#root-cause-analysis" class="nav-link text-small" (click)="closeNavbar()"
-                            >Root Cause Analysis</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="#/products3#alrm-rationalization" class="nav-link text-small" (click)="closeNavbar()"
-                            >Alarm Rationalisation</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-lg-3 col-xs-12 mb-4">
-                      <h6
-                        class="font-weight-bold heading text-uppercase dropdown-toggle "
-                        (click)="$event.stopPropagation()"
-                      >
-                        Other Products
-                      </h6>
-                      <ul class="list-unstyled">
-                        <li class="nav-item">
-                          <a href="#/products4#doc-mgnt" class="nav-link text-small" (click)="closeNavbar()"
-                            >Document Management System</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a href="#/products4#opc-products" class="nav-link text-small" (click)="closeNavbar()"
-                            >OPC Products</a>
-                        </li>
-                        <li class="nav-item">
-                          <a href="#/products5#logbook" class="nav-link text-small" (click)="closeNavbar()"
-                            >Digital E-Logbook</a>
-                        </li>
-                      </ul>
-                    </div>
+            <div class="mega-panel">
+              <div class="mega-grid">
+
+                <!-- PIMS/EMS -->
+                <div class="mega-col">
+                  <div class="mega-col-head">
+                    <svg class="mega-icon" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <h6>PIMS / EMS</h6>
                   </div>
+                  <ul class="mega-list">
+                    <li><a href="#/products1#real-time-historian" (click)="closeNavbar()">Real Time Historian</a></li>
+                    <li><a href="#/products1#reporter" (click)="closeNavbar()">Reporter</a></li>
+                    <li><a href="#/products1#rt-calc" (click)="closeNavbar()">Real Time Calculator</a></li>
+                    <li><a href="#/products2#web-clients" (click)="closeNavbar()">Web Client & Dashboards</a></li>
+                    <li><a href="#/products2#web-analytics" (click)="closeNavbar()">Web Analytics</a></li>
+                    <li><a href="#/products2#mobile-app" (click)="closeNavbar()">Mobile App</a></li>
+                    <li><a href="#/products5#sap-interface" (click)="closeNavbar()">SAP Interface</a></li>
+                  </ul>
                 </div>
+
+                <!-- AIMS -->
+                <div class="mega-col">
+                  <div class="mega-col-head">
+                    <svg class="mega-icon" viewBox="0 0 24 24" fill="none"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4m0 4h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <h6>AIMS</h6>
+                  </div>
+                  <ul class="mega-list">
+                    <li><a href="#/products3#alrm-info-mgnt" (click)="closeNavbar()">Alarm Management System</a></li>
+                    <li><a href="#/products1#reporter" (click)="closeNavbar()">AE Reporter</a></li>
+                    <li><a href="#/products3#alrm-alerts" (click)="closeNavbar()">Alarm Alerts</a></li>
+                    <li><a href="#/products2#web-ae-client" (click)="closeNavbar()">AE Web Client</a></li>
+                    <li><a href="#/products5#change-mgnt" (click)="closeNavbar()">Change Management</a></li>
+                    <li><a href="#/products5#root-cause-analysis" (click)="closeNavbar()">Root Cause Analysis</a></li>
+                    <li><a href="#/products3#alrm-rationalization" (click)="closeNavbar()">Alarm Rationalisation</a></li>
+                  </ul>
+                </div>
+
+                <!-- Common -->
+                <div class="mega-col">
+                  <div class="mega-col-head">
+                    <svg class="mega-icon" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <h6>Common</h6>
+                  </div>
+                  <ul class="mega-list">
+                    <li><a href="#/products2#web-server" (click)="closeNavbar()">Web Server</a></li>
+                    <li><a href="#/products4#opc-products" (click)="closeNavbar()">Data Collectors & OPC Integrators</a></li>
+                  </ul>
+                </div>
+
+                <!-- Other Products -->
+                <div class="mega-col">
+                  <div class="mega-col-head">
+                    <svg class="mega-icon" viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <h6>Other Products</h6>
+                  </div>
+                  <ul class="mega-list">
+                    <li><a href="#/products4#doc-mgnt" (click)="closeNavbar()">Document Management System</a></li>
+                    <li><a href="#/products4#opc-products" (click)="closeNavbar()">OPC Products</a></li>
+                    <li><a href="#/products5#logbook" (click)="closeNavbar()">Digital E-Logbook</a></li>
+                  </ul>
+                </div>
+
               </div>
             </div>
           </div>
@@ -307,14 +202,13 @@
 </button>
 
 <div class="main-content">
-
   <router-outlet></router-outlet>
 </div>
 <section class="footer-sec">
   <div class="row">
     <div class="col-md-6 col-lg-6 col-xs-12">
       <div class="logo-sec">
-        <img width="40" alt="Logo" src="../assets/images/scpl.png" />
+        <img width="40" alt="Logo" src="../assets/images/scpl.png" class="logo"/>
         <span>Supra Controls Pvt ltd</span>
       </div>
       <div class="social-media-sec">

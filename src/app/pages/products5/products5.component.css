@@ -5,7 +5,7 @@
 }
 h3 {
     text-align: start;
-    font-size: 45px;
+    font-size: 35px;
     font-weight: 700;
     line-height: .88em;
     text-transform: uppercase;
@@ -13,8 +13,8 @@ h3 {
     color: #fb8324;
 }
 h5 {
-    color: #fb8324; 
-    font-size: 30px;
+    color: #fb8324;
+    font-size: 25px;
 }
 .subtle {
     color: #ffffff;

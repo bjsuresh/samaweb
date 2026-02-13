@@ -1,138 +1,240 @@
 <section class="support-sec">
-    <div class="container">
-      <div class="support-img">
-        <img src="../../assets/maintainweb.jpg" />
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+      <h1>Support Center</h1>
+      <p>We're here to help you 24/7. Get in touch with our support team.</p>
+      <div class="hero-decorations">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
       </div>
     </div>
-  
-    <!-- <div class="login-container" [style.display]="loginSubmitted ? 'none' : 'flex'">
-        <mat-card class="example-card">
-            <mat-card-content id="login-sec" class="login-sec">
-              <h3>Login</h3>
-              <form class="example-form" >
-                <table class="example-full-width" cellspacing="0">
-                  <tr>
-                    <td>
-                      <mat-form-field class="example-full-width" appearance="fill">
-                      <input matInput placeholder="Username"  name="username" [formControl]="username">
-                      <mat-icon matSuffix>account_circle</mat-icon>
-                      <mat-error *ngIf="username.invalid">Username is mandatory</mat-error>
-                      </mat-form-field>
-                    </td>
-                    <td>
-                      <mat-form-field class="example-full-width" appearance="fill">
-                      <input matInput placeholder="Companyname"  name="companyname" [formControl]="companyname">
-                      <mat-icon matSuffix>account_circle</mat-icon>
-                      <mat-error *ngIf="username.invalid">Companyname is mandatory</mat-error>
-                      </mat-form-field>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-select [formControl]="areas" placeholder="Area Name">
-                          <mat-option value="pims">PIMS/UHN/EMS</mat-option>
-                          <mat-option value="aims">AIMS</mat-option>
-                          <mat-option value="analtics">ANALYTICS</mat-option>
-                          <mat-option value="dmsx">DMS</mat-option>
-                          <mat-option value="erp">ERP</mat-option>
-                        </mat-select>
-                        <mat-error *ngIf="areas.invalid">Areas is mandatory</mat-error>
-                      </mat-form-field>
-                    </td>
+  </div>
 
-                    <td colspan="2">
-                      <mat-form-field class="example-full-width" appearance="fill">
-                        <input matInput placeholder="Password" [formControl]="password" type="password" name="password" [type]="hide ? 'password' : 'text'">
-                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                        </button>
-                        <mat-error *ngIf="password.invalid">Password is mandatory</mat-error>
-                      </mat-form-field>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">
-                      <ngx-captcha  [config]="captchaConfig"></ngx-captcha>
-                    </td>
-                  </tr>
-                </table>
-                <mat-card-actions class="action_btn">
-                  <button mat-stroked-button color="primary" class="btn-block submit-btn" type="button" (click)="login()">Login</button>
-                </mat-card-actions>
-        
-              </form>
-            </mat-card-content> 
-        </mat-card>
-    </div> -->
-    
-    <!-- <div class="table-sec" [style.display]="!loginSubmitted ? 'none' : 'block'">
-      <h5 class="main-title">Ticket Information</h5>
-      <dx-data-grid
-      id="gridContainer"
-      [dataSource]="employees"
-      keyExpr="Ticket_ID"
-      [showBorders]="true"
-      [columnAutoWidth]="true"
-      >
-        <dxo-search-panel
-          [visible]="true"
-          [width]="240"
-          placeholder="Search..."
-        ></dxo-search-panel>
-        <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
-        <dxo-paging [enabled]="false"></dxo-paging>
-        <dxo-editing
-          mode="popup"
-          [allowUpdating]="true"
-          [allowAdding]="true"
-          [allowDeleting]="false"
-        >
-          <dxo-popup
-            title="Ticket Information"
-            [showTitle]="true"
-            [width]="600"
-            [height]="425"
-          >
-          </dxo-popup>
-          <dxo-form>
-            <dxi-item itemType="group" [colCount]="2" [colSpan]="2">
-              <dxi-item dataField="Title"></dxi-item>
-              <dxi-item dataField="Products"></dxi-item>
-              <dxi-item dataField="Types"></dxi-item>
-              <dxi-item dataField="Priority"></dxi-item>
-              <dxi-item dataField="Status"></dxi-item>
-            </dxi-item>
-            <dxi-item dataField="Description" [colCount]="2" [colSpan]="2"></dxi-item>
+  <!-- Support Form Section -->
+  <div class="form-section">
+    <div class="map-sec">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <form [formGroup]="supportForm" (ngSubmit)="submitForm()" class="support-form">
+              <h3 data-aos="fade-down" data-aos-duration="800">Submit a Request</h3>
 
-          </dxo-form>
-        </dxo-editing>
+              <div class="form-row">
+                <div class="col-md-6 form-group" data-aos="fade-right" data-aos-delay="100">
+                  <label class="text-inverse font-12 text-uppercase">Name<span class="text-danger">*</span></label>
+                  <input type="text" class="border-0 font-14 form-control" placeholder="Your Name"
+                    formControlName="name" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
+                  <div *ngIf="submitted && f['name'].errors" class="invalid-feedback mb">
+                    <div *ngIf="f['name'].errors['required']">Name is required.</div>
+                  </div>
+                </div>
+                <div class="col-md-6 form-group" data-aos="fade-right" data-aos-delay="100">
+                  <label class="text-inverse font-12 text-uppercase">Company Name<span class="text-danger">*</span></label>
+                  <input type="text" class="border-0 font-14 form-control" placeholder="Company Name"
+                    formControlName="companyname" [ngClass]="{ 'is-invalid': submitted && f['companyname'].errors }" />
+                  <div *ngIf="submitted && f['companyname'].errors" class="invalid-feedback mb">
+                    <div *ngIf="f['companyname'].errors['required']">Company Name is required.</div>
+                  </div>
+                </div>
+                <div class="col-md-6 form-group" data-aos="fade-right" data-aos-delay="100">
+                  <label class="text-inverse font-12 text-uppercase">Location<span class="text-danger">*</span></label>
+                  <input type="text" class="border-0 font-14 form-control" placeholder="Location"
+                    formControlName="location" [ngClass]="{ 'is-invalid': submitted && f['location'].errors }" />
+                  <div *ngIf="submitted && f['location'].errors" class="invalid-feedback mb">
+                    <div *ngIf="f['location'].errors['required']">Location is required.</div>
+                  </div>
+                </div>
+                <div class="col-md-6 form-group" data-aos="fade-left" data-aos-delay="100">
+                  <label class="text-inverse font-12 text-uppercase">Email<span class="text-danger">*</span></label>
+                  <input type="email" class="border-0 font-14 form-control" placeholder="Your Email"
+                    formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                  <div *ngIf="submitted && f['email'].errors" class="invalid-feedback mb">
+                    <div *ngIf="f['email'].errors['required']">Email is required.</div>
+                    <div *ngIf="f['email'].errors['email']">Invalid email format.</div>
+                    <div *ngIf="f['email'].errors['invalidDomain']">
+                      Email must end with .com, .in, .org, .net, .edu, .gov, .io, or .dev.
+                    </div>
+                    <div *ngIf="f['email'].errors['invalidEmail']">Email must contain '@'.</div>
+                  </div>
+                </div>
 
-        <dxi-column dataField="Ticket_ID" [fixed]="true"></dxi-column>
-        <dxi-column dataField="Title" [fixed]="true"></dxi-column>
-        <dxi-column dataField="Products" caption="Products" dataType="string" [fixed]="true">
-          <dxo-lookup [dataSource]="products" >
-          </dxo-lookup>
-        </dxi-column>
-        <dxi-column dataField="Types" caption="Types" dataType="string" >
-          <dxo-lookup [dataSource]="types" >
-          </dxo-lookup>
-        </dxi-column>
-        <dxi-column dataField="Priority" caption="Priority" dataType="string" >
-          <dxo-lookup [dataSource]="priorities" >
-          </dxo-lookup>
-        </dxi-column>
-        <dxi-column dataField="Status" caption="Status" dataType="string" >
-          <dxo-lookup [dataSource]="status" >
-          </dxo-lookup>
-        </dxi-column>
-        <dxi-column dataField="Description"></dxi-column>
-        <dxi-column dataField="CreatesdBy"></dxi-column>
-        <dxi-column dataField="UpdatedBy"></dxi-column>
-        <dxi-column dataField="CreatedDate"></dxi-column>
-        <dxi-column dataField="UpdatedDate"></dxi-column>
+                <div class="col-md-6 form-group" data-aos="fade-right" data-aos-delay="200">
+                  <label class="text-inverse font-12 text-uppercase">Mobile<span class="text-danger">*</span></label>
+                  <input type="number" class="border-0 font-14 form-control" placeholder="Mobile Number"
+                    formControlName="mobile" maxlength="10"
+                    [ngClass]="{ 'is-invalid': submitted && f['mobile'].errors }" />
+                  <div *ngIf="submitted && f['mobile'].errors" class="invalid-feedback mb">
+                    <div *ngIf="f['mobile'].errors['required']">Mobile is required.</div>
+                    <div *ngIf="f['mobile'].errors['invalidFormat']">Invalid mobile number format.</div>
+                  </div>
+                </div>
 
-      </dx-data-grid>    
-    </div> -->
+                <div class="col-md-6 form-group" data-aos="fade-left" data-aos-delay="200">
+                  <label class="text-inverse font-12 text-uppercase">Product<span class="text-danger">*</span></label>
+                  <select class="form-control form-select" formControlName="product"
+                    [ngClass]="{ 'is-invalid': submitted && f['product'].errors }">
+                    <option value="" disabled selected>Select Product</option>
+                    <option *ngFor="let prod of products" [value]="prod">{{ prod }}</option>
+                  </select>
+                  <div *ngIf="submitted && f['product'].errors" class="invalid-feedback mb">
+                    <div *ngIf="f['product'].errors['required']">Product is required.</div>
+                  </div>
+                </div>
 
+                <div class="col-md-6 form-group" data-aos="fade-right" data-aos-delay="300">
+                  <label class="text-inverse font-12 text-uppercase">Issue Type<span
+                      class="text-danger">*</span></label>
+                  <select class="form-control form-select" formControlName="issueType"
+                    [ngClass]="{ 'is-invalid': submitted && f['issueType'].errors }">
+                    <option value="" disabled selected>Select Issue Type</option>
+                    <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+                  </select>
+                  <div *ngIf="submitted && f['issueType'].errors" class="invalid-feedback mb">
+                    <div *ngIf="f['issueType'].errors['required']">Issue type is required.</div>
+                  </div>
+                </div>
+
+                <div class="col-md-6 form-group" data-aos="fade-left" data-aos-delay="300">
+                  <label class="text-inverse font-12 text-uppercase">Priority<span class="text-danger">*</span></label>
+                  <select class="form-control form-select" formControlName="priority"
+                    [ngClass]="{ 'is-invalid': submitted && f['priority'].errors }">
+                    <option value="" disabled selected>Select Priority</option>
+                    <option *ngFor="let prio of priorities" [value]="prio">{{ prio }}</option>
+                  </select>
+                  <div *ngIf="submitted && f['priority'].errors" class="invalid-feedback mb">
+                    <div *ngIf="f['priority'].errors['required']">Priority is required.</div>
+                  </div>
+                </div>
+
+                <div class="col-md-12 form-group" data-aos="fade-up" data-aos-delay="400">
+                  <label class="text-inverse font-12 text-uppercase">Description<span
+                      class="text-danger">*</span></label>
+                  <textarea class="border-0 font-14 form-control" rows="4" placeholder="Describe your issue in detail"
+                    formControlName="description"
+                    [ngClass]="{ 'is-invalid': submitted && f['description'].errors }"></textarea>
+                  <div *ngIf="submitted && f['description'].errors" class="invalid-feedback mb">
+                    <div *ngIf="f['description'].errors['required']">Description is required.</div>
+                  </div>
+                </div>
+
+                <div class="col-md-12 form-group" data-aos="fade-up" data-aos-delay="500">
+                  <label class="text-inverse font-12 text-uppercase" for="attachment">Attachments (Optional):</label>
+                  <div class="file-upload-wrapper">
+                    <input id="attachment" type="file" (change)="onFileChange($event)" multiple class="file-input" />
+                    <label for="attachment" class="file-label">
+                      <span class="file-icon">📎</span>
+                      <span>{{ files.length > 0 ? files.length + ' file(s) selected' : 'Choose files to upload' }}</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center" data-aos="zoom-in" data-aos-delay="600">
+                <button color="primary" class="submit-btn" type="submit">
+                  <span class="btn-text">Submit Request</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Info Cards -->
+  <div class="info-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3" data-aos="flip-left" data-aos-delay="100">
+          <div class="info-card">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+                <path
+                  d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+              </svg>
+            </div>
+            <h4>Sales Support</h4>
+            <p>sales&#64;supracontrols.com</p>
+            <span class="response-time">Response within 24 hours</span>
+          </div>
+        </div>
+        <div class="col-md-3" data-aos="flip-up" data-aos-delay="100">
+          <div class="info-card">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+                <path
+                  d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+              </svg>
+            </div>
+            <h4>Email Support</h4>
+            <p>support&#64;supracontrols.com</p>
+            <span class="response-time">Response within 24 hours</span>
+          </div>
+        </div>
+        <div class="col-md-3" data-aos="flip-up" data-aos-delay="200">
+          <div class="info-card featured">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"
+                  clip-rule="evenodd" />
+              </svg>
+            </div>
+            <h4>Phone Support</h4>
+            <p>+91 9940465855</p>
+            <p>+91 8668040440</p>
+            <span class="response-time">Mon-Fri, 9:30AM-7PM IST</span>
+          </div>
+        </div>
+
+        <div class="col-md-3" data-aos="flip-right" data-aos-delay="300">
+          <div class="info-card">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z"
+                  clip-rule="evenodd" />
+              </svg>
+            </div>
+            <h4>Location</h4>
+            <p>Chennai, Tamil Nadu, India</p>
+            <span class="response-time">On-site support available</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Token ID Popup -->
+  <div class="popup-overlay" *ngIf="showTokenPopup" (click)="closePopup()">
+    <div class="popup-card" (click)="$event.stopPropagation()">
+      <div class="popup-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+            clip-rule="evenodd" />
+        </svg>
+      </div>
+      <h3>Request Submitted Successfully!</h3>
+      <p class="popup-label">Your Token ID</p>
+      <div class="token-id-box">{{ generatedTokenId }}</div>
+      <p class="popup-note">Please save this Token ID for your future reference. Our support team will get back to you soon.</p>
+      <button class="popup-close-btn" (click)="closePopup()">OK, Got It</button>
+    </div>
+  </div>
+
+  <!-- Wave Decoration -->
+  <div class="wave-decoration">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#061823" fill-opacity="1"
+        d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,208C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+      </path>
+    </svg>
+  </div>
 </section>

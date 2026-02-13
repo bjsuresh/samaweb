@@ -1,83 +1,30 @@
-import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
-import { NgxCaptchaService } from '@binssoft/ngx-captcha';
-
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-support',
   templateUrl: './support.component.html',
   styleUrls: ['./support.component.css']
 })
-export class SupportComponent {
+export class SupportComponent implements OnInit {
+  supportForm!: FormGroup;
+  submitted = false;
+  files: File[] = [];
+  showTokenPopup = false;
+  generatedTokenId = '';
 
-  captchaStatus:any = null;
-  captchaConfig:any = {
-   type: 1, // 1 or 2 or 3 or 4
-   length:6,
-   cssClass:'custom',
-   back: {
-     stroke:"#2F9688",
-     solid:"#f2efd2"
-   } ,
-   font:{
-    color:"#000000",
-    size:"35px"
-   }
-  }
-
-  employees: any[] = [{
-    Ticket_ID: 2404251,
-    Title: 'AIMS',
-    Description: 'Alarm alerts and sm s email configuration Bugs',
-    Priority: 'High',
-    Status: 'Open',
-    Products: 'AIMS',
-    Types:"Alarm Alerts",
-    CreatesdBy:"admin",
-    UpdatedBy:"suresh",
-    CreatedDate: '2024/04/20',
-    UpdatedDate: '2024/04/21',
-  }, {
-    Ticket_ID: 2404252,
-    Title: 'Mobile App',
-    Description: 'Mobile App support for Ios Devices',
-    Priority: 'Medium',
-    Status: 'In Processing',
-    Products: 'PIMS/UHN/EMS',
-    Types:"Mobile App",
-    CreatesdBy:"admin",
-    UpdatedBy:"suresh",
-    CreatedDate: '2024/04/25',
-    UpdatedDate: '2024/04/25',
-  }, 
-  {
-    Ticket_ID: 2404253,
-    Title: 'ANALYTICS',
-    Description: 'Analysis, RCA ans web graphics problem ',
-    Priority: 'Low',
-    Status: 'Closed',
-    Products: 'ANALYTICS',
-    Types:"RCA",
-    CreatesdBy:"admin",
-    UpdatedBy:"suresh",
-    CreatedDate: '2024/04/25',
-    UpdatedDate: '2024/04/25',
-  },
-  ]
-
-  products: any[] = [
+  products: string[] = [
     'AIMS',
     'PIMS/UHN/EMS',
     'ANALYTICS',
     'DMS',
     'ERP'
-  ]
-  priorities: any[] = ['High','Medium','Low'];
-  status: any[] = ['Open','In Processing','Closed'];
-  types: any[] = [
+  ];
+
+  priorities: string[] = ['High', 'Medium', 'Low'];
+
+  types: string[] = [
     'Alarm Alerts',
     'RCA',
     'CCTV',
@@ -86,40 +33,109 @@ export class SupportComponent {
     'Web AE Client',
     'Reporters',
     'Historian',
-    'Web Dashboard'
+    'Web Dashboard',
+    'Other'
   ];
 
   constructor(
-    private router: Router,
-    private captchaService:NgxCaptchaService
-    ) { }
+    private formBuilder: FormBuilder,
+    private http: HttpClient
+  ) {}
 
-  // username: string | undefined;
-  // password: string | undefined;
+  get f() { return this.supportForm.controls; }
 
-  tag_seletion: any;
-  hide = true;
-  username = new FormControl('', [Validators.required]);
-  password = new FormControl('', [Validators.required]);
-  companyname = new FormControl('', [Validators.required]);
-  areas = new FormControl('', [Validators.required]);
-  loginSubmitted: boolean = false;
-
-  login() {
-    // console.log(this.loginForm?.value);
-    this.loginSubmitted = true;
+  ngOnInit(): void {
+    this.supportForm = this.formBuilder.group({
+      name: ['', [Validators.required]],
+      companyname: ['', [Validators.required]],
+      location: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email, this.emailValidator, this.emailDomainValidator]],
+      mobile: ['', [Validators.required, this.mobileValidator]],
+      product: ['', [Validators.required]],
+      issueType: ['', [Validators.required]],
+      priority: ['', [Validators.required]],
+      description: ['', [Validators.required]]
+    });
   }
 
-  ngOnInit() {
-    this.captchaService.captchStatus.subscribe((status)=>{
-      this.captchaStatus= status;
-      if (status == false) {
-        alert("Opps!\nCaptcha mismatch");
-      } else  if (status == true) {
-        alert("Success!\nYou are right");
-      }
-    });
-}
+  onFileChange(event: any): void {
+    this.files = Array.from(event.target.files);
+  }
 
+  emailValidator(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    if (value && (!value.includes('@'))) {
+      return { invalidEmail: true };
+    }
+    return null;
+  }
 
+  emailDomainValidator(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    const domainRegex = /^[^\s@]+@[^\s@]+\.(com|in|net|org|edu|gov|tech|dev|club|geeks|community|jp|uk|cn|io)$/;
+    if (value && !domainRegex.test(value)) {
+      return { invalidDomain: true };
+    }
+    return null;
+  }
+
+  mobileValidator(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    const mobileRegex = /^[6-9]\d{9}$/;
+    if (value && !mobileRegex.test(value)) {
+      return { invalidFormat: true };
+    }
+    return null;
+  }
+
+  generateTokenId(): string {
+    const now = new Date();
+    const dateStr = now.getFullYear().toString() +
+      (now.getMonth() + 1).toString().padStart(2, '0') +
+      now.getDate().toString().padStart(2, '0') +
+      now.getHours().toString().padStart(2, '0') +
+      now.getMinutes().toString().padStart(2, '0') +
+      now.getSeconds().toString().padStart(2, '0');
+    const random = Math.floor(1000 + Math.random() * 9000);
+    return `0001-${dateStr}-${random}`;
+  }
+
+  submitForm(): void {
+    this.submitted = true;
+    console.log(this.supportForm.value);
+
+    if (this.supportForm.valid) {
+      this.generatedTokenId = this.generateTokenId();
+
+      const formData = new FormData();
+      formData.append('tokenId', this.generatedTokenId);
+      formData.append('name', this.supportForm.get('name')?.value);
+      formData.append('companyname', this.supportForm.get('companyname')?.value);
+      formData.append('location', this.supportForm.get('location')?.value);
+      formData.append('email', this.supportForm.get('email')?.value);
+      formData.append('mobile', this.supportForm.get('mobile')?.value);
+      formData.append('product', this.supportForm.get('product')?.value);
+      formData.append('issueType', this.supportForm.get('issueType')?.value);
+      formData.append('priority', this.supportForm.get('priority')?.value);
+      formData.append('description', this.supportForm.get('description')?.value);
+
+      this.files.forEach((file) => formData.append('attachments', file));
+
+      this.http.post('http://localhost:3000/support-email', formData, { responseType: 'text' }).subscribe({
+        next: (response) => {
+          console.log('Support request sent successfully:', response);
+          this.showTokenPopup = true;
+        },
+        error: (error) => {
+          console.error('Error sending support request:', error);
+          this.showTokenPopup = true;
+        },
+      });
+    }
+  }
+
+  closePopup(): void {
+    this.showTokenPopup = false;
+    window.location.reload();
+  }
 }

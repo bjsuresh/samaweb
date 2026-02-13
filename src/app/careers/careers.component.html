@@ -1,83 +1,160 @@
-<section class="contact-sec">
-    
-  <div class="map-sec">
-      <div class="container">
-          <div class="row">
-              <div class="col-12">
-                      
-                  <form [formGroup]="emailForm" (ngSubmit)="submitForm()" class="contact-form">
-                      <h3>Careers</h3>
-  
-                      <div class="form-row">
-                          <div class="col-md-12 form-group">
-                              <label class="text-inverse font-12 text-uppercase">Name<span class="text-danger">*</span></label>
-                              <input type="text" class="border-0 font-14 form-control" placeholder="Your Name" formControlName="name"  [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
-                              <div *ngIf="submitted && f.name.errors" class="invalid-feedback mb">
-                                  <div *ngIf="f.name.errors.required">Name is required.</div>
-                              </div>
-                          </div>
-                          <div class="col-md-12 form-group">
-                              <label class="text-inverse font-12 text-uppercase">Email<span class="text-danger">*</span></label>
-                              <input type="email" class="border-0 font-14 form-control" placeholder="Your Name" formControlName="email"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-                              <div *ngIf="submitted && f.email.errors" class="invalid-feedback mb">
-                                <div *ngIf="f.email.errors.required">Email is required.</div>
-                                <div *ngIf="f.email.errors.email">Invalid email format.</div>
-                                <div *ngIf="f.email.errors.invalidDomain">
-                                    Email must end with .com, .in, .org, .net, .edu, .gov, .io,  or .dev.
-                                  </div>
-                                <div *ngIf="f.email.errors.invalidEmail">Email must contain '@'.</div>
-                              </div>
-                          </div>
-                          <div class="col-md-12 form-group">
-                              <label class="text-inverse font-12 text-uppercase">Mobile<span class="text-danger">*</span></label>
-                              <input type="number" class="border-0 font-14 form-control" placeholder="Mobile Number" formControlName="mobile" maxlength="10"  [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" />
-                              <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback mb">
-                                  <div *ngIf="f.mobile.errors.required">Mobile is required.</div>
-                                  <div *ngIf="f.mobile.errors.invalidFormat">Invalid mobile number format.</div>
-                                </div>
-                          </div>
-                          <div class="col-md-12 form-group">
-                              <label class="text-inverse font-12 text-uppercase">Linked In / Portfolio URL</label>
-                              <input class="border-0 font-weight-light font-14 form-control" placeholder="Write Down the Message" formControlName="message" />
-                          </div>
-                      </div>
-                      <label class="text-inverse font-12 text-uppercase" for="attachment">Attachments:</label>
-                      <input id="attachment" type="file" (change)="onFileChange($event)" multiple />
-                    
-                      <div class="text-center"><button color="primary" class="submit-btn" type="submit">Send Message</button></div>
-                  </form>
-              </div>
-          </div>    
+<section class="careers-sec">
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+      <h1>Join Our Team</h1>
+      <p>Build your career with us. We're looking for passionate individuals to join our innovative team.</p>
+      <div class="hero-decorations">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
       </div>
-      <!-- <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
-              <div class="d-flex" style="margin: 30px 20px; margin-left: 20px; color: #fff;">
-                  <img src="../../assets/location.png" class="contact-ico">
-                  <div class="ml-2">
-                      <h5>Location</h5>
-                      <p>Supra Controls Private Limited <br>35, 2nd Floor, St Marys Rd, Mandaveli,<br> Chennai, Tamil Nadu 600028<br>india</p>                    
-                  </div>
-              </div>
-              <div class="d-flex" style="margin: 30px 20px; margin-left: 20px; color: #fff;">
-                  <img src="../../assets/email.png" class="contact-ico">
-                  <div class="ml-2">
-                      <h5>Email</h5>
-                      <p><a href="">sales@supracontrols.com</a></p>
-                  </div>
-              </div>
-              <div class="d-flex" style="margin: 30px 20px; margin-left: 20px; color: #fff;">
-                  <img src="../../assets/phone-call.png" class="contact-ico">
-                  <div class="ml-2">
-                      <h5>Call</h5>
-                      <p>+91 44 42111410</p>
-                  </div>
-              </div>
+    </div>
+  </div>
+
+  <!-- Why Join Us Section -->
+  <div class="benefits-section">
+    <div class="container">
+      <h2 data-aos="fade-up">Why Join Supra Controls?</h2>
+      <div class="row">
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.949 49.949 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.009 50.009 0 007.5 12.174v-.224c0-.131.067-.248.172-.311a54.614 54.614 0 014.653-2.52.75.75 0 00-.65-1.352 56.129 56.129 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z" />
+                <path
+                  d="M13.06 15.473a48.45 48.45 0 017.666-3.282c.134 1.414.22 2.843.255 4.285a.75.75 0 01-.46.71 47.878 47.878 0 00-8.105 4.342.75.75 0 01-.832 0 47.877 47.877 0 00-8.104-4.342.75.75 0 01-.461-.71c.035-1.442.121-2.87.255-4.286A48.4 48.4 0 016 13.18v1.27a1.5 1.5 0 00-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.661a6.729 6.729 0 00.551-1.608 1.5 1.5 0 00.14-2.67v-.645a48.549 48.549 0 013.44 1.668 2.25 2.25 0 002.12 0z" />
+                <path
+                  d="M4.462 19.462c.42-.419.753-.89 1-1.394.453.213.902.434 1.347.661a6.743 6.743 0 01-1.286 1.794.75.75 0 11-1.06-1.06z" />
+              </svg>
+            </div>
+            <h4>Learning & Growth</h4>
+            <p>Continuous learning opportunities and career advancement paths</p>
           </div>
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" >
-              <div style="margin-right: 20px;">
-                  <div style="max-width:100%;overflow:hidden;color:red;width:100%;height:400px;background: #fff;border-radius: 20px;margin-bottom: 30px;"><div id="google-maps-canvas" style="height:100%; width:100%;max-width:100%;border: 12px solid #6f7880;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Supra+Controls+Private+Limited,+St+Marys+Rd,+Saradapuram,+Mandaveli,+Chennai,+Tamil+Nadu+600028,+India&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe></div><style>#google-maps-canvas img{max-width:none!important;background:none!important;font-size: inherit;font-weight:inherit;}</style></div>
-              </div>
+        </div>
+
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M8.25 6.75a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0zM15.75 9.75a3 3 0 116 0 3 3 0 01-6 0zM2.25 9.75a3 3 0 116 0 3 3 0 01-6 0zM6.31 15.117A6.745 6.745 0 0112 12a6.745 6.745 0 016.709 7.498.75.75 0 01-.372.568A12.696 12.696 0 0112 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 01-.372-.568 6.787 6.787 0 011.019-4.38z"
+                  clip-rule="evenodd" />
+                <path
+                  d="M5.082 14.254a8.287 8.287 0 00-1.308 5.135 9.687 9.687 0 01-1.764-.44l-.115-.04a.563.563 0 01-.373-.487l-.01-.121a3.75 3.75 0 013.57-4.047zM20.226 19.389a8.287 8.287 0 00-1.308-5.135 3.75 3.75 0 013.57 4.047l-.01.121a.563.563 0 01-.373.486l-.115.04c-.567.2-1.156.349-1.764.441z" />
+              </svg>
+            </div>
+            <h4>Great Team</h4>
+            <p>Work with talented professionals in a collaborative environment</p>
           </div>
-      </div> -->
+        </div>
+
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813A3.75 3.75 0 007.466 7.89l.813-2.846A.75.75 0 019 4.5zM18 1.5a.75.75 0 01.728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 010 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 01-1.456 0l-.258-1.036a2.625 2.625 0 00-1.91-1.91l-1.036-.258a.75.75 0 010-1.456l1.036-.258a2.625 2.625 0 001.91-1.91l.258-1.036A.75.75 0 0118 1.5zM16.5 15a.75.75 0 01.712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 010 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 01-1.422 0l-.395-1.183a1.5 1.5 0 00-.948-.948l-1.183-.395a.75.75 0 010-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0116.5 15z"
+                  clip-rule="evenodd" />
+              </svg>
+            </div>
+            <h4>Innovation</h4>
+            <p>Be part of cutting-edge industrial automation solutions</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Form Section -->
+  <div class="form-section">
+    <div class="map-sec">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <form [formGroup]="emailForm" (ngSubmit)="submitForm()" class="careers-form">
+              <h3 data-aos="fade-down" data-aos-duration="800">Apply Now</h3>
+
+              <div class="form-row">
+                <div class="col-md-6 form-group" data-aos="fade-right" data-aos-delay="100">
+                  <label class="text-inverse font-12 text-uppercase">Name<span class="text-danger">*</span></label>
+                  <input type="text" class="border-0 font-14 form-control" placeholder="Your Name"
+                    formControlName="name" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
+                  <div *ngIf="submitted && f['name'].errors" class="invalid-feedback mb">
+                    <div *ngIf="f['name'].errors['required']">Name is required.</div>
+                  </div>
+                </div>
+
+                <div class="col-md-6 form-group" data-aos="fade-left" data-aos-delay="100">
+                  <label class="text-inverse font-12 text-uppercase">Email<span class="text-danger">*</span></label>
+                  <input type="email" class="border-0 font-14 form-control" placeholder="Your Email"
+                    formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                  <div *ngIf="submitted && f['email'].errors" class="invalid-feedback mb">
+                    <div *ngIf="f['email'].errors['required']">Email is required.</div>
+                    <div *ngIf="f['email'].errors['email']">Invalid email format.</div>
+                    <div *ngIf="f['email'].errors['invalidDomain']">
+                      Email must end with .com, .in, .org, .net, .edu, .gov, .io, or .dev.
+                    </div>
+                    <div *ngIf="f['email'].errors['invalidEmail']">Email must contain '@'.</div>
+                  </div>
+                </div>
+
+                <div class="col-md-6 form-group" data-aos="fade-right" data-aos-delay="200">
+                  <label class="text-inverse font-12 text-uppercase">Mobile<span class="text-danger">*</span></label>
+                  <input type="number" class="border-0 font-14 form-control" placeholder="Mobile Number"
+                    formControlName="mobile" maxlength="10"
+                    [ngClass]="{ 'is-invalid': submitted && f['mobile'].errors }" />
+                  <div *ngIf="submitted && f['mobile'].errors" class="invalid-feedback mb">
+                    <div *ngIf="f['mobile'].errors['required']">Mobile is required.</div>
+                    <div *ngIf="f['mobile'].errors['invalidFormat']">Invalid mobile number format.</div>
+                  </div>
+                </div>
+
+                <div class="col-md-6 form-group" data-aos="fade-left" data-aos-delay="200">
+                  <label class="text-inverse font-12 text-uppercase">LinkedIn / Portfolio URL</label>
+                  <input class="border-0 font-weight-light font-14 form-control"
+                    placeholder="Your LinkedIn or Portfolio URL" formControlName="message" />
+                </div>
+
+                <div class="col-md-12 form-group" data-aos="fade-up" data-aos-delay="300">
+                  <label class="text-inverse font-12 text-uppercase" for="attachment">Resume / CV<span
+                      class="text-danger">*</span></label>
+                  <div class="file-upload-wrapper">
+                    <input id="attachment" type="file" (change)="onFileChange($event)" multiple class="file-input"
+                      accept=".pdf,.doc,.docx" />
+                    <label for="attachment" class="file-label">
+                      <span class="file-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M18.97 3.659a2.25 2.25 0 00-3.182 0l-10.94 10.94a3.75 3.75 0 105.304 5.303l7.693-7.693a.75.75 0 011.06 1.06l-7.693 7.693a5.25 5.25 0 11-7.424-7.424l10.939-10.94a3.75 3.75 0 115.303 5.304L9.097 18.835l-.008.008-.007.007-.002.002-.003.002A2.25 2.25 0 015.91 15.66l7.81-7.81a.75.75 0 011.061 1.06l-7.81 7.81a.75.75 0 001.054 1.068L18.97 6.84a2.25 2.25 0 000-3.182z"
+                            clip-rule="evenodd" />
+                        </svg>
+                      </span>
+                      <span>{{ files.length > 0 ? files.length + ' file(s) selected' : 'Upload your resume (PDF, DOC)' }}</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
+                <button color="primary" class="submit-btn" type="submit">
+                  <span class="btn-text">Submit Application</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wave Decoration -->
+  <div class="wave-decoration">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#061823" fill-opacity="1"
+        d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,106.7C672,117,768,171,864,181.3C960,192,1056,160,1152,144C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+      </path>
+    </svg>
   </div>
 </section>
