@@ -30,7 +30,7 @@
 .hero-content h1 {
   font-size: 56px;
   font-weight: 800;
-  color: #fb8324;
+  color: #f97316;
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 20px;
@@ -65,7 +65,7 @@
 .circle-1 {
   width: 300px;
   height: 300px;
-  background: #fb8324;
+  background: #f97316;
   top: -100px;
   right: -50px;
   animation: float 8s ease-in-out infinite;
@@ -109,7 +109,7 @@
 .benefits-section h2 {
   font-size: 38px;
   font-weight: 700;
-  color: #fb8324;
+  color: #f97316;
   text-align: center;
   text-transform: uppercase;
   margin-bottom: 50px;
@@ -130,14 +130,14 @@
 .benefit-card:hover {
   transform: translateY(-15px);
   box-shadow: 0 25px 50px rgba(251, 131, 36, 0.2);
-  border-color: #fb8324;
+  border-color: #f97316;
 }
 
 .benefit-icon {
   width: 80px;
   height: 80px;
   margin: 0 auto 25px;
-  background: linear-gradient(135deg, #fb8324 0%, #f97316 100%);
+  background: linear-gradient(135deg, #f97316 0%, #f97316 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -158,7 +158,7 @@
 .benefit-card h4 {
   font-size: 22px;
   font-weight: 700;
-  color: #fb8324;
+  color: #f97316;
   margin-bottom: 15px;
 }
 
@@ -183,7 +183,7 @@
 }
 
 .careers-form {
-  color: #fb8324;
+  color: #f97316;
   padding: 30px;
   background: rgba(6, 24, 35, 0.8);
   border-radius: 20px;
@@ -201,7 +201,7 @@
   line-height: 0.95em;
   text-align: center;
   text-transform: uppercase;
-  color: #fb8324;
+  color: #f97316;
   padding: 20px 0 40px;
 }
 
@@ -248,7 +248,7 @@ label {
 
 .careers-sec .form-control:focus {
   outline: none;
-  box-shadow: 0px 0px 0px 3px #fb8324;
+  box-shadow: 0px 0px 0px 3px #f97316;
   transform: translateY(-2px);
 }
 
@@ -285,9 +285,9 @@ label {
 }
 
 .file-label:hover {
-  border-color: #fb8324;
+  border-color: #f97316;
   background: rgba(251, 131, 36, 0.1);
-  color: #fb8324;
+  color: #f97316;
 }
 
 .file-icon {
@@ -355,14 +355,14 @@ label {
   position: absolute;
   width: 320px;
   height: 65px;
-  background: linear-gradient(45deg, #FDA8CF, #fb8324);
+  background: linear-gradient(45deg, #FDA8CF, #f97316);
   border-radius: 75px;
   z-index: -1;
   animation: clockwise 1s ease-in-out infinite;
 }
 
 .careers-sec .submit-btn:hover::after {
-  background: linear-gradient(45deg, #F3CE5E, #fb8324);
+  background: linear-gradient(45deg, #F3CE5E, #f97316);
   animation: counterclockwise 2s ease-in-out infinite;
 }
 

@@ -189,7 +189,7 @@ mat-toolbar.is-scrolled {
   background: rgba(6, 24, 35, 0.97);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(251, 131, 36, 0.12);
-  border-top: 2px solid #fb8324;
+  border-top: 2px solid #f97316;
   border-radius: 14px;
   padding: 28px 30px;
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
@@ -226,7 +226,7 @@ mat-toolbar.is-scrolled {
   width: 20px;
   height: 20px;
   flex-shrink: 0;
-  color: #fb8324;
+  color: #f97316;
 }
 
 .mega-col-head h6 {
@@ -234,7 +234,7 @@ mat-toolbar.is-scrolled {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: #fb8324;
+  color: #f97316;
   margin: 0;
   padding: 0;
   border: none;
@@ -268,7 +268,7 @@ mat-toolbar.is-scrolled {
 }
 
 .mega-list li a:hover {
-  color: #fb8324 !important;
+  color: #f97316 !important;
   background: rgba(251, 131, 36, 0.08);
   padding-left: 16px !important;
 }
@@ -432,7 +432,7 @@ mat-toolbar.is-scrolled {
     width: 100%;
     border-radius: 0;
     border: none;
-    border-top: 2px solid #fb8324;
+    border-top: 2px solid #f97316;
     padding: 16px 14px;
     background: rgba(0, 0, 0, 0.98);
     box-shadow: none;

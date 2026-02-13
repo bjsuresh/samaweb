@@ -21,9 +21,9 @@
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: #fb8324;
+    color: #f97316;
     padding: 12px 40px;
-    border: 2px solid #fb8324;
+    border: 2px solid #f97316;
     border-radius: 50px;
     background: rgba(251, 131, 36, 0.06);
     position: relative;
@@ -33,7 +33,7 @@
 .ind-trunk {
     width: 2px;
     height: 35px;
-    background: linear-gradient(to bottom, #fb8324, rgba(251, 131, 36, 0.3));
+    background: linear-gradient(to bottom, #f97316, rgba(251, 131, 36, 0.3));
     margin: 0 auto;
     animation: growDown 0.6s ease 0.3s both;
 }
@@ -41,7 +41,7 @@
 /* Horizontal branch line */
 .ind-branch-line {
     height: 2px;
-    background: linear-gradient(to right, transparent 5%, rgba(251, 131, 36, 0.3) 15%, #fb8324 30%, #fb8324 70%, rgba(251, 131, 36, 0.3) 85%, transparent 95%);
+    background: linear-gradient(to right, transparent 5%, rgba(251, 131, 36, 0.3) 15%, #f97316 30%, #f97316 70%, rgba(251, 131, 36, 0.3) 85%, transparent 95%);
     margin: 0 auto;
     width: 85%;
     animation: growWidth 0.8s ease 0.6s both;
@@ -78,7 +78,7 @@
 .ind-stem {
     width: 2px;
     height: 30px;
-    background: linear-gradient(to bottom, #fb8324, rgba(251, 131, 36, 0.2));
+    background: linear-gradient(to bottom, #f97316, rgba(251, 131, 36, 0.2));
     animation: growDown 0.5s ease 1s both;
 }
 
@@ -114,7 +114,7 @@
     width: 28px !important;
     height: 28px !important;
     flex-shrink: 0;
-    color: #fb8324;
+    color: #f97316;
     margin: 0 !important;
 }
 
@@ -123,7 +123,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: #fb8324;
+    color: #f97316;
     margin: 0;
     line-height: 1.2;
 }
@@ -155,7 +155,7 @@
 .ind-chip:hover {
     background: rgba(251, 131, 36, 0.08);
     border-color: rgba(251, 131, 36, 0.25);
-    color: #fb8324;
+    color: #f97316;
     padding-left: 16px;
 }
 

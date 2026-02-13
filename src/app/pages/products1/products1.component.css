@@ -10,10 +10,10 @@ h3 {
     line-height: .88em;
     text-transform: uppercase;
     margin-bottom: 40px;
-    color: #fb8324;
+    color: #f97316;
 }
 h5 {
-    color: #fb8324; 
+    color: #f97316; 
     font-size: 25px;
 }
 .body {
@@ -29,7 +29,7 @@ ul {
 		position: relative;
 		padding: 0 0 0 20px;
         margin-bottom: 6px;
-        color: #fb8324;
+        color: #f97316;
 	}
 }
 ul.round {
@@ -41,7 +41,7 @@ ul.round {
 			top: 5px;
 			width: 10px;
 			height: 10px;
-			background-color: #fb8324;
+			background-color: #f97316;
 			border-radius: 50%;
 			-moz-border-radius: 50%;
 			-webkit-border-radius: 50%;
@@ -74,7 +74,7 @@ ul.circle-checkmark {
         top: 5px;
         width: 5px;
         height: 9px;
-        border: solid #fb8324;
+        border: solid #f97316;
         border-width: 0 2px 2px 0;
         transform: rotate(45deg);
     } */
@@ -122,7 +122,7 @@ ul.circle-checkmark {
     top: 0;
     height: 100%;
     width: 4px;
-    background: linear-gradient(180deg, #fb8324, #ffb347);
+    background: linear-gradient(180deg, #f97316, #ffb347);
     border-radius: 4px 0 0 4px;
     box-shadow: 0 0 12px rgba(251,131,36,0.6);
     transition: width 0.3s ease;
@@ -136,7 +136,7 @@ ul.circle-checkmark {
     top: 50%;
     transform: translateY(-50%);
     font-size: 15px;
-    color: #fb8324;
+    color: #f97316;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
@@ -291,7 +291,7 @@ ul.circle-checkmark {
 .h-card-text {
     font-size: 12.5px;
     font-weight: 600;
-    color: #fb8324;
+    color: #f97316;
     line-height: 1.4;
     max-width: 150px;
     position: relative;
@@ -305,7 +305,7 @@ ul.circle-checkmark {
 }
 
 .h-card:hover .h-card-text {
-    border-left-color: #fb8324;
+    border-left-color: #f97316;
     text-shadow: 0 0 20px rgba(251,131,36,0.3);
 }
 
@@ -331,7 +331,7 @@ ul.circle-checkmark {
     margin-left: auto;
 }
 .h-card-2:hover .h-card-text {
-    border-right-color: #fb8324;
+    border-right-color: #f97316;
 }
 .h-card-3 {
     top: 42%;
@@ -348,7 +348,7 @@ ul.circle-checkmark {
     margin-left: auto;
 }
 .h-card-3:hover .h-card-text {
-    border-right-color: #fb8324;
+    border-right-color: #f97316;
 }
 .h-card-4 {
     bottom: 3%;
@@ -365,7 +365,7 @@ ul.circle-checkmark {
     margin-left: auto;
 }
 .h-card-4:hover .h-card-text {
-    border-right-color: #fb8324;
+    border-right-color: #f97316;
 }
 .h-card-5 {
     bottom: 3%;
@@ -600,7 +600,7 @@ ul.circle-checkmark {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #fb8324;
+    color: #f97316;
     background: rgba(251,131,36,0.1);
     border: 1px solid rgba(251,131,36,0.25);
     padding: 4px 14px;
@@ -655,7 +655,7 @@ ul.circle-checkmark {
     width: 18px !important;
     height: 18px !important;
     margin: 0 !important;
-    color: #fb8324;
+    color: #f97316;
 }
 
 .feat-item:hover .feat-icon {
@@ -791,13 +791,13 @@ ul.circle-checkmark {
   }
   
   .report-table thead tr {
-    color: #fb8324;
+    color: #f97316;
   }
 
   .report-table th, .report-table td {
     padding: 12px 35px;
     margin: 0;
-    color: #fb8324;
+    color: #f97316;
     list-style: none;
     background-image: url(../../../assets/check.png);
     background-repeat: no-repeat;
@@ -806,15 +806,15 @@ ul.circle-checkmark {
     font-weight: 500;
   }
   /* .report-table tbody tr {
-    background-color: #fb8324;
+    background-color: #f97316;
   }
   
   .report-table tbody tr:nth-of-type(even) {
-    background-color: #fb8324;
+    background-color: #f97316;
   }
   
   .report-table tbody tr:hover {
-    background-color: #fb8324;
+    background-color: #f97316;
   } */
   
 .icon{

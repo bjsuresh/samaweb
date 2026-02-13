@@ -210,7 +210,7 @@ export class HomeComponent {
       },
       series: [100, 55, 15],
       fill: {
-        colors: ['#fb8324', '#fb8324', '#fb8324']
+        colors: ['#f97316', '#f97316', '#f97316']
       },
       labels: ['Label 1', 'Label 2', 'Label 3'],
       formatter: function (val: any) {

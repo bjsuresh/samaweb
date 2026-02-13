@@ -10,7 +10,7 @@ h3 {
     line-height: .88em;
     text-transform: uppercase;
     margin-bottom: 40px;
-    color: #fb8324;
+    color: #f97316;
 }
 h5 {
     color: #ffffff; 
@@ -29,7 +29,7 @@ ul {
 		position: relative;
 		padding: 0 0 0 20px;
         margin-bottom: 6px;
-        color: #fb8324;
+        color: #f97316;
 	}
 }
 ul.round {
@@ -41,7 +41,7 @@ ul.round {
 			top: 5px;
 			width: 10px;
 			height: 10px;
-			background-color: #fb8324;
+			background-color: #f97316;
 			border-radius: 50%;
 			-moz-border-radius: 50%;
 			-webkit-border-radius: 50%;
@@ -74,7 +74,7 @@ ul.circle-checkmark {
         top: 5px;
         width: 5px;
         height: 9px;
-        border: solid #fb8324;
+        border: solid #f97316;
         border-width: 0 2px 2px 0;
         transform: rotate(45deg);
     } */
@@ -408,13 +408,13 @@ ul.arrow-checkmark {
   }
   
   .report-table thead tr {
-    color: #fb8324;
+    color: #f97316;
   }
 
   .report-table th, .report-table td {
     padding: 12px 35px;
     margin: 0;
-    color: #fb8324;
+    color: #f97316;
     list-style: none;
     background-image: url(../../../assets/check.png);
     background-repeat: no-repeat;
@@ -423,15 +423,15 @@ ul.arrow-checkmark {
     font-weight: 500;
   }
   /* .report-table tbody tr {
-    background-color: #fb8324;
+    background-color: #f97316;
   }
   
   .report-table tbody tr:nth-of-type(even) {
-    background-color: #fb8324;
+    background-color: #f97316;
   }
   
   .report-table tbody tr:hover {
-    background-color: #fb8324;
+    background-color: #f97316;
   } */
 
 .icon{

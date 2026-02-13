@@ -30,7 +30,7 @@
 .hero-content h1 {
   font-size: 56px;
   font-weight: 800;
-  color: #fb8324;
+  color: #f97316;
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 20px;
@@ -65,7 +65,7 @@
 .circle-1 {
   width: 300px;
   height: 300px;
-  background: #fb8324;
+  background: #f97316;
   top: -100px;
   right: -50px;
   animation: float 8s ease-in-out infinite;
@@ -112,7 +112,7 @@
 }
 
 .support-form {
-  color: #fb8324;
+  color: #f97316;
   padding: 30px;
   background: rgba(255, 255, 255, 0.02);
   border-radius: 20px;
@@ -130,7 +130,7 @@
   line-height: 0.95em;
   text-align: center;
   text-transform: uppercase;
-  color: #fb8324;
+  color: #f97316;
   padding: 20px 0 40px;
 }
 
@@ -177,7 +177,7 @@ label {
 
 .form-control:focus {
   outline: none;
-  box-shadow: 0px 0px 0px 3px #fb8324;
+  box-shadow: 0px 0px 0px 3px #f97316;
   transform: translateY(-2px);
 }
 
@@ -228,9 +228,9 @@ textarea.form-control {
 }
 
 .file-label:hover {
-  border-color: #fb8324;
+  border-color: #f97316;
   background: rgba(251, 131, 36, 0.1);
-  color: #fb8324;
+  color: #f97316;
 }
 
 .file-icon {
@@ -289,14 +289,14 @@ textarea.form-control {
   position: absolute;
   width: 320px;
   height: 65px;
-  background: linear-gradient(45deg, #FDA8CF, #fb8324);
+  background: linear-gradient(45deg, #FDA8CF, #f97316);
   border-radius: 75px;
   z-index: -1;
   animation: clockwise 1s ease-in-out infinite;
 }
 
 .submit-btn:hover::after {
-  background: linear-gradient(45deg, #F3CE5E, #fb8324);
+  background: linear-gradient(45deg, #F3CE5E, #f97316);
   animation: counterclockwise 2s ease-in-out infinite;
 }
 
@@ -351,12 +351,12 @@ textarea.form-control {
 .info-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(251, 131, 36, 0.2);
-  border-color: #fb8324;
+  border-color: #f97316;
 }
 
 .info-card.featured {
   background: rgba(251, 131, 36, 0.1);
-  border-color: #fb8324;
+  border-color: #f97316;
   transform: scale(1.05);
 }
 
@@ -368,7 +368,7 @@ textarea.form-control {
   width: 70px;
   height: 70px;
   margin: 0 auto 20px;
-  background: linear-gradient(135deg, #fb8324 0%, #f97316 100%);
+  background: linear-gradient(135deg, #f97316 0%, #f97316 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -389,7 +389,7 @@ textarea.form-control {
 .info-card h4 {
   font-size: 22px;
   font-weight: 700;
-  color: #fb8324;
+  color: #f97316;
   margin-bottom: 15px;
 }
 
@@ -690,7 +690,7 @@ textarea.form-control {
 .popup-card h3 {
   font-size: 22px;
   font-weight: 700;
-  color: #fb8324;
+  color: #f97316;
   margin-bottom: 20px;
 }
 
@@ -704,12 +704,12 @@ textarea.form-control {
 
 .token-id-box {
   background: rgba(251, 131, 36, 0.1);
-  border: 2px solid #fb8324;
+  border: 2px solid #f97316;
   border-radius: 12px;
   padding: 15px 20px;
   font-size: 22px;
   font-weight: 700;
-  color: #fb8324;
+  color: #f97316;
   letter-spacing: 2px;
   font-family: 'Courier New', monospace;
   margin-bottom: 20px;
@@ -724,7 +724,7 @@ textarea.form-control {
 }
 
 .popup-close-btn {
-  background: linear-gradient(135deg, #fb8324 0%, #f97316 100%);
+  background: linear-gradient(135deg, #f97316 0%, #f97316 100%);
   color: white;
   border: none;
   border-radius: 50px;
