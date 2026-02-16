@@ -13,7 +13,7 @@ h3 {
     color: #f97316;
 }
 h5 {
-    color: #ffffff; 
+    color: #d6dbe1; 
     font-size: 25px;
 }
 .body {
@@ -80,19 +80,59 @@ ul.circle-checkmark {
     } */
     }
 }
-ul.arrow-checkmark {
-	li {
-        margin: 0;
-        padding: 10px 0 10px 40px;
-        list-style: none;
-        background-image: url(../../../assets/arrow.png);
-        background-repeat: no-repeat;
-        background-position: 5px;
-        background-size: 25px;
-        font-weight: 500;
-    }
+ul.featured-checklist {
+    list-style: none;
+    padding: 0;
+    margin-top: 25px;
 }
 
+ul.featured-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    /* background: rgba(255, 255, 255, 0.03); */
+    /* border: 1px solid rgba(255, 255, 255, 0.06); */
+    color: #d6dbe1;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    backdrop-filter: blur(6px);
+    transition: all 0.3s ease;
+}
+
+ul.featured-checklist li:hover {
+    /* background: rgba(16, 185, 129, 0.06); */
+    /* border-color: rgba(16, 185, 129, 0.25); */
+    transform: translateX(6px);
+    /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); */
+}
+
+ul.featured-checklist .check-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    background: rgba(16, 185, 129, 0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+    transition: all 0.3s ease;
+}
+
+ul.featured-checklist li:hover .check-icon {
+    background: rgba(16, 185, 129, 0.25);
+    transform: scale(1.1);
+}
+.check-icon svg {
+    margin: 0px !important;
+}
+.rationalization ul.featured-checklist {
+    text-transform: capitalize;
+}
 .mbl-ui-sec {
     display: flex;
 }
@@ -146,6 +186,295 @@ ul.arrow-checkmark {
     justify-content: center;
     align-items: center;
 }
+.topology img {
+    width: 100%;
+    object-fit: contain;
+}
+
+/* ========================================
+   ANIMATED ALARM DIAGRAM
+   ======================================== */
+.alarm-diagram {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    height: 480px;
+    margin: 20px auto;
+}
+
+/* Orbit Ring */
+.alarm-diagram .orbit-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 180px;
+    height: 180px;
+    transform: translate(-50%, -50%);
+    border: 1px dashed rgba(251,131,36,0.2);
+    border-radius: 50%;
+    animation: alarmOrbitSpin 20s linear infinite;
+    z-index: 1;
+}
+
+@keyframes alarmOrbitSpin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Central Icon */
+.alarm-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+    background: radial-gradient(circle, rgba(251,131,36,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    animation: alarmPulse 3s ease-in-out infinite;
+}
+
+.alarm-icon {
+    width: 48px !important;
+    height: 48px !important;
+    margin: 0 !important;
+    animation: alarmBell 2s ease-in-out infinite;
+}
+
+@keyframes alarmBell {
+    0%, 100% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-14deg); }
+    30% { transform: rotate(10deg); }
+    40% { transform: rotate(-10deg); }
+    50% { transform: rotate(4deg); }
+    60% { transform: rotate(0deg); }
+}
+
+@keyframes alarmPulse {
+    0%, 100% { box-shadow: 0 0 25px rgba(251,131,36,0.15), 0 0 50px rgba(251,131,36,0.05); }
+    50% { box-shadow: 0 0 35px rgba(251,131,36,0.3), 0 0 70px rgba(251,131,36,0.1); }
+}
+
+/* Feature Cards */
+.a-card {
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+}
+
+.a-card-num {
+    font-size: 28px;
+    font-weight: 800;
+    color: rgba(251,131,36,0.15);
+    line-height: 1;
+    margin-bottom: 6px;
+    font-family: 'Montserrat', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.a-card-text {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #f97316;
+    line-height: 1.4;
+    max-width: 150px;
+    position: relative;
+    padding-left: 10px;
+    border-left: 2px solid rgba(251,131,36,0.3);
+    transition: all 0.3s ease;
+}
+
+.a-card:hover .a-card-num {
+    color: rgba(251,131,36,0.35);
+}
+
+.a-card:hover .a-card-text {
+    border-left-color: #f97316;
+    text-shadow: 0 0 20px rgba(251,131,36,0.3);
+}
+
+/* Card Positions - circular layout */
+.a-card-1 {
+    top: 3%;
+    left: 2%;
+}
+.a-card-2 {
+    top: 3%;
+    right: 2%;
+    text-align: right;
+}
+.a-card-2 .a-card-text {
+    border-left: none;
+    border-right: 2px solid rgba(251,131,36,0.3);
+    padding-left: 0;
+    padding-right: 10px;
+    margin-left: auto;
+}
+.a-card-2:hover .a-card-text {
+    border-right-color: #f97316;
+}
+.a-card-3 {
+    top: 42%;
+    right: 0%;
+    text-align: right;
+}
+.a-card-3 .a-card-text {
+    border-left: none;
+    border-right: 2px solid rgba(251,131,36,0.3);
+    padding-left: 0;
+    padding-right: 10px;
+    margin-left: auto;
+}
+.a-card-3:hover .a-card-text {
+    border-right-color: #f97316;
+}
+.a-card-4 {
+    bottom: 3%;
+    right: 8%;
+    text-align: right;
+}
+.a-card-4 .a-card-text {
+    border-left: none;
+    border-right: 2px solid rgba(251,131,36,0.3);
+    padding-left: 0;
+    padding-right: 10px;
+    margin-left: auto;
+}
+.a-card-4:hover .a-card-text {
+    border-right-color: #f97316;
+}
+.a-card-5 {
+    bottom: 3%;
+    left: 2%;
+}
+.a-card-6 {
+    top: 42%;
+    left: 0%;
+}
+
+/* Card animations - slide in + float */
+.a-card-1 { animation: alarmCardSlideRight 0.5s ease forwards, alarmCardFloat 5s ease-in-out 1.5s infinite; }
+.a-card-2 { animation: alarmCardSlideLeft 0.5s ease 0.15s forwards, alarmCardFloat 5s ease-in-out 2s infinite; }
+.a-card-3 { animation: alarmCardSlideLeft 0.5s ease 0.3s forwards, alarmCardFloat 5s ease-in-out 2.5s infinite; }
+.a-card-4 { animation: alarmCardSlideLeft 0.5s ease 0.45s forwards, alarmCardFloat 5s ease-in-out 3s infinite; }
+.a-card-5 { animation: alarmCardSlideRight 0.5s ease 0.6s forwards, alarmCardFloat 5s ease-in-out 3.5s infinite; }
+.a-card-6 { animation: alarmCardSlideRight 0.5s ease 0.75s forwards, alarmCardFloat 5s ease-in-out 4s infinite; }
+
+@keyframes alarmCardSlideRight {
+    0% { opacity: 0; transform: translateX(-30px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes alarmCardSlideLeft {
+    0% { opacity: 0; transform: translateX(30px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes alarmCardFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+/* ========================================
+   FEATURE PANEL STYLES
+   ======================================== */
+.feat-panel {
+    padding: 10px 0;
+}
+
+.feat-heading {
+    margin-bottom: 25px;
+}
+
+.feat-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #f97316;
+    background: rgba(251,131,36,0.1);
+    border: 1px solid rgba(251,131,36,0.25);
+    padding: 4px 14px;
+    border-radius: 50px;
+    margin-bottom: 12px;
+}
+
+.feat-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.feat-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.04);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.feat-item:hover {
+    background: rgba(251,131,36,0.06);
+    border-color: rgba(251,131,36,0.2);
+    transform: translateX(5px);
+}
+
+.feat-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: rgba(251,131,36,0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.feat-icon svg {
+    width: 18px !important;
+    height: 18px !important;
+    margin: 0 !important;
+    color: #f97316;
+}
+
+.feat-item:hover .feat-icon {
+    background: rgba(251,131,36,0.2);
+    transform: scale(1.1);
+}
+
+.feat-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.feat-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 2px;
+    line-height: 1.3;
+}
+
+.feat-content p {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.5);
+    margin: 0;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
 .diagram-container {
     position: relative;
     width: 500px;
@@ -182,8 +511,8 @@ ul.arrow-checkmark {
 
 .node {
     position: absolute;
-    width: 150px;
-    height: 70px;
+    width: 185px;
+    height: 120px;
     background-color: transparent;
     border: 2px solid white;
     border-radius: 10px;
@@ -204,34 +533,34 @@ ul.arrow-checkmark {
 }
 /* Positions of nodes */
 .node1 {
-    top: 10%;
-    left: 10%;
+    top: 4%;
+    left: -9%;
 }
 
 .node2 {
-    top: 10%;
-    left: 60%;
+    top: 4%;
+    left: 72%;
 }
 
 .node3 {
-    bottom: 10%;
-    right: 0;
+    bottom: 4%;
+    right: -42px;
 }
 
 .node4 {
-    bottom: 0;
+    bottom: -50px;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .node5 {
-    bottom: 10%;
-    left: 0;
+    bottom: 4%;
+    left: -42px;
 }
 
 .node6 {
-    top: 20%;
-    left: 0;
+    top: -16%;
+    left: 160px;
 }
 
 /* Connectors (lines) */
@@ -271,10 +600,10 @@ ul.arrow-checkmark {
 }
 
 .connector6 {
-    height: 150px;
-    top: 100px;
-    left: 85px;
-    transform: rotate(-45deg);
+    height: 110px;
+    top: 46px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .label {
     background-color: rgba(255, 255, 255, 0.1);
@@ -338,7 +667,33 @@ ul.arrow-checkmark {
     }
     .body {
         padding: 10px;
-    } 
+    }
+    /* Feature panel mobile */
+    .feat-panel {
+        padding: 20px 0 0;
+    }
+    .feat-item {
+        padding: 10px 12px;
+        gap: 10px;
+    }
+    .feat-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+    }
+    .feat-icon svg {
+        width: 15px !important;
+        height: 15px !important;
+    }
+    .feat-label {
+        font-size: 13px;
+    }
+    .feat-content p {
+        font-size: 11px;
+    }
+    .feat-list {
+        gap: 8px;
+    }
 }
 
 .features {
@@ -384,6 +739,11 @@ ul.arrow-checkmark {
       transform: scale(0.69);
     }
   }
+  .alarms-slide {
+    margin-top: 80px !important;
+    margin: auto;
+    width: 600px;
+  }
   .swiper-wrapper {
     background: #8f9297;
     border-radius: 20px;
@@ -392,7 +752,7 @@ ul.arrow-checkmark {
   .swiper-slide img {
     height: 400px;
     width: 100%;
-    /* object-fit: contain; */
+    /* object-fit: fill; */
     /* padding: 5px; */
     border: 10px solid #6f7880;
     background: #6f7880;
@@ -463,4 +823,166 @@ use{
 p:hover use{
 	font-size: 15px;
 	stroke-width: 2px;
+}
+
+@media (min-width: 0px) and (max-width: 479px) {
+    .swiper-wrapper {
+      height: 300px;
+      margin-bottom: 15px;
+    }
+    .swiper-slide img {
+        height: 300px;
+    }
+    .report-img {
+        height: 300px;
+        margin-bottom: 15px;
+    }
+    .report-table th, .report-table td {
+        padding: 12px 0px 12px 35px;
+    }
+    .img-sec {
+        flex-wrap: wrap;
+    }
+    .video-sec {
+        height: 300px;
+        width: 100%;
+        object-fit: fill;
+    }
+    .img-sec .swiper {
+        margin-top: 15px;
+        margin-left: 0px;
+    }
+    .connector1 {
+        height: 100px;
+        top: 90px;
+        left: 85px;
+        transform: rotate(-45deg);
+    }
+    
+    .connector2 {
+        height: 100px;
+        top: 90px;
+        right: 85px;
+        /* transform: rotate(45deg); */
+    }
+    
+    .connector3 {
+        height: 85px;
+        bottom: 102px;
+        right: 85px;
+        transform: rotate(-45deg);
+    }
+    
+    .connector4 {
+        height: 160px;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .connector5 {
+        height: 85px;
+        bottom: 102px;
+        left: 85px;
+        transform: rotate(45deg);
+    }
+    
+    .connector6 {
+        height: 175px;
+        top: -19px;
+        left: 50%;
+    }
+    .node {
+        width: 175px;
+        height: 100px;
+    }
+    /* Positions of nodes */
+    .node1 {
+        top: 1%;
+        left: -12%;
+    }
+
+    .node2 {
+        top: 1%;
+        left: 55%;
+    }
+
+    .node3 {
+        bottom: 3%;
+        right: -10%;
+    }
+
+    .node4 {
+        bottom: -25%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .node5 {
+        bottom: 3%;
+        left: -10%;
+    }
+
+    .node6 {
+        top: -26%;
+        left: 25%;
+    }
+    .mbl-ui-sec {
+        flex-direction: column;
+    }
+    .mbl-ui-sec ul {
+        width: 100%;
+    }
+    .alarms-slide {
+        width: 100%;
+    }
+    /* Alarm diagram mobile */
+    .alarm-diagram {
+        height: 420px;
+        max-width: 100%;
+    }
+    .alarm-diagram .orbit-ring {
+        width: 110px;
+        height: 110px;
+    }
+    .alarm-center {
+        width: 60px;
+        height: 60px;
+    }
+    .alarm-icon {
+        width: 32px !important;
+        height: 32px !important;
+    }
+    .a-card-num {
+        font-size: 20px;
+        margin-bottom: 3px;
+    }
+    .a-card-text {
+        font-size: 10px;
+        max-width: 110px;
+        padding-left: 7px;
+    }
+    .a-card-2 .a-card-text,
+    .a-card-3 .a-card-text,
+    .a-card-4 .a-card-text {
+        padding-right: 7px;
+    }
+    .a-card-1 { top: 2%; left: 0%; }
+    .a-card-2 { top: 2%; right: 0%; }
+    .a-card-3 { top: 40%; right: 0%; }
+    .a-card-4 { bottom: 2%; right: 3%; }
+    .a-card-5 { bottom: 2%; left: 0%; }
+    .a-card-6 { top: 40%; left: 0%; }
+}
+@media (min-width: 480px) and (max-width: 768px) {
+    .swiper-wrapper {
+        height: 250px;
+    }
+    .swiper-slide img {
+        height: 250px;
+    }
+    .video-sec {
+        object-fit: fill;
+        height: 250px;
+    }
 }

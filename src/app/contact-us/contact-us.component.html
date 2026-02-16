@@ -22,6 +22,18 @@
               <h3 data-aos="fade-down" data-aos-duration="800">Contact Us</h3>
 
               <div class="form-row">
+                <div class="col-md-12 form-group" data-aos="fade-up" data-aos-delay="50">
+                  <label class="text-inverse font-12 text-uppercase">Enquiry Type<span class="text-danger">*</span></label>
+                  <select class="border-0 font-14 form-control" formControlName="enquiryType"
+                    [ngClass]="{ 'is-invalid': submitted && f['enquiryType'].errors }">
+                    <option value="" disabled>Select Enquiry Type</option>
+                    <option *ngFor="let type of enquiryTypes" [value]="type.value">{{ type.label }}</option>
+                  </select>
+                  <div *ngIf="submitted && f['enquiryType'].errors" class="invalid-feedback mb">
+                    <div *ngIf="f['enquiryType'].errors['required']">Enquiry type is required.</div>
+                  </div>
+                </div>
+
                 <div class="col-md-6 form-group" data-aos="fade-right" data-aos-delay="100">
                   <label class="text-inverse font-12 text-uppercase">Name<span class="text-danger">*</span></label>
                   <input type="text" class="border-0 font-14 form-control" placeholder="Your Name"
@@ -80,6 +92,7 @@
       <div class="row">
         <div class="col-lg-6">
           <div class="contact-info-wrapper">
+            
             <div class="info-item" data-aos="fade-right" data-aos-delay="100">
               <div class="info-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -124,6 +137,7 @@
                 <p>+91 8668040440</p>
               </div>
             </div>
+
           </div>
         </div>
 

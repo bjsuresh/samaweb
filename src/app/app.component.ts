@@ -8,7 +8,8 @@ import { Title, Meta } from '@angular/platform-browser';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+
+  isDark = true;
   loaderVisible: boolean = true;
   showScrollTop: boolean = false;
   @ViewChild('navbarContent', { static: false }) navbarContent!: ElementRef;
@@ -22,10 +23,20 @@ export class AppComponent {
   //   this.dropdownOpen[index] = !this.dropdownOpen[index];
   // }
 
+  toggleTheme(): void {
+    this.isDark = !this.isDark;
+    if (this.isDark) {
+      document.body.classList.remove('light-theme');
+    } else {
+      document.body.classList.add('light-theme');
+    }
+  }
+
   setActive(index: number): void {
     this.activeIndex = index;
     localStorage.setItem("activeIndex",this.activeIndex.toString());
   }
+  
   
   ngOnInit() {
 

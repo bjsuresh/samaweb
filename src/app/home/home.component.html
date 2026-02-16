@@ -1,234 +1,594 @@
-<section class="top-content"> 
-  <div class="container">
-    <h3>
-      Introducing <span class="imp">SAMA: </span>Supra Advanced <br>Manufacturing Analytics
-    </h3> 
-  </div>
-  <div class="banner_sec container">
-      <!-- <div> -->
-        <!-- <video class="video-sec" autoplay="true" loop="true" preload="auto" >
-          <source src="../../assets/demo2.mp4" type="video/mp4">
-        </video> -->
-      <!-- </div> -->
-     
-      <img
-      ngOptimizedImage 
-        src="../../assets/background.jpeg"
-        height="100%"
-        width="80%"
-        class="banner-img"
-      />
-    <!-- <div class="col-3" data-aos="zoom-in" data-aos-delay="100">
+<div class="home-wrapper">
 
-    </div> -->
-    <div class="main-info">
-      <h5 class="snd">Monitor, analyze and<br><span class="thrd">Predict </span>Your Data</h5>
+<!-- ═══════════════ HERO SECTION ═══════════════ -->
+<section class="hero-section">
+  <div class="hero-bg-orbs">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+
+  <div class="container hero-grid">
+    <!-- Left: Text -->
+    <div class="hero-text" data-aos="fade-right">
+      <span class="badge-pill">Advanced Manufacturing Analytics</span>
+      <h1>
+        Introducing <span class="accent">SAMA</span>
+      </h1>
+      <p class="hero-subtitle">Supra Advanced Manufacturing Analytics</p>
+      <p class="hero-tagline">Monitor, Analyze and <span class="accent">Predict</span> Your Data</p>
+      <div class="hero-cta">
+        <a routerLink="/products1" class="btn-primary-cta">Explore Products</a>
+          <button class="btn-outline-cta" (click)="openDemoDialog()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Schedule a Demo
+          </button>
+        <!-- <a routerLink="/contactus" class="btn-outline-cta">Contact Us</a> -->
+      </div>
     </div>
+
+        <!-- Dashboard Visual -->
+    <div class="hero-visual">
+      <div class="dashboard-preview">
+        <div class="dashboard-header">
+          <div class="dashboard-dots"><span></span><span></span><span></span></div>
+          <div class="dashboard-title-bar">SUPRA PIMS — CONTROL ROOM</div>
+        </div>
+        <!-- Dashboard Banner Component -->
+        <div class="dashboard-banner">
+          <!-- Main Stats Grid -->
+          <div class="stats-grid">
+            
+            <!-- Active Devices Card -->
+            <div class="stat-card active-devices">
+              <div class="stat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+              </div>
+              <div class="stat-content">
+                <div class="stat-label">Active Devices</div>
+                <div class="stat-value">
+                  <span class="counter" [@countAnimation]>{{ activeDevices }}</span>
+                  <span class="stat-unit">/ {{ totalDevices }}</span>
+                </div>
+                <div class="stat-trend positive">
+                  <svg class="trend-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 14l5-5 5 5H7z"/>
+                  </svg>
+                  <span>{{ devicesTrend }}%</span>
+                  <span class="trend-label">vs last hour</span>
+                </div>
+              </div>
+              <div class="stat-mini-chart">
+                <svg viewBox="0 0 100 40" preserveAspectRatio="none">
+                  <polyline
+                    class="chart-line"
+                    [attr.points]="devicesChartPoints"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                </svg>
+              </div>
+              <div class="pulse-indicator"></div>
+            </div>
+
+            <!-- System Uptime Card -->
+            <div class="stat-card system-uptime">
+              <div class="stat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div class="stat-content">
+                <div class="stat-label">System Uptime</div>
+                <div class="stat-value">
+                  <span class="counter">{{ uptimePercentage | number:'1.1-1' }}</span>
+                  <span class="stat-unit">%</span>
+                </div>
+                <div class="stat-trend neutral">
+                  <svg class="trend-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M4 12h16"/>
+                  </svg>
+                  <span>{{ uptimeDays }} days</span>
+                  <span class="trend-label">continuous</span>
+                </div>
+              </div>
+              <div class="status-ring">
+                <svg viewBox="0 0 100 100">
+                  <circle class="ring-bg" cx="50" cy="50" r="45"/>
+                  <circle 
+                    class="ring-progress" 
+                    cx="50" 
+                    cy="50" 
+                    r="45"
+                    [style.strokeDashoffset]="uptimeRingOffset"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Production Rate Card -->
+            <div class="stat-card production-rate">
+              <div class="stat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                  <line x1="12" y1="22.08" x2="12" y2="12"/>
+                </svg>
+              </div>
+              <div class="stat-content">
+                <div class="stat-label">Production Rate</div>
+                <div class="stat-value">
+                  <span class="counter">{{ productionRate }}</span>
+                  <span class="stat-unit">units/hr</span>
+                </div>
+                <div class="stat-trend positive">
+                  <svg class="trend-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 14l5-5 5 5H7z"/>
+                  </svg>
+                  <span>{{ productionTrend }}%</span>
+                  <span class="trend-label">efficiency</span>
+                </div>
+              </div>
+              <div class="stat-mini-chart">
+                <svg viewBox="0 0 100 40" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="productionGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" style="stop-color:currentColor;stop-opacity:0.3" />
+                      <stop offset="100%" style="stop-color:currentColor;stop-opacity:0" />
+                    </linearGradient>
+                  </defs>
+                  <polyline
+                    class="chart-area"
+                    [attr.points]="productionChartPoints + ' 100,40 0,40'"
+                    fill="url(#productionGradient)"
+                  />
+                  <polyline
+                    class="chart-line"
+                    [attr.points]="productionChartPoints"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Active Alerts Card -->
+            <div class="stat-card active-alerts" [class.has-alerts]="activeAlerts > 0">
+              <div class="stat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/>
+                  <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+              </div>
+              <div class="stat-content">
+                <div class="stat-label">Active Alerts</div>
+                <div class="stat-value">
+                  <span class="counter">{{ activeAlerts }}</span>
+                  <span class="stat-unit">warnings</span>
+                </div>
+                <div class="stat-trend" [class.negative]="alertsTrend > 0" [class.positive]="alertsTrend < 0">
+                  <svg class="trend-icon" viewBox="0 0 24 24" fill="currentColor" *ngIf="alertsTrend !== 0">
+                    <path *ngIf="alertsTrend > 0" d="M7 10l5 5 5-5H7z"/>
+                    <path *ngIf="alertsTrend < 0" d="M7 14l5-5 5 5H7z"/>
+                  </svg>
+                  <span>{{ Math.abs(alertsTrend) }}</span>
+                  <span class="trend-label">from yesterday</span>
+                </div>
+              </div>
+              <div class="alert-indicator" *ngIf="activeAlerts > 0">
+                <div class="alert-pulse"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Live Status Bar -->
+          <div class="live-status-bar">
+            <div class="status-indicator">
+              <span class="live-dot"></span>
+              <span class="status-text">Live Updates</span>
+            </div>
+            <div class="status-time">
+              Last updated: {{ lastUpdateTime | date:'HH:mm:ss' }}
+            </div>
+            <div class="status-connection">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="connection-icon">
+                <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/>
+              </svg>
+              <span>Connected</span>
+            </div>
+          </div>
+
+          <!-- Quick Stats Ticker -->
+          <div class="stats-ticker">
+            <div class="ticker-item">
+              <span class="ticker-label">Energy Consumption:</span>
+              <span class="ticker-value">{{ energyConsumption }} kWh</span>
+            </div>
+            <div class="ticker-divider"></div>
+            <div class="ticker-item">
+              <span class="ticker-label">Avg Response Time:</span>
+              <span class="ticker-value">{{ avgResponseTime }} ms</span>
+            </div>
+            <div class="ticker-divider"></div>
+            <div class="ticker-item">
+              <span class="ticker-label">Data Throughput:</span>
+              <span class="ticker-value">{{ dataThroughput }} MB/s</span>
+            </div>
+            <div class="ticker-divider"></div>
+            <div class="ticker-item">
+              <span class="ticker-label">Active Sessions:</span>
+              <span class="ticker-value">{{ activeSessions }}</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- Right: Orbit Diagram -->
+    <!-- <div class="hero-visual" data-aos="fade-left" data-aos-delay="200">
+      <div class="orbit-diagram">
+        <div class="orbit-ring orbit-ring-1"></div>
+        <div class="orbit-ring orbit-ring-2"></div>
+
+        <div class="orbit-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/>
+            <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/>
+            <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/>
+          </svg>
+        </div>
+
+        <div class="float-card float-card-1">
+          <div class="float-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <span>Monitor</span>
+        </div>
+        <div class="float-card float-card-2">
+          <div class="float-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          </div>
+          <span>Analyze</span>
+        </div>
+        <div class="float-card float-card-3">
+          <div class="float-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          </div>
+          <span>Predict</span>
+        </div>
+        <div class="float-card float-card-4">
+          <div class="float-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          </div>
+          <span>Optimize</span>
+        </div>
+      </div>
+    </div> -->
   </div>
 </section>
-<section class="keyframe-sec">
+
+<!-- ═══════════════ STATS SECTION ═══════════════ -->
+<section class="stats-section">
+  <div class="stats-border"></div>
   <div class="container">
-    <div class="info-sec">
-        <div class="circle-bg" data-aos="zoom-in">
-          <img
-            src="../../assets/elevator-arrow-up.gif"
-            class="info-img"
-            width="100%">
-          <div class="highlight1"><p>26<br>Years</p></div>
+    <div class="stats-grid">
+      <div class="stat-card" data-aos="zoom-in" data-aos-delay="0">
+        <div class="stat-icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <div class="highlight2" >
-          <p>9<br>Countries</p>
+        <div class="stat-number">26+</div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+
+      <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+        <div class="stat-icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
-        <div class="circle-indicator" data-aos="zoom-in">
+        <div class="stat-number">9</div>
+        <div class="stat-label">Countries Worldwide</div>
+      </div>
+
+      <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+        <div class="stat-icon-box">
           <circle-progress
             [percent]="95"
-            [radius]="70"
-            [outerStrokeWidth]="12"
+            [radius]="28"
+            [outerStrokeWidth]="5"
             [innerStrokeWidth]="1"
             [outerStrokeColor]="'#f97316'"
-            [innerStrokeColor]="'#f97316'"
-            [backgroundColor]="'#061823'"
+            [innerStrokeColor]="'rgba(249,115,22,0.2)'"
+            [backgroundColor]="'transparent'"
             [animation]="true"
             [lazy]="true"
             [animationDuration]="800"
-            titleFontSize="40"
-            subtitleFontSize="15"
+            titleFontSize="16"
             [showSubtitle]="false"
+            [showUnits]="false"
             titleColor="#f97316"
-            subtitleColor="#f97316"
-            unitsColor="#f97316"
-            unitsFontSize="20"
           ></circle-progress>
-          <p class="content-title">
-            Installations in Refineries in India
-          </p>
         </div>
-        <div class="highlight2" data-aos="zoom-in">
-          <p>Power<br>>50<br>Installations</p>
+        <div class="stat-number">95%</div>
+        <div class="stat-label">Refineries in India</div>
+      </div>
+
+      <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+        <div class="stat-icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
         </div>
-       
-      <!-- </div> -->
-    </div>  
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Power Installations</div>
+      </div>
+    </div>
   </div>
 </section>
-<section class="products-sec">
+<section class="customers-section">
   <div class="container">
-    <div class="grid grp-sec">
-      <h3 data-aos="fade-down">
-        <span class="text-center">What We Do</span>
-      </h3>
-      <div class="row">
-        <div class="col-xl-4 col-lg-4 col-md-6 col-xs-6 col-sm-6 col-6">
-          <h5>Predictive Analytics</h5>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-6 col-xs-6 col-sm-6 col-6">
-          <h5>Predictive Maintanence</h5>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-6 col-xs-6 col-sm-6 col-6">
-          <h5>Grid Management System</h5>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-6 col-xs-6 col-sm-6 col-6">
-          <h5>Renewable Management System</h5>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-6 col-xs-6 col-sm-6 col-6">
-          <h5>Pipeline Management System</h5>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-6 col-xs-6 col-sm-6 col-6">
-          <h5>Document Management System</h5>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-6 col-xs-6 col-sm-6 col-6">
-          <h5>Process Information Management System</h5>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-6 col-xs-6 col-sm-6 col-6">
-          <h5>Alarm Management System</h5>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-6 col-xs-6 col-sm-6 col-6">
-          <h5>Smart City System</h5>
-        </div>
-      </div>
-    </div>  
+    <div class="section-header" data-aos="fade-up">
+      <span class="badge-pill">Trusted Partners</span>
+      <h2>Our Customers</h2>
+    </div>
   </div>
-</section>
-<section class="content-sec">
-  <h3 data-aos="fade-down">
-    <span class="text-center">Why choose Supra Controls</span>
-  </h3>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
-        <mat-card class="card-sec">
-          <img
-            src="../../assets/images/user.svg"
-            class="icon-img"
-            alt=""
-            width="100%"
-          />
-          <mat-card-content>
-            <h5 class="title">User Friendly</h5>
-            <p>
-              Our intuitive interface and user-centric design ensure that anyone
-              can become a data analytics superhero, regardless of technical
-              expertise
-            </p>
-          </mat-card-content>
-        </mat-card>
+  <div class="logo-slider" data-aos="fade-up">
+    <div class="logo-track">
+      <div class="logo-item">
+        <img src="../../assets/customers/Dangote.png" alt="Dangote">
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
-        <mat-card class="card-sec">
-          <img
-            src="../../assets/images/scalable.svg"
-            class="icon-img"
-            alt=""
-            width="100%"
-          />
-          <mat-card-content>
-            <h5 class="title">Scalable</h5>
-            <p>
-              From startups to enterprise-level organizations, Supra Controls SAMA
-              line of products scales with your business needs, allowing you to
-              unlock new insights as your data grows
-            </p>
-          </mat-card-content>
-        </mat-card>
+      <div class="logo-item">
+        <img src="../../assets/customers/adnoc-logo-png_seeklogo-313025.png" alt="Adnoc">
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
-        <mat-card class="card-sec">
-          <img
-            src="../../assets/images/integration.svg"
-            class="icon-img"
-            alt=""
-            width="100%"
-          />
-          <mat-card-content>
-            <h5 class="title">Seamless Integration</h5>
-            <p>
-              Connect with a wide range of data sources and applications, enabling
-              you to leverage your existing data infrastructure and maximize ROI
-            </p>
-          </mat-card-content>
-        </mat-card>
+      <div class="logo-item">
+        <img src="../../assets/customers/Reliance_logo.jpg" alt="Reliance">
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3">
-        <mat-card class="card-sec">
-          <img
-            src="../../assets/images/support.svg"
-            class="icon-img"
-            alt=""
-            width="100%"
-          />
-          <mat-card-content>
-            <h5 class="title">Reliable Support</h5>
-            <p>
-              Our dedicated support team is always ready to assist you, ensuring a
-              smooth implementation process and providing ongoing support to drive
-              your success
-            </p>
-          </mat-card-content>
-        </mat-card>
+      <div class="logo-item">
+        <img src="../../assets/customers/IndianOilLogo1024x768.jpg" alt="Indian Oil">
       </div>
-    </div>  
-  </div>
-</section>
-<section class="test-sec">
-  <h3 data-aos="fade-up">
-    <span class="text-center">Testimonials</span>
-  </h3>
-  <div class="body container">
-    <div class="" data-aos="zoom-in">
-      <div class="testimonialItems-sec row">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
-          <mat-card class="card-sec" >
-            <mat-card-content>
-              <h5 class="title">SAMA Web Server & Alerts at REMC Telangana</h5>
-              <p>Hitachi Energy</p>
-              <p class="mt-2">Dear Sir <br>We confirm that M/s Supra Controls has successfully completed the work pertaining to Telangana REMC project and the systems are in operation without any failures</p>
-            </mat-card-content>
-          </mat-card>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
-          <mat-card class="card-sec" >
-            <mat-card-content>
-              <h5 class="title">CRUDE BLENDING & BOILER CONTROLS</h5>
-              <p>PETRONAS PENAPISAN (MELAKA) SDN BHD</p>
-              <p class="mt-2">Dear Sir <br>With reference to the above work which you have completed last July 2000, we wish to express our appreciation for a job well done. I am sure you will be pleased to hear that the crude blending controls are now working very well</p>
-            </mat-card-content>
-          </mat-card>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4">
-          <mat-card class="card-sec" >
-            <mat-card-content>
-              <h5 class="title">UHN IOCL Bongaigaon LPG Unit</h5>
-              <p>Fabtech</p>
-              <p class="mt-2">Dear Sir <br>Nice working with you in IOCL BGR and we delighted to inform you that,BGR project successfully completion done</p>
-            </mat-card-content>
-          </mat-card>
-        </div>
+      <div class="logo-item">
+        <img src="../../assets/customers/hmel_logo.jfif" alt="HMEL">
       </div>
-      <!-- <div class="swiper-pagination"><h5>This site was developed by suresh jayaraman</h5></div> -->
+      <div class="logo-item">
+        <img src="../../assets/customers/hpcl_logo.png" alt="HPCL">
+      </div>
+      <div class="logo-item">
+        <img src="../../assets/customers/Chennai_Petroleum_Corporation_logo.svg.png" alt="CPCL">
+      </div>
+      <div class="logo-item">
+        <img src="../../assets/customers/Eni-Logo.wine.png" alt="Eni">
+      </div>
+      <div class="logo-item">
+        <img src="../../assets/customers/indonesia_power.png" alt="Indonesia Power">
+      </div>
+      <div class="logo-item">
+        <img src="../../assets/customers/power_grid.png" alt="Power Gird">
+      </div>
+       <div class="logo-item">
+        <img src="../../assets/customers/abb_logo.png" alt="ABB">
+      </div>
+      <div class="logo-item">
+        <img src="../../assets/customers/emerson-logo.svg" alt="Emerson">
+      </div>
+      <div class="logo-item">
+        <img src="../../assets/customers/hitachi_energy.png" alt="Hitachi Energy">
+      </div>
+      <div class="logo-item">
+        <img src="../../assets/customers/honeywell_logo.png" alt="Honeywell">
+      </div>
+      <div class="logo-item">
+        <img src="../../assets/customers/yokagawa_logo.jpg" alt="Yokagawa">
+      </div>
+       <div class="logo-item">
+        <img src="../../assets/customers/Schneider_Electric-Logo.wine.png" alt="Schneider">
+      </div>
+      <div class="logo-item">
+        <img src="../../assets/customers/siemens.svg" alt="Siemens">
+      </div>
+      <div class="logo-item">
+        <img src="../../assets/customers/aarti_industries_logo" alt="Aarti Industries">
+      </div>
+      <div class="logo-item">
+        <img src="../../assets/customers/hurl.jfif" alt="HURL">
+      </div>
+      <div class="logo-item">
+        <img src="../../assets/customers/iggl-customer-logo.png" alt="IGGL">
+      </div>
+      <div class="logo-item">
+        <img src="../../assets/customers/gail-india-limited-vector-logo.png" alt="GAIL">
+      </div>
+      <div class="logo-item">
+        <img src="../../assets/customers/rockwell_automation.svg" alt="Rockwell Automation">
+      </div>
+      <div class="logo-item">
+        <img src="../../assets/customers/Adani_2012_logo.png" alt="Adani">
+      </div>
+       <div class="logo-item">
+        <img src="../../assets/customers/tata_projects.png" alt="TATA Projects">
+      </div>
+      <div class="logo-item">
+        <img src="../../assets/customers/jayaswal_neco_logo.png" alt="Jayaswal">
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ═══════════════ SERVICES SECTION ═══════════════ -->
+<section class="services-section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="badge-pill">Our Expertise</span>
+      <h2>What We Do</h2>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="service-top-border"></div>
+        <div class="service-icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+        </div>
+        <h4>Predictive Analytics</h4>
+        <span class="service-arrow">&rarr;</span>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="50">
+        <div class="service-top-border"></div>
+        <div class="service-icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h4>Predictive Maintenance</h4>
+        <span class="service-arrow">&rarr;</span>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-top-border"></div>
+        <div class="service-icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <h4>Grid Management</h4>
+        <span class="service-arrow">&rarr;</span>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="service-top-border"></div>
+        <div class="service-icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h4>Renewable Management</h4>
+        <span class="service-arrow">&rarr;</span>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-top-border"></div>
+        <div class="service-icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m8 17 4 4 4-4"/></svg>
+        </div>
+        <h4>Pipeline Management</h4>
+        <span class="service-arrow">&rarr;</span>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="250">
+        <div class="service-top-border"></div>
+        <div class="service-icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+        </div>
+        <h4>Document Management</h4>
+        <span class="service-arrow">&rarr;</span>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-top-border"></div>
+        <div class="service-icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <h4>Process Information Management</h4>
+        <span class="service-arrow">&rarr;</span>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="350">
+        <div class="service-top-border"></div>
+        <div class="service-icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.8 4A6.3 8.7 0 0 1 20 9"/><path d="M9 9h.01"/><circle cx="9" cy="9" r="7"/><rect width="10" height="6" x="4" y="16" rx="2"/></svg>
+        </div>
+        <h4>Alarm Management</h4>
+        <span class="service-arrow">&rarr;</span>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-top-border"></div>
+        <div class="service-icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h4>Smart City</h4>
+        <span class="service-arrow">&rarr;</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ WHY CHOOSE SECTION ═══════════════ -->
+<section class="why-section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="badge-pill">Our Advantages</span>
+      <h2>Why Choose Supra Controls</h2>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card" data-aos="fade-up" data-aos-delay="0">
+        <img src="../../assets/images/user.svg" class="why-icon" alt="User Friendly" />
+        <h4>User Friendly</h4>
+        <p>
+          Our intuitive interface and user-centric design ensure that anyone
+          can become a data analytics superhero, regardless of technical
+          expertise.
+        </p>
+      </div>
+
+      <div class="why-card" data-aos="fade-up" data-aos-delay="100">
+        <img src="../../assets/images/scalable.svg" class="why-icon" alt="Scalable" />
+        <h4>Scalable</h4>
+        <p>
+          From startups to enterprise-level organizations, SAMA scales with
+          your business needs, allowing you to unlock new insights as your
+          data grows.
+        </p>
+      </div>
+
+      <div class="why-card" data-aos="fade-up" data-aos-delay="200">
+        <img src="../../assets/images/integration.svg" class="why-icon" alt="Integration" />
+        <h4>Vendor Agnostic</h4>
+        <p>
+          Connect with a wide range of data sources such as ( DCS/PLC , SCADA and many more ) and applications, enabling
+          you to leverage your existing data infrastructure and maximize ROI.
+        </p>
+      </div>
+
+      <div class="why-card" data-aos="fade-up" data-aos-delay="300">
+        <img src="../../assets/images/support.svg" class="why-icon" alt="Support" />
+        <h4>Reliable Support</h4>
+        <p>
+          Our dedicated support team is always ready to assist you, ensuring a
+          smooth implementation process and providing ongoing support to drive
+          your success.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ TESTIMONIALS SECTION ═══════════════ -->
+<section class="testimonials-grid-section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="badge-pill">Client Stories</span>
+      <h2>Testimonials</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card" *ngFor="let item of testimonialItems; let i = index"
+           data-aos="fade-up" [attr.data-aos-delay]="i * 100">
+        <div class="quote-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="rgba(249,115,22,0.3)" stroke="none">
+            <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21c0 1 0 1 1 1z"/>
+            <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+          </svg>
+        </div>
+        <h4>{{ item.title }}</h4>
+        <span class="company-badge">{{ item.company_name }}</span>
+        <p>{{ item.description }}</p>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<!-- ═══════════════ WORLD MAP SECTION (UNCHANGED) ═══════════════ -->
 <section class="testimonials-sec">
   <h3 data-aos="fade-down">Our World Wide Footprint</h3>
 
@@ -292,3 +652,5 @@
     </div>
   </div>
 </section>
+
+</div><!-- /.home-wrapper -->

@@ -13,7 +13,7 @@ h3 {
     color: #f97316;
 }
 h5 {
-    color: #f97316; 
+    color: #d6dbe1; 
     font-size: 25px;
 }
 .body {
@@ -80,19 +80,57 @@ ul.circle-checkmark {
     } */
     }
 }
-ul.arrow-checkmark {
-	li {
-        margin: 0;
-        padding: 10px 0 10px 40px;
-        list-style: none;
-        background-image: url(../../../assets/arrow.png);
-        background-repeat: no-repeat;
-        background-position: 5px;
-        background-size: 25px;
-        font-weight: 500;
-    }
+ul.featured-checklist {
+    list-style: none;
+    padding: 0;
+    margin-top: 25px;
 }
-.rationalization ul.arrow-checkmark {
+
+ul.featured-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    /* background: rgba(255, 255, 255, 0.03); */
+    /* border: 1px solid rgba(255, 255, 255, 0.06); */
+    color: #d6dbe1;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    backdrop-filter: blur(6px);
+    transition: all 0.3s ease;
+}
+
+ul.featured-checklist li:hover {
+    /* background: rgba(16, 185, 129, 0.06); */
+    /* border-color: rgba(16, 185, 129, 0.25); */
+    transform: translateX(6px);
+    /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); */
+}
+
+ul.featured-checklist .check-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    background: rgba(16, 185, 129, 0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+    transition: all 0.3s ease;
+}
+
+ul.featured-checklist li:hover .check-icon {
+    background: rgba(16, 185, 129, 0.25);
+    transform: scale(1.1);
+}
+.check-icon svg {
+    margin: 0px !important;
+}
+.rationalization ul.featured-checklist {
     text-transform: capitalize;
 }
 .mbl-ui-sec {

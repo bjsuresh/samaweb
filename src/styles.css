@@ -59,3 +59,236 @@ body { margin: 0; font-family: Clarkson, "Helvetica", sans-serif; cursor: url('.
     font-size: 18px !important;
     color: #f97316 !important;
 }
+
+/* ========================================
+   LIGHT THEME - GLOBAL OVERRIDES
+   ======================================== */
+body.light-theme {
+    background-color: #ffffff;
+    color: #1f2937;
+}
+
+/* Main content area */
+body.light-theme .main-content {
+    background-color: #ffffff;
+}
+
+/* Product pages - tile backgrounds */
+body.light-theme .tile1 {
+    background-color: #ffffff;
+    color: #1f2937;
+}
+
+body.light-theme .tile1 h3 {
+    color: #f97316;
+}
+
+body.light-theme .tile1 h5 {
+    color: #374151;
+}
+
+body.light-theme .tile1 .body {
+    border-bottom: 1px solid #f3f4f6;
+}
+
+/* Featured checklist */
+body.light-theme .featured-checklist li {
+    color: #4b5563;
+}
+
+body.light-theme .featured-checklist .check-icon {
+    background: rgba(16, 185, 129, 0.1);
+}
+
+body.light-theme .featured-checklist li:hover .check-icon {
+    background: rgba(16, 185, 129, 0.2);
+}
+
+/* Feat panel */
+body.light-theme .feat-panel {
+    background: transparent;
+}
+
+body.light-theme .feat-badge {
+    background: #fff7ed;
+    border-color: #fed7aa;
+    color: #c2410c;
+}
+
+body.light-theme .feat-item {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: #e5e7eb;
+}
+
+body.light-theme .feat-item:hover {
+    background: rgba(249, 115, 22, 0.04);
+    border-color: rgba(249, 115, 22, 0.25);
+}
+
+body.light-theme .feat-icon {
+    background: #fff7ed;
+}
+
+body.light-theme .feat-item:hover .feat-icon {
+    background: rgba(249, 115, 22, 0.15);
+}
+
+body.light-theme .feat-label {
+    color: #1f2937;
+}
+
+body.light-theme .feat-content p {
+    color: #6b7280;
+}
+
+/* Report table */
+body.light-theme .report-table th,
+body.light-theme .report-table td {
+    color: #f97316;
+}
+
+/* Subtle text */
+body.light-theme .subtle {
+    color: #4b5563;
+}
+
+/* Swiper / image borders */
+body.light-theme .swiper-slide img {
+    border-color: #d1d5db;
+    background: #e5e7eb;
+}
+
+body.light-theme .video-sec {
+    border-color: #d1d5db;
+}
+
+body.light-theme .mbl-ui-sec .map-img {
+    border-color: #d1d5db;
+}
+
+/* Node / connector (topology diagrams) */
+body.light-theme .node {
+    border-color: #9ca3af;
+    color: #1f2937;
+}
+
+body.light-theme .connector {
+    background-color: #9ca3af;
+}
+
+/* General heading color fix */
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme h5,
+body.light-theme h6 {
+    color: #1f2937;
+}
+
+body.light-theme .tile1 h3 {
+    color: #f97316;
+}
+
+/* Scrolltop button */
+body.light-theme .scrolltop {
+    background-color: #f3f4f6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Image borders */
+body.light-theme .img-sec img {
+    border-color: #d1d5db;
+}
+
+/* Grp bg for logbook */
+body.light-theme .grp-bg-img {
+    background: #f9fafb;
+}
+
+/* ========================================
+   SCHEDULE DEMO DIALOG - GLOBAL PANEL
+   ======================================== */
+.demo-dialog-panel .mat-mdc-dialog-container {
+    padding: 0 !important;
+    border-radius: 16px !important;
+    overflow: hidden;
+}
+
+.demo-dialog-panel .mat-mdc-dialog-surface {
+    background: transparent !important;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5) !important;
+    border-radius: 16px !important;
+}
+
+/* Light theme overrides for demo dialog */
+body.light-theme .demo-dialog-panel .mat-mdc-dialog-surface {
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15) !important;
+}
+
+body.light-theme .demo-dialog {
+    background: #ffffff;
+    color: #1f2937;
+}
+
+body.light-theme .demo-dialog .dialog-header h2 {
+    color: #f97316;
+}
+
+body.light-theme .demo-dialog .dialog-header p {
+    color: #6b7280;
+}
+
+body.light-theme .demo-dialog .close-btn {
+    color: #9ca3af;
+}
+
+body.light-theme .demo-dialog .close-btn:hover {
+    color: #f97316;
+}
+
+body.light-theme .demo-dialog .form-group label {
+    color: #374151;
+}
+
+body.light-theme .demo-dialog .form-group input,
+body.light-theme .demo-dialog .form-group textarea {
+    background: #f9fafb;
+    border-color: #d1d5db;
+    color: #1f2937;
+}
+
+body.light-theme .demo-dialog .form-group input:focus,
+body.light-theme .demo-dialog .form-group textarea:focus {
+    border-color: #f97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+}
+
+body.light-theme .demo-dialog .form-group input::placeholder,
+body.light-theme .demo-dialog .form-group textarea::placeholder {
+    color: #9ca3af;
+}
+
+body.light-theme .demo-dialog .form-group input[type="date"] {
+    color-scheme: light;
+}
+
+body.light-theme .demo-dialog .btn-cancel {
+    border-color: #d1d5db;
+    color: #6b7280;
+}
+
+body.light-theme .demo-dialog .btn-cancel:hover {
+    border-color: #9ca3af;
+    color: #1f2937;
+}
+
+/* Light theme for contact-us demo card */
+body.light-theme .demo-card {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.06) 0%, rgba(249, 115, 22, 0.02) 100%);
+    border-color: rgba(249, 115, 22, 0.25);
+}
+
+body.light-theme .demo-card-content p {
+    color: #6b7280;
+}

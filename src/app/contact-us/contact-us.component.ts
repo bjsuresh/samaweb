@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-us',
@@ -13,16 +13,27 @@ export class ContactUsComponent implements OnInit {
   submitted = false;
   files: File[] = [];
 
+  enquiryTypes = [
+    { value: 'enquiry', label: 'For Enquiries' },
+    { value: 'support', label: 'For Support' },
+    { value: 'book-demo', label: 'For Book Demo' }
+  ];
+
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   get f() { return this.registerForm.controls; }
 
   ngOnInit(): void {
+    const typeParam = this.route.snapshot.queryParamMap.get('type');
+    const defaultType = this.enquiryTypes.find(t => t.value === typeParam) ? typeParam : '';
+
     this.registerForm = this.formBuilder.group({
+      enquiryType: [defaultType, [Validators.required]],
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email, this.emailValidator]],
       subject: ['', [Validators.required]],
@@ -48,6 +59,7 @@ export class ContactUsComponent implements OnInit {
 
     if (this.registerForm.valid) {
       const formData = new FormData();
+      formData.append('enquiryType', this.registerForm.get('enquiryType')?.value);
       formData.append('email', this.registerForm.get('email')?.value);
       formData.append('name', this.registerForm.get('name')?.value);
       formData.append('message', this.registerForm.get('message')?.value);

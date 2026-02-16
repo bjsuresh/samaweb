@@ -27,6 +27,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { NgxCaptchaModule } from '@binssoft/ngx-captcha';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CustomCursorDirective } from './custom-cursor.directive';
 import { DashboardComponent } from './products/dashboard/dashboard.component';
@@ -43,6 +44,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { Products5Component } from './pages/products5/products5.component';
 import { CareersComponent } from './careers/careers.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { ScheduleDemoDialogComponent } from './schedule-demo-dialog/schedule-demo-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -70,6 +72,7 @@ import { HttpClientModule } from '@angular/common/http';
     Products5Component,
     CareersComponent,
     PrivacyPolicyComponent,
+    ScheduleDemoDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,6 +91,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatDialogModule,
     DxChartModule,
     DxPieChartModule,
     DxDataGridModule,
