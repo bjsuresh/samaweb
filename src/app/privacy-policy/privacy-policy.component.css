@@ -10,10 +10,10 @@ h3 {
     line-height: .88em;
     text-transform: uppercase;
     margin-bottom: 40px;
-    color: #f97316;
+    color: var(--accent);
 }
 h5 {
-    color: #f97316; 
+    color: var(--accent);
     font-size: 30px;
 }
 p {
@@ -45,6 +45,6 @@ ul {
 }
 
 strong, b {
-    color: #f97316; 
+    color: var(--accent);
     font-size: 20px;
 }

@@ -30,11 +30,11 @@
 .hero-content h1 {
   font-size: 56px;
   font-weight: 800;
-  color: #f97316;
+  color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 20px;
-  text-shadow: 0 4px 30px rgba(251, 131, 36, 0.3);
+  text-shadow: 0 4px 30px rgba(var(--accent-rgb), 0.3);
 }
 
 .hero-content p {
@@ -65,7 +65,7 @@
 .circle-1 {
   width: 300px;
   height: 300px;
-  background: #f97316;
+  background: var(--accent);
   top: -100px;
   right: -50px;
   animation: float 8s ease-in-out infinite;
@@ -112,16 +112,16 @@
 }
 
 .support-form {
-  color: #f97316;
+  color: var(--accent);
   padding: 30px;
   background: rgba(255, 255, 255, 0.02);
   border-radius: 20px;
-  border: 1px solid rgba(251, 131, 36, 0.1);
+  border: 1px solid rgba(var(--accent-rgb), 0.1);
   transition: transform 0.5s ease-in-out, box-shadow 0.3s ease;
 }
 
 .support-form:hover {
-  box-shadow: 0 10px 40px rgba(251, 131, 36, 0.1);
+  box-shadow: 0 10px 40px rgba(var(--accent-rgb), 0.1);
 }
 
 .support-form h3 {
@@ -130,7 +130,7 @@
   line-height: 0.95em;
   text-align: center;
   text-transform: uppercase;
-  color: #f97316;
+  color: var(--accent);
   padding: 20px 0 40px;
 }
 
@@ -177,7 +177,7 @@ label {
 
 .form-control:focus {
   outline: none;
-  box-shadow: 0px 0px 0px 3px #f97316;
+  box-shadow: 0px 0px 0px 3px var(--accent);
   transform: translateY(-2px);
 }
 
@@ -219,7 +219,7 @@ textarea.form-control {
   justify-content: center;
   gap: 10px;
   background: rgba(255, 255, 255, 0.05);
-  border: 2px dashed rgba(251, 131, 36, 0.5);
+  border: 2px dashed rgba(var(--accent-rgb), 0.5);
   border-radius: 15px;
   padding: 25px;
   cursor: pointer;
@@ -228,9 +228,9 @@ textarea.form-control {
 }
 
 .file-label:hover {
-  border-color: #f97316;
-  background: rgba(251, 131, 36, 0.1);
-  color: #f97316;
+  border-color: var(--accent);
+  background: rgba(var(--accent-rgb), 0.1);
+  color: var(--accent);
 }
 
 .file-icon {
@@ -278,7 +278,7 @@ textarea.form-control {
 }
 
 .submit-btn:hover {
-  box-shadow: 0 8px 40px rgba(251, 131, 36, 0.4);
+  box-shadow: 0 8px 40px rgba(var(--accent-rgb), 0.4);
   transform: translateY(-3px);
 }
 
@@ -289,14 +289,14 @@ textarea.form-control {
   position: absolute;
   width: 320px;
   height: 65px;
-  background: linear-gradient(45deg, #FDA8CF, #f97316);
+  background: linear-gradient(45deg, #FDA8CF, var(--accent));
   border-radius: 75px;
   z-index: -1;
   animation: clockwise 1s ease-in-out infinite;
 }
 
 .submit-btn:hover::after {
-  background: linear-gradient(45deg, #F3CE5E, #f97316);
+  background: linear-gradient(45deg, #F3CE5E, var(--accent));
   animation: counterclockwise 2s ease-in-out infinite;
 }
 
@@ -339,7 +339,7 @@ textarea.form-control {
 
 .info-card {
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(251, 131, 36, 0.2);
+  border: 1px solid rgba(var(--accent-rgb), 0.2);
   border-radius: 20px;
   padding: 40px 30px;
   text-align: center;
@@ -350,13 +350,13 @@ textarea.form-control {
 
 .info-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(251, 131, 36, 0.2);
-  border-color: #f97316;
+  box-shadow: 0 20px 40px rgba(var(--accent-rgb), 0.2);
+  border-color: var(--accent);
 }
 
 .info-card.featured {
-  background: rgba(251, 131, 36, 0.1);
-  border-color: #f97316;
+  background: rgba(var(--accent-rgb), 0.1);
+  border-color: var(--accent);
   transform: scale(1.05);
 }
 
@@ -368,7 +368,7 @@ textarea.form-control {
   width: 70px;
   height: 70px;
   margin: 0 auto 20px;
-  background: linear-gradient(135deg, #f97316 0%, #f97316 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent) 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -389,7 +389,7 @@ textarea.form-control {
 .info-card h4 {
   font-size: 22px;
   font-weight: 700;
-  color: #f97316;
+  color: var(--accent);
   margin-bottom: 15px;
 }
 
@@ -628,10 +628,10 @@ textarea.form-control {
 
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(251, 131, 36, 0.3);
+    box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3);
   }
   50% {
-    box-shadow: 0 0 40px rgba(251, 131, 36, 0.5);
+    box-shadow: 0 0 40px rgba(var(--accent-rgb), 0.5);
   }
 }
 
@@ -660,7 +660,7 @@ textarea.form-control {
 
 .popup-card {
   background: linear-gradient(135deg, #0a2a3d 0%, #061823 100%);
-  border: 1px solid rgba(251, 131, 36, 0.3);
+  border: 1px solid rgba(var(--accent-rgb), 0.3);
   border-radius: 20px;
   padding: 40px;
   text-align: center;
@@ -690,7 +690,7 @@ textarea.form-control {
 .popup-card h3 {
   font-size: 22px;
   font-weight: 700;
-  color: #f97316;
+  color: var(--accent);
   margin-bottom: 20px;
 }
 
@@ -703,13 +703,13 @@ textarea.form-control {
 }
 
 .token-id-box {
-  background: rgba(251, 131, 36, 0.1);
-  border: 2px solid #f97316;
+  background: rgba(var(--accent-rgb), 0.1);
+  border: 2px solid var(--accent);
   border-radius: 12px;
   padding: 15px 20px;
   font-size: 22px;
   font-weight: 700;
-  color: #f97316;
+  color: var(--accent);
   letter-spacing: 2px;
   font-family: 'Courier New', monospace;
   margin-bottom: 20px;
@@ -724,7 +724,7 @@ textarea.form-control {
 }
 
 .popup-close-btn {
-  background: linear-gradient(135deg, #f97316 0%, #f97316 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent) 100%);
   color: white;
   border: none;
   border-radius: 50px;
@@ -739,7 +739,7 @@ textarea.form-control {
 
 .popup-close-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(251, 131, 36, 0.4);
+  box-shadow: 0 8px 25px rgba(var(--accent-rgb), 0.4);
 }
 
 @keyframes fadeIn {

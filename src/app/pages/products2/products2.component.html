@@ -228,17 +228,32 @@
                 </div>            
             </div>
             <div class="img-sec">
-                <video class="video-sec" autoplay="true" loop="true" preload="auto" >
-                    <source src="../../assets/dashboard-video.mp4" type="video/mp4">
-                </video>
-                <div class="swiper" #swiperContainer data-aos="zoom-in">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                        <img src="../../../assets/graphics.jpeg" />
+                <div class="video-thumb-standalone" (click)="openVideo('../../assets/dashboard-video.mp4')">
+                    <img src="../../../assets/graphics.jpeg" class="video-thumb-img"/>
+                    <div class="play-btn-overlay">
+                        <div class="play-btn">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                         </div>
-                        <div class="swiper-slide">
-                        <img src="../../../assets/chart.jpeg" />
+                    </div>
+                </div>
+                <div class="media-showcase" data-aos="zoom-in">
+                    <div class="swiper" #swiperContainer>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="media-frame">
+                                    <img src="../../../assets/graphics.jpeg" class="media-content"/>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="media-frame">
+                                    <img src="../../../assets/chart.jpeg" class="media-content"/>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                    <div class="showcase-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
                     </div>
                 </div>
                 <!-- <img src="../../../assets/graphics.jpeg" width="33.33%" class="center-img"/>
@@ -258,21 +273,36 @@
                             <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Mobile Enabling Of Excel Reports</li>
                             <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Timed Or Indefinite Log In To Ensure Privacy</li>
                         </ul>
-                        <!-- <img src="../../../assets/dashboard-mbl.png" class="map-img"/> -->
-                        <div class="swiper" #swiperContainer1 data-aos="zoom-in">
-                            <div class="swiper-wrapper">
-                              <div class="swiper-slide">
-                                <img src="../../../assets/home-mbl-screen.png" class="map-img"/>
-                              </div>
-                              <div class="swiper-slide">
-                                <img src="../../../assets/dashboard-mbl.png" class="map-img"/>
-                              </div>
-                              <div class="swiper-slide">
-                                <img src="../../../assets/realtime-mbl.png" class="map-img"/>
-                              </div>
-                              <div class="swiper-slide">
-                                <img src="../../../assets/table-mbl.png" class="map-img"/>
-                              </div>
+                        <div class="media-showcase mbl-showcase" data-aos="zoom-in">
+                            <div class="swiper" #swiperContainer1>
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="media-frame">
+                                            <img src="../../../assets/home-mbl-screen.png" class="media-content mbl-media"/>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="media-frame">
+                                            <img src="../../../assets/dashboard-mbl.png" class="media-content mbl-media"/>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="media-frame">
+                                            <img src="../../../assets/realtime-mbl.png" class="media-content mbl-media"/>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="media-frame">
+                                            <img src="../../../assets/table-mbl.png" class="media-content mbl-media"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="showcase-dots">
+                                <span class="dot active"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
                             </div>
                         </div>
                     </div>
@@ -313,29 +343,26 @@
                     </div>
                 </div>   
                 <div class="analytics-slide">
-                    <div class="swiper" #swiperContainer2 data-aos="zoom-in">
-                        <div class="swiper-wrapper">
-                          <div class="swiper-slide">
-                            <img src="../../../assets/analytics1.jpeg" />
-                          </div>
-                          <div class="swiper-slide">
-                            <img src="../../../assets/analytics2.jpeg" />
-                          </div>
-                          <!-- <div class="swiper-slide">
-                            <img src="../../../assets/violinchart.png" />
-                          </div>
-                          <div class="swiper-slide">
-                            <img src="../../../assets/piechart.png" />
-                          </div>
-                          <div class="swiper-slide">
-                            <img src="../../../assets/barchart.png" />
-                          </div>
-                          <div class="swiper-slide">
-                            <img src="../../../assets/correlationmatrix.png" class="report-img"/>
-                        </div> -->
+                    <div class="media-showcase" data-aos="zoom-in">
+                        <div class="swiper" #swiperContainer2>
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="media-frame">
+                                        <img src="../../../assets/analytics1.jpeg" class="media-content"/>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="media-frame">
+                                        <img src="../../../assets/analytics2.jpeg" class="media-content"/>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="swiper-pagination"></div>
-                    </div>            
+                        <div class="showcase-dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
                 </div> 
             </div>
         </div>
@@ -354,21 +381,46 @@
                     </div>
                 </div>    
                 <div class="analytics-slide">
-                    <div class="swiper" #swiperContainer4 data-aos="zoom-in">
-                        <div class="swiper-wrapper">
-                          <div class="swiper-slide">
-                            <img src="../../../assets/ae1.jpeg" />
-                          </div>
-                          <div class="swiper-slide">
-                            <img src="../../../assets/ae2.jpeg" />
-                          </div>  
-                          <div class="swiper-slide">
-                            <img src="../../../assets/ae3.jpeg" />
-                          </div>  
+                    <div class="media-showcase" data-aos="zoom-in">
+                        <div class="swiper" #swiperContainer4>
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="media-frame">
+                                        <img src="../../../assets/ae1.jpeg" class="media-content"/>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="media-frame">
+                                        <img src="../../../assets/ae2.jpeg" class="media-content"/>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="media-frame">
+                                        <img src="../../../assets/ae3.jpeg" class="media-content"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="showcase-dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
                         </div>
                     </div>
                 </div>      
             </div>
+        </div>
+    </div>
+
+    <!-- Video Popup Modal -->
+    <div class="video-popup-overlay" *ngIf="showVideoPopup" (click)="closeVideo()">
+        <div class="video-popup" (click)="$event.stopPropagation()">
+            <button class="video-popup-close" (click)="closeVideo()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <video class="video-popup-player" controls autoplay *ngIf="currentVideoSrc">
+                <source [src]="currentVideoSrc" type="video/mp4">
+            </video>
         </div>
     </div>
 </section>

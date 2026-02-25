@@ -6,7 +6,7 @@ h3 {
     line-height: .88em;
     text-transform: uppercase;
     margin-bottom: 40px;
-    color: #f97316;
+    color: var(--accent);
 }
 h5 {
     font-size: 25px;

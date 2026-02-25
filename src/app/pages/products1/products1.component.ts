@@ -19,6 +19,23 @@ export class Products1Component {
   @ViewChild('swiperContainer1') swiperContainer1: any = ElementRef;
   @ViewChild('swiperContainer2') swiperContainer2: any = ElementRef;
 
+  activeReporter = 0;
+
+  showVideoPopup = false;
+  currentVideoSrc = '';
+
+  openVideo(src: string) {
+    this.currentVideoSrc = src;
+    this.showVideoPopup = true;
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeVideo() {
+    this.showVideoPopup = false;
+    this.currentVideoSrc = '';
+    document.body.style.overflow = '';
+  }
+
   ngAfterViewInit() {
   
     let swiper1 = new Swiper(this.swiperContainer1.nativeElement, {

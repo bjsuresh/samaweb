@@ -141,7 +141,7 @@ mat-toolbar.is-scrolled {
   bottom: 0;
   width: 0;
   height: 3px;
-  background-color: #f97316;
+  background-color: var(--accent);
   transition: width 0.25s ease-out;
 }
 .nav-link:hover::before {
@@ -188,8 +188,8 @@ mat-toolbar.is-scrolled {
   margin: 0 auto;
   background: rgba(6, 24, 35, 0.97);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(251, 131, 36, 0.12);
-  border-top: 2px solid #f97316;
+  border: 1px solid rgba(var(--accent-rgb), 0.12);
+  border-top: 2px solid var(--accent);
   border-radius: 14px;
   padding: 28px 30px;
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
@@ -219,14 +219,14 @@ mat-toolbar.is-scrolled {
   gap: 10px;
   padding-bottom: 12px;
   margin-bottom: 10px;
-  border-bottom: 1px solid rgba(251, 131, 36, 0.12);
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.12);
 }
 
 .mega-icon {
   width: 20px;
   height: 20px;
   flex-shrink: 0;
-  color: #f97316;
+  color: var(--accent);
 }
 
 .mega-col-head h6 {
@@ -234,7 +234,7 @@ mat-toolbar.is-scrolled {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: #f97316;
+  color: var(--accent);
   margin: 0;
   padding: 0;
   border: none;
@@ -268,8 +268,8 @@ mat-toolbar.is-scrolled {
 }
 
 .mega-list li a:hover {
-  color: #f97316 !important;
-  background: rgba(251, 131, 36, 0.08);
+  color: var(--accent) !important;
+  background: rgba(var(--accent-rgb), 0.08);
   padding-left: 16px !important;
 }
 
@@ -432,7 +432,7 @@ mat-toolbar.is-scrolled {
     width: 100%;
     border-radius: 0;
     border: none;
-    border-top: 2px solid #f97316;
+    border-top: 2px solid var(--accent);
     padding: 16px 14px;
     background: rgba(0, 0, 0, 0.98);
     box-shadow: none;
@@ -460,6 +460,51 @@ mat-toolbar.is-scrolled {
 }
 
 /* ========================================
+   COLOR PICKER
+   ======================================== */
+.color-picker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 5px 8px;
+  margin-left: 12px;
+}
+
+.swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  outline: none;
+  flex-shrink: 0;
+}
+
+.swatch:hover {
+  transform: scale(1.2);
+}
+
+.swatch.active {
+  border-color: #fff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+:host-context(body.light-theme) .color-picker {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: #d1d5db;
+}
+
+:host-context(body.light-theme) .swatch.active {
+  border-color: #1f2937;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
    THEME TOGGLE BUTTON
    ======================================== */
 .theme-toggle {
@@ -468,7 +513,7 @@ mat-toolbar.is-scrolled {
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: rgba(255, 255, 255, 0.06);
-  color: #f97316;
+  color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -480,9 +525,9 @@ mat-toolbar.is-scrolled {
 
 .theme-toggle:hover {
   transform: scale(1.1);
-  background: rgba(249, 115, 22, 0.15);
-  border-color: rgba(249, 115, 22, 0.4);
-  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.2);
+  background: rgba(var(--accent-rgb), 0.15);
+  border-color: rgba(var(--accent-rgb), 0.4);
+  box-shadow: 0 4px 15px rgba(var(--accent-rgb), 0.2);
 }
 
 .theme-toggle svg {
@@ -522,7 +567,7 @@ mat-toolbar.is-scrolled {
 }
 
 :host-context(body.light-theme) .nav-link::before {
-  background-color: #f97316;
+  background-color: var(--accent);
 }
 
 :host-context(body.light-theme) .theme-toggle {
@@ -533,7 +578,7 @@ mat-toolbar.is-scrolled {
 
 :host-context(body.light-theme) .mega-panel {
   background: rgba(255, 255, 255, 0.97);
-  border-color: rgba(249, 115, 22, 0.15);
+  border-color: rgba(var(--accent-rgb), 0.15);
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
 }
 
@@ -542,12 +587,12 @@ mat-toolbar.is-scrolled {
 }
 
 :host-context(body.light-theme) .mega-list li a:hover {
-  color: #f97316 !important;
-  background: rgba(249, 115, 22, 0.06);
+  color: var(--accent) !important;
+  background: rgba(var(--accent-rgb), 0.06);
 }
 
 :host-context(body.light-theme) .mega-col-head {
-  border-bottom-color: rgba(249, 115, 22, 0.15);
+  border-bottom-color: rgba(var(--accent-rgb), 0.15);
 }
 
 :host-context(body.light-theme) .footer-sec {
@@ -567,7 +612,7 @@ mat-toolbar.is-scrolled {
 }
 
 :host-context(body.light-theme) .footer-sec a:hover {
-  color: #f97316;
+  color: var(--accent);
 }
 
 :host-context(body.light-theme) .footer-sec .copyright {
@@ -589,6 +634,20 @@ mat-toolbar.is-scrolled {
 @media (min-width:0px) and (max-width: 768px) {
   :host-context(body.light-theme) #navbarContent {
     background-color: #ffffff !important;
+  }
+
+  .color-picker {
+    position: absolute;
+    right: 105px;
+    top: 16px;
+    margin-left: 0;
+    padding: 4px 6px;
+    gap: 4px;
+  }
+
+  .swatch {
+    width: 14px;
+    height: 14px;
   }
 
   .theme-toggle {

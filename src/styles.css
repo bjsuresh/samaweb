@@ -1,5 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* ========================================
+   ACCENT COLOR THEMES (CSS Custom Properties)
+   ======================================== */
+:root,
+body.theme-orange {
+  --accent: #f97316;
+  --accent-hover: #ea6a10;
+  --accent-rgb: 249, 115, 22;
+  --accent-light: rgba(249, 115, 22, 0.15);
+  --accent-glow: rgba(249, 115, 22, 0.4);
+}
+
+body.theme-blue {
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-rgb: 59, 130, 246;
+  --accent-light: rgba(59, 130, 246, 0.15);
+  --accent-glow: rgba(59, 130, 246, 0.4);
+}
+
+body.theme-green {
+  --accent: #10b981;
+  --accent-hover: #059669;
+  --accent-rgb: 16, 185, 129;
+  --accent-light: rgba(16, 185, 129, 0.15);
+  --accent-glow: rgba(16, 185, 129, 0.4);
+}
+
+body.theme-purple {
+  --accent: #8b5cf6;
+  --accent-hover: #7c3aed;
+  --accent-rgb: 139, 92, 246;
+  --accent-light: rgba(139, 92, 246, 0.15);
+  --accent-glow: rgba(139, 92, 246, 0.4);
+}
+
+body.theme-red {
+  --accent: #ef4444;
+  --accent-hover: #dc2626;
+  --accent-rgb: 239, 68, 68;
+  --accent-light: rgba(239, 68, 68, 0.15);
+  --accent-glow: rgba(239, 68, 68, 0.4);
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Clarkson, "Helvetica", sans-serif; cursor: url('../src/assets/cursor.png'), auto;}
 @import 'node_modules/aos/dist/aos.css';
@@ -57,7 +101,7 @@ body { margin: 0; font-family: Clarkson, "Helvetica", sans-serif; cursor: url('.
   
 .invalid-feedback {
     font-size: 18px !important;
-    color: #f97316 !important;
+    color: var(--accent) !important;
 }
 
 /* ========================================
@@ -80,7 +124,7 @@ body.light-theme .tile1 {
 }
 
 body.light-theme .tile1 h3 {
-    color: #f97316;
+    color: var(--accent);
 }
 
 body.light-theme .tile1 h5 {
@@ -121,8 +165,8 @@ body.light-theme .feat-item {
 }
 
 body.light-theme .feat-item:hover {
-    background: rgba(249, 115, 22, 0.04);
-    border-color: rgba(249, 115, 22, 0.25);
+    background: rgba(var(--accent-rgb), 0.04);
+    border-color: rgba(var(--accent-rgb), 0.25);
 }
 
 body.light-theme .feat-icon {
@@ -130,7 +174,7 @@ body.light-theme .feat-icon {
 }
 
 body.light-theme .feat-item:hover .feat-icon {
-    background: rgba(249, 115, 22, 0.15);
+    background: rgba(var(--accent-rgb), 0.15);
 }
 
 body.light-theme .feat-label {
@@ -144,7 +188,7 @@ body.light-theme .feat-content p {
 /* Report table */
 body.light-theme .report-table th,
 body.light-theme .report-table td {
-    color: #f97316;
+    color: var(--accent);
 }
 
 /* Subtle text */
@@ -187,7 +231,7 @@ body.light-theme h6 {
 }
 
 body.light-theme .tile1 h3 {
-    color: #f97316;
+    color: var(--accent);
 }
 
 /* Scrolltop button */
@@ -232,7 +276,7 @@ body.light-theme .demo-dialog {
 }
 
 body.light-theme .demo-dialog .dialog-header h2 {
-    color: #f97316;
+    color: var(--accent);
 }
 
 body.light-theme .demo-dialog .dialog-header p {
@@ -244,7 +288,7 @@ body.light-theme .demo-dialog .close-btn {
 }
 
 body.light-theme .demo-dialog .close-btn:hover {
-    color: #f97316;
+    color: var(--accent);
 }
 
 body.light-theme .demo-dialog .form-group label {
@@ -260,8 +304,8 @@ body.light-theme .demo-dialog .form-group textarea {
 
 body.light-theme .demo-dialog .form-group input:focus,
 body.light-theme .demo-dialog .form-group textarea:focus {
-    border-color: #f97316;
-    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.1);
 }
 
 body.light-theme .demo-dialog .form-group input::placeholder,
@@ -285,10 +329,312 @@ body.light-theme .demo-dialog .btn-cancel:hover {
 
 /* Light theme for contact-us demo card */
 body.light-theme .demo-card {
-    background: linear-gradient(135deg, rgba(249, 115, 22, 0.06) 0%, rgba(249, 115, 22, 0.02) 100%);
-    border-color: rgba(249, 115, 22, 0.25);
+    background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.06) 0%, rgba(var(--accent-rgb), 0.02) 100%);
+    border-color: rgba(var(--accent-rgb), 0.25);
 }
 
 body.light-theme .demo-card-content p {
     color: #6b7280;
+}
+
+/* ========================================
+   LIGHT THEME - PRODUCT LIST (INDUSTRY)
+   ======================================== */
+body.light-theme .industry-sec {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+body.light-theme .ind-top-node {
+    background: rgba(var(--accent-rgb), 0.06);
+    border-color: rgba(var(--accent-rgb), 0.3);
+}
+
+body.light-theme .ind-card {
+    background: #ffffff;
+    border-color: rgba(var(--accent-rgb), 0.15);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+body.light-theme .ind-card:hover {
+    box-shadow: 0 8px 30px rgba(var(--accent-rgb), 0.12);
+}
+
+body.light-theme .ind-card-head {
+    background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.08) 0%, rgba(var(--accent-rgb), 0.02) 100%);
+    border-bottom-color: rgba(var(--accent-rgb), 0.1);
+}
+
+body.light-theme .ind-chip {
+    color: #555555;
+    background: #f8f9fa;
+    border-color: #e5e7eb;
+}
+
+body.light-theme .ind-chip:hover {
+    color: var(--accent);
+    background: rgba(var(--accent-rgb), 0.06);
+    border-color: rgba(var(--accent-rgb), 0.25);
+}
+
+body.light-theme .ind-cat-label {
+    color: #888888;
+    background: rgba(var(--accent-rgb), 0.04);
+}
+
+body.light-theme .ind-group-label {
+    color: rgba(var(--accent-rgb), 0.8);
+}
+
+/* ========================================
+   LIGHT THEME - CONTACT US PAGE
+   ======================================== */
+body.light-theme .contact-sec {
+    background-color: #ffffff;
+}
+
+body.light-theme .contact-sec .hero-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+}
+
+body.light-theme .contact-sec .hero-content p {
+    color: #555555;
+}
+
+body.light-theme .contact-sec .form-section {
+    background-color: #ffffff;
+}
+
+body.light-theme .contact-sec .contact-form {
+    background: #f8f9fa;
+    border-color: rgba(var(--accent-rgb), 0.15);
+}
+
+body.light-theme .contact-sec .contact-form:hover {
+    box-shadow: 0 10px 40px rgba(var(--accent-rgb), 0.08);
+}
+
+body.light-theme .contact-sec .info-section {
+    background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+body.light-theme .contact-sec .info-item {
+    background: #ffffff;
+    border-color: rgba(var(--accent-rgb), 0.15);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .contact-sec .info-item:hover {
+    box-shadow: 0 10px 30px rgba(var(--accent-rgb), 0.12);
+}
+
+body.light-theme .contact-sec .info-content p {
+    color: #555555;
+}
+
+body.light-theme .contact-sec .wave-decoration {
+    background: linear-gradient(180deg, #e9ecef 0%, #f8f9fa 100%);
+}
+
+body.light-theme .contact-sec .circle {
+    opacity: 0.06;
+}
+
+body.light-theme .contact-sec label {
+    color: #374151;
+}
+
+/* ========================================
+   LIGHT THEME - SUPPORT PAGE
+   ======================================== */
+body.light-theme .support-sec {
+    background-color: #ffffff;
+}
+
+body.light-theme .support-sec .hero-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+}
+
+body.light-theme .support-sec .hero-content p {
+    color: #555555;
+}
+
+body.light-theme .support-sec .form-section {
+    background-color: #ffffff;
+}
+
+body.light-theme .support-sec .support-form {
+    background: #f8f9fa;
+    border-color: rgba(var(--accent-rgb), 0.15);
+}
+
+body.light-theme .support-sec .support-form:hover {
+    box-shadow: 0 10px 40px rgba(var(--accent-rgb), 0.08);
+}
+
+body.light-theme .support-sec .info-section {
+    background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+body.light-theme .support-sec .info-card {
+    background: #ffffff;
+    border-color: rgba(var(--accent-rgb), 0.15);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+body.light-theme .support-sec .info-card:hover {
+    box-shadow: 0 20px 40px rgba(var(--accent-rgb), 0.12);
+}
+
+body.light-theme .support-sec .info-card.featured {
+    background: rgba(var(--accent-rgb), 0.04);
+    border-color: var(--accent);
+    animation: none;
+}
+
+body.light-theme .support-sec .info-card p {
+    color: #555555;
+}
+
+body.light-theme .support-sec .response-time {
+    color: #9ca3af;
+}
+
+body.light-theme .support-sec .wave-decoration {
+    background: linear-gradient(180deg, #e9ecef 0%, #f8f9fa 100%);
+}
+
+body.light-theme .support-sec .circle {
+    opacity: 0.06;
+}
+
+body.light-theme .support-sec .file-label {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(var(--accent-rgb), 0.3);
+    color: #6b7280;
+}
+
+body.light-theme .support-sec .file-label:hover {
+    background: rgba(var(--accent-rgb), 0.06);
+    color: var(--accent);
+}
+
+body.light-theme .support-sec label {
+    color: #374151;
+}
+
+/* Token popup light theme */
+body.light-theme .support-sec .popup-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-color: rgba(var(--accent-rgb), 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme .support-sec .popup-card h3 {
+    color: var(--accent);
+}
+
+body.light-theme .support-sec .popup-note {
+    color: #6b7280;
+}
+
+body.light-theme .support-sec .token-id-box {
+    background: rgba(var(--accent-rgb), 0.06);
+}
+
+/* ========================================
+   LIGHT THEME - CAREERS PAGE
+   ======================================== */
+body.light-theme .careers-sec {
+    background-color: #ffffff;
+}
+
+body.light-theme .careers-sec .hero-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+}
+
+body.light-theme .careers-sec .hero-content p {
+    color: #555555;
+}
+
+body.light-theme .careers-sec .benefits-section {
+    background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+body.light-theme .careers-sec .benefit-card {
+    background: #ffffff;
+    border-color: rgba(var(--accent-rgb), 0.15);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+body.light-theme .careers-sec .benefit-card:hover {
+    box-shadow: 0 25px 50px rgba(var(--accent-rgb), 0.12);
+}
+
+body.light-theme .careers-sec .benefit-card p {
+    color: #555555;
+}
+
+body.light-theme .careers-sec .form-section {
+    background-color: #e9ecef;
+}
+
+body.light-theme .careers-sec .careers-form {
+    background: #ffffff;
+    border-color: rgba(var(--accent-rgb), 0.15);
+}
+
+body.light-theme .careers-sec .careers-form:hover {
+    box-shadow: 0 10px 40px rgba(var(--accent-rgb), 0.08);
+}
+
+body.light-theme .careers-sec .wave-decoration {
+    background: #e9ecef;
+}
+
+body.light-theme .careers-sec .circle {
+    opacity: 0.06;
+}
+
+body.light-theme .careers-sec .file-label {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(var(--accent-rgb), 0.3);
+    color: #6b7280;
+}
+
+body.light-theme .careers-sec .file-label:hover {
+    background: rgba(var(--accent-rgb), 0.06);
+    color: var(--accent);
+}
+
+body.light-theme .careers-sec label {
+    color: #374151;
+}
+
+/* ========================================
+   LIGHT THEME - ABOUT US PAGE
+   ======================================== */
+body.light-theme .aboutus-sec {
+    background-color: #ffffff;
+    color: #1f2937;
+}
+
+body.light-theme .aboutus-sec h5 {
+    color: #374151;
+}
+
+/* ========================================
+   LIGHT THEME - PRIVACY POLICY PAGE
+   ======================================== */
+body.light-theme .policy-sec {
+    background-color: #ffffff;
+    color: #1f2937;
+}
+
+body.light-theme .policy-sec p {
+    color: #4b5563;
+}
+
+body.light-theme .policy-sec h5 {
+    color: var(--accent);
 }

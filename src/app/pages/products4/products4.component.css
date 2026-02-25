@@ -10,7 +10,7 @@ h3 {
     line-height: .88em;
     text-transform: uppercase;
     margin-bottom: 40px;
-    color: #f97316;
+    color: var(--accent);
 }
 h5 {
     color: #d6dbe1; 
@@ -29,7 +29,7 @@ ul {
 		position: relative;
 		padding: 0 0 0 20px;
         margin-bottom: 6px;
-        color: #f97316;
+        color: var(--accent);
 	}
 }
 ul.round {
@@ -41,7 +41,7 @@ ul.round {
 			top: 5px;
 			width: 10px;
 			height: 10px;
-			background-color: #f97316;
+			background-color: var(--accent);
 			border-radius: 50%;
 			-moz-border-radius: 50%;
 			-webkit-border-radius: 50%;
@@ -74,7 +74,7 @@ ul.circle-checkmark {
         top: 5px;
         width: 5px;
         height: 9px;
-        border: solid #f97316;
+        border: solid var(--accent);
         border-width: 0 2px 2px 0;
         transform: rotate(45deg);
     } */
@@ -210,7 +210,7 @@ ul.featured-checklist li:hover .check-icon {
     width: 180px;
     height: 180px;
     transform: translate(-50%, -50%);
-    border: 1px dashed rgba(251,131,36,0.2);
+    border: 1px dashed rgba(var(--accent-rgb),0.2);
     border-radius: 50%;
     animation: alarmOrbitSpin 20s linear infinite;
     z-index: 1;
@@ -229,7 +229,7 @@ ul.featured-checklist li:hover .check-icon {
     transform: translate(-50%, -50%);
     width: 90px;
     height: 90px;
-    background: radial-gradient(circle, rgba(251,131,36,0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(var(--accent-rgb),0.12) 0%, transparent 70%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -256,8 +256,8 @@ ul.featured-checklist li:hover .check-icon {
 }
 
 @keyframes alarmPulse {
-    0%, 100% { box-shadow: 0 0 25px rgba(251,131,36,0.15), 0 0 50px rgba(251,131,36,0.05); }
-    50% { box-shadow: 0 0 35px rgba(251,131,36,0.3), 0 0 70px rgba(251,131,36,0.1); }
+    0%, 100% { box-shadow: 0 0 25px rgba(var(--accent-rgb),0.15), 0 0 50px rgba(var(--accent-rgb),0.05); }
+    50% { box-shadow: 0 0 35px rgba(var(--accent-rgb),0.3), 0 0 70px rgba(var(--accent-rgb),0.1); }
 }
 
 /* Feature Cards */
@@ -270,7 +270,7 @@ ul.featured-checklist li:hover .check-icon {
 .a-card-num {
     font-size: 28px;
     font-weight: 800;
-    color: rgba(251,131,36,0.15);
+    color: rgba(var(--accent-rgb),0.15);
     line-height: 1;
     margin-bottom: 6px;
     font-family: 'Montserrat', sans-serif;
@@ -280,22 +280,22 @@ ul.featured-checklist li:hover .check-icon {
 .a-card-text {
     font-size: 12.5px;
     font-weight: 600;
-    color: #f97316;
+    color: var(--accent);
     line-height: 1.4;
     max-width: 150px;
     position: relative;
     padding-left: 10px;
-    border-left: 2px solid rgba(251,131,36,0.3);
+    border-left: 2px solid rgba(var(--accent-rgb),0.3);
     transition: all 0.3s ease;
 }
 
 .a-card:hover .a-card-num {
-    color: rgba(251,131,36,0.35);
+    color: rgba(var(--accent-rgb),0.35);
 }
 
 .a-card:hover .a-card-text {
-    border-left-color: #f97316;
-    text-shadow: 0 0 20px rgba(251,131,36,0.3);
+    border-left-color: var(--accent);
+    text-shadow: 0 0 20px rgba(var(--accent-rgb),0.3);
 }
 
 /* Card Positions - circular layout */
@@ -310,13 +310,13 @@ ul.featured-checklist li:hover .check-icon {
 }
 .a-card-2 .a-card-text {
     border-left: none;
-    border-right: 2px solid rgba(251,131,36,0.3);
+    border-right: 2px solid rgba(var(--accent-rgb),0.3);
     padding-left: 0;
     padding-right: 10px;
     margin-left: auto;
 }
 .a-card-2:hover .a-card-text {
-    border-right-color: #f97316;
+    border-right-color: var(--accent);
 }
 .a-card-3 {
     top: 42%;
@@ -325,13 +325,13 @@ ul.featured-checklist li:hover .check-icon {
 }
 .a-card-3 .a-card-text {
     border-left: none;
-    border-right: 2px solid rgba(251,131,36,0.3);
+    border-right: 2px solid rgba(var(--accent-rgb),0.3);
     padding-left: 0;
     padding-right: 10px;
     margin-left: auto;
 }
 .a-card-3:hover .a-card-text {
-    border-right-color: #f97316;
+    border-right-color: var(--accent);
 }
 .a-card-4 {
     bottom: 3%;
@@ -340,13 +340,13 @@ ul.featured-checklist li:hover .check-icon {
 }
 .a-card-4 .a-card-text {
     border-left: none;
-    border-right: 2px solid rgba(251,131,36,0.3);
+    border-right: 2px solid rgba(var(--accent-rgb),0.3);
     padding-left: 0;
     padding-right: 10px;
     margin-left: auto;
 }
 .a-card-4:hover .a-card-text {
-    border-right-color: #f97316;
+    border-right-color: var(--accent);
 }
 .a-card-5 {
     bottom: 3%;
@@ -397,9 +397,9 @@ ul.featured-checklist li:hover .check-icon {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #f97316;
-    background: rgba(251,131,36,0.1);
-    border: 1px solid rgba(251,131,36,0.25);
+    color: var(--accent);
+    background: rgba(var(--accent-rgb),0.1);
+    border: 1px solid rgba(var(--accent-rgb),0.25);
     padding: 4px 14px;
     border-radius: 50px;
     margin-bottom: 12px;
@@ -424,8 +424,8 @@ ul.featured-checklist li:hover .check-icon {
 }
 
 .feat-item:hover {
-    background: rgba(251,131,36,0.06);
-    border-color: rgba(251,131,36,0.2);
+    background: rgba(var(--accent-rgb),0.06);
+    border-color: rgba(var(--accent-rgb),0.2);
     transform: translateX(5px);
 }
 
@@ -433,7 +433,7 @@ ul.featured-checklist li:hover .check-icon {
     flex-shrink: 0;
     width: 36px;
     height: 36px;
-    background: rgba(251,131,36,0.1);
+    background: rgba(var(--accent-rgb),0.1);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -445,11 +445,11 @@ ul.featured-checklist li:hover .check-icon {
     width: 18px !important;
     height: 18px !important;
     margin: 0 !important;
-    color: #f97316;
+    color: var(--accent);
 }
 
 .feat-item:hover .feat-icon {
-    background: rgba(251,131,36,0.2);
+    background: rgba(var(--accent-rgb),0.2);
     transform: scale(1.1);
 }
 
@@ -768,13 +768,13 @@ ul.featured-checklist li:hover .check-icon {
   }
   
   .report-table thead tr {
-    color: #f97316;
+    color: var(--accent);
   }
 
   .report-table th, .report-table td {
     padding: 12px 35px;
     margin: 0;
-    color: #f97316;
+    color: var(--accent);
     list-style: none;
     background-image: url(../../../assets/check.png);
     background-repeat: no-repeat;
@@ -783,15 +783,15 @@ ul.featured-checklist li:hover .check-icon {
     font-weight: 500;
   }
   /* .report-table tbody tr {
-    background-color: #f97316;
+    background-color: var(--accent);
   }
   
   .report-table tbody tr:nth-of-type(even) {
-    background-color: #f97316;
+    background-color: var(--accent);
   }
   
   .report-table tbody tr:hover {
-    background-color: #f97316;
+    background-color: var(--accent);
   } */
 
 .icon{

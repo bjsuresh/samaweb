@@ -1,6 +1,7 @@
 import { Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
 import * as AOS from 'aos';
 import { Title, Meta } from '@angular/platform-browser';
+import { ThemeService, ACCENT_THEMES } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -85,7 +86,9 @@ export class AppComponent {
   }
 
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer2,private title: Title, private meta: Meta) { }
+  accentThemes = ACCENT_THEMES;
+
+  constructor(private elementRef: ElementRef, private renderer: Renderer2, private title: Title, private meta: Meta, public themeService: ThemeService) { }
 
   ngAfterViewInit() {
     console.log(this.navbarContent);
