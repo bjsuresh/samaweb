@@ -15,11 +15,25 @@ export class SupportComponent implements OnInit {
   generatedTokenId = '';
 
   products: string[] = [
-    'AIMS',
-    'PIMS/UHN/EMS',
-    'ANALYTICS',
-    'DMS',
-    'ERP'
+    'AIMS - Alarm Management System',
+    'AIMS - AE Reporter',
+    'AIMS - Alarm Alerts',
+    'AIMS - AE Web Client',
+    'AIMS - Change Management',
+    'AIMS - Root Cause Analysis',
+    'AIMS - Alarm Rationalisation',
+    'PIMS/EMS - Real Time Historian',
+    'PIMS/EMS - Reporter',
+    'PIMS/EMS - Real Time Calculator',
+    'PIMS/EMS - Web Clients & Dashboard',
+    'PIMS/EMS - Web Analytics',
+    'PIMS/EMS - Mobile App',
+    'PIMS/EMS - SAP Interface',
+    'Web Server',
+    'Data Collectors & OPC Integrators',
+    'Document Management System',
+    'OPC Products',
+    'Digital E-Logbook'
   ];
 
   priorities: string[] = ['High', 'Medium', 'Low'];

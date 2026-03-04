@@ -828,7 +828,7 @@ p:hover use{
 .media-content {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 12px;
     display: block;
     transition: transform 0.5s ease;
@@ -983,7 +983,7 @@ p:hover use{
 .video-thumb-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }
 
@@ -1061,7 +1061,7 @@ p:hover use{
     height: 40px;
     border-radius: 50%;
     border: none;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.54);
     color: #ffffff;
     cursor: pointer;
     display: flex;

@@ -19,7 +19,17 @@ export class Products1Component {
   @ViewChild('swiperContainer1') swiperContainer1: any = ElementRef;
   @ViewChild('swiperContainer2') swiperContainer2: any = ElementRef;
 
-  activeReporter = 0;
+  activeReporter = -1;
+  showDetail = false;
+
+  setReporter(n: number) {
+    this.activeReporter = n;
+    this.showDetail = true;
+  }
+
+  hideDetail() {
+    this.showDetail = false;
+  }
 
   showVideoPopup = false;
   currentVideoSrc = '';

@@ -58,6 +58,7 @@ export class HomeComponent  implements OnInit, OnDestroy {
   private productionData: number[] = [];
   
   Math = Math; // Make Math available in template
+  activeTab: string = 'overview';
 
   constructor(private router: Router) {}
 
@@ -192,4 +193,9 @@ export class HomeComponent  implements OnInit, OnDestroy {
         'Nice working with you in IOCL BGR and we are delighted to inform you that BGR project has been successfully completed.',
     },
   ];
+
+  switchTab(layer: string, event: Event) {
+    this.activeTab = layer;
+  }
+
 }

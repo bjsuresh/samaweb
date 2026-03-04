@@ -1,35 +1,21 @@
 
 
-.dashboard-banner {
+.dashboard-banner,
+.dashboard-preview {
   background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
   padding: 0.5rem;
   border-radius: 16px;
   position: relative;
   overflow: hidden;
   font-family: 'Outfit', sans-serif;
-  
+
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-      repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 50px,
-        rgba(8, 131, 149, 0.03) 50px,
-        rgba(8, 131, 149, 0.03) 51px
-      ),
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 50px,
-        rgba(8, 131, 149, 0.03) 50px,
-        rgba(8, 131, 149, 0.03) 51px
-      );
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(8,131,149,0.03) 50px, rgba(8,131,149,0.03) 51px),
+      repeating-linear-gradient(0deg,  transparent, transparent 50px, rgba(8,131,149,0.03) 50px, rgba(8,131,149,0.03) 51px);
     animation: gridPulse 20s ease-in-out infinite;
     pointer-events: none;
   }
@@ -42,23 +28,33 @@
 
 .dashboard-banner .stats-grid {
   display: flex;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   position: relative;
   z-index: 1;
   margin-bottom: 1rem;
 }
 
- .dashboard-banner .stat-card {
+.dashboard-preview .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0;
+}
+
+.dashboard-banner .stat-card,
+.dashboard-preview .stat-card {
   background: linear-gradient(145deg, rgba(27, 38, 59, 0.9) 0%, rgba(13, 27, 42, 0.9) 100%);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(8, 131, 149, 0.3);
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1rem;
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
-  
+  text-align: left;
+
   &::before {
     content: '';
     position: absolute;
@@ -72,47 +68,86 @@
     transition: opacity 0.3s ease;
     z-index: -1;
   }
-  
+
   &:hover {
     transform: translateY(-4px);
     border-color: rgba(5, 195, 221, 0.6);
     box-shadow: 0 8px 24px rgba(5, 195, 221, 0.2);
-    
+
     &::before {
       opacity: 0.3;
     }
   }
 }
 
+/* ── Old banner card variants ── */
 .dashboard-banner .stat-card.active-devices {
   .stat-icon { color: #05c3dd; }
   .chart-line { stroke: #05c3dd; }
-  .pulse-indicator {
-    background: #05c3dd;
-  }
+  .pulse-indicator { background: #05c3dd; }
 }
-
 .dashboard-banner .stat-card.system-uptime {
   .stat-icon { color: #00ff88; }
   .ring-progress { stroke: #00ff88; }
 }
-
 .dashboard-banner .stat-card.production-rate {
   .stat-icon { color: #00b4d8; }
   .chart-line { stroke: #00b4d8; }
   .chart-area { fill: #00b4d8; }
 }
-
 .dashboard-banner .stat-card.active-alerts {
   .stat-icon { color: #ffb800; }
-  
   &.has-alerts {
     border-color: rgba(255, 184, 0, 0.5);
-    
-    .alert-indicator {
-      display: block;
-    }
+    .alert-indicator { display: block; }
   }
+}
+
+/* ── Drill-layer card color variants ── */
+/* Tab 1 */
+.dashboard-preview .stat-card.production-rate {
+  .stat-icon { color: #05c3dd; }
+  .chart-line { stroke: #05c3dd; }
+  .pulse-indicator { background: #05c3dd; }
+}
+.dashboard-preview .stat-card.active-alerts {
+  .stat-icon { color: #ffb800; }
+  .alert-pulse { display: block; }
+  border-color: rgba(255, 184, 0, 0.4);
+}
+/* Tab 2 */
+.dashboard-preview .stat-card.plant-output {
+  .stat-icon { color: #00b4d8; }
+  .chart-line { stroke: #00b4d8; }
+}
+.dashboard-preview .stat-card.inverter-status {
+  .stat-icon { color: #05c3dd; }
+  .pulse-indicator { background: #05c3dd; }
+}
+.dashboard-preview .stat-card.energy-yield {
+  .stat-icon { color: #00ff88; }
+  .chart-line { stroke: #00ff88; }
+}
+.dashboard-preview .stat-card.pr-ratio {
+  .stat-icon { color: #00b4d8; }
+  .pulse-indicator { background: #00b4d8; }
+}
+/* Tab 3 */
+.dashboard-preview .stat-card.inv-voltage {
+  .stat-icon { color: #05c3dd; }
+  .pulse-indicator { background: #05c3dd; }
+}
+.dashboard-preview .stat-card.inv-power {
+  .stat-icon { color: #ffb800; }
+  .chart-line { stroke: #ffb800; }
+}
+.dashboard-preview .stat-card.inv-current {
+  .stat-icon { color: #00b4d8; }
+}
+.dashboard-preview .stat-card.inv-alerts {
+  .stat-icon { color: #ff4444; }
+  .alert-pulse { display: block; }
+  border-color: rgba(255, 68, 68, 0.4);
 }
 
 .stat-icon {
@@ -919,6 +954,7 @@ p {
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.3s ease;
+  width: 215px;
 }
 
 .btn-outline-cta:hover {
@@ -1040,6 +1076,158 @@ p {
   transform: translateY(-3px);
   transition: all 0.3s ease;
 }
+
+  /* ── TABS ── */
+  .drill-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    background: rgba(0,0,0,0.2);
+    padding: 0 18px;
+  }
+  .drill-tab {
+    padding: 11px 18px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .drill-tab:hover { color: var(--text-primary); }
+  .drill-tab.active {
+    color: var(--accent-cyan);
+    border-bottom-color: var(--accent-cyan);
+  }
+
+  /* ── LAYER CONTENT ── */
+  .drill-layer { display: none; padding: 18px; }
+  .drill-layer.active { display: flex; flex-direction: column; gap: 14px; }
+
+  /* ── MAP PANEL ── */
+  .map-panel {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(0,255,136,0.12);
+    border-radius: 10px;
+    padding: 12px;
+    position: relative;
+  }
+  .map-panel-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: #00ff88;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    opacity: 0.85;
+  }
+  .india-map-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 400 / 420;
+    overflow: hidden;
+  }
+  .map-grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(0,255,136,0.03) 20px, rgba(0,255,136,0.03) 21px),
+      repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(0,255,136,0.03) 20px, rgba(0,255,136,0.03) 21px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .india-outline {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  /* ── STATE HIGHLIGHTS ── */
+  .state-karnataka {
+    fill: rgba(0,255,136,0.18);
+    stroke: #00ff88;
+    stroke-width: 1;
+    filter: drop-shadow(0 0 5px rgba(0,255,136,0.45));
+    animation: stateGlow 3s ease-in-out infinite;
+  }
+  .state-tamilnadu {
+    fill: rgba(0,255,136,0.13);
+    stroke: #00ff88;
+    stroke-width: 1;
+    filter: drop-shadow(0 0 4px rgba(0,255,136,0.35));
+    animation: stateGlow 3s ease-in-out infinite 0.5s;
+  }
+  @keyframes stateGlow {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.7; }
+  }
+  .state-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7px;
+    fill: rgba(0,255,136,0.75);
+    text-anchor: middle;
+    letter-spacing: 0.5px;
+    pointer-events: none;
+  }
+
+  /* ── MAP PINS ── */
+  .map-pin {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+  }
+  .map-pin-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #00ff88;
+    box-shadow: 0 0 0 3px rgba(0,255,136,0.2), 0 0 10px rgba(0,255,136,0.5);
+    animation: mapPinPulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  .map-pin.amber .map-pin-dot {
+    background: var(--accent-amber, #f0a030);
+    box-shadow: 0 0 0 3px rgba(240,160,48,0.2), 0 0 10px rgba(240,160,48,0.5);
+  }
+  .map-pin-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    color: #00ff88;
+    white-space: nowrap;
+    background: rgba(0,0,0,0.65);
+    padding: 2px 5px;
+    border-radius: 3px;
+    border: 1px solid rgba(0,255,136,0.2);
+  }
+  .map-pin.amber .map-pin-label {
+    color: var(--accent-amber, #f0a030);
+    border-color: rgba(240,160,48,0.25);
+  }
+  @keyframes mapPinPulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(0,255,136,0.2), 0 0 10px rgba(0,255,136,0.5); }
+    50%       { box-shadow: 0 0 0 6px rgba(0,255,136,0.1), 0 0 18px rgba(0,255,136,0.7); }
+  }
+
+  /* ── TWO-COL LAYOUT: CARDS + MAP ── */
+  .layer-body {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 14px;
+    align-items: start;
+  }
+  @media (max-width: 700px) {
+    .layer-body { grid-template-columns: 1fr; }
+  }
 
 /* ═══════════════════════════════════════════════
    2. STATS SECTION
@@ -1833,4 +2021,28 @@ p {
   .services-grid { grid-template-columns: repeat(3, 1fr); }
   .why-grid { grid-template-columns: repeat(2, 1fr); }
   .testimonials-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+}
+.india-map {
+  width: 100%;
+  max-width: 600px;
+}
+
+.india-map path {
+  fill: #0f172a;
+  stroke: #38bdf8;
+  stroke-width: 1;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.india-map path:hover {
+  fill: #1e293b;
+}
+
+.highlight-blue {
+  fill: #38bdf8 !important;
+}
+
+.highlight-amber {
+  fill: #f59e0b !important;
 }

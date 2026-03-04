@@ -9,11 +9,11 @@ h3 {
     color: var(--accent);
 }
 h5 {
-    font-size: 25px;
+    font-size: 18px;
     padding: 20px;
 }
 .aboutus-sec {
     background-color: #061823;
     padding: 40px 0px;
-    color: #ffffff;
+    color: #d6dbe1;
 }

@@ -20,7 +20,6 @@
       <div class="hero-cta">
         <a routerLink="/products1" class="btn-primary-cta">Explore Products</a>
           <button class="btn-outline-cta" (click)="openDemoDialog()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Schedule a Demo
           </button>
         <!-- <a routerLink="/contactus" class="btn-outline-cta">Contact Us</a> -->
@@ -35,244 +34,409 @@
           <div class="dashboard-title-bar">SUPRA PIMS — CONTROL ROOM</div>
         </div>
         <!-- Dashboard Banner Component -->
-        <div class="dashboard-banner">
-          <!-- Main Stats Grid -->
-          <div class="stats-grid">
-            
-            <!-- Active Devices Card -->
-            <div class="stat-card active-devices">
-              <div class="stat-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="2" y="3" width="20" height="14" rx="2"/>
-                  <line x1="8" y1="21" x2="16" y2="21"/>
-                  <line x1="12" y1="17" x2="12" y2="21"/>
-                </svg>
-              </div>
-              <div class="stat-content">
-                <div class="stat-label">Active Devices</div>
-                <div class="stat-value">
-                  <span class="counter" [@countAnimation]>{{ activeDevices }}</span>
-                  <span class="stat-unit">/ {{ totalDevices }}</span>
-                </div>
-                <div class="stat-trend positive">
-                  <svg class="trend-icon" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M7 14l5-5 5 5H7z"/>
-                  </svg>
-                  <span>{{ devicesTrend }}%</span>
-                  <span class="trend-label">vs last hour</span>
-                </div>
-              </div>
-              <div class="stat-mini-chart">
-                <svg viewBox="0 0 100 40" preserveAspectRatio="none">
-                  <polyline
-                    class="chart-line"
-                    [attr.points]="devicesChartPoints"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  />
-                </svg>
-              </div>
-              <div class="pulse-indicator"></div>
-            </div>
+         
+  <!-- Tabs -->
+  <div class="drill-tabs">
+    <button class="drill-tab" [class.active]="activeTab === 'overview'" (click)="switchTab('overview', $event)">
+      <span class="tab-num">①</span> National Overview
+    </button>
+    <button class="drill-tab" [class.active]="activeTab === 'plant'" (click)="switchTab('plant', $event)">
+      <span class="tab-num">②</span> Plant Level
+    </button>
+    <button class="drill-tab" [class.active]="activeTab === 'inverter'" (click)="switchTab('inverter', $event)">
+      <span class="tab-num">③</span> Inverter Detail
+    </button>
+  </div>
 
-            <!-- System Uptime Card -->
-            <div class="stat-card system-uptime">
-              <div class="stat-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"/>
-                  <polyline points="12 6 12 12 16 14"/>
-                </svg>
-              </div>
-              <div class="stat-content">
-                <div class="stat-label">System Uptime</div>
-                <div class="stat-value">
-                  <span class="counter">{{ uptimePercentage | number:'1.1-1' }}</span>
-                  <span class="stat-unit">%</span>
-                </div>
-                <div class="stat-trend neutral">
-                  <svg class="trend-icon" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M4 12h16"/>
-                  </svg>
-                  <span>{{ uptimeDays }} days</span>
-                  <span class="trend-label">continuous</span>
-                </div>
-              </div>
-              <div class="status-ring">
-                <svg viewBox="0 0 100 100">
-                  <circle class="ring-bg" cx="50" cy="50" r="45"/>
-                  <circle 
-                    class="ring-progress" 
-                    cx="50" 
-                    cy="50" 
-                    r="45"
-                    [style.strokeDashoffset]="uptimeRingOffset"
-                  />
-                </svg>
-              </div>
-            </div>
+  <!-- ══ TAB 1: NATIONAL OVERVIEW ══ -->
+  <div class="drill-layer" [class.active]="activeTab === 'overview'" id="layer-overview">
+    <div class="layer-body">
 
-            <!-- Production Rate Card -->
-            <div class="stat-card production-rate">
-              <div class="stat-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                  <line x1="12" y1="22.08" x2="12" y2="12"/>
-                </svg>
-              </div>
-              <div class="stat-content">
-                <div class="stat-label">Production Rate</div>
-                <div class="stat-value">
-                  <span class="counter">{{ productionRate }}</span>
-                  <span class="stat-unit">units/hr</span>
-                </div>
-                <div class="stat-trend positive">
-                  <svg class="trend-icon" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M7 14l5-5 5 5H7z"/>
-                  </svg>
-                  <span>{{ productionTrend }}%</span>
-                  <span class="trend-label">efficiency</span>
-                </div>
-              </div>
-              <div class="stat-mini-chart">
-                <svg viewBox="0 0 100 40" preserveAspectRatio="none">
-                  <defs>
-                    <linearGradient id="productionGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" style="stop-color:currentColor;stop-opacity:0.3" />
-                      <stop offset="100%" style="stop-color:currentColor;stop-opacity:0" />
-                    </linearGradient>
-                  </defs>
-                  <polyline
-                    class="chart-area"
-                    [attr.points]="productionChartPoints + ' 100,40 0,40'"
-                    fill="url(#productionGradient)"
-                  />
-                  <polyline
-                    class="chart-line"
-                    [attr.points]="productionChartPoints"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  />
-                </svg>
-              </div>
-            </div>
+      <!-- Stat Cards -->
+      <div class="stats-grid">
 
-            <!-- Active Alerts Card -->
-            <div class="stat-card active-alerts" [class.has-alerts]="activeAlerts > 0">
-              <div class="stat-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                  <line x1="12" y1="9" x2="12" y2="13"/>
-                  <line x1="12" y1="17" x2="12.01" y2="17"/>
-                </svg>
-              </div>
-              <div class="stat-content">
-                <div class="stat-label">Active Alerts</div>
-                <div class="stat-value">
-                  <span class="counter">{{ activeAlerts }}</span>
-                  <span class="stat-unit">warnings</span>
-                </div>
-                <div class="stat-trend" [class.negative]="alertsTrend > 0" [class.positive]="alertsTrend < 0">
-                  <svg class="trend-icon" viewBox="0 0 24 24" fill="currentColor" *ngIf="alertsTrend !== 0">
-                    <path *ngIf="alertsTrend > 0" d="M7 10l5 5 5-5H7z"/>
-                    <path *ngIf="alertsTrend < 0" d="M7 14l5-5 5 5H7z"/>
-                  </svg>
-                  <span>{{ Math.abs(alertsTrend) }}</span>
-                  <span class="trend-label">from yesterday</span>
-                </div>
-              </div>
-              <div class="alert-indicator" *ngIf="activeAlerts > 0">
-                <div class="alert-pulse"></div>
-              </div>
-            </div>
-
+        <!-- Locations -->
+        <div class="stat-card production-rate">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
           </div>
-
-          <!-- Live Status Bar -->
-          <div class="live-status-bar">
-            <div class="status-indicator">
-              <span class="live-dot"></span>
-              <span class="status-text">Live Updates</span>
-            </div>
-            <div class="status-time">
-              Last updated: {{ lastUpdateTime | date:'HH:mm:ss' }}
-            </div>
-            <div class="status-connection">
-              <svg viewBox="0 0 24 24" fill="currentColor" class="connection-icon">
-                <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/>
-              </svg>
-              <span>Connected</span>
-            </div>
+          <div class="stat-label">Locations</div>
+          <div class="stat-value">2 <span class="stat-unit">Plants</span></div>
+          <div class="stat-trend positive">
+            <svg class="trend-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7 14l5-5 5 5H7z"/></svg>
+            <span>227.24 MW</span>
+            <span class="trend-label">total capacity</span>
           </div>
-
-          <!-- Quick Stats Ticker -->
-          <div class="stats-ticker">
-            <div class="ticker-item">
-              <span class="ticker-label">Energy Consumption:</span>
-              <span class="ticker-value">{{ energyConsumption }} kWh</span>
-            </div>
-            <div class="ticker-divider"></div>
-            <div class="ticker-item">
-              <span class="ticker-label">Avg Response Time:</span>
-              <span class="ticker-value">{{ avgResponseTime }} ms</span>
-            </div>
-            <div class="ticker-divider"></div>
-            <div class="ticker-item">
-              <span class="ticker-label">Data Throughput:</span>
-              <span class="ticker-value">{{ dataThroughput }} MB/s</span>
-            </div>
-            <div class="ticker-divider"></div>
-            <div class="ticker-item">
-              <span class="ticker-label">Active Sessions:</span>
-              <span class="ticker-value">{{ activeSessions }}</span>
-            </div>
-          </div>
-
         </div>
+
+        <!-- Active Alerts -->
+        <div class="stat-card active-alerts">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+          <div class="stat-label">Active Alerts</div>
+          <div class="stat-value">3 <span class="stat-unit">warnings</span></div>
+          <div class="stat-trend negative">
+            <svg class="trend-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5H7z"/></svg>
+            <span>+2</span>
+            <span class="trend-label">from yesterday</span>
+          </div>
+          <div class="alert-pulse"></div>
+        </div>
+
+      </div><!-- /stats-grid -->
+
+      <!-- India Map -->
+      <div class="map-panel">
+        <div class="map-panel-title">India Power Plants</div>
+        <div class="india-map-wrap">
+          <div class="map-grid-overlay"></div>
+          <svg class="india-outline" viewBox="0 0 400 420" preserveAspectRatio="xMidYMid meet">
+            <!-- India outline — green -->
+            <path d="M165,28 L198,22 L228,28 L258,24 L285,35 L305,32 L328,48 L342,68 L338,88 L348,108
+                     L344,130 L352,148 L342,168 L330,188 L318,208 L300,230 L282,256 L264,278 L248,296
+                     L230,312 L212,322 L200,330 L192,312 L180,288 L162,268 L142,244 L122,220 L108,198
+                     L98,172 L88,148 L84,124 L90,104 L98,84 L110,64 L124,50 L145,36 Z"
+              fill="rgba(0,255,136,0.04)" stroke="#00ff88" stroke-opacity="0.35" stroke-width="1.5"/>
+            <!-- Karnataka highlight -->
+            <path class="state-karnataka"
+              d="M 158,220 L 178,215 L 200,218 L 210,232 L 205,248 L 192,260 L 172,265 L 154,262 L 143,248 L 145,230 Z"/>
+            <!-- Tamil Nadu highlight -->
+            <path class="state-tamilnadu"
+              d="M 190,262 L 210,258 L 232,262 L 250,275 L 258,292 L 252,308 L 232,316 L 210,322 L 200,330 L 192,314 L 188,292 Z"/>
+            <!-- State labels -->
+            <text class="state-label" x="178" y="244">KARNATAKA</text>
+            <text class="state-label" x="222" y="295">TAMIL NADU</text>
+          </svg>
+          <!-- connecting dashed line -->
+          <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" viewBox="0 0 400 420">
+            <line x1="178" y1="238" x2="222" y2="288"
+              stroke="rgba(0,255,136,0.25)" stroke-width="1" stroke-dasharray="4 3"/>
+          </svg>
+          <div class="map-pin" style="top:56%;left:44%;">
+            <div class="map-pin-dot"></div>
+            <div class="map-pin-label">Karnataka · 120 MW</div>
+          </div>
+          <div class="map-pin amber" style="top:72%;left:55%;">
+            <div class="map-pin-dot"></div>
+            <div class="map-pin-label">Kamudi · 107 MW</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /layer-body -->
+  </div><!-- /overview -->
+
+
+  <!-- ══ TAB 2: PLANT LEVEL ══ -->
+  <div class="drill-layer" [class.active]="activeTab === 'plant'" id="layer-plant">
+    <div class="layer-body">
+
+      <div class="stats-grid">
+
+        <!-- Plant Output -->
+        <div class="stat-card plant-output">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <div class="stat-label">Production Rate</div>
+          <div class="stat-value">184 <span class="stat-unit">units/hr</span></div>
+          <div class="stat-trend positive">
+            <svg class="trend-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7 14l5-5 5 5H7z"/></svg>
+            <span>8.4%</span>
+            <span class="trend-label">efficiency</span>
+          </div>
+          <div class="stat-mini-chart">
+            <svg viewBox="0 0 100 40" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="g1" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:currentColor;stop-opacity:0.3"/>
+                  <stop offset="100%" style="stop-color:currentColor;stop-opacity:0"/>
+                </linearGradient>
+              </defs>
+              <polygon points="0,35 20,30 40,25 60,18 80,14 100,10 100,40 0,40" fill="url(#g1)"/>
+              <polyline points="0,35 20,30 40,25 60,18 80,14 100,10" fill="none" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Inverter Status -->
+        <div class="stat-card inverter-status">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <div class="stat-label">Inverter Status</div>
+          <div class="stat-value">96 <span class="stat-unit">/ 100 OK</span></div>
+          <div class="stat-trend positive">
+            <svg class="trend-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7 14l5-5 5 5H7z"/></svg>
+            <span>96%</span>
+            <span class="trend-label">operational</span>
+          </div>
+        </div>
+
+        <!-- Energy Yield -->
+        <div class="stat-card energy-yield">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <div class="stat-label">Energy Yield</div>
+          <div class="stat-value">227.24 <span class="stat-unit">MW</span></div>
+          <div class="stat-trend positive">
+            <svg class="trend-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7 14l5-5 5 5H7z"/></svg>
+            <span>+12.3%</span>
+            <span class="trend-label">vs yesterday</span>
+          </div>
+          <div class="stat-mini-chart">
+            <svg viewBox="0 0 100 40" preserveAspectRatio="none">
+              <polyline points="0,38 10,36 20,34 30,28 40,24 50,20 60,22 70,14 80,16 90,10 100,8" fill="none" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- PR Ratio -->
+        <div class="stat-card pr-ratio">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="20" x2="18" y2="10"/>
+              <line x1="12" y1="20" x2="12" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+          </div>
+          <div class="stat-label">AC Voltage</div>
+          <div class="stat-value">1,497 <span class="stat-unit">V</span></div>
+          <div class="stat-trend neutral">
+            <svg class="trend-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4 12h16"/></svg>
+            <span>±0.2%</span>
+            <span class="trend-label">stable</span>
+          </div>
+          <div class="pulse-indicator"></div>
+        </div>
+
+      </div>
+
+      <!-- India Map (Plant level) -->
+      <div class="map-panel">
+        <div class="map-panel-title">Plant Locations</div>
+        <div class="india-map-wrap">
+          <div class="map-grid-overlay"></div>
+          <svg class="india-outline" viewBox="0 0 400 420" preserveAspectRatio="xMidYMid meet">
+            <!-- India outline — green -->
+            <path d="M165,28 L198,22 L228,28 L258,24 L285,35 L305,32 L328,48 L342,68 L338,88 L348,108
+                     L344,130 L352,148 L342,168 L330,188 L318,208 L300,230 L282,256 L264,278 L248,296
+                     L230,312 L212,322 L200,330 L192,312 L180,288 L162,268 L142,244 L122,220 L108,198
+                     L98,172 L88,148 L84,124 L90,104 L98,84 L110,64 L124,50 L145,36 Z"
+              fill="rgba(0,255,136,0.04)" stroke="#00ff88" stroke-opacity="0.35" stroke-width="1.5"/>
+            <!-- Karnataka highlight -->
+            <path class="state-karnataka"
+              d="M 158,220 L 178,215 L 200,218 L 210,232 L 205,248 L 192,260 L 172,265 L 154,262 L 143,248 L 145,230 Z"/>
+            <!-- Tamil Nadu highlight -->
+            <path class="state-tamilnadu"
+              d="M 190,262 L 210,258 L 232,262 L 250,275 L 258,292 L 252,308 L 232,316 L 210,322 L 200,330 L 192,314 L 188,292 Z"/>
+            <!-- State labels -->
+            <text class="state-label" x="178" y="244">KARNATAKA</text>
+            <text class="state-label" x="222" y="295">TAMIL NADU</text>
+          </svg>
+          <!-- connecting dashed line between plants -->
+          <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" viewBox="0 0 400 420">
+            <line x1="178" y1="238" x2="222" y2="288"
+              stroke="rgba(0,255,136,0.3)" stroke-width="1" stroke-dasharray="4 3"/>
+          </svg>
+          <div class="map-pin" style="top:56%;left:44%;">
+            <div class="map-pin-dot"></div>
+            <div class="map-pin-label">Karnataka · 120 MW</div>
+          </div>
+          <div class="map-pin amber" style="top:72%;left:55%;">
+            <div class="map-pin-dot"></div>
+            <div class="map-pin-label">Kamudi · 107 MW</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /plant -->
+
+
+  <!-- ══ TAB 3: INVERTER DETAIL ══ -->
+  <div class="drill-layer" [class.active]="activeTab === 'inverter'" id="layer-inverter">
+    <div class="layer-body">
+
+      <div class="stats-grid">
+
+        <!-- Voltage -->
+        <div class="stat-card inv-voltage">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <div class="stat-label">Voltage</div>
+          <div class="stat-value">1,505 <span class="stat-unit">V</span></div>
+          <div class="stat-trend neutral">
+            <svg class="trend-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4 12h16"/></svg>
+            <span>±0.1%</span>
+            <span class="trend-label">nominal</span>
+          </div>
+          <div class="pulse-indicator"></div>
+        </div>
+
+        <!-- Power -->
+        <div class="stat-card inv-power">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <div class="stat-label">Power</div>
+          <div class="stat-value">0.572 <span class="stat-unit">MW</span></div>
+          <div class="stat-trend negative">
+            <svg class="trend-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5H7z"/></svg>
+            <span>▼ 34.6%</span>
+            <span class="trend-label">below peak</span>
+          </div>
+          <div class="stat-mini-chart">
+            <svg viewBox="0 0 100 40" preserveAspectRatio="none">
+              <polyline points="0,10 15,8 30,12 45,22 60,30 75,28 90,34 100,36" fill="none" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Current -->
+        <div class="stat-card inv-current">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+          <div class="stat-label">Current</div>
+          <div class="stat-value">−12.16 <span class="stat-unit">A</span></div>
+          <div class="stat-trend negative">
+            <svg class="trend-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5H7z"/></svg>
+            <span>−5.2%</span>
+            <span class="trend-label">from baseline</span>
+          </div>
+        </div>
+
+        <!-- SCB Alerts -->
+        <div class="stat-card inv-alerts">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+          <div class="stat-label">SCB Faults</div>
+          <div class="stat-value">2 <span class="stat-unit">faults</span></div>
+          <div class="stat-trend negative">
+            <svg class="trend-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5H7z"/></svg>
+            <span>+1</span>
+            <span class="trend-label">from last check</span>
+          </div>
+          <div class="alert-pulse"></div>
+        </div>
+
+      </div>
+
+      <!-- India Map (Inverter - zoom to Tamil Nadu) -->
+      <div class="map-panel">
+        <div class="map-panel-title">Kamudi · Tamil Nadu</div>
+        <div class="india-map-wrap">
+          <div class="map-grid-overlay"></div>
+          <svg class="india-outline" viewBox="0 0 400 420" preserveAspectRatio="xMidYMid meet">
+            <!-- India outline — green (dimmed for inverter focus) -->
+            <path d="M165,28 L198,22 L228,28 L258,24 L285,35 L305,32 L328,48 L342,68 L338,88 L348,108
+                     L344,130 L352,148 L342,168 L330,188 L318,208 L300,230 L282,256 L264,278 L248,296
+                     L230,312 L212,322 L200,330 L192,312 L180,288 L162,268 L142,244 L122,220 L108,198
+                     L98,172 L88,148 L84,124 L90,104 L98,84 L110,64 L124,50 L145,36 Z"
+              fill="rgba(0,255,136,0.02)" stroke="#00ff88" stroke-opacity="0.2" stroke-width="1.2"/>
+            <!-- Karnataka dimmed -->
+            <path d="M 158,220 L 178,215 L 200,218 L 210,232 L 205,248 L 192,260 L 172,265 L 154,262 L 143,248 L 145,230 Z"
+              fill="rgba(0,255,136,0.05)" stroke="#00ff88" stroke-opacity="0.2" stroke-width="0.8"/>
+            <!-- Tamil Nadu — bright amber highlight (active inverter region) -->
+            <path d="M 190,262 L 210,258 L 232,262 L 250,275 L 258,292 L 252,308 L 232,316 L 210,322 L 200,330 L 192,314 L 188,292 Z"
+              fill="rgba(240,160,48,0.18)" stroke="#f0a030" stroke-opacity="0.7" stroke-width="1.2"
+              style="filter:drop-shadow(0 0 5px rgba(240,160,48,0.5))"/>
+            <text class="state-label" x="222" y="295" style="fill:rgba(240,160,48,0.9);">TAMIL NADU</text>
+          </svg>
+          <!-- Active inverter dot (larger, glowing amber) -->
+          <div class="map-pin amber" style="top:72%;left:55%;z-index:10;">
+            <div class="map-pin-dot" style="width:13px;height:13px;"></div>
+            <div class="map-pin-label" style="font-size:9px;">INV-07 · Kamudi</div>
+          </div>
+        </div>
+
+        <!-- small SCB legend below map -->
+        <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:5px;font-size:9px;color:var(--text-muted);font-family:'JetBrains Mono',monospace;">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent-green);display:inline-block;"></span>SCB1 OK
+          </div>
+          <div style="display:flex;align-items:center;gap:5px;font-size:9px;color:var(--text-muted);font-family:'JetBrains Mono',monospace;">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent-red);display:inline-block;"></span>SCB3 FAULT
+          </div>
+          <div style="display:flex;align-items:center;gap:5px;font-size:9px;color:var(--text-muted);font-family:'JetBrains Mono',monospace;">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent-amber);display:inline-block;"></span>SCB4 WARN
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /inverter -->
+
+      <!-- Live Status Bar -->
+      <div class="live-status-bar">
+        <div class="status-indicator">
+          <span class="live-dot"></span>
+          <span class="status-text">Live Updates</span>
+        </div>
+        <div class="status-time">Last updated: 09:42:17</div>
+        <div class="status-connection">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="connection-icon">
+            <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/>
+          </svg>
+          <span>Connected</span>
+        </div>
+      </div>
+
+      <!-- Quick Stats Ticker -->
+      <div class="stats-ticker">
+        <div class="ticker-item">
+          <span class="ticker-label">Energy:</span>
+          <span class="ticker-value">2,847 kWh</span>
+        </div>
+        <div class="ticker-divider"></div>
+        <div class="ticker-item">
+          <span class="ticker-label">Response:</span>
+          <span class="ticker-value">42 ms</span>
+        </div>
+        <div class="ticker-divider"></div>
+        <div class="ticker-item">
+          <span class="ticker-label">Throughput:</span>
+          <span class="ticker-value">12.4 MB/s</span>
+        </div>
+        <div class="ticker-divider"></div>
+        <div class="ticker-item">
+          <span class="ticker-label">Sessions:</span>
+          <span class="ticker-value">24</span>
+        </div>
+      </div>
+
       </div>
     </div>
-    <!-- Right: Orbit Diagram -->
-    <!-- <div class="hero-visual" data-aos="fade-left" data-aos-delay="200">
-      <div class="orbit-diagram">
-        <div class="orbit-ring orbit-ring-1"></div>
-        <div class="orbit-ring orbit-ring-2"></div>
-
-        <div class="orbit-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/>
-            <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/>
-            <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/>
-          </svg>
-        </div>
-
-        <div class="float-card float-card-1">
-          <div class="float-card-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-          </div>
-          <span>Monitor</span>
-        </div>
-        <div class="float-card float-card-2">
-          <div class="float-card-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
-          </div>
-          <span>Analyze</span>
-        </div>
-        <div class="float-card float-card-3">
-          <div class="float-card-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-          </div>
-          <span>Predict</span>
-        </div>
-        <div class="float-card float-card-4">
-          <div class="float-card-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
-          </div>
-          <span>Optimize</span>
-        </div>
-      </div>
-    </div> -->
   </div>
 </section>
 
@@ -433,7 +597,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
         </div>
         <h4>Predictive Analytics</h4>
-        <span class="service-arrow">&rarr;</span>
+        <!-- <span class="service-arrow">&rarr;</span> -->
       </div>
 
       <div class="service-card" data-aos="fade-up" data-aos-delay="50">
@@ -442,7 +606,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
         </div>
         <h4>Predictive Maintenance</h4>
-        <span class="service-arrow">&rarr;</span>
+        <!-- <span class="service-arrow">&rarr;</span> -->
       </div>
 
       <div class="service-card" data-aos="fade-up" data-aos-delay="100">
@@ -451,7 +615,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
         </div>
         <h4>Grid Management</h4>
-        <span class="service-arrow">&rarr;</span>
+        <!-- <span class="service-arrow">&rarr;</span> -->
       </div>
 
       <div class="service-card" data-aos="fade-up" data-aos-delay="150">
@@ -460,7 +624,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
         </div>
         <h4>Renewable Management</h4>
-        <span class="service-arrow">&rarr;</span>
+        <!-- <span class="service-arrow">&rarr;</span> -->
       </div>
 
       <div class="service-card" data-aos="fade-up" data-aos-delay="200">
@@ -469,7 +633,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m8 17 4 4 4-4"/></svg>
         </div>
         <h4>Pipeline Management</h4>
-        <span class="service-arrow">&rarr;</span>
+        <!-- <span class="service-arrow">&rarr;</span> -->
       </div>
 
       <div class="service-card" data-aos="fade-up" data-aos-delay="250">
@@ -478,7 +642,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
         </div>
         <h4>Document Management</h4>
-        <span class="service-arrow">&rarr;</span>
+        <!-- <span class="service-arrow">&rarr;</span> -->
       </div>
 
       <div class="service-card" data-aos="fade-up" data-aos-delay="300">
@@ -487,7 +651,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
         </div>
         <h4>Process Information Management</h4>
-        <span class="service-arrow">&rarr;</span>
+        <!-- <span class="service-arrow">&rarr;</span> -->
       </div>
 
       <div class="service-card" data-aos="fade-up" data-aos-delay="350">
@@ -496,7 +660,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.8 4A6.3 8.7 0 0 1 20 9"/><path d="M9 9h.01"/><circle cx="9" cy="9" r="7"/><rect width="10" height="6" x="4" y="16" rx="2"/></svg>
         </div>
         <h4>Alarm Management</h4>
-        <span class="service-arrow">&rarr;</span>
+        <!-- <span class="service-arrow">&rarr;</span> -->
       </div>
 
       <div class="service-card" data-aos="fade-up" data-aos-delay="400">
@@ -505,7 +669,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
         <h4>Smart City</h4>
-        <span class="service-arrow">&rarr;</span>
+        <!-- <span class="service-arrow">&rarr;</span> -->
       </div>
     </div>
   </div>

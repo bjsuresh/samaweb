@@ -111,7 +111,9 @@ body.light-theme {
     background-color: #ffffff;
     color: #1f2937;
 }
-
+body.light-theme p {
+    color: #6b7280 !important;
+}
 /* Main content area */
 body.light-theme .main-content {
     background-color: #ffffff;
@@ -137,17 +139,22 @@ body.light-theme .tile1 .body {
 
 /* Featured checklist */
 body.light-theme .featured-checklist li {
-    color: #4b5563;
+    color: #4b5563 !important;
 }
 
 body.light-theme .featured-checklist .check-icon {
-    background: rgba(16, 185, 129, 0.1);
+    background: rgba(16, 185, 129, 0.1) !important;
 }
 
 body.light-theme .featured-checklist li:hover .check-icon {
-    background: rgba(16, 185, 129, 0.2);
+    background: rgba(16, 185, 129, 0.2) !important;
 }
-
+body.light-theme .rp-popup {
+    background: #f8f9fa;
+}
+body.light-theme .rp-pp-title {
+    color: var(--accent) !important;
+}
 /* Feat panel */
 body.light-theme .feat-panel {
     background: transparent;
@@ -182,7 +189,7 @@ body.light-theme .feat-label {
 }
 
 body.light-theme .feat-content p {
-    color: #6b7280;
+    color: #6b7280 !important;
 }
 
 /* Report table */

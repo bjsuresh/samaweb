@@ -16,7 +16,7 @@ export class ContactUsComponent implements OnInit {
   enquiryTypes = [
     { value: 'enquiry', label: 'For Enquiries' },
     { value: 'support', label: 'For Support' },
-    { value: 'book-demo', label: 'For Book Demo' }
+    { value: 'book-demo', label: 'For Demo' }
   ];
 
   constructor(

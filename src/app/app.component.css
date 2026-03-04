@@ -127,7 +127,12 @@ mat-toolbar.is-scrolled {
   position: relative;
   /* cursor: url('../assets/images/loading.png'), auto; */ 
 }
-
+.navbar li a:hover {
+  color: #f97316;
+}
+.navbar li a:active {
+  color: #f97316;
+}
 .nav-link {
   display: inline-block;
   padding-bottom: 0.25rem;
