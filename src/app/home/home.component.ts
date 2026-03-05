@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { interval, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -52,15 +53,36 @@ export class HomeComponent  implements OnInit, OnDestroy {
   
   // Subscriptions
   private updateSubscription?: Subscription;
-  
+  private tabRotateSubscription?: Subscription;
+
   // Chart data arrays
   private devicesData: number[] = [];
   private productionData: number[] = [];
-  
-  Math = Math; // Make Math available in template
-  activeTab: string = 'overview';
 
-  constructor(private router: Router) {}
+  Math = Math;
+  activeTab: string = 'overview';
+  private readonly TAB_ORDER = ['overview', 'plant', 'inverter'];
+  kamudiMapUrl: SafeResourceUrl;
+
+  // ── Capacity (monthly) ──
+  readonly BASE_CAPACITY = 227;
+  capacityMW: number = 227.24;
+  capacityTrend: number = 4.2;
+  capacityMonth: string = '';
+  capacityChartPoints: string = '';
+  private capacityHistory: number[] = [];
+  private monthlySubscription?: Subscription;
+
+  private readonly MONTH_NAMES = [
+    'Jan','Feb','Mar','Apr','May','Jun',
+    'Jul','Aug','Sep','Oct','Nov','Dec'
+  ];
+
+  constructor(private router: Router, private sanitizer: DomSanitizer) {
+    this.kamudiMapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+      'https://www.openstreetmap.org/export/embed.html?bbox=78.3400%2C9.3900%2C78.4100%2C9.4600&layer=mapnik'
+    );
+  }
 
   openDemoDialog(): void {
     this.router.navigate(['/contact-us'], { queryParams: { type: 'book-demo' } });
@@ -68,19 +90,72 @@ export class HomeComponent  implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initializeChartData();
+    this.initCapacity();
     this.updateCharts();
     this.calculateUptimeRing();
-    
-    // Simulate live data updates every 3 seconds
+
+    // Live data — every 3s
     this.updateSubscription = interval(3000).subscribe(() => {
       this.simulateLiveData();
+    });
+
+    // Monthly capacity refresh — every 30s in demo (represents 1 month)
+    this.monthlySubscription = interval(30000).subscribe(() => {
+      this.refreshMonthlyCapacity();
+    });
+
+    // Auto-rotate tabs every 5s
+    this.tabRotateSubscription = interval(5000).subscribe(() => {
+      const idx = this.TAB_ORDER.indexOf(this.activeTab);
+      this.activeTab = this.TAB_ORDER[(idx + 1) % this.TAB_ORDER.length];
     });
   }
 
   ngOnDestroy(): void {
-    if (this.updateSubscription) {
-      this.updateSubscription.unsubscribe();
+    this.updateSubscription?.unsubscribe();
+    this.monthlySubscription?.unsubscribe();
+    this.tabRotateSubscription?.unsubscribe();
+  }
+
+  private initCapacity(): void {
+    const now = new Date();
+    this.capacityMonth = this.MONTH_NAMES[now.getMonth()];
+
+    // Build 12-month history ending at current month
+    this.capacityHistory = [];
+    for (let i = 11; i >= 0; i--) {
+      const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+      // Seasonal variation: peak in summer (Apr–Jun), dip in monsoon (Jul–Sep)
+      const month = d.getMonth();
+      const seasonal = Math.sin((month - 2) * Math.PI / 6) * 8;
+      const val = this.BASE_CAPACITY + seasonal + (Math.random() - 0.5) * 4;
+      this.capacityHistory.push(Math.round(val * 100) / 100);
     }
+
+    this.capacityMW = this.capacityHistory[11];
+    const prev = this.capacityHistory[10];
+    this.capacityTrend = Math.round(((this.capacityMW - prev) / prev) * 1000) / 10;
+    this.capacityChartPoints = this.generatePolylinePoints(this.capacityHistory, 40);
+  }
+
+  private refreshMonthlyCapacity(): void {
+    const now = new Date();
+    // Advance to next month in the sequence
+    const lastDate = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+    this.capacityMonth = this.MONTH_NAMES[lastDate.getMonth()];
+
+    const month = lastDate.getMonth();
+    const seasonal = Math.sin((month - 2) * Math.PI / 6) * 8;
+    const newVal = this.BASE_CAPACITY + seasonal + (Math.random() - 0.5) * 4;
+    const newCapacity = Math.round(newVal * 100) / 100;
+
+    const prev = this.capacityMW;
+    this.capacityTrend = Math.round(((newCapacity - prev) / prev) * 1000) / 10;
+    this.capacityMW = newCapacity;
+
+    this.capacityHistory.shift();
+    this.capacityHistory.push(newCapacity);
+    this.capacityChartPoints = this.generatePolylinePoints(this.capacityHistory, 40);
   }
 
   private initializeChartData(): void {
