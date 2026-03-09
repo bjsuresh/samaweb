@@ -76,14 +76,16 @@ mat-toolbar.is-scrolled {
 }
 .logo-sec .logo {
   padding: 5px;
-  background: #fff;
-  border-radius: 50%;
+  /* background: #fff; */
+  /* border-radius: 50%; */
 }
 .logo-sec .title {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 17px;
+  font-weight: 700;
   margin-left: 10px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
+  color: #ffffff;
 }
 .header-sec {
   display: flex;
@@ -93,10 +95,10 @@ mat-toolbar.is-scrolled {
 }
 
 .navbar.scrolled, .megamenu:hover ~ .navbar {
-  background-color: #000 !important;
+  background-color: #f97316 !important;
 }
 .navbar {
-  background-color: #061823;
+  background-color: #f97316;
   color: #fff;
   padding: 0px 10px;
   /* position: fixed; */
@@ -128,10 +130,10 @@ mat-toolbar.is-scrolled {
   /* cursor: url('../assets/images/loading.png'), auto; */ 
 }
 .navbar li a:hover {
-  color: #f97316;
+  color: #061823;
 }
 .navbar li a:active {
-  color: #f97316;
+  color: #061823;
 }
 .nav-link {
   display: inline-block;
@@ -518,7 +520,7 @@ mat-toolbar.is-scrolled {
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: rgba(255, 255, 255, 0.06);
-  color: var(--accent);
+  color: #f9fafb;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -579,6 +581,7 @@ mat-toolbar.is-scrolled {
   background: #ffffff;
   border-color: #d1d5db;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  color: #1f2937;
 }
 
 :host-context(body.light-theme) .mega-panel {

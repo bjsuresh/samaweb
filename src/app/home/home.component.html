@@ -292,31 +292,61 @@
               <div class="inv-kpi-label">ICR Map</div>
               <svg class="icr-map-svg" viewBox="0 0 60 46" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                  <radialGradient id="icrHeat" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%"   stop-color="#ff2200" stop-opacity="1"/>
-                    <stop offset="35%"  stop-color="#ff6600" stop-opacity="0.85"/>
-                    <stop offset="65%"  stop-color="#ffcc00" stop-opacity="0.55"/>
+                  <pattern id="icrGrid" width="6" height="6" patternUnits="userSpaceOnUse">
+                    <path d="M 6 0 L 0 0 0 6" fill="none" stroke="rgba(0,255,136,0.12)" stroke-width="0.3"/>
+                  </pattern>
+                  <radialGradient id="icrH1" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%"   stop-color="#ff0000" stop-opacity="0.95"/>
+                    <stop offset="15%"  stop-color="#ff1a00" stop-opacity="0.85"/>
+                    <stop offset="35%"  stop-color="#ff6600" stop-opacity="0.65"/>
+                    <stop offset="55%"  stop-color="#ffcc00" stop-opacity="0.38"/>
+                    <stop offset="75%"  stop-color="#ffff00" stop-opacity="0.14"/>
                     <stop offset="100%" stop-color="#ffff00" stop-opacity="0"/>
                   </radialGradient>
-                  <filter id="icrGlow">
-                    <feGaussianBlur stdDeviation="2" result="blur"/>
-                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  <radialGradient id="icrH2" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%"   stop-color="#ff0000" stop-opacity="0.9"/>
+                    <stop offset="20%"  stop-color="#ff2200" stop-opacity="0.78"/>
+                    <stop offset="45%"  stop-color="#ff8800" stop-opacity="0.52"/>
+                    <stop offset="70%"  stop-color="#ffdd00" stop-opacity="0.22"/>
+                    <stop offset="100%" stop-color="#ffff00" stop-opacity="0"/>
+                  </radialGradient>
+                  <radialGradient id="icrH3" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%"   stop-color="#ff2200" stop-opacity="0.82"/>
+                    <stop offset="30%"  stop-color="#ff7700" stop-opacity="0.58"/>
+                    <stop offset="60%"  stop-color="#ffcc00" stop-opacity="0.28"/>
+                    <stop offset="100%" stop-color="#ffff00" stop-opacity="0"/>
+                  </radialGradient>
+                  <radialGradient id="icrH4" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%"   stop-color="#ff4400" stop-opacity="0.72"/>
+                    <stop offset="40%"  stop-color="#ff9900" stop-opacity="0.4"/>
+                    <stop offset="100%" stop-color="#ffee00" stop-opacity="0"/>
+                  </radialGradient>
+                  <filter id="icrBlur">
+                    <feGaussianBlur stdDeviation="2.2"/>
                   </filter>
                   <clipPath id="icrBlock05">
                     <rect x="18" y="11" width="24" height="22" rx="2"/>
                   </clipPath>
                 </defs>
 
-                <!-- Single ICR-05 block -->
-                <rect x="18" y="11" width="24" height="22" rx="2.5"
-                  fill="rgba(255,60,0,0.15)" stroke="rgba(255,120,0,0.9)" stroke-width="0.9"/>
-                <g clip-path="url(#icrBlock05)" filter="url(#icrGlow)">
-                  <ellipse cx="30" cy="22" rx="13" ry="12" fill="url(#icrHeat)"/>
+                <!-- Background grid -->
+                <rect x="0" y="0" width="60" height="46" fill="url(#icrGrid)"/>
+
+                <rect x="16" y="9" width="28" height="26" rx="3"
+                  fill="none" stroke="#00ff88" stroke-width="0.9" stroke-dasharray="3 1.5" opacity="0.85"/>
+
+                <!-- Multi-layer heatmap clipped to block -->
+                <g clip-path="url(#icrBlock05)" filter="url(#icrBlur)">
+                  <ellipse cx="29" cy="22" rx="12" ry="10" fill="url(#icrH1)"/>
+                  <ellipse cx="35" cy="19" rx="9"  ry="7"  fill="url(#icrH2)"/>
+                  <ellipse cx="27" cy="18" rx="7"  ry="6"  fill="url(#icrH3)"/>
+                  <ellipse cx="33" cy="26" rx="6"  ry="5"  fill="url(#icrH4)"/>
+                  <ellipse cx="22" cy="25" rx="5"  ry="4"  fill="url(#icrH4)"/>
                 </g>
 
                 <!-- Fault pulse -->
                 <circle cx="30" cy="22" r="2" fill="#ff4400" opacity="0.95">
-                  <animate attributeName="r"       values="1.5;6;1.5" dur="2s" repeatCount="indefinite"/>
+                  <animate attributeName="r"       values="1.5;5;1.5" dur="2s" repeatCount="indefinite"/>
                   <animate attributeName="opacity" values="0.9;0;0.9"  dur="2s" repeatCount="indefinite"/>
                 </circle>
               </svg>

@@ -947,6 +947,10 @@
   border-bottom: 1px solid rgba(0,0,0,0.07);
 }
 
+:host-context(body.light-theme) .home-wrapper .icr-map-svg {
+  mix-blend-mode: normal;
+}
+
 /* capacity badge */
 :host-context(body.light-theme) .home-wrapper .capacity-period-badge {
   background: rgba(8,145,178,0.12);
