@@ -14,6 +14,11 @@ export class SupportComponent implements OnInit {
   showTokenPopup = false;
   generatedTokenId = '';
 
+  captchaQuestion = '';
+  captchaAnswer = 0;
+  captchaInput = '';
+  captchaError = false;
+
   products: string[] = [
     'AIMS - Alarm Management System',
     'AIMS - AE Reporter',
@@ -58,7 +63,25 @@ export class SupportComponent implements OnInit {
 
   get f() { return this.supportForm.controls; }
 
+  generateCaptcha(): void {
+    const a = Math.floor(Math.random() * 10) + 1;
+    const b = Math.floor(Math.random() * 10) + 1;
+    const ops = ['+', '-', '×'];
+    const op = ops[Math.floor(Math.random() * ops.length)];
+    if (op === '+') {
+      this.captchaAnswer = a + b;
+    } else if (op === '-') {
+      this.captchaAnswer = a - b;
+    } else {
+      this.captchaAnswer = a * b;
+    }
+    this.captchaQuestion = `${a} ${op} ${b} = ?`;
+    this.captchaInput = '';
+    this.captchaError = false;
+  }
+
   ngOnInit(): void {
+    this.generateCaptcha();
     this.supportForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       companyname: ['', [Validators.required]],
@@ -116,9 +139,10 @@ export class SupportComponent implements OnInit {
 
   submitForm(): void {
     this.submitted = true;
+    this.captchaError = parseInt(this.captchaInput, 10) !== this.captchaAnswer;
     console.log(this.supportForm.value);
 
-    if (this.supportForm.valid) {
+    if (this.supportForm.valid && !this.captchaError) {
       this.generatedTokenId = this.generateTokenId();
 
       const formData = new FormData();
@@ -150,6 +174,7 @@ export class SupportComponent implements OnInit {
 
   closePopup(): void {
     this.showTokenPopup = false;
+    this.generateCaptcha();
     window.location.reload();
   }
 }

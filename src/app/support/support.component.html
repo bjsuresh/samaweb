@@ -106,6 +106,28 @@
                 </div>
               </div>
 
+              <!-- Captcha -->
+              <div class="captcha-wrapper" data-aos="fade-up" data-aos-delay="550">
+                <label class="text-inverse font-12 text-uppercase">Security Check<span class="text-danger">*</span></label>
+                <div class="captcha-box">
+                  <span class="captcha-question">{{ captchaQuestion }}</span>
+                  <input type="number" class="form-control captcha-input" placeholder="Answer"
+                    [value]="captchaInput"
+                    (input)="captchaInput = $any($event.target).value"
+                    [ngClass]="{ 'is-invalid': submitted && captchaError }" />2q 
+                  <button type="button" class="captcha-refresh" (click)="generateCaptcha()" title="Refresh">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="23 4 23 10 17 10"></polyline>
+                      <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                    </svg>
+                  </button>
+                </div>
+                <div *ngIf="submitted && captchaError" class="invalid-feedback d-block">
+                  Incorrect answer. Please try again.
+                </div>
+              </div>
+
               <div class="text-center" data-aos="zoom-in" data-aos-delay="600">
                 <button color="primary" class="submit-btn" type="submit">
                   <span class="btn-text">Submit Request</span>

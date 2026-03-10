@@ -114,6 +114,9 @@ body.light-theme {
 body.light-theme p {
     color: #6b7280 !important;
 }
+body.light-theme .why-card:hover p {
+    color: #f9fafb !important;
+}
 /* Main content area */
 body.light-theme .main-content {
     background-color: #ffffff;
