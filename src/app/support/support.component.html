@@ -114,7 +114,7 @@
                   <input type="number" class="form-control captcha-input" placeholder="Answer"
                     [value]="captchaInput"
                     (input)="captchaInput = $any($event.target).value"
-                    [ngClass]="{ 'is-invalid': submitted && captchaError }" />2q 
+                    [ngClass]="{ 'is-invalid': submitted && captchaError }" />
                   <button type="button" class="captcha-refresh" (click)="generateCaptcha()" title="Refresh">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

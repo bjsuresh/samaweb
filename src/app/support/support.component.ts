@@ -89,8 +89,6 @@ export class SupportComponent implements OnInit {
       email: ['', [Validators.required, Validators.email, this.emailValidator, this.emailDomainValidator]],
       mobile: ['', [Validators.required, this.mobileValidator]],
       product: ['', [Validators.required]],
-      issueType: ['', [Validators.required]],
-      priority: ['', [Validators.required]],
       description: ['', [Validators.required]]
     });
   }
