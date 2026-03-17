@@ -12,6 +12,11 @@ export class CareersComponent implements OnInit {
   submitted = false;
   files: File[] = [];
 
+  captchaQuestion = '';
+  captchaAnswer = 0;
+  captchaInput = '';
+  captchaError = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient
@@ -19,7 +24,25 @@ export class CareersComponent implements OnInit {
 
   get f() { return this.emailForm.controls; }
 
+  generateCaptcha(): void {
+    const a = Math.floor(Math.random() * 10) + 1;
+    const b = Math.floor(Math.random() * 10) + 1;
+    const ops = ['+', '-', '×'];
+    const op = ops[Math.floor(Math.random() * ops.length)];
+    if (op === '+') {
+      this.captchaAnswer = a + b;
+    } else if (op === '-') {
+      this.captchaAnswer = a - b;
+    } else {
+      this.captchaAnswer = a * b;
+    }
+    this.captchaQuestion = `${a} ${op} ${b} = ?`;
+    this.captchaInput = '';
+    this.captchaError = false;
+  }
+
   ngOnInit(): void {
+    this.generateCaptcha();
     this.emailForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email, this.emailValidator, this.emailDomainValidator]],
@@ -60,9 +83,10 @@ export class CareersComponent implements OnInit {
 
   submitForm(): void {
     this.submitted = true;
+    this.captchaError = parseInt(this.captchaInput, 10) !== this.captchaAnswer;
     console.log(this.emailForm.value);
 
-    if (this.emailForm.valid) {
+    if (this.emailForm.valid && !this.captchaError) {
       const formData = new FormData();
       formData.append('email', this.emailForm.get('email')?.value);
       formData.append('name', this.emailForm.get('name')?.value);

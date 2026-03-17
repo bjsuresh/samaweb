@@ -13,6 +13,11 @@ export class ContactUsComponent implements OnInit {
   submitted = false;
   files: File[] = [];
 
+  captchaQuestion = '';
+  captchaAnswer = 0;
+  captchaInput = '';
+  captchaError = false;
+
   enquiryTypes = [
     { value: 'enquiry', label: 'For Enquiries' },
     { value: 'support', label: 'For Support' },
@@ -28,7 +33,25 @@ export class ContactUsComponent implements OnInit {
 
   get f() { return this.registerForm.controls; }
 
+  generateCaptcha(): void {
+    const a = Math.floor(Math.random() * 10) + 1;
+    const b = Math.floor(Math.random() * 10) + 1;
+    const ops = ['+', '-', '×'];
+    const op = ops[Math.floor(Math.random() * ops.length)];
+    if (op === '+') {
+      this.captchaAnswer = a + b;
+    } else if (op === '-') {
+      this.captchaAnswer = a - b;
+    } else {
+      this.captchaAnswer = a * b;
+    }
+    this.captchaQuestion = `${a} ${op} ${b} = ?`;
+    this.captchaInput = '';
+    this.captchaError = false;
+  }
+
   ngOnInit(): void {
+    this.generateCaptcha();
     const typeParam = this.route.snapshot.queryParamMap.get('type');
     const defaultType = this.enquiryTypes.find(t => t.value === typeParam) ? typeParam : '';
 
@@ -55,9 +78,10 @@ export class ContactUsComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = true;
+    this.captchaError = parseInt(this.captchaInput, 10) !== this.captchaAnswer;
     console.log(this.registerForm.value);
 
-    if (this.registerForm.valid) {
+    if (this.registerForm.valid && !this.captchaError) {
       const formData = new FormData();
       formData.append('enquiryType', this.registerForm.get('enquiryType')?.value);
       formData.append('email', this.registerForm.get('email')?.value);
