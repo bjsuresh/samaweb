@@ -93,16 +93,10 @@ mat-toolbar.is-scrolled {
 
 /* Right-side controls: theme toggle + hamburger */
 .navbar-right-controls {
-  display: none;
+  display: flex;
   align-items: center;
   gap: 6px;
   margin-left: auto;
-}
-
-@media (max-width: 991px) {
-  .navbar-right-controls {
-    display: flex;
-  }
 }
 .logo-sec {
   display: inline-block;
