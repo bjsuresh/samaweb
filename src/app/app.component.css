@@ -16,6 +16,15 @@ h6 {
   color: #fff;
 }
 
+:host-context(body.light-theme) h1,
+:host-context(body.light-theme) h2,
+:host-context(body.light-theme) h3,
+:host-context(body.light-theme) h4,
+:host-context(body.light-theme) h5,
+:host-context(body.light-theme) h6 {
+  color: #0f172a;
+}
+
 p {
   margin: 0;
 }
@@ -80,6 +89,20 @@ mat-toolbar.is-scrolled {
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+/* Right-side controls: theme toggle + hamburger */
+.navbar-right-controls {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+@media (max-width: 991px) {
+  .navbar-right-controls {
+    display: flex;
+  }
 }
 .logo-sec {
   display: inline-block;
@@ -417,17 +440,21 @@ mat-toolbar.is-scrolled {
       height: 100%;
       width: 100%;
       position: fixed;
-      z-index: 1;
+      z-index: 999;
       top: 0;
-      /* left: auto; */
-      right: 0%;
+      right: 0;
       background-color: #000 !important;
       overflow-x: hidden;
-      transition: 0.2s;
+      overflow-y: auto;
+      transition: transform 0.3s ease;
       margin-top: 70px;
       padding: 20px 0px 60px 0px;
+      transform: translateX(100%);
+      box-shadow: -4px 0 16px rgba(0,0,0,0.4);
+  }
+
+  #navbarContent.show {
       transform: translateX(0%);
-      box-shadow: 0px 0px 8px #888888;
   }
     
   .navbar-toggler span {
@@ -688,10 +715,12 @@ mat-toolbar.is-scrolled {
   }
 
   .theme-toggle {
+    position: static;
     margin-left: 0;
-    position: absolute;
-    right: 60px;
-    top: 16px;
+    margin-right: 0;
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
   }
 
   :host-context(body.light-theme) .navbar-toggler span {

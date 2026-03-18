@@ -112,10 +112,19 @@ body.light-theme {
     color: #1f2937;
 }
 body.light-theme p {
-    color: #6b7280 !important;
+    color: #4b5563 !important;
 }
 body.light-theme .why-card:hover p {
-    color: #f9fafb !important;
+    color: #0f172a !important;
+}
+body.light-theme .section-header h2 {
+    color: #0f172a !important;
+}
+body.light-theme .service-card h4 {
+    color: #0f172a !important;
+}
+body.light-theme .stat-label {
+    color: #64748b !important;
 }
 /* Main content area */
 body.light-theme .main-content {
