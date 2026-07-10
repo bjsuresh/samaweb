@@ -6,7 +6,6 @@ import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { AimsComponent } from './aims/aims.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
-import { SupportComponent } from './support/support.component';
 import { DashboardComponent } from './products/dashboard/dashboard.component';
 import { ConnectivityComponent } from './products/connectivity/connectivity.component';
 import { AnalyticsComponent } from './products/analytics/analytics.component';
@@ -30,7 +29,6 @@ const routes: Routes = [
 
   { path: 'page1supra', component: Page1Component },
   // { path: 'page2', component: Page2Component },
-  { path: 'support', component: SupportComponent },
 
   { path: 'dashboard', component: DashboardComponent },
   { path: 'connectivity', component: ConnectivityComponent },

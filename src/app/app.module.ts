@@ -20,7 +20,6 @@ import { AimsComponent } from './aims/aims.component';
 import { SwiperModule } from 'swiper/angular';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { SupportComponent } from './support/support.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatIconModule} from '@angular/material/icon';
@@ -56,7 +55,6 @@ import { HttpClientModule } from '@angular/common/http';
     ProductsComponent,
     AimsComponent,
     ContactUsComponent,
-    SupportComponent,
     CustomCursorDirective,
     DashboardComponent,
     ConnectivityComponent,

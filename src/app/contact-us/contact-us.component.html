@@ -54,6 +54,28 @@
                   </div>
                 </div>
 
+                <div class="col-md-6 form-group" data-aos="fade-right" data-aos-delay="150">
+                  <label class="text-inverse font-12 text-uppercase">Mobile Number<span class="text-danger">*</span></label>
+                  <input type="tel" class="border-0 font-14 form-control" placeholder="e.g. +91 9876543210"
+                    formControlName="mobile" [ngClass]="{ 'is-invalid': submitted && f['mobile'].errors }" />
+                  <div *ngIf="submitted && f['mobile'].errors" class="invalid-feedback mb">
+                    <div *ngIf="f['mobile'].errors['required']">Mobile number is required.</div>
+                    <div *ngIf="f['mobile'].errors['pattern']">Enter a valid mobile number.</div>
+                  </div>
+                </div>
+
+                <div class="col-md-6 form-group" data-aos="fade-left" data-aos-delay="150">
+                  <label class="text-inverse font-12 text-uppercase">Product<span class="text-danger">*</span></label>
+                  <select class="border-0 font-14 form-control" formControlName="product"
+                    [ngClass]="{ 'is-invalid': submitted && f['product'].errors }">
+                    <option value="" disabled>Select Product</option>
+                    <option *ngFor="let product of products" [value]="product">{{ product }}</option>
+                  </select>
+                  <div *ngIf="submitted && f['product'].errors" class="invalid-feedback mb">
+                    <div *ngIf="f['product'].errors['required']">Product is required.</div>
+                  </div>
+                </div>
+
                 <div class="col-md-12 form-group" data-aos="fade-up" data-aos-delay="200">
                   <label class="text-inverse font-12 text-uppercase">Subject<span class="text-danger">*</span></label>
                   <input type="text" class="border-0 font-14 form-control" placeholder="Your Subject"

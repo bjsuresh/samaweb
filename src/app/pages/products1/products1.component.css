@@ -262,7 +262,23 @@ ul.circle-checkmark {
     z-index: 2;
     opacity: 0;
     animation: cardAppear 0.5s ease forwards;
+    transition: transform 0.3s ease;
+    transform-origin: center center;
 }
+
+.h-card:hover {
+    z-index: 5;
+    animation-play-state: paused;
+    transform: scale(1.12) !important;
+}
+
+/* Zoom outward from the card's outer edge so it doesn't overlap the central gear */
+.h-card-1:hover { transform-origin: top left; }
+.h-card-2:hover { transform-origin: top right; }
+.h-card-3:hover { transform-origin: center right; }
+.h-card-4:hover { transform-origin: bottom right; }
+.h-card-5:hover { transform-origin: bottom left; }
+.h-card-6:hover { transform-origin: center left; }
 
 .h-card-num {
     font-size: 28px;

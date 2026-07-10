@@ -45,7 +45,21 @@ body.theme-red {
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Clarkson, "Helvetica", sans-serif; cursor: url('../src/assets/cursor.png'), auto;}
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: url('../src/assets/cursor.png'), auto;
+}
+
+/* Enforce Inter site-wide, overriding legacy Clarkson/Outfit/Rajdhani/Montserrat refs */
+body, h1, h2, h3, h4, h5, h6, p, a, span, div, li, ul, ol,
+button, input, textarea, select, label,
+.nav-link, .navbar, .btn, .card {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
 @import 'node_modules/aos/dist/aos.css';
 @import "node_modules/swiper/swiper.scss";
 @import "node_modules/swiper/swiper-bundle.min.css";

@@ -265,7 +265,23 @@ ul.featured-checklist li:hover .check-icon {
     position: absolute;
     z-index: 2;
     opacity: 0;
+    transition: transform 0.3s ease;
+    transform-origin: center center;
 }
+
+.a-card:hover {
+    z-index: 5;
+    animation-play-state: paused;
+    transform: scale(1.12) !important;
+}
+
+/* Zoom outward from the card's outer edge so it doesn't overlap the central icon */
+.a-card-1:hover { transform-origin: top left; }
+.a-card-2:hover { transform-origin: top right; }
+.a-card-3:hover { transform-origin: center right; }
+.a-card-4:hover { transform-origin: bottom right; }
+.a-card-5:hover { transform-origin: bottom left; }
+.a-card-6:hover { transform-origin: center left; }
 
 .a-card-num {
     font-size: 28px;

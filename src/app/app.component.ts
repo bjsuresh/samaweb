@@ -1,6 +1,7 @@
 import { Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
 import * as AOS from 'aos';
 import { Title, Meta } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { ThemeService, ACCENT_THEMES } from './services/theme.service';
 
 @Component({
@@ -88,7 +89,11 @@ export class AppComponent {
 
   accentThemes = ACCENT_THEMES;
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer2, private title: Title, private meta: Meta, public themeService: ThemeService) { }
+  constructor(private elementRef: ElementRef, private renderer: Renderer2, private title: Title, private meta: Meta, public themeService: ThemeService, private router: Router) { }
+
+  openBookDemo() {
+    this.router.navigate(['/contact-us'], { queryParams: { type: 'book-demo' } });
+  }
 
   ngAfterViewInit() {
     console.log(this.navbarContent);

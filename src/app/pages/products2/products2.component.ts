@@ -24,6 +24,18 @@ export class Products2Component {
   showVideoPopup = false;
   currentVideoSrc = '';
 
+  activeClient = -1;
+  showClientDetail = false;
+
+  setClient(n: number) {
+    this.activeClient = n;
+    this.showClientDetail = true;
+  }
+
+  hideClientDetail() {
+    this.showClientDetail = false;
+  }
+
   openVideo(src: string) {
     this.currentVideoSrc = src;
     this.showVideoPopup = true;

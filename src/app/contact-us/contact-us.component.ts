@@ -24,6 +24,22 @@ export class ContactUsComponent implements OnInit {
     { value: 'book-demo', label: 'For Demo' }
   ];
 
+  products = [
+    'SAMA - Supra Advanced Manufacturing Analytics',
+    'Real Time Historian',
+    'AIMS - Alarm Management System',
+    'PIMS - Plant Information Management',
+    'EMS - Energy Management System',
+    'Grid Management System',
+    'Pipeline Management System',
+    'Smart City System',
+    'Digital E-Logbook',
+    'OPC Products',
+    'Web Reporter',
+    'MES / IIOT Solutions',
+    'Other'
+  ];
+
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
@@ -59,6 +75,8 @@ export class ContactUsComponent implements OnInit {
       enquiryType: [defaultType, [Validators.required]],
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email, this.emailValidator]],
+      mobile: ['', [Validators.required, Validators.pattern(/^[+]?[0-9\s\-]{7,15}$/)]],
+      product: ['', [Validators.required]],
       subject: ['', [Validators.required]],
       message: ['', [Validators.required]]
     });
@@ -86,6 +104,8 @@ export class ContactUsComponent implements OnInit {
       formData.append('enquiryType', this.registerForm.get('enquiryType')?.value);
       formData.append('email', this.registerForm.get('email')?.value);
       formData.append('name', this.registerForm.get('name')?.value);
+      formData.append('mobile', this.registerForm.get('mobile')?.value);
+      formData.append('product', this.registerForm.get('product')?.value);
       formData.append('message', this.registerForm.get('message')?.value);
       formData.append('subject', this.registerForm.get('subject')?.value);
 
