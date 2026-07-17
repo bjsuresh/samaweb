@@ -11,14 +11,15 @@ import { ConnectivityComponent } from './products/connectivity/connectivity.comp
 import { AnalyticsComponent } from './products/analytics/analytics.component';
 import { DigitalisationComponent } from './products/digitalisation/digitalisation.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import { Products1Component } from './pages/products1/products1.component';
 import { Products2Component } from './pages/products2/products2.component';
-import { Products3Component } from './pages/products3/products3.component';
-import { Products4Component } from './pages/products4/products4.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
-import { Products5Component } from './pages/products5/products5.component';
 import { CareersComponent } from './careers/careers.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { HistorianComponent } from './pages/historian/historian.component';
+import { AlarmComponent } from './pages/alarm/alarm.component';
+import { DocumentationComponent } from './pages/documentation/documentation.component';
+import { ConnectivitySuiteComponent } from './pages/connectivity/connectivity.component';
+import { BatchComponent } from './pages/batch/batch.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -35,11 +36,20 @@ const routes: Routes = [
   { path: 'analytics', component: AnalyticsComponent },
   { path: 'digitalisation', component: DigitalisationComponent },
   { path: 'product-list', component: ProductListComponent },
-  { path: 'products1', component: Products1Component },
-  { path: 'products2', component: Products2Component },
-  { path: 'products3', component: Products3Component },
-  { path: 'products4', component: Products4Component },
-  { path: 'products5', component: Products5Component },
+  // ── Product suite pages (grouped to match the mega-menu) ──
+  { path: 'historian', component: HistorianComponent },
+  { path: 'enterprise', component: Products2Component },
+  { path: 'alarm', component: AlarmComponent },
+  { path: 'documentation', component: DocumentationComponent },
+  { path: 'connectivity-suite', component: ConnectivitySuiteComponent },
+  { path: 'batch', component: BatchComponent },
+
+  // ── Legacy product routes → redirect to the new suite pages ──
+  { path: 'products1', redirectTo: 'historian', pathMatch: 'full' },
+  { path: 'products2', redirectTo: 'enterprise', pathMatch: 'full' },
+  { path: 'products3', redirectTo: 'alarm', pathMatch: 'full' },
+  { path: 'products4', redirectTo: 'documentation', pathMatch: 'full' },
+  { path: 'products5', redirectTo: 'alarm', pathMatch: 'full' },
   { path: 'about-us', component: AboutusComponent },
   { path: 'careers', component: CareersComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent }

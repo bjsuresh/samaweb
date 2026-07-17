@@ -1,6 +1,7 @@
 .tile1 {
     background-color: #061823;
-    padding: 10px 20px;
+    padding: 10px 0;
+    overflow-x: clip;
     color: #fff;
 }
 h3 {
@@ -17,7 +18,7 @@ h5 {
     font-size: 25px;
 }
 .body {
-    padding: 40px 10px;
+    padding: 40px 0;
 }
 ul {
 	font-size: 20px;
@@ -290,6 +291,20 @@ ul.circle-checkmark {
     transition: color 0.3s ease;
 }
 
+/* Highlighted title inside the orbital card */
+.h-card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.25;
+    max-width: 160px;
+    margin-bottom: 5px;
+    position: relative;
+    padding-left: 10px;
+    border-left: 2px solid var(--accent);
+    transition: text-shadow 0.3s ease;
+}
+
 .h-card-text {
     font-size: 12.5px;
     font-weight: 600;
@@ -302,8 +317,22 @@ ul.circle-checkmark {
     transition: all 0.3s ease;
 }
 
+/* Real-time historian cards: title highlighted, description muted below it */
+.historian-diagram .h-card-text {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: #b7c0c9;
+    max-width: 160px;
+    border-left: none;
+    padding-left: 10px;
+}
+
 .h-card:hover .h-card-num {
     color: rgba(var(--accent-rgb),0.35);
+}
+
+.h-card:hover .h-card-title {
+    text-shadow: 0 0 20px rgba(var(--accent-rgb),0.35);
 }
 
 .h-card:hover .h-card-text {
@@ -696,7 +725,7 @@ ul.circle-checkmark {
         font-size: 23px;
     }
     .body {
-        padding: 10px;
+        padding: 10px 0;
     }
     .feat-panel {
         padding: 20px 0 0;

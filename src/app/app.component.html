@@ -1,4 +1,5 @@
 <nav id="navbar" class="navbar navbar-expand-lg fixed-top py-3 shadow-sm">
+  <div class="container">
   <div class="logo-sec">
     <a href="#/home" (click)="setActive(5)" class="">
       <!-- <img width="40" alt="Logo" [src]="isDark ? '../assets/images/Supra_Symbol_white_transparent.png' : '../assets/images/Supra_Symbol_transparent.png'" class="logo" /> -->
@@ -39,12 +40,12 @@
                     <span class="mega-icon-wrap">
                       <svg class="mega-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5M12 7v5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </span>
-                    <h6>Historian Suite</h6>
+                    <h6>Historian</h6>
                   </div>
                   <ul class="mega-list">
-                    <li><a href="#/products1#real-time-historian" (click)="closeNavbar()">Real Time Historian</a></li>
-                    <li><a href="#/products1#rt-calc" (click)="closeNavbar()">Template Calculator</a></li>
-                    <li><a href="#/products5#sap-interface" (click)="closeNavbar()">SAP Interface</a></li>
+                    <li><a href="#/historian#real-time-historian" (click)="closeNavbar()">Real Time Historian</a></li>
+                    <li><a href="#/historian#rt-calc" (click)="closeNavbar()">Template Calculator</a></li>
+                    <li><a href="#/historian#sap-interface" (click)="closeNavbar()">SAP Interface</a></li>
                   </ul>
                 </div>
 
@@ -57,12 +58,12 @@
                     <h6>Enterprise Suite</h6>
                   </div>
                   <ul class="mega-list">
-                    <li><a href="#/products2#web-server" (click)="closeNavbar()">Web Server</a></li>
-                    <li><a href="#/products1#reporter" (click)="closeNavbar()">Web Reporter</a></li>
-                    <li><a href="#/products1#reporter" (click)="closeNavbar()">Reporter Suite</a></li>
-                    <li><a href="#/products4#doc-mgnt" (click)="closeNavbar()">Web Document Management System</a></li>
-                    <li><a href="#/products2#mobile-app" (click)="closeNavbar()">Mobile App</a></li>
-                    <li><a href="#/products5#logbook" (click)="closeNavbar()">E-Logbook</a></li>
+                    <li><a href="#/enterprise#web-serer" (click)="closeNavbar()">Web Server</a></li>
+                    <li><a href="#/batch#reporter" (click)="closeNavbar()">Web Reporter</a></li>
+                    <li><a href="#/batch#reporter" (click)="closeNavbar()">Reporter Suite</a></li>
+                    <li><a href="#/documentation#doc-mgnt" (click)="closeNavbar()">Web Document Management System</a></li>
+                    <li><a href="#/enterprise#mobile-app" (click)="closeNavbar()">Mobile App</a></li>
+                    <li><a href="#/documentation#logbook" (click)="closeNavbar()">E-Logbook</a></li>
                   </ul>
                 </div>
 
@@ -75,13 +76,13 @@
                     <h6>Alarm Management Suite</h6>
                   </div>
                   <ul class="mega-list">
-                    <li><a href="#/products3#alrm-alerts" (click)="closeNavbar()">Alarm Server</a></li>
-                    <li><a href="#/products3#root-cause-analysis" (click)="closeNavbar()">Alarm Analysis</a></li>
-                    <li><a href="#/products1#reporter" (click)="closeNavbar()">Alarm Reporter</a></li>
-                    <li><a href="#/products3#alrm-alerts" (click)="closeNavbar()">Alarm Alerts</a></li>
-                    <li><a href="#/products2#web-server" (click)="closeNavbar()">Web Server</a></li>
-                    <li><a href="#/products5#change-mgnt" (click)="closeNavbar()">Change Management</a></li>
-                    <li><a href="#/products3#alrm-rationalization" (click)="closeNavbar()">Rationalisation</a></li>
+                    <li><a href="#/alarm#alrm-alerts" (click)="closeNavbar()">Alarm Server</a></li>
+                    <li><a href="#/alarm#root-cause-analysis" (click)="closeNavbar()">Alarm Analysis</a></li>
+                    <li><a href="#/batch#reporter" (click)="closeNavbar()">Alarm Reporter</a></li>
+                    <li><a href="#/alarm#alrm-alerts" (click)="closeNavbar()">Alarm Alerts</a></li>
+                    <li><a href="#/enterprise#web-serer" (click)="closeNavbar()">Web Server</a></li>
+                    <li><a href="#/alarm#change-mgnt" (click)="closeNavbar()">Change Management</a></li>
+                    <li><a href="#/alarm#alrm-rationalization" (click)="closeNavbar()">Rationalisation</a></li>
                   </ul>
                 </div>
 
@@ -91,12 +92,12 @@
                     <span class="mega-icon-wrap">
                       <svg class="mega-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM14 2v6h6M8 13h8M8 17h8M8 9h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </span>
-                    <h6>Documentation Suite</h6>
+                    <h6>Document Management Suite</h6>
                   </div>
                   <ul class="mega-list">
-                    <li><a href="#/products4#doc-mgnt" (click)="closeNavbar()">Document Manager</a></li>
-                    <li><a href="#/products4#doc-mgnt" (click)="closeNavbar()">Web Document Management System</a></li>
-                    <li><a href="#/products5#logbook" (click)="closeNavbar()">E-Logbook</a></li>
+                    <li><a href="#/documentation#doc-mgnt" (click)="closeNavbar()">Document Manager</a></li>
+                    <li><a href="#/documentation#doc-mgnt" (click)="closeNavbar()">Web Document Management System</a></li>
+                    <li><a href="#/documentation#logbook" (click)="closeNavbar()">E-Logbook</a></li>
                   </ul>
                 </div>
 
@@ -109,9 +110,9 @@
                     <h6>Connectivity Suite</h6>
                   </div>
                   <ul class="mega-list">
-                    <li><a href="#/products4#opc-products" (click)="closeNavbar()">OPC Converters</a></li>
-                    <li><a href="#/products4#opc-products" (click)="closeNavbar()">OPC Wrappers</a></li>
-                    <li><a href="#/products4#opc-products" (click)="closeNavbar()">Data Collectors</a></li>
+                    <li><a href="#/connectivity-suite#opc-products" (click)="closeNavbar()">OPC Converters</a></li>
+                    <li><a href="#/connectivity-suite#opc-products" (click)="closeNavbar()">OPC Wrappers</a></li>
+                    <li><a href="#/connectivity-suite#data-collectors" (click)="closeNavbar()">Data Collectors</a></li>
                   </ul>
                 </div>
 
@@ -124,7 +125,7 @@
                     <h6>Batch Suite</h6>
                   </div>
                   <ul class="mega-list">
-                    <li><a href="#/products1#reporter" (click)="closeNavbar()">Batch Reporter</a></li>
+                    <li><a href="#/batch#reporter" (click)="closeNavbar()">Batch Reporter</a></li>
                   </ul>
                 </div>
 
@@ -176,6 +177,7 @@
       <span></span>
       <span></span>
     </button>
+  </div>
   </div>
 </nav>
 

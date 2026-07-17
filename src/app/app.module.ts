@@ -45,6 +45,11 @@ import { CareersComponent } from './careers/careers.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { ScheduleDemoDialogComponent } from './schedule-demo-dialog/schedule-demo-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HistorianComponent } from './pages/historian/historian.component';
+import { AlarmComponent } from './pages/alarm/alarm.component';
+import { DocumentationComponent } from './pages/documentation/documentation.component';
+import { ConnectivitySuiteComponent } from './pages/connectivity/connectivity.component';
+import { BatchComponent } from './pages/batch/batch.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +76,11 @@ import { HttpClientModule } from '@angular/common/http';
     CareersComponent,
     PrivacyPolicyComponent,
     ScheduleDemoDialogComponent,
+    HistorianComponent,
+    AlarmComponent,
+    DocumentationComponent,
+    ConnectivitySuiteComponent,
+    BatchComponent,
   ],
   imports: [
     BrowserModule,

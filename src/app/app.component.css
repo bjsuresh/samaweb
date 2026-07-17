@@ -155,7 +155,7 @@ mat-toolbar.is-scrolled {
 }
 .logo-sec {
   display: inline-block;
-  padding: 3px 8px;
+  padding: 3px 8px 3px 0;
   /* background: var(--accent); */
   color: #fff;
   font-size: 14px;
@@ -197,10 +197,17 @@ mat-toolbar.is-scrolled {
 .navbar.scrolled, .megamenu:hover ~ .navbar {
   background-color: #000 !important;
 }
+/* Bootstrap zeroes .navbar-expand-lg > .container padding below lg; keep it so the
+   header shares the same gutter as the page content containers. */
+#navbar > .container {
+  padding-left: calc(var(--bs-gutter-x, 1.5rem) * 0.5);
+  padding-right: calc(var(--bs-gutter-x, 1.5rem) * 0.5);
+}
+
 .navbar {
   background-color: #061823;
   color: #fff;
-  padding: 0px 10px;
+  padding: 0px;
   /* position: fixed; */
   /* width: 100%; */
   transition: background-color 0.3s ease-in-out;
