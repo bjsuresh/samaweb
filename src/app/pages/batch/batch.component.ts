@@ -14,10 +14,12 @@ export class BatchComponent {
   setReporter(n: number) {
     this.activeReporter = n;
     this.showDetail = true;
+    document.body.style.overflow = 'hidden';
   }
 
   hideDetail() {
     this.showDetail = false;
+    document.body.style.overflow = '';
   }
 
   showVideoPopup = false;
@@ -32,6 +34,6 @@ export class BatchComponent {
   closeVideo() {
     this.showVideoPopup = false;
     this.currentVideoSrc = '';
-    document.body.style.overflow = '';
+    document.body.style.overflow = this.showDetail ? 'hidden' : '';
   }
 }

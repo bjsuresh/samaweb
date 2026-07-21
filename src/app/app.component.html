@@ -43,9 +43,9 @@
                     <h6>Historian</h6>
                   </div>
                   <ul class="mega-list">
-                    <li><a href="#/historian#real-time-historian" (click)="closeNavbar()">Real Time Historian</a></li>
-                    <li><a href="#/historian#rt-calc" (click)="closeNavbar()">Template Calculator</a></li>
-                    <li><a href="#/historian#sap-interface" (click)="closeNavbar()">SAP Interface</a></li>
+                    <li><a [routerLink]="['/historian']" fragment="real-time-historian" (click)="closeNavbar()">Real Time Historian</a></li>
+                    <li><a [routerLink]="['/historian']" fragment="rt-calc" (click)="closeNavbar()">Template Calculator</a></li>
+                    <li><a [routerLink]="['/historian']" fragment="sap-interface" (click)="closeNavbar()">SAP Interface</a></li>
                   </ul>
                 </div>
 
@@ -58,12 +58,10 @@
                     <h6>Enterprise Suite</h6>
                   </div>
                   <ul class="mega-list">
-                    <li><a href="#/enterprise#web-serer" (click)="closeNavbar()">Web Server</a></li>
-                    <li><a href="#/batch#reporter" (click)="closeNavbar()">Web Reporter</a></li>
-                    <li><a href="#/batch#reporter" (click)="closeNavbar()">Reporter Suite</a></li>
-                    <li><a href="#/documentation#doc-mgnt" (click)="closeNavbar()">Web Document Management System</a></li>
-                    <li><a href="#/enterprise#mobile-app" (click)="closeNavbar()">Mobile App</a></li>
-                    <li><a href="#/documentation#logbook" (click)="closeNavbar()">E-Logbook</a></li>
+                    <li><a [routerLink]="['/enterprise']" fragment="web-serer" (click)="closeNavbar()">Enterprise Web Client</a></li>
+                    <li><a [routerLink]="['/enterprise']" fragment="web-reporter" (click)="closeNavbar()">SAMA Web Reporter</a></li>
+                    <li><a [routerLink]="['/enterprise']" fragment="mobile-app" (click)="closeNavbar()">SAMA Mobile App</a></li>
+                    <li><a [routerLink]="['/documentation']" fragment="logbook" (click)="closeNavbar()">E-Logbook</a></li>
                   </ul>
                 </div>
 
@@ -76,13 +74,10 @@
                     <h6>Alarm Management Suite</h6>
                   </div>
                   <ul class="mega-list">
-                    <li><a href="#/alarm#alrm-alerts" (click)="closeNavbar()">Alarm Server</a></li>
-                    <li><a href="#/alarm#root-cause-analysis" (click)="closeNavbar()">Alarm Analysis</a></li>
-                    <li><a href="#/batch#reporter" (click)="closeNavbar()">Alarm Reporter</a></li>
-                    <li><a href="#/alarm#alrm-alerts" (click)="closeNavbar()">Alarm Alerts</a></li>
-                    <li><a href="#/enterprise#web-serer" (click)="closeNavbar()">Web Server</a></li>
-                    <li><a href="#/alarm#change-mgnt" (click)="closeNavbar()">Change Management</a></li>
-                    <li><a href="#/alarm#alrm-rationalization" (click)="closeNavbar()">Rationalisation</a></li>
+                    <li><a [routerLink]="['/alarm']" fragment="alarm-analysis" (click)="closeNavbar()">Alarm Analysis</a></li>
+                    <li><a [routerLink]="['/alarm']" fragment="sama-alarm-alerts" (click)="closeNavbar()">Alarm Alerts</a></li>
+                    <li><a [routerLink]="['/alarm']" fragment="change-mgnt" (click)="closeNavbar()">Change Management</a></li>
+                    <li><a [routerLink]="['/alarm']" fragment="alrm-rationalization" (click)="closeNavbar()">Rationalisation</a></li>
                   </ul>
                 </div>
 
@@ -95,9 +90,8 @@
                     <h6>Document Management Suite</h6>
                   </div>
                   <ul class="mega-list">
-                    <li><a href="#/documentation#doc-mgnt" (click)="closeNavbar()">Document Manager</a></li>
-                    <li><a href="#/documentation#doc-mgnt" (click)="closeNavbar()">Web Document Management System</a></li>
-                    <li><a href="#/documentation#logbook" (click)="closeNavbar()">E-Logbook</a></li>
+                    <li><a [routerLink]="['/documentation']" fragment="doc-suite" (click)="closeNavbar()">Document Management System</a></li>
+                    <li><a [routerLink]="['/documentation']" fragment="logbook" (click)="closeNavbar()">E-Logbook</a></li>
                   </ul>
                 </div>
 
@@ -107,12 +101,14 @@
                     <span class="mega-icon-wrap">
                       <svg class="mega-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 17H7a5 5 0 0 1 0-10h2M15 7h2a5 5 0 0 1 0 10h-2M8 12h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </span>
-                    <h6>Connectivity Suite</h6>
+                    <h6>OPC Integration Suite</h6>
                   </div>
                   <ul class="mega-list">
-                    <li><a href="#/connectivity-suite#opc-products" (click)="closeNavbar()">OPC Converters</a></li>
-                    <li><a href="#/connectivity-suite#opc-products" (click)="closeNavbar()">OPC Wrappers</a></li>
-                    <li><a href="#/connectivity-suite#data-collectors" (click)="closeNavbar()">Data Collectors</a></li>
+                    <li><a [routerLink]="['/connectivity-suite']" fragment="ae-gateway" (click)="closeNavbar()">Alarm and Event Gateway – OPC UA to AE Aggregator</a></li>
+                    <li><a [routerLink]="['/connectivity-suite']" fragment="data-publisher" (click)="closeNavbar()">OPC UA Data Publisher</a></li>
+                    <li><a [routerLink]="['/connectivity-suite']" fragment="opc-ua-wrapper" (click)="closeNavbar()">Classic OPC UA Wrapper</a></li>
+                    <li><a [routerLink]="['/connectivity-suite']" fragment="connectivity-gateway" (click)="closeNavbar()">OPC Connectivity Gateway</a></li>
+                    <li><a [routerLink]="['/connectivity-suite']" fragment="redundancy-manager" (click)="closeNavbar()">OPC Redundancy Manager</a></li>
                   </ul>
                 </div>
 
@@ -122,10 +118,13 @@
                     <span class="mega-icon-wrap">
                       <svg class="mega-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10M18 16l3 3-3 3M21 19h-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </span>
-                    <h6>Batch Suite</h6>
+                    <h6>Reporter Suite</h6>
                   </div>
                   <ul class="mega-list">
-                    <li><a href="#/batch#reporter" (click)="closeNavbar()">Batch Reporter</a></li>
+                    <li><a [routerLink]="['/batch']" fragment="reporter" (click)="closeNavbar()">Advanced XL Reporter</a></li>
+                    <li><a [routerLink]="['/batch']" fragment="reporter" (click)="closeNavbar()">OPC XL Reporter</a></li>
+                    <li><a [routerLink]="['/batch']" fragment="reporter" (click)="closeNavbar()">Alarm and Event Reporter</a></li>
+                    <li><a [routerLink]="['/batch']" fragment="reporter" (click)="closeNavbar()">Batch Reporter</a></li>
                   </ul>
                 </div>
 

@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-connectivity-suite',
   templateUrl: './connectivity.component.html',
   styleUrls: [
-    '../products4/products4.component.css'
+    '../products4/products4.component.css',
+    './connectivity.component.css'
   ]
 })
 export class ConnectivitySuiteComponent {

@@ -15,7 +15,8 @@ SwiperCore.use([Navigation, Pagination, Autoplay]);
   templateUrl: './alarm.component.html',
   styleUrls: [
     '../products3/products3.component.css',
-    '../products5/products5.component.css'
+    '../products5/products5.component.css',
+    './alarm.component.css'
   ]
 })
 export class AlarmComponent {

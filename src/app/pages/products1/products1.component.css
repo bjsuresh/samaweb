@@ -300,8 +300,6 @@ ul.circle-checkmark {
     max-width: 160px;
     margin-bottom: 5px;
     position: relative;
-    padding-left: 10px;
-    border-left: 2px solid var(--accent);
     transition: text-shadow 0.3s ease;
 }
 
@@ -316,14 +314,18 @@ ul.circle-checkmark {
     border-left: 2px solid rgba(var(--accent-rgb),0.3);
     transition: all 0.3s ease;
 }
-
+.h-card-text-left {
+    border-left: 2px solid rgba(var(--accent-rgb),0.3);
+}
+.h-card-text-right {
+    border-left: 2px solid rgba(var(--accent-rgb),0.3);
+}
 /* Real-time historian cards: title highlighted, description muted below it */
 .historian-diagram .h-card-text {
     font-size: 11.5px;
     font-weight: 500;
     color: #b7c0c9;
     max-width: 160px;
-    border-left: none;
     padding-left: 10px;
 }
 
@@ -1319,44 +1321,38 @@ p:hover use{
     color: #ffffff;
 }
 
-/* ── Popup Card — absolute overlay on top of diagram, diagram blurs behind ── */
+/* ── Popup — full-page modal overlay, diagram blurs behind ── */
 .rp-popup {
-    position: absolute;
-    inset: 14px;                         /* slight inset so diagram border peeks */
-    z-index: 10;
-    border-radius: 20px;
-    background: rgba(5, 16, 30, 0.92);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(var(--accent-rgb), 0.25);
-    box-shadow: 0 0 0 1px rgba(var(--accent-rgb), 0.06),
-                inset 0 1px 0 rgba(255, 255, 255, 0.06),
-                0 24px 60px rgba(0, 0, 0, 0.5);
-    padding: 28px 32px;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
     display: flex;
     align-items: center;
+    justify-content: center;
+    padding: 32px 24px;
+    background: rgba(3, 10, 20, 0.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     /* Hidden state */
     opacity: 0;
-    transform: scale(0.88);
-    transform-origin: center;
+    visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.4s cubic-bezier(0.34, 1.15, 0.64, 1),
-                transform 0.44s cubic-bezier(0.34, 1.15, 0.64, 1);
+    transition: opacity 0.35s ease, visibility 0.35s ease;
 }
 
 .rp-popup.rp-popup-show {
     opacity: 1;
-    transform: scale(1);
+    visibility: visible;
     pointer-events: auto;
 }
 
 /* ── Close button ── */
 .rp-popup-close {
     position: absolute;
-    top: 14px;
-    right: 14px;
-    width: 36px;
-    height: 36px;
+    top: 24px;
+    right: 28px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border: 1px solid rgba(var(--accent-rgb), 0.25);
     background: rgba(var(--accent-rgb), 0.08);
@@ -1383,18 +1379,39 @@ p:hover use{
     margin: 0 !important;
 }
 
-/* ── Stacked reporter panels ── */
+/* ── Reporter panel = centered modal card ── */
 .rp-pp {
     display: none;
-    gap: 28px;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
     width: 100%;
+    max-width: 880px;
+    max-height: 90vh;
+    overflow-y: auto;
+    /* hide scrollbar — keep scrolling */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    margin: auto;
+    padding: 30px 34px;
+    border-radius: 20px;
+    background: rgba(5, 16, 30, 0.97);
+    border: 1px solid rgba(var(--accent-rgb), 0.25);
+    box-shadow: 0 0 0 1px rgba(var(--accent-rgb), 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.06),
+                0 30px 70px rgba(0, 0, 0, 0.6);
+}
+
+.rp-pp::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
 }
 
 .rp-pp.rp-pp-show {
     display: flex;
     animation: rpPpZoomIn 0.4s cubic-bezier(0.34, 1.15, 0.64, 1) both;
-    animation-delay: 0.08s;
+    animation-delay: 0.05s;
 }
 
 @keyframes rpPpZoomIn {
@@ -1410,8 +1427,9 @@ p:hover use{
 
 /* ── Left: video thumbnail ── */
 .rp-pp-video {
-    flex: 0 0 280px;
-    height: 190px;
+    flex: none;
+    width: 100%;
+    height: 240px;
     border-radius: 14px;
     overflow: hidden;
     border: 1px solid rgba(var(--accent-rgb), 0.22);
@@ -1430,7 +1448,7 @@ p:hover use{
 .rp-pp-thumb {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }
 
@@ -1438,11 +1456,11 @@ p:hover use{
     border-radius: 14px;
 }
 
-/* ── Right: info panel ── */
+/* ── Info panel (below the video) ── */
 .rp-pp-info {
-    flex: 1;
+    width: 100%;
     min-width: 0;
-    padding-right: 30px; /* space from close btn */
+    padding-right: 0;
 }
 
 .rp-pp-title {
@@ -1467,12 +1485,10 @@ p:hover use{
     .rp-node-tr { top: 18px; right: 14px; }
     .rp-node-bl { bottom: 18px; left: 14px; }
     .rp-node-br { bottom: 18px; right: 14px; }
-    .rp-popup { padding: 20px; inset: 10px; }
-    .rp-pp { flex-direction: column; gap: 14px; }
-    .rp-pp-video { flex: none; width: 100%; height: 160px; }
-    .rp-pp-info { padding-right: 30px; }
+    .rp-popup { padding: 24px 16px; }
+    .rp-pp { padding: 24px 20px; gap: 16px; }
+    .rp-pp-video { height: 200px; }
     .rp-pp-title { font-size: 18px !important; }
-    .rp-pp-info .zz-desc { display: none; }
     .rp-see-more { font-size: 9px; padding: 4px 0; }
 }
 
@@ -1485,9 +1501,11 @@ p:hover use{
     .rp-node-br { bottom: 12px; right: 8px; }
     .rp-node-icon { width: 28px; height: 28px; margin-bottom: 6px; }
     .rp-node-name { font-size: 9px; }
-    .rp-popup { padding: 14px; inset: 8px; border-radius: 16px; }
-    .rp-pp-video { height: 130px; }
+    .rp-popup { padding: 14px 10px; }
+    .rp-pp { padding: 20px 16px; border-radius: 16px; }
+    .rp-pp-video { height: 150px; }
     .rp-pp-title { font-size: 16px !important; }
+    .rp-popup-close { top: 14px; right: 16px; width: 34px; height: 34px; }
     .rp-pp-info .featured-checklist li { font-size: 12px; padding: 5px 0; }
     .rp-see-more { font-size: 8px; margin-top: 6px; }
 }

@@ -175,8 +175,14 @@ body.light-theme .featured-checklist .check-icon {
 body.light-theme .featured-checklist li:hover .check-icon {
     background: rgba(16, 185, 129, 0.2) !important;
 }
+/* Reporter modal: dim backdrop + light card in light theme */
 body.light-theme .rp-popup {
-    background: #f8f9fa;
+    background: rgba(15, 23, 42, 0.45);
+}
+body.light-theme .rp-pp {
+    background: #ffffff;
+    border-color: rgba(var(--accent-rgb), 0.2);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
 }
 body.light-theme .rp-pp-title {
     color: var(--accent) !important;
@@ -216,6 +222,84 @@ body.light-theme .feat-label {
 
 body.light-theme .feat-content p {
     color: #6b7280 !important;
+}
+
+/* ===== Light theme: orbit diagrams + enterprise product sections ===== */
+
+/* Orbit-diagram card description (Historian / Enterprise / Alarm / Logbook) */
+body.light-theme .historian-diagram .h-card-text,
+body.light-theme .h-card-text,
+body.light-theme .a-card-text,
+body.light-theme .l-card-text {
+    color: #475569 !important;
+}
+
+/* Faint watermark numbers -> a touch stronger on white */
+body.light-theme .h-card-num,
+body.light-theme .a-card-num,
+body.light-theme .l-card-num,
+body.light-theme .adv-num,
+body.light-theme .wr-adv-num {
+    color: rgba(var(--accent-rgb), 0.5);
+}
+
+/* Card / panel surfaces */
+body.light-theme .portal-intro,
+body.light-theme .deploy-card,
+body.light-theme .wr-layer,
+body.light-theme .adv-card,
+body.light-theme .opc-card {
+    background: rgba(var(--accent-rgb), 0.03);
+    border-color: rgba(var(--accent-rgb), 0.15);
+}
+
+body.light-theme .doc-callout {
+    background: rgba(var(--accent-rgb), 0.05);
+}
+
+/* Section titles (defensive — most are headings already) */
+body.light-theme .portal-intro-title,
+body.light-theme .portal-platform-title,
+body.light-theme .deploy-title,
+body.light-theme .wr-adv-title,
+body.light-theme .wr-layer-title,
+body.light-theme .adv-title,
+body.light-theme .opc-card-title,
+body.light-theme .doc-callout-title {
+    color: #0f172a;
+}
+
+/* List-item text (chips, layer lists, differentiators, examples).
+   !important is required: Angular's scoped base rules (e.g. `.portal-chips li`)
+   carry the component's [_ngcontent] attribute, which raises their specificity
+   above a plain global selector. */
+body.light-theme .portal-chips li,
+body.light-theme .wr-layer-list li,
+body.light-theme .opc-diff-list li,
+body.light-theme .opc-ideal-list li,
+body.light-theme .src-list li {
+    color: #334155 !important;
+}
+
+/* Muted secondary copy that isn't a <p> */
+body.light-theme .portal-shared,
+body.light-theme .deploy-subtitle {
+    color: #64748b;
+}
+
+/* ===== Light theme: make ALL list items in product sections readable ===== */
+/* Catch-all for any <li> inside a product tile (covers .features li, plain
+   lists, and any custom list not individually themed). The green-check
+   checklist keeps its own muted tone via its !important rule above. */
+body.light-theme .tile1 li {
+    color: #374151 !important;
+}
+
+/* Legacy feature lists that hard-code white */
+body.light-theme .features li,
+body.light-theme .features h5,
+body.light-theme .features h3 {
+    color: #374151 !important;
 }
 
 /* Report table */

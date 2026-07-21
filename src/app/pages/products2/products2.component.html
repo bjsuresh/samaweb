@@ -1,209 +1,66 @@
 <section class="tile1">
     <div class="container">
         <div class="body" id="web-serer">
-            <h3 data-aos="fade-up">WEB SERVER</h3>
+            <h3 data-aos="fade-up">Enterprise Web Client</h3>
 
-            <div  data-aos="fade-up" data-aos-delay="150">
-                <div class="ws-orbit-header">
-                    <!-- <span class="ws-orbit-eyebrow">Supported Clients</span>
-                    <h4 class="ws-orbit-title">One Server. Multiple Client Types.</h4> -->
-                    <p class="ws-orbit-subtitle">The Web Server securely powers a range of purpose-built clients — each designed for a specific role in your operations.</p>
+            <div class="portal-intro" data-aos="fade-up" data-aos-delay="150">
+                <div class="portal-intro-lead">
+                    <span class="portal-intro-eyebrow">Enterprise Portal</span>
+                    <h5 class="portal-intro-title">Enterprise Visualization &amp; Operations Portal</h5>
+                    <p class="portal-intro-desc">Monitor industrial operations through interactive dashboards, enterprise graphics, trends and reports — all delivered securely through centralized authentication, Area of Responsibility and role-based access.</p>
                 </div>
-
-                <div class="ws-scene">
-                    <div class="ws-diagram" [class.ws-diagram-blur]="showClientDetail">
-
-                        <div class="ws-orbit-ring"></div>
-                        <div class="ws-orbit-ring ws-orbit-ring-inner"></div>
-
-                        <div class="ws-hub">
-                            <div class="ws-hub-core">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="4" width="20" height="6" rx="1.5"/>
-                                    <rect x="2" y="14" width="20" height="6" rx="1.5"/>
-                                    <line x1="6" y1="7" x2="6.01" y2="7"/>
-                                    <line x1="6" y1="17" x2="6.01" y2="17"/>
-                                    <line x1="10" y1="7" x2="18" y2="7"/>
-                                    <line x1="10" y1="17" x2="18" y2="17"/>
-                                </svg>
-                                <span>Web<br/>Server</span>
-                            </div>
-                        </div>
-
-                        <!-- Card 1: Web Client & Dashboards -->
-                        <div class="ws-card ws-card-1" [class.ws-card-active]="activeClient === 0">
-                            <div class="ws-card-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="3" width="20" height="14" rx="2"/>
-                                    <line x1="8" y1="21" x2="16" y2="21"/>
-                                    <line x1="12" y1="17" x2="12" y2="21"/>
-                                    <rect x="6" y="7" width="4" height="6" rx="0.5"/>
-                                    <rect x="12" y="7" width="6" height="2.5" rx="0.5"/>
-                                    <rect x="12" y="10.5" width="6" height="2.5" rx="0.5"/>
-                                </svg>
-                            </div>
-                            <div class="ws-card-title">Web Client &amp; Dashboards</div>
-                            <p class="ws-card-desc">Browser-based real-time and historical data access with role-based KPI dashboards, drill-down analytics, trend charts and live plant summaries — no install, no plugins, secure by design.</p>
-                            <button class="ws-see-more" (click)="setClient(0)">See More</button>
-                        </div>
-
-                        <!-- Card 2: Web AE Client -->
-                        <div class="ws-card ws-card-2" [class.ws-card-active]="activeClient === 1">
-                            <div class="ws-card-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 8a6 6 0 1 1 12 0c0 5 3 7 3 7H3s3-2 3-7z"/>
-                                    <path d="M10 20a2 2 0 0 0 4 0"/>
-                                </svg>
-                            </div>
-                            <div class="ws-card-title">Web AE Client</div>
-                            <p class="ws-card-desc">Live alarms &amp; events viewer with acknowledgement, filtering and full audit trail — accessible securely from any authorised device.</p>
-                            <button class="ws-see-more" (click)="setClient(1)">See More</button>
-                        </div>
-
-                    </div>
-
-                    <!-- ── Detail Popup ── -->
-                    <div class="ws-popup" [class.ws-popup-show]="showClientDetail">
-
-                        <button class="ws-popup-close" (click)="hideClientDetail()">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                        </button>
-
-                        <!-- Detail 1: Web Client & Dashboards -->
-                        <div class="ws-pp" [class.ws-pp-show]="activeClient === 0">
-                            <div class="ws-pp-video video-thumb" (click)="openVideo('assets/dashboard-video.mp4')">
-                                <img src="assets/graphics.jpeg" class="ws-pp-thumb"/>
-                                <div class="play-btn-overlay">
-                                    <div class="play-btn">
-                                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="ws-pp-info">
-                                <h4 class="ws-pp-title">Web Client &amp; Dashboards</h4>
-                                <p class="zz-desc">Unified browser-based access for operators, engineers and management — with role-based KPI dashboards and drill-down analytics.</p>
-                                <div class="feat-panel">
-                                    <div class="feat-heading">
-                                        <span class="feat-badge">Features</span>
-                                    </div>
-                                    <div class="feat-list">
-                                        <div class="feat-item">
-                                            <div class="feat-icon">
-                                                <svg viewBox="0 0 24 24" fill="none"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
-                                            </div>
-                                            <div class="feat-content">
-                                                <span class="feat-label">Real-time &amp; Historical Data</span>
-                                                <p>Live trends, historical playback and aggregate views from any browser</p>
-                                            </div>
-                                        </div>
-                                        <div class="feat-item">
-                                            <div class="feat-icon">
-                                                <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="3" width="7" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="12" width="7" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="16" width="7" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
-                                            </div>
-                                            <div class="feat-content">
-                                                <span class="feat-label">Role-based KPI Dashboards</span>
-                                                <p>Purpose-built views for management, engineers and operators</p>
-                                            </div>
-                                        </div>
-                                        <div class="feat-item">
-                                            <div class="feat-icon">
-                                                <svg viewBox="0 0 24 24" fill="none"><path d="M12 11v2m-4 0h8m-6-6V7a4 4 0 118 0v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                            </div>
-                                            <div class="feat-content">
-                                                <span class="feat-label">Secure Access</span>
-                                                <p>Token authentication, encrypted APIs, no plugin or client install</p>
-                                            </div>
-                                        </div>
-                                        <div class="feat-item">
-                                            <div class="feat-icon">
-                                                <svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18M7 15l4-4 4 4 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                            </div>
-                                            <div class="feat-content">
-                                                <span class="feat-label">Drill-down Analytics</span>
-                                                <p>Interactive trend charts with multi-level drill-down for root-cause views</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Detail 2: Web AE Client -->
-                        <div class="ws-pp" [class.ws-pp-show]="activeClient === 1">
-                            <div class="ws-pp-video video-thumb" (click)="openVideo('assets/ae-report.mp4')">
-                                <img src="assets/alrm-mgnt.png" class="ws-pp-thumb"/>
-                                <div class="play-btn-overlay">
-                                    <div class="play-btn">
-                                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="ws-pp-info">
-                                <h4 class="ws-pp-title">Web AE Client</h4>
-                                <p class="zz-desc">Live alarms &amp; events monitoring with acknowledgement, filtering and full audit trail — accessible securely from any authorised device.</p>
-                                <div class="feat-panel">
-                                    <div class="feat-heading">
-                                        <span class="feat-badge">Features</span>
-                                    </div>
-                                    <div class="feat-list">
-                                        <div class="feat-item">
-                                            <div class="feat-icon">
-                                                <svg viewBox="0 0 24 24" fill="none"><path d="M6 8a6 6 0 1 1 12 0c0 5 3 7 3 7H3s3-2 3-7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 20a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                            </div>
-                                            <div class="feat-content">
-                                                <span class="feat-label">Live Alarms &amp; Events</span>
-                                                <p>Real-time A&amp;E stream with priority-based colour coding</p>
-                                            </div>
-                                        </div>
-                                        <div class="feat-item">
-                                            <div class="feat-icon">
-                                                <svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                            </div>
-                                            <div class="feat-content">
-                                                <span class="feat-label">Acknowledgement</span>
-                                                <p>Single &amp; bulk acknowledgement with operator notes</p>
-                                            </div>
-                                        </div>
-                                        <div class="feat-item">
-                                            <div class="feat-icon">
-                                                <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                                            </div>
-                                            <div class="feat-content">
-                                                <span class="feat-label">Advanced Filtering</span>
-                                                <p>Filter by area, priority, tag, source and time range</p>
-                                            </div>
-                                        </div>
-                                        <div class="feat-item">
-                                            <div class="feat-icon">
-                                                <svg viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                            </div>
-                                            <div class="feat-content">
-                                                <span class="feat-label">Full Audit Trail</span>
-                                                <p>Immutable log of all operator actions for compliance</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+                <div class="portal-intro-platform">
+                    <h6 class="portal-platform-title">Powered by the SAMA Enterprise Platform</h6>
+                    <ul class="portal-chips">
+                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Centralized Authentication</li>
+                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Role-Based Access Control (RBAC)</li>
+                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Area of Responsibility (AoR)</li>
+                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Secure API Gateway</li>
+                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Enterprise Report Publishing</li>
+                    </ul>
+                    <p class="portal-shared">Shared across <strong>SAMA Web Client, Web Reporter, E-Logbook</strong> and <strong>Mobile Applications</strong>.</p>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
-                    <h5>Premium Enterprise Tool For Management And Engineers Alike That Is:</h5>
-                    <div class="">
-                        <ul class="featured-checklist">
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Cybersecure And VAPT Certified</li>
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Unique Token Authentication Technology To Ensure Highest Security</li>
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Single Plant or Multi Plant Enterprise Integration</li>
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Proven Scalability To 500,000 Tag Points</li>
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Operational Mode Flexibility For Redundancy: Active – Active, Active – Cold Standby, Active – Hot Standby</li>
-                        </ul>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" >
+                    <h5>Enterprise Visualization &amp; Operations Portal</h5>
+                    <div class="historian-diagram">
+                        <!-- Orbit Ring -->
+                        <div class="orbit-ring"></div>
+
+                        <!-- Central Gear -->
+                        <div class="gear-center">
+                            <svg class="gear-icon" fill="#f97316" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 472.62 472.62" xml:space="preserve" stroke="#f97316" stroke-width="0.00472615"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M472.615,274.117V198.4l-55.335-9.255c-4.332-16.64-10.929-32.492-19.692-47.458L430.178,96l-53.563-53.563 l-45.686,32.591c-14.966-8.763-30.917-15.36-47.557-19.692L274.215,0H198.4l-9.157,55.335 c-16.64,4.332-32.591,10.929-47.557,19.692L96,42.437L42.437,96l32.591,45.686c-8.763,14.966-15.36,30.818-19.692,47.458L0,198.4 v75.717l55.335,9.255c4.332,16.64,10.929,32.591,19.692,47.557l-32.591,45.686L96,430.178l45.686-32.689 c14.966,8.862,30.917,15.458,47.557,19.791l9.157,55.335h75.815l9.157-55.335c16.64-4.332,32.591-10.929,47.557-19.791 l45.686,32.689l53.563-53.563l-32.591-45.686c8.763-14.966,15.36-30.917,19.692-47.557L472.615,274.117z M236.308,334.769 c-54.252,0-98.462-44.209-98.462-98.462c0-54.351,44.209-98.462,98.462-98.462s98.462,44.111,98.462,98.462 C334.769,290.56,290.56,334.769,236.308,334.769z"></path> </g> </g> </g></svg>
+                        </div>
+
+                        <!-- Feature Cards -->
+                        <div class="h-card h-card-1">
+                            <div class="h-card-title">Enterprise Operations Portal</div>
+                            <div class="h-card-text h-card-text-left">Access dashboards, process graphics, trends and reports from a unified browser-based interface.</div>
+                        </div>
+                        <div class="h-card h-card-2">
+                            <div class="h-card-title">Real-Time Operational Visibility</div>
+                            <div class="h-card-text h-card-text-right">Monitor live and historical KPIs across plants, units and equipment through configurable dashboards.</div>
+                        </div>
+                        <div class="h-card h-card-3">
+                            <div class="h-card-title">Enterprise Security by Design</div>
+                            <div class="h-card-text h-card-text-right">Powered by the SAMA Enterprise Web Server, every dashboard, report and graphic is automatically secured through centralized authentication, role-based access and Area of Responsibility.</div>
+                        </div>
+                        <div class="h-card h-card-4">
+                            <div class="h-card-title">Rich Industrial Visualization</div>
+                            <div class="h-card-text h-card-text-right">Visualize DCS and SCADA graphics with dynamic colours, blinking animations, directional indicators and equipment status.</div>
+                        </div>
+                        <div class="h-card h-card-5">
+                            <div class="h-card-title">Anywhere Browser Access</div>
+                            <div class="h-card-text h-card-text-left">Access operational information securely from any authorized workstation without installing client software.</div>
+                        </div>
+                        <div class="h-card h-card-6">
+                            <div class="h-card-title">Unified Operational Workspace</div>
+                            <div class="h-card-text h-card-text-left">Bring together visualization, reporting, graphics and historical analysis within a single enterprise application.</div>
+                        </div>
                     </div>
-                </div> 
+                </div>
                 <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
                     <div class="feat-panel">
                         <div class="feat-heading">
@@ -215,391 +72,399 @@
                             <div class="feat-item" data-aos="fade-left" data-aos-delay="100">
                                 <div class="feat-icon">
                                     <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="M12 11v2m-4 0h8m-6-6V7a4 4 0 118 0v4"
-                                            stroke="currentColor" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round"/>
+                                        <rect x="3" y="3" width="7" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                        <rect x="14" y="3" width="7" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                        <rect x="14" y="12" width="7" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                        <rect x="3" y="16" width="7" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/>
                                     </svg>
                                 </div>
                                 <div class="feat-content">
-                                    <span class="feat-label">User Access Control</span>
-                                    <p>Configurable user groups, ISA-95 hierarchy & grid level management</p>
+                                    <span class="feat-label">Interactive Dashboards</span>
+                                    <p>Configure real-time and historical dashboards to monitor operational KPIs across the enterprise.</p>
                                 </div>
                             </div>
 
                             <div class="feat-item" data-aos="fade-left" data-aos-delay="150">
                                 <div class="feat-icon">
                                     <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="M4 7h16M4 12h16M4 17h16"
-                                            stroke="currentColor" stroke-width="1.5"
-                                            stroke-linecap="round"/>
+                                        <path d="M4 5h16v11H4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                        <circle cx="9" cy="10" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                                        <path d="M13 12l2-2 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                 </div>
                                 <div class="feat-content">
-                                    <span class="feat-label">Encrypted APIs</span>
-                                    <p>Secure internal web client connectivity using encrypted APIs</p>
+                                    <span class="feat-label">Enterprise Graphics</span>
+                                    <p>Create web-based DCS and SCADA mimic displays with dynamic colours, blinking objects, equipment status and flow direction.</p>
                                 </div>
                             </div>
 
                             <div class="feat-item" data-aos="fade-left" data-aos-delay="200">
                                 <div class="feat-icon">
                                     <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="M3 12h18M12 3v18"
-                                            stroke="currentColor" stroke-width="1.5"
-                                            stroke-linecap="round"/>
+                                        <path d="M3 3v18h18M7 14l3-4 3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                 </div>
                                 <div class="feat-content">
-                                    <span class="feat-label">RESTful External APIs</span>
-                                    <p>Provision for seamless third-party system integration</p>
+                                    <span class="feat-label">Advanced Trending</span>
+                                    <p>Compare up to eight pens using real-time vs. real-time, historical vs. historical or real-time vs. historical data.</p>
                                 </div>
                             </div>
 
                             <div class="feat-item" data-aos="fade-left" data-aos-delay="250">
                                 <div class="feat-icon">
                                     <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="M12 6v6l4 2"
-                                            stroke="currentColor" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M6 2h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M14 2v6h6M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
                                     </svg>
                                 </div>
                                 <div class="feat-content">
-                                    <span class="feat-label">Server Health Monitoring</span>
-                                    <p>Unique server status display with high precision audit logging</p>
-                                </div>
-                            </div>
-                            <div class="feat-item" data-aos="fade-left" data-aos-delay="250">
-                                <div class="feat-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                </div>
-                                <div class="feat-content">
-                                    <span class="feat-label">Audit Log</span>
-                                    <p>High Precision Audit Log</p>
-                                </div>
-                            </div>
-                            <div class="feat-item" data-aos="fade-left" data-aos-delay="300">
-                                <div class="feat-icon">
-                                    <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="M4 4h16v16H4z"
-                                            stroke="currentColor" stroke-width="1.5"/>
-                                    </svg>
-                                </div>
-                                <div class="feat-content">
-                                    <span class="feat-label">Web Enabled Reports</span>
-                                    <p>Generate and access reports directly through web interface</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="body" id="web-clients">
-            <h3 data-aos="fade-up">Web Clients and Dashboards</h3>
-            <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
-                    <h5>Enterprise Clients For Data Monitoring And Analysis For Management and Engineers Alike That Is:</h5>
-                    <div class="">
-                        <ul class="featured-checklist">
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Cybersecure and VAPT Certificated</li>
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Access Based On Web Server User Access Control</li>
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Client Segregation To Declutter Data: Web Client, Web Analytics, Web AE Client, Web Reporter, Mobile App</li>
-                        </ul>
-                    </div>
-                </div> 
-                <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
-                    <div class="feat-panel">
-                        <div class="feat-heading">
-                            <span class="feat-badge">Features</span>
-                        </div>
-
-                        <div class="feat-list">
-
-                            <div class="feat-item" data-aos="fade-left" data-aos-delay="100">
-                                <div class="feat-icon">
-                                    <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="M4 5h16v14H4zM8 9h8M8 13h5"
-                                            stroke="currentColor" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </div>
-                                <div class="feat-content">
-                                    <span class="feat-label">Multi User – Multi Dashboard</span>
-                                    <p>Unique Multi User – Multi Dashboard For User Specific Plant KPI Monitoring</p>
-                                </div>
-                            </div>
-
-                            <div class="feat-item" data-aos="fade-left" data-aos-delay="150">
-                                <div class="feat-icon">
-                                    <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="M12 6v6l4 2"
-                                            stroke="currentColor" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </div>
-                                <div class="feat-content">
-                                    <span class="feat-label">Historical Dashboard</span>
-                                    <p>Historical Dashboard View With Playback</p>
-                                </div>
-                            </div>
-
-                            <div class="feat-item" data-aos="fade-left" data-aos-delay="200">
-                                <div class="feat-icon">
-                                    <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="M3 17l6-6 4 4 8-8"
-                                            stroke="currentColor" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </div>
-                                <div class="feat-content">
-                                    <span class="feat-label">Advanced Trends</span>
-                                    <p>Advanced Trends For All Combinations Of Real Time And Historical Data Including Aggregated Historical Data</p>
-                                </div>
-                            </div>
-
-                            <div class="feat-item" data-aos="fade-left" data-aos-delay="250">
-                                <div class="feat-icon">
-                                    <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="M4 4h16v16H4zM9 9h6v6H9z"
-                                            stroke="currentColor" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </div>
-                                <div class="feat-content">
-                                    <span class="feat-label">Web Graphics</span>
-                                    <p>SCADA Or DCS Graphics Brought To The Web With Web Graphics Complete With ISA And Electrical Libraries And Condition Definitions</p>
+                                    <span class="feat-label">Enterprise Report Viewer</span>
+                                    <p>View centrally published reports directly within the web client, with automatic filtering based on Area of Responsibility.</p>
                                 </div>
                             </div>
 
                             <div class="feat-item" data-aos="fade-left" data-aos-delay="300">
                                 <div class="feat-icon">
                                     <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="M16 8v8m-4-6v6m-4-4v4"
-                                            stroke="currentColor" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round"/>
+                                        <circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/>
+                                        <path d="M3 20c0-3 2.5-5 6-5s6 2 6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M17 11l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                 </div>
                                 <div class="feat-content">
-                                    <span class="feat-label">Data Monitoring By KPI</span>
-                                    <p>Data Monitoring By KPI</p>
+                                    <span class="feat-label">Centralized User Management</span>
+                                    <p>The SAMA Enterprise Web Server centrally manages user authentication, roles, page permissions and hierarchy-based access across all web applications.</p>
                                 </div>
                             </div>
 
                             <div class="feat-item" data-aos="fade-left" data-aos-delay="350">
                                 <div class="feat-icon">
                                     <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="M4 4h16v16H4z"
-                                            stroke="currentColor" stroke-width="1.5"/>
+                                        <path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                 </div>
                                 <div class="feat-content">
-                                    <span class="feat-label">Web Enabled Reports</span>
-                                    <p>Web Enabling Of Excel Reports</p>
+                                    <span class="feat-label">Role &amp; Area of Responsibility (AoR)</span>
+                                    <p>Automatically restrict dashboards, graphics, trends and reports according to the user's assigned operational hierarchy.</p>
                                 </div>
                             </div>
 
                             <div class="feat-item" data-aos="fade-left" data-aos-delay="400">
                                 <div class="feat-icon">
                                     <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                                            stroke="currentColor" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round"/>
+                                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+                                        <path d="M3 12h18M12 3c2.5 2.5 3.5 5.7 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.7-3.5-9s1-6.5 3.5-9z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                 </div>
                                 <div class="feat-content">
-                                    <span class="feat-label">Customizable Forms</span>
-                                    <p>Customizable Forms For Manual Input</p>
+                                    <span class="feat-label">Browser-Based Access</span>
+                                    <p>Access the application from standard web browsers without requiring desktop installation.</p>
                                 </div>
                             </div>
 
                         </div>
                     </div>
-                </div>            
-            </div>
-            <div class="img-sec">
-                <div class="video-thumb-standalone" (click)="openVideo('../../assets/Webserver Video Record1.mp4')">
-                    <img src="../../../assets/dashboard-screenshot.png" class="video-thumb-img"/>
-                    <div class="play-btn-overlay">
-                        <div class="play-btn">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                        </div>
-                    </div>
                 </div>
-                <div class="media-showcase" data-aos="zoom-in">
-                    <div class="swiper" #swiperContainer>
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="media-frame">
-                                    <img src="../../../assets/dashboard-screenshot.png" class="media-content"/>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="media-frame">
-                                    <img src="../../../assets/chart.jpeg" class="media-content"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="showcase-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                    </div>
-                </div>
-                <!-- <img src="../../../assets/graphics.jpeg" width="33.33%" class="center-img"/>
-                <img src="../../../assets/chart.jpeg" width="33.33%"/> -->
             </div>
         </div>
+
+        <div class="body" id="web-reporter">
+            <h3 data-aos="fade-up">SAMA Web Reporter</h3>
+
+            <div class="portal-intro" data-aos="fade-up" data-aos-delay="150">
+                <div class="portal-intro-lead">
+                    <span class="portal-intro-eyebrow">SAMA Web Reporter</span>
+                    <h5 class="portal-intro-title">Enterprise Reporting, Dashboards &amp; Operational Intelligence</h5>
+                    <p class="portal-intro-desc">Transform industrial data into actionable insights through interactive dashboards, enterprise reporting and intelligent analytics — all delivered through a secure browser-based platform.</p>
+                </div>
+                <div class="portal-intro-platform">
+                    <h6 class="portal-platform-title">Built on the SAMA Enterprise Platform</h6>
+                    <p class="portal-intro-desc portal-platform-desc">Delivering centralized authentication, role-based security, Area of Responsibility (AoR), enterprise data integration and secure information delivery across every dashboard and report.</p>
+                    <ul class="portal-chips">
+                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Centralized Authentication</li>
+                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Role-Based Access Control</li>
+                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Area of Responsibility (AoR)</li>
+                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Enterprise Data Integration</li>
+                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Secure Report Publishing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row wr-advantages">
+                <!-- LEFT: Why Choose -->
+                <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
+                    <h5 class="wr-adv-heading">Why Choose SAMA Web Reporter?</h5>
+                    <div class="historian-diagram">
+                        <div class="orbit-ring"></div>
+                        <div class="gear-center">
+                            <svg class="gear-icon" fill="#f97316" height="200px" width="200px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 472.62 472.62" xml:space="preserve" stroke="#f97316" stroke-width="0.00472615"><g><g><path d="M472.615,274.117V198.4l-55.335-9.255c-4.332-16.64-10.929-32.492-19.692-47.458L430.178,96l-53.563-53.563 l-45.686,32.591c-14.966-8.763-30.917-15.36-47.557-19.692L274.215,0H198.4l-9.157,55.335 c-16.64,4.332-32.591,10.929-47.557,19.692L96,42.437L42.437,96l32.591,45.686c-8.763,14.966-15.36,30.818-19.692,47.458L0,198.4 v75.717l55.335,9.255c4.332,16.64,10.929,32.591,19.692,47.557l-32.591,45.686L96,430.178l45.686-32.689 c14.966,8.862,30.917,15.458,47.557,19.791l9.157,55.335h75.815l9.157-55.335c16.64-4.332,32.591-10.929,47.557-19.791 l45.686,32.689l53.563-53.563l-32.591-45.686c8.763-14.966,15.36-30.917,19.692-47.557L472.615,274.117z M236.308,334.769 c-54.252,0-98.462-44.209-98.462-98.462c0-54.351,44.209-98.462,98.462-98.462s98.462,44.111,98.462,98.462 C334.769,290.56,290.56,334.769,236.308,334.769z"></path></g></g></svg>
+                        </div>
+                        <div class="h-card h-card-1">
+                            <div class="h-card-title">One Platform. Unlimited Insights.</div>
+                            <div class="h-card-text h-card-text-left">Create interactive dashboards, enterprise reports and operational analytics from a single integrated platform.</div>
+                        </div>
+                        <div class="h-card h-card-2">
+                            <div class="h-card-title">Intelligent Data Visualization</div>
+                            <div class="h-card-text h-card-text-right">Rich visualizations including trends, KPIs, GIS maps, correlation matrices and charts.</div>
+                        </div>
+                        <div class="h-card h-card-3">
+                            <div class="h-card-title">Enterprise-Wide Delivery</div>
+                            <div class="h-card-text h-card-text-right">Centralized security, hierarchy-aware access and browser-based deployment.</div>
+                        </div>
+                        <div class="h-card h-card-4">
+                            <div class="h-card-title">Build Once. Reuse Everywhere.</div>
+                            <div class="h-card-text h-card-text-right">Reusable charts combined into multiple dashboards, reducing engineering effort.</div>
+                        </div>
+                        <div class="h-card h-card-5">
+                            <div class="h-card-title">Hierarchy-Aware Intelligence</div>
+                            <div class="h-card-text h-card-text-left">Area of Responsibility limits data to each user's scope, with drill-down Global Filters.</div>
+                        </div>
+                        <div class="h-card h-card-6">
+                            <div class="h-card-title">Designed for Enterprise Scale</div>
+                            <div class="h-card-text h-card-text-left">Multiple plants, departments and users through centralized administration.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Key Features -->
+                <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
+                    <div class="feat-panel">
+                        <div class="feat-heading">
+                            <span class="feat-badge">Key Capabilities</span>
+                        </div>
+                        <div class="feat-list">
+                            <div class="feat-item" data-aos="fade-left" data-aos-delay="100">
+                                <div class="feat-icon">
+                                    <svg viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="6" rx="8" ry="3" stroke="currentColor" stroke-width="1.5"/><path d="M4 6v12c0 1.66 3.58 3 8 3s8-1.34 8-3V6M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="feat-content">
+                                    <span class="feat-label">Dataset Designer</span>
+                                    <p>Configure datasets by selecting database tables, columns or custom SQL queries to ensure dashboards retrieve only relevant operational data.</p>
+                                </div>
+                            </div>
+                            <div class="feat-item" data-aos="fade-left" data-aos-delay="150">
+                                <div class="feat-icon">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18M7 14l3-4 3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="feat-content">
+                                    <span class="feat-label">Interactive Chart Builder</span>
+                                    <p>Design trends, pie charts, bar charts, GIS maps, reports, correlation matrices, surface plots, bubble charts and numerous other visualizations using an intuitive configuration interface.</p>
+                                </div>
+                            </div>
+                            <div class="feat-item" data-aos="fade-left" data-aos-delay="200">
+                                <div class="feat-icon">
+                                    <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="3" width="7" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="12" width="7" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="16" width="7" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
+                                </div>
+                                <div class="feat-content">
+                                    <span class="feat-label">Dashboard Designer</span>
+                                    <p>Combine multiple charts into comprehensive operational dashboards with configurable layouts and scheduled report generation.</p>
+                                </div>
+                            </div>
+                            <div class="feat-item" data-aos="fade-left" data-aos-delay="250">
+                                <div class="feat-icon">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M6 2h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2v6h6M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                </div>
+                                <div class="feat-content">
+                                    <span class="feat-label">Enterprise Reporting</span>
+                                    <p>Generate browser-based reports without requiring spreadsheet software while supporting scheduled and on-demand report execution.</p>
+                                </div>
+                            </div>
+                            <div class="feat-item" data-aos="fade-left" data-aos-delay="300">
+                                <div class="feat-icon">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M3 5h18l-7 8v6l-4 2v-8L3 5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="feat-content">
+                                    <span class="feat-label">Global Filter Framework</span>
+                                    <p>Provide hierarchical filtering across plants, units, equipment and operational areas, enabling users to drill down into exactly the information they need.</p>
+                                </div>
+                            </div>
+                            <div class="feat-item" data-aos="fade-left" data-aos-delay="350">
+                                <div class="feat-icon">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M4 5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 9h6M8 13h8M8 17h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                </div>
+                                <div class="feat-content">
+                                    <span class="feat-label">Annotations &amp; Conditions</span>
+                                    <p>Add operator notes, engineering annotations, conditional formatting and chart-specific query definitions to enhance operational context.</p>
+                                </div>
+                            </div>
+                            <div class="feat-item" data-aos="fade-left" data-aos-delay="400">
+                                <div class="feat-icon">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="feat-content">
+                                    <span class="feat-label">Centralized Security</span>
+                                    <p>All dashboards, reports and analytics inherit Role-Based Access Control and Area of Responsibility from the SAMA Enterprise Platform.</p>
+                                </div>
+                            </div>
+                            <div class="feat-item" data-aos="fade-left" data-aos-delay="450">
+                                <div class="feat-icon">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="feat-content">
+                                    <span class="feat-label">Comprehensive Audit Trail</span>
+                                    <p>Maintain a complete audit log of user activities, configuration changes and report interactions to support cybersecurity and operational governance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wr-layers-section">
+                <h5 class="wr-layers-heading" data-aos="fade-up">Platform Architecture</h5>
+                <div class="wr-layers">
+                    <div class="wr-layer" data-aos="fade-up" data-aos-delay="100">
+                        <div class="wr-layer-head">
+                            <span class="wr-layer-icon">
+                                <svg viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="5" rx="8" ry="3" stroke="currentColor" stroke-width="1.5"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                            <h6 class="wr-layer-title">Data Layer</h6>
+                        </div>
+                        <ul class="wr-layer-list">
+                            <li>Dataset Designer</li>
+                            <li>Database Connectivity</li>
+                            <li>SQL Query Builder</li>
+                        </ul>
+                    </div>
+
+                    <div class="wr-layer" data-aos="fade-up" data-aos-delay="200">
+                        <div class="wr-layer-head">
+                            <span class="wr-layer-icon">
+                                <svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18M7 14l3-4 3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                            <h6 class="wr-layer-title">Visualization Layer</h6>
+                        </div>
+                        <ul class="wr-layer-list">
+                            <li>Dashboard Designer</li>
+                            <li>Trend Designer</li>
+                            <li>GIS Maps</li>
+                            <li>Correlation Matrix</li>
+                            <li>Reports</li>
+                            <li>KPIs</li>
+                            <li>Scheduling</li>
+                        </ul>
+                    </div>
+
+                    <div class="wr-layer" data-aos="fade-up" data-aos-delay="300">
+                        <div class="wr-layer-head">
+                            <span class="wr-layer-icon">
+                                <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                            <h6 class="wr-layer-title">Enterprise Layer</h6>
+                        </div>
+                        <ul class="wr-layer-list">
+                            <li>RBAC</li>
+                            <li>AoR</li>
+                            <li>Global Filters</li>
+                            <li>Audit Trail</li>
+                            <li>Enterprise Security</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="body" id="mobile-app">
-            <h3 data-aos="fade-up">Mobile App</h3>
-            <div class="row">
-                <div class="col-12" data-aos="fade-up">
-                    <div class="mbl-ui-sec">
-                        <ul class="featured-checklist">
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>The Web Based Dashboard Is Now Available On The APP!</li>
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Advanced Trends For All Combinations Of Real Time And Historical Data Including Aggregated Historical Data </li>
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>SCADA Or DCS Graphics Brought To The Web With Web Graphics Complete With ISA And Electrical Libraries And Condition Definitions</li>
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Data Monitoring By KPI</li>
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Mobile Enabling Of Excel Reports</li>
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Timed Or Indefinite Log In To Ensure Privacy</li>
-                        </ul>
-                        <div class="media-showcase mbl-showcase" data-aos="zoom-in">
-                            <div class="swiper" #swiperContainer1>
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="media-frame">
-                                            <img src="../../../assets/home-mbl-screen.png" class="media-content mbl-media"/>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="media-frame">
-                                            <img src="../../../assets/dashboard-mbl.png" class="media-content mbl-media"/>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="media-frame">
-                                            <img src="../../../assets/realtime-mbl.png" class="media-content mbl-media"/>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="media-frame">
-                                            <img src="../../../assets/table-mbl.png" class="media-content mbl-media"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="showcase-dots">
-                                <span class="dot active"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
+            <h3 data-aos="fade-up">SAMA Mobile App</h3>
+
+            <div class="portal-intro" data-aos="fade-up" data-aos-delay="150">
+                <div class="portal-intro-lead">
+                    <span class="portal-intro-eyebrow">SAMA Mobile App</span>
+                    <h5 class="portal-intro-title">Enterprise Operational Intelligence on the Go</h5>
+                    <p class="portal-intro-desc">Monitor industrial operations anytime, anywhere through secure access to dashboards, trends, graphics, reports and KPIs from your smartphone or tablet.</p>
+                </div>
+                <div class="portal-intro-platform">
+                    <h6 class="portal-platform-title">Built on the SAMA Enterprise Platform</h6>
+                    <p class="portal-intro-desc portal-platform-desc">The SAMA Mobile App leverages the SAMA Enterprise Platform to securely deliver operational data, dashboards, reports and visualizations to authorized mobile users — ensuring a consistent user experience across desktop, web and mobile environments.</p>
+                    <ul class="portal-chips">
+                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Consistent Across Desktop, Web &amp; Mobile</li>
+                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Secure, Authorized Access</li>
+                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Real-Time &amp; Historical Data</li>
+                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Available on iOS &amp; Android</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="body" id="web-analytics">
-            <h3 data-aos="fade-up">Web Analytics</h3>
-            <div class="row">
-                <div class="col-12" data-aos="fade-up">
-                    <h5>Enterprise Clients For Data Monitoring And Analysis For Management and Engineers Alike That Is:</h5>
-                    <div class="">
-                        <ul class="featured-checklist">
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Easily Configurable Charts, Trends Etc With Displays Such As:</li>
-                            <div class="col-12">
-                                <table class="report-table">
-                                    <tbody>
-                                        <tr>
-                                            <td>Pie Chart</td>
-                                            <td>Line Chart</td>
-                                            <td>Bar Chart</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Scatter Chart</td>
-                                            <td>Surface Chart</td>
-                                            <td>Contour Chart</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Violin Chart</td>
-                                            <td>Load Duration Curve</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Displays Based On Historical Raw And Aggregated Data</li>
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Dashboard For Quick Access Of Configured Chart Pages</li>
-                        </ul>
+
+            <div class="row wr-advantages">
+                <!-- LEFT: Key Advantages -->
+                <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
+                    <h5 class="wr-adv-heading">Key Advantages</h5>
+                    <div class="historian-diagram">
+                        <div class="orbit-ring"></div>
+                        <div class="gear-center">
+                            <svg class="gear-icon" fill="#f97316" height="200px" width="200px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 472.62 472.62" xml:space="preserve" stroke="#f97316" stroke-width="0.00472615"><g><g><path d="M472.615,274.117V198.4l-55.335-9.255c-4.332-16.64-10.929-32.492-19.692-47.458L430.178,96l-53.563-53.563 l-45.686,32.591c-14.966-8.763-30.917-15.36-47.557-19.692L274.215,0H198.4l-9.157,55.335 c-16.64,4.332-32.591,10.929-47.557,19.692L96,42.437L42.437,96l32.591,45.686c-8.763,14.966-15.36,30.818-19.692,47.458L0,198.4 v75.717l55.335,9.255c4.332,16.64,10.929,32.591,19.692,47.557l-32.591,45.686L96,430.178l45.686-32.689 c14.966,8.862,30.917,15.458,47.557,19.791l9.157,55.335h75.815l9.157-55.335c16.64-4.332,32.591-10.929,47.557-19.791 l45.686,32.689l53.563-53.563l-32.591-45.686c8.763-14.966,15.36-30.917,19.692-47.557L472.615,274.117z M236.308,334.769 c-54.252,0-98.462-44.209-98.462-98.462c0-54.351,44.209-98.462,98.462-98.462s98.462,44.111,98.462,98.462 C334.769,290.56,290.56,334.769,236.308,334.769z"></path></g></g></svg>
+                        </div>
+                        <div class="h-card h-card-1">
+                            <div class="h-card-title">Operational Visibility Anywhere</div>
+                            <div class="h-card-text h-card-text-left">Access dashboards, trends, reports and graphics from anywhere on iOS or Android.</div>
+                        </div>
+                        <div class="h-card h-card-2">
+                            <div class="h-card-title">Consistent Enterprise Experience</div>
+                            <div class="h-card-text h-card-text-right">The same dashboards, graphics and reports as the SAMA Web Client, no extra setup.</div>
+                        </div>
+                        <div class="h-card h-card-4">
+                            <div class="h-card-title">Rich Process Visualization</div>
+                            <div class="h-card-text h-card-text-right">Real-time, historical and calculated data via interactive graphics and trends.</div>
+                        </div>
+                        <div class="h-card h-card-5">
+                            <div class="h-card-title">Mobile Decision Support</div>
+                            <div class="h-card-text h-card-text-left">Monitor KPIs and operational performance while away from the control room.</div>
+                        </div>
                     </div>
-                </div>   
-                <div class="analytics-slide">
-                    <div class="media-showcase" data-aos="zoom-in">
-                        <div class="swiper" #swiperContainer2>
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="media-frame">
-                                        <img src="../../../assets/analytics1.jpeg" class="media-content"/>
-                                    </div>
+                </div>
+
+                <!-- RIGHT: Key Capabilities -->
+                <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
+                    <div class="feat-panel">
+                        <div class="feat-heading">
+                            <span class="feat-badge">Key Capabilities</span>
+                        </div>
+                        <div class="feat-list">
+                            <div class="feat-item" data-aos="fade-left" data-aos-delay="100">
+                                <div class="feat-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="7" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="3" width="7" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="12" width="7" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="16" width="7" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="media-frame">
-                                        <img src="../../../assets/analytics2.jpeg" class="media-content"/>
-                                    </div>
+                                <div class="feat-content">
+                                    <span class="feat-label">Interactive Dashboards</span>
+                                    <p>Display configurable dashboards showing real-time, historical and calculated KPIs with responsive layouts optimized for mobile devices.</p>
+                                </div>
+                            </div>
+                            <div class="feat-item" data-aos="fade-left" data-aos-delay="150">
+                                <div class="feat-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16v11H4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="10" r="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M13 12l2-2 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="feat-content">
+                                    <span class="feat-label">Enterprise Graphics</span>
+                                    <p>View interactive process graphics with dynamic colour changes, blinking indicators, directional animations and other real-time visualization features.</p>
+                                </div>
+                            </div>
+                            <div class="feat-item" data-aos="fade-left" data-aos-delay="200">
+                                <div class="feat-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 3v18h18M7 14l3-4 3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="feat-content">
+                                    <span class="feat-label">Advanced Trending</span>
+                                    <p>Compare up to eight process variables using line, spline or area trends with intuitive touch-based selection of predefined or custom historical time ranges.</p>
+                                </div>
+                            </div>
+                            <div class="feat-item" data-aos="fade-left" data-aos-delay="250">
+                                <div class="feat-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 10h.01M12 10h.01M16 10h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                </div>
+                                <div class="feat-content">
+                                    <span class="feat-label">Reports &amp; Analytics</span>
+                                    <p>Access enterprise reports together with KPI visualizations including bar charts, doughnut charts, bubble charts, surface charts and other analytical views.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="showcase-dots">
-                            <span class="dot active"></span>
-                            <span class="dot"></span>
-                        </div>
                     </div>
-                </div> 
+                </div>
             </div>
+
         </div>
-        <div class="body" id="web-ae-client">
-            <h3 data-aos="fade-up">Web AE Client</h3>
-            <div class="row">
-                <div class="col-12" data-aos="fade-up">
-                    <div class="">
-                        <ul class="featured-checklist">
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Complete and Expansive Selection Of Alarm Analysis Per ISA 18.2 Standards, EEMUA 191 Metrics And IEC 62682</li>
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Performance Charts Such As Radar Plot, AFM/DAET Chart To Analyze Complete Plant Alarm Systems</li>
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Easily Configurable Analysis And Baseline Targets To Ensure The Analysis Is Done For The Right Process Mode</li>
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Highly Interactive Trends To Get The Exact Details </li>
-                            <li><span class="check-icon"><svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Data Export Facility In PDF Or Excel</li>
-                        </ul>
-                    </div>
-                </div>    
-                <div class="analytics-slide">
-                    <div class="media-showcase" data-aos="zoom-in">
-                        <div class="swiper" #swiperContainer4>
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="media-frame">
-                                        <img src="../../../assets/ae1.jpeg" class="media-content"/>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="media-frame">
-                                        <img src="../../../assets/ae2.jpeg" class="media-content"/>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="media-frame">
-                                        <img src="../../../assets/ae3.jpeg" class="media-content"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="showcase-dots">
-                            <span class="dot active"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                        </div>
-                    </div>
-                </div>      
-            </div>
-        </div>
+       
     </div>
 
     <!-- Video Popup Modal -->

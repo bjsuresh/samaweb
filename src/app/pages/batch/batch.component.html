@@ -2,6 +2,7 @@
     <div class="container">
         <div class="body" id="reporter">
             <h3 data-aos="fade-up">SAMA REPORTER SUITE</h3>
+            <h5>Enterprise reporting, batch reporting and operational intelligence for industrial operations.</h5>
             <div class="rp-scene" data-aos="fade-up" data-aos-delay="100">
 
                 <div class="rp-diagram" [class.rp-diagram-blur]="showDetail">
@@ -14,240 +15,269 @@
 
                     <div class="h-card h-card-1" [class.rp-card-active]="activeReporter === 0">
                         <div class="h-card-text">Advanced XL Reporter</div>
-                        <p class="zz-desc">Server Chart architecture for multiclient data access such as workstations, operator consoles, etc</p>
+                        <p class="zz-desc">Server/multi client model enterprise reporter for custom query, dynamic templating and Area Of Responsibility (AOR) based reports</p>
                         <button class="rp-see-more" (click)="setReporter(0)">See More</button>
                     </div>
 
                     <div class="h-card h-card-2" [class.rp-card-active]="activeReporter === 1">
                         <div class="h-card-text">OPC XL Reporter</div>
-                        <p class="zz-desc">Stand alone reporter for OPC data</p>
+                        <p class="zz-desc">Stand alone excel add in based reporter for OPC data with instant query and scheduling of reports</p>
                         <button class="rp-see-more" (click)="setReporter(1)">See More</button>
                     </div>
 
                     <div class="h-card h-card-3" [class.rp-card-active]="activeReporter === 2">
                         <div class="h-card-text">Batch Reporter</div>
-                        <p class="zz-desc">Stand alone reporter for all batch operations</p>
+                        <p class="zz-desc">Batch execution aware reporting engine with multi stage/phase definition and template based multi day reporting</p>
                         <button class="rp-see-more" (click)="setReporter(2)">See More</button>
                     </div>
 
                     <div class="h-card h-card-4" [class.rp-card-active]="activeReporter === 3">
                         <div class="h-card-text">Alarm and Event Reporter:</div>
-                        <p class="zz-desc">Stand alone reporter for all Alarm and Events reports</p>
+                        <p class="zz-desc">Reporter to query and generate scheduled reports based on metrics in ISA 18.2, EEMUA 191 and IEC 62682 standards</p>
                         <button class="rp-see-more" (click)="setReporter(3)">See More</button>
-                    </div>
-
-                </div>
-
-                <div class="rp-popup" [class.rp-popup-show]="showDetail">
-
-                    <button class="rp-popup-close" (click)="hideDetail()">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                    </button>
-
-                    <div class="rp-pp" [class.rp-pp-show]="activeReporter === 0">
-                        <div class="rp-pp-video video-thumb" (click)="openVideo('assets/demo.mp4')">
-                            <img src="assets/report.png" class="rp-pp-thumb"/>
-                            <div class="play-btn-overlay">
-                                <div class="play-btn">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rp-pp-info">
-                            <!-- <span class="zz-num">01</span> -->
-                            <h4 class="rp-pp-title">Grid Reporter</h4>
-                            <p class="zz-desc">Server Chart architecture for multiclient data access such as workstations, operator consoles, etc</p>
-                            <div class="feat-panel">
-                                <div class="feat-heading feat-heading-reportersec">
-                                    <span class="feat-badge">Features</span>
-                                </div>
-                                <div class="feat-list">
-                                    <div class="feat-item" data-aos="fade-left" data-aos-delay="100">
-                                        <div class="feat-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                        </div>
-                                        <div class="feat-content">
-                                            <span class="feat-label">Database query</span>
-                                            <p>Database query via datasets allowing data manipulation</p>
-                                        </div>
-                                    </div>
-                                    <div class="feat-item" data-aos="fade-left" data-aos-delay="300">
-                                        <div class="feat-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 7h6m0 10v-3m-3 3v-6m-3 6v-1m-6 1h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3-7 3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                        </div>
-                                        <div class="feat-content">
-                                            <span class="feat-label">Dynamic reports</span>
-                                            <p>Dynamic reporting &amp; scheduling by hierarchy / level</p>
-                                        </div>
-                                    </div>
-                                    <div class="feat-item" data-aos="fade-left" data-aos-delay="250">
-                                        <div class="feat-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                        </div>
-                                        <div class="feat-content">
-                                            <span class="feat-label">Report generation &amp; scheduling:</span>
-                                            <p>Template based instant query and report generation &amp; scheduling</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="rp-pp" [class.rp-pp-show]="activeReporter === 1">
-                        <div class="rp-pp-video video-thumb" (click)="openVideo('assets/demo2.mp4')">
-                            <img src="assets/aims-report.png" class="rp-pp-thumb"/>
-                            <div class="play-btn-overlay">
-                                <div class="play-btn">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rp-pp-info">
-                            <!-- <span class="zz-num">02</span> -->
-                            <h4 class="rp-pp-title">OPC XL Reporter</h4>
-                            <p class="zz-desc">Stand alone reporter for OPC data</p>
-                            <div class="feat-panel">
-                                <div class="feat-heading feat-heading-reportersec">
-                                    <span class="feat-badge">Features</span>
-                                </div>
-                                <div class="feat-list">
-                                    <div class="feat-item" data-aos="fade-left" data-aos-delay="100">
-                                        <div class="feat-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                        </div>
-                                        <div class="feat-content">
-                                            <span class="feat-label">Database query</span>
-                                            <p>Database query (historical / aggregate) of OPC parameters</p>
-                                        </div>
-                                    </div>
-                                    <div class="feat-item" data-aos="fade-left" data-aos-delay="250">
-                                        <div class="feat-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                        </div>
-                                        <div class="feat-content">
-                                            <span class="feat-label">Report generation &amp; scheduling:</span>
-                                            <p>Template based report generation &amp; scheduling</p>
-                                        </div>
-                                    </div>
-                                    <div class="feat-item" data-aos="fade-left" data-aos-delay="300">
-                                        <div class="feat-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 7h6m0 10v-3m-3 3v-6m-3 6v-1m-6 1h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3-7 3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                        </div>
-                                        <div class="feat-content">
-                                            <span class="feat-label">Instantaneous query</span>
-                                            <p>Instantaneous query of historical &amp; aggregate data</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="rp-pp" [class.rp-pp-show]="activeReporter === 2">
-                        <div class="rp-pp-video video-thumb" (click)="openVideo('assets/dashboard-video.mp4')">
-                            <img src="assets/graphics.jpeg" class="rp-pp-thumb"/>
-                            <div class="play-btn-overlay">
-                                <div class="play-btn">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rp-pp-info">
-                            <!-- <span class="zz-num">03</span> -->
-                            <h4 class="rp-pp-title">Batch Reporter</h4>
-                            <p class="zz-desc">Stand alone reporter for all batch operations</p>
-                            <div class="feat-panel">
-                                <div class="feat-heading feat-heading-reportersec">
-                                    <span class="feat-badge">Features</span>
-                                </div>
-                                <div class="feat-list">
-                                    <div class="feat-item" data-aos="fade-left" data-aos-delay="100">
-                                        <div class="feat-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                        </div>
-                                        <div class="feat-content">
-                                            <span class="feat-label">Definition</span>
-                                            <p>Highly configurable including multi phase, multi step definition</p>
-                                        </div>
-                                    </div>
-                                    <div class="feat-item" data-aos="fade-left" data-aos-delay="250">
-                                        <div class="feat-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                        </div>
-                                        <div class="feat-content">
-                                            <span class="feat-label">Report generation &amp; scheduling:</span>
-                                            <p>Multi day - multi page (1–150+) reports generation &amp; scheduling</p>
-                                        </div>
-                                    </div>
-                                    <div class="feat-item" data-aos="fade-left" data-aos-delay="300">
-                                        <div class="feat-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 7h6m0 10v-3m-3 3v-6m-3 6v-1m-6 1h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3-7 3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                        </div>
-                                        <div class="feat-content">
-                                            <span class="feat-label">Batch segment</span>
-                                            <p>Real time view of batch segment and state</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="rp-pp" [class.rp-pp-show]="activeReporter === 3">
-                        <div class="rp-pp-video video-thumb" (click)="openVideo('assets/ae-report.mp4')">
-                            <img src="assets/alrm-mgnt.png" class="rp-pp-thumb"/>
-                            <div class="play-btn-overlay">
-                                <div class="play-btn">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rp-pp-info">
-                            <!-- <span class="zz-num">04</span> -->
-                            <h4 class="rp-pp-title">AE Reporter</h4>
-                            <p class="zz-desc">Stand alone reporter for all Alarm and Events reports</p>
-                            <div class="feat-panel">
-                                <div class="feat-heading feat-heading-reportersec">
-                                    <span class="feat-badge">Features</span>
-                                </div>
-                                <div class="feat-list">
-                                    <div class="feat-item" data-aos="fade-left" data-aos-delay="100">
-                                        <div class="feat-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                        </div>
-                                        <div class="feat-content">
-                                            <span class="feat-label">Configurable reports</span>
-                                            <p>Configurable reports per ISA18.2 &amp; EEMUA 191</p>
-                                        </div>
-                                    </div>
-                                    <div class="feat-item" data-aos="fade-left" data-aos-delay="250">
-                                        <div class="feat-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                        </div>
-                                        <div class="feat-content">
-                                            <span class="feat-label">Alarm KPI reports</span>
-                                            <p>Alarm KPI reports for plant alarm analysis</p>
-                                        </div>
-                                    </div>
-                                    <div class="feat-item" data-aos="fade-left" data-aos-delay="300">
-                                        <div class="feat-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 7h6m0 10v-3m-3 3v-6m-3 6v-1m-6 1h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3-7 3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                        </div>
-                                        <div class="feat-content">
-                                            <span class="feat-label">Report generation &amp; scheduling:</span>
-                                            <p>Template based report generation &amp; scheduling</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                 </div>
 
             </div>
         </div>
+    </div>
+
+    <div class="rp-popup" [class.rp-popup-show]="showDetail">
+
+        <button class="rp-popup-close" (click)="hideDetail()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+
+        <div class="rp-pp" [class.rp-pp-show]="activeReporter === 0">
+            <div class="rp-pp-info">
+                <!-- <span class="zz-num">01</span> -->
+                <h4 class="rp-pp-title">Advanced XL Reporter</h4>
+                <p class="zz-desc">Server/multi client model enterprise reporter for custom query, dynamic templating and Area Of Responsibility (AOR) based reports</p>
+                <div class="feat-panel">
+                    <div class="feat-heading feat-heading-reportersec">
+                        <span class="feat-badge">Features</span>
+                    </div>
+                    <div class="feat-list">
+                        <div class="feat-item" data-aos="fade-left" data-aos-delay="100">
+                            <div class="feat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="3" width="16" height="5" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M12 8v4m0 0H7v3m5-3h5v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="15" width="6" height="5" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="15" width="6" height="5" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>
+                            </div>
+                            <div class="feat-content">
+                                <span class="feat-label">Centralized Reporting Engine</span>
+                                <p>A single reporting server securely retrieves data from the database while multiple client workstations access reports through the server, reducing database connections and simplifying enterprise deployment.</p>
+                            </div>
+                        </div>
+                        <div class="feat-item" data-aos="fade-left" data-aos-delay="150">
+                            <div class="feat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="12" cy="6" rx="8" ry="3" stroke="currentColor" stroke-width="1.5"/><path d="M4 6v12c0 1.66 3.58 3 8 3s8-1.34 8-3V6M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="feat-content">
+                                <span class="feat-label">Query by Dataset</span>
+                                <p>Define datasets with custom SQL queries for reporting with intelligent insights.</p>
+                            </div>
+                        </div>
+                        <div class="feat-item" data-aos="fade-left" data-aos-delay="200">
+                            <div class="feat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="3" width="6" height="4" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="17" width="6" height="4" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="15" y="17" width="6" height="4" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v4M6 17v-2h12v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="feat-content">
+                                <span class="feat-label">Hierarchy-Based Dynamic Templates</span>
+                                <p>Create a report template once and automatically reuse it across all assets, units or plants within the same hierarchy.</p>
+                            </div>
+                        </div>
+                        <div class="feat-item" data-aos="fade-left" data-aos-delay="250">
+                            <div class="feat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="feat-content">
+                                <span class="feat-label">Area of Responsibility (AoR) Based Reporting</span>
+                                <p>Automatically generate and display only the reports relevant to each user's assigned plant, unit or area of responsibility.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rp-pp-video video-thumb" (click)="openVideo('assets/images/SAMA Advanced XL Reports.mp4')">
+                <img src="assets/images/SAMA-XL-Repotrer.png" class="rp-pp-thumb"/>
+                <div class="play-btn-overlay">
+                    <div class="play-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="rp-pp" [class.rp-pp-show]="activeReporter === 1">
+            <div class="rp-pp-info">
+                <!-- <span class="zz-num">02</span> -->
+                <h4 class="rp-pp-title">OPC XL Reporter</h4>
+                <p class="zz-desc">Stand alone excel add in based reporter for OPC data with instant query and scheduling of reports</p>
+                <div class="feat-panel">
+                    <div class="feat-heading feat-heading-reportersec">
+                        <span class="feat-badge">Features</span>
+                    </div>
+                    <div class="feat-list">
+                        <div class="feat-item" data-aos="fade-left" data-aos-delay="100">
+                            <div class="feat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="12" cy="6" rx="8" ry="3" stroke="currentColor" stroke-width="1.5"/><path d="M4 6v12c0 1.66 3.58 3 8 3s8-1.34 8-3V6M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="feat-content">
+                                <span class="feat-label">Real-Time &amp; Historical Data</span>
+                                <p>Query live process values and historical OPC data, including raw values and statistical aggregates.</p>
+                            </div>
+                        </div>
+                        <div class="feat-item" data-aos="fade-left" data-aos-delay="200">
+                            <div class="feat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="13" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M12 9v4l2.5 2.5M9 2h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="feat-content">
+                                <span class="feat-label">Automated Report Scheduling</span>
+                                <p>Schedule reports to run automatically and deliver timely operational and production information.</p>
+                            </div>
+                        </div>
+                        <div class="feat-item" data-aos="fade-left" data-aos-delay="250">
+                            <div class="feat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 7L5 11a3.5 3.5 0 000 5 3.5 3.5 0 005 0l1-1M15 17l4-4a3.5 3.5 0 000-5 3.5 3.5 0 00-5 0l-1 1M9 15l6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="feat-content">
+                                <span class="feat-label">Simple OPC Connectivity</span>
+                                <p>Connect directly to OPC DA servers without requiring database access or SQL knowledge.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="rp-pp-video video-thumb" (click)="openVideo('assets/images/SAMA Advanced XL Reports.mp4')">
+                <img src="assets/images/SAMA-XL-Repotrer.png" class="rp-pp-thumb"/>
+                <div class="play-btn-overlay">
+                    <div class="play-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rp-pp" [class.rp-pp-show]="activeReporter === 2">
+            <div class="rp-pp-info">
+                <!-- <span class="zz-num">03</span> -->
+                <h4 class="rp-pp-title">Batch Reporter</h4>
+                <p class="zz-desc">Batch execution aware reporting engine with multi stage/phase definition and template based multi day reporting</p>
+                <div class="feat-panel">
+                    <div class="feat-heading feat-heading-reportersec">
+                        <span class="feat-badge">Features</span>
+                    </div>
+                    <div class="feat-list">
+                        <div class="feat-item" data-aos="fade-left" data-aos-delay="100">
+                            <div class="feat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="7" cy="7" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><circle cx="17" cy="17" r="1.5" fill="currentColor"/></svg>
+                            </div>
+                            <div class="feat-content">
+                                <span class="feat-label">Batch Lifecycle Management</span>
+                                <p>Configure and monitor complete batch workflows with multiple stages and phases, from batch initiation through completion.</p>
+                            </div>
+                        </div>
+                        <div class="feat-item" data-aos="fade-left" data-aos-delay="150">
+                            <div class="feat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="feat-content">
+                                <span class="feat-label">Long-Running Intelligent Reports</span>
+                                <p>Generate reports continuously throughout the entire batch duration&mdash;whether it lasts hours, days or weeks&mdash;while automatically updating as each stage progresses.</p>
+                            </div>
+                        </div>
+                        <div class="feat-item" data-aos="fade-left" data-aos-delay="200">
+                            <div class="feat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 20v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M17 4l2 2 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="feat-content">
+                                <span class="feat-label">Operator Shift Handover</span>
+                                <p>Capture operator observations, approvals and manual inputs at any batch stage, ensuring seamless reporting across multiple shifts.</p>
+                            </div>
+                        </div>
+                        <div class="feat-item" data-aos="fade-left" data-aos-delay="250">
+                            <div class="feat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="7" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="14" width="7" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 10v3a2 2 0 002 2h5.5M17.5 14v-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="feat-content">
+                                <span class="feat-label">Dependent &amp; Chained Reports</span>
+                                <p>Automatically generate subsequent reports using values and calculated results from completed batch reports, eliminating duplicate effort and ensuring consistency.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rp-pp-video video-thumb" (click)="openVideo('assets/images/Batch Reporter.mp4')">
+                <img src="assets/images/Batch Live status.PNG" class="rp-pp-thumb"/>
+                <div class="play-btn-overlay">
+                    <div class="play-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rp-pp" [class.rp-pp-show]="activeReporter === 3">
+            <div class="rp-pp-info">
+                <!-- <span class="zz-num">04</span> -->
+                <h4 class="rp-pp-title">Alarm and Event Reporter</h4>
+                <p class="zz-desc">Reporter to query and generate scheduled reports based on metrics in ISA 18.2, EEMUA 191 and IEC 62682 standards</p>
+                <div class="feat-panel">
+                    <div class="feat-heading feat-heading-reportersec">
+                        <span class="feat-badge">Features</span>
+                    </div>
+                    <div class="feat-list">
+                        <div class="feat-item" data-aos="fade-left" data-aos-delay="100">
+                            <div class="feat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="feat-content">
+                                <span class="feat-label">Standards-Compliant Alarm Reporting</span>
+                                <p>Generate customizable Alarm &amp; Event reports aligned with ISA 18.2, IEC 62682 and EEMUA 191 best practices.</p>
+                            </div>
+                        </div>
+                        <div class="feat-item" data-aos="fade-left" data-aos-delay="150">
+                            <div class="feat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="18" cy="18" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg>
+                            </div>
+                            <div class="feat-content">
+                                <span class="feat-label">Flexible Report Configuration</span>
+                                <p>Customize reports by selecting additional columns and data groups, ensuring every report contains only the information you need.</p>
+                            </div>
+                        </div>
+                        <div class="feat-item" data-aos="fade-left" data-aos-delay="200">
+                            <div class="feat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20V4M4 20h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8 16v-4m4 4V8m4 8v-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            </div>
+                            <div class="feat-content">
+                                <span class="feat-label">Comprehensive Alarm Analytics</span>
+                                <p>Generate any alarm analysis report including standing alarms, chattering alarms, alarm floods, frequency analysis, operator response and KPI reports.</p>
+                            </div>
+                        </div>
+                        <div class="feat-item" data-aos="fade-left" data-aos-delay="250">
+                            <div class="feat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 15l5-5 4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 6h4v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="feat-content">
+                                <span class="feat-label">Trend-Based Performance Analysis</span>
+                                <p>Visualize alarm performance over time with integrated trend analysis to identify recurring issues and measure improvement initiatives.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rp-pp-video video-thumb" (click)="openVideo('assets/images/SAMA Advanced XL Reports.mp4')">
+                <img src="assets/images/SAMA-XL-Repotrer.png" class="rp-pp-thumb"/>
+                <div class="play-btn-overlay">
+                    <div class="play-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
     <div class="video-popup-overlay" *ngIf="showVideoPopup" (click)="closeVideo()">
         <div class="video-popup" (click)="$event.stopPropagation()">
