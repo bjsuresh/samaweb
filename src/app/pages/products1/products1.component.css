@@ -295,12 +295,12 @@ ul.circle-checkmark {
 .h-card-title {
     font-size: 14px;
     font-weight: 700;
-    color: var(--accent);
+    color: rgba(var(--accent-rgb), 0.15);
     line-height: 1.25;
     max-width: 160px;
     margin-bottom: 5px;
     position: relative;
-    transition: text-shadow 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .h-card-text {
@@ -334,6 +334,7 @@ ul.circle-checkmark {
 }
 
 .h-card:hover .h-card-title {
+    color: var(--accent);
     text-shadow: 0 0 20px rgba(var(--accent-rgb),0.35);
 }
 
@@ -772,7 +773,6 @@ ul.circle-checkmark {
 .features p {
     display: flex;
     align-items: center;
-    padding: 0px 10px;
 }
 
 /* .features li {

@@ -462,13 +462,18 @@ body.light-theme .deploy-subtitle {
     color: #64748b;
 }
 
-
+#change-mgnt .historian-diagram {
+    height: 400px !important;
+}
+#alrm-rationalization .historian-diagram {
+    height: 400px !important;
+}
 /* ===== Orbit diagram (ported for Key Advantages) ===== */
 .historian-diagram {
     position: relative;
     width: 100%;
     max-width: 560px;
-    height: 700px;
+    height: 500px;
     margin: 30px auto;
     display: flex;
     align-items: center;
@@ -564,12 +569,12 @@ body.light-theme .deploy-subtitle {
 .h-card-title {
     font-size: 14px;
     font-weight: 700;
-    color: var(--accent);
+    color: rgba(var(--accent-rgb), 0.15);
     line-height: 1.25;
     max-width: 160px;
     margin-bottom: 5px;
     position: relative;
-    transition: text-shadow 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .h-card-text {
@@ -602,6 +607,7 @@ body.light-theme .deploy-subtitle {
 }
 
 .h-card:hover .h-card-title {
+    color: var(--accent);
     text-shadow: 0 0 20px rgba(var(--accent-rgb),0.35);
 }
 
