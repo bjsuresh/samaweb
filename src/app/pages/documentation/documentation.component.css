@@ -19,20 +19,6 @@
     justify-content: center;
 }
 
-.portal-intro-eyebrow {
-    display: inline-block;
-    width: fit-content;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--accent);
-    padding: 6px 14px;
-    border-radius: 30px;
-    background: rgba(var(--accent-rgb), 0.1);
-    margin-bottom: 16px;
-}
-
 .portal-intro-title {
     font-size: 24px;
     font-weight: 700;
@@ -433,7 +419,7 @@ body.light-theme .deploy-subtitle {
 .h-card-title {
     font-size: 14px;
     font-weight: 700;
-    color: rgba(var(--accent-rgb), 0.15);
+    color: rgba(var(--accent-rgb), 1);
     line-height: 1.25;
     max-width: 160px;
     margin-bottom: 5px;

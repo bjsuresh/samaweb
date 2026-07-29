@@ -4,23 +4,27 @@
             <h3 data-aos="fade-up">Alarm Analysis</h3>
 
             <div class="portal-intro" data-aos="fade-up" data-aos-delay="150">
-                <div class="portal-intro-lead">
-                    <span class="portal-intro-eyebrow">SAMA Alarm Client</span>
+                <div class="portal-intro-head">
                     <h5 class="portal-intro-title">Enterprise Alarm Monitoring &amp; Performance Analysis</h5>
                     <p class="portal-intro-desc">Monitor, analyse and continuously improve alarm system performance using ISA 18.2, IEC 62682 and EEMUA 191 best practices.</p>
                 </div>
-                <div class="portal-intro-platform">
-                    <h6 class="portal-platform-title">Built on the SAMA Alarm Platform</h6>
-                    <p class="portal-intro-desc portal-platform-desc">The SAMA Alarm Platform continuously acquires, organizes and distributes alarm and event information from multiple industrial sources, providing a standardized foundation for enterprise alarm monitoring, performance analysis and operational decision-making.</p>
-                    <ul class="portal-chips">
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Multi-Source Alarm Connectivity</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Intelligent Alarm &amp; Event Classification</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Hierarchy-Based Alarm Organization</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Centralized Alarm Distribution</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Role-Based &amp; Area of Responsibility (AoR) Access</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Enterprise Alarm Window Management</li>
-                    </ul>
+
+                <div class="portal-platform">
+                    <span class="portal-platform-bar"></span>
+                    <div class="portal-platform-body">
+                        <h6 class="portal-platform-title">Built on the SAMA Alarm Platform</h6>
+                        <p class="portal-platform-desc">The SAMA Alarm Platform continuously acquires, organizes and distributes alarm and event information from multiple industrial sources, providing a standardized foundation for enterprise alarm monitoring, performance analysis and operational decision-making.</p>
+                    </div>
                 </div>
+
+                <ul class="portal-chips">
+                    <li>Multi-Source Connectivity</li>
+                    <li>Alarm &amp; Event Classification</li>
+                    <li>Hierarchy-Based Organization</li>
+                    <li>Centralized Distribution</li>
+                    <li>Role-Based &amp; AoR Access</li>
+                    <li>Alarm Window Management</li>
+                </ul>
             </div>
 
             <div class="deploy-section">
@@ -173,20 +177,34 @@
         <h3 data-aos="fade-up">Alarm Alerts</h3>
 
             <div class="portal-intro" data-aos="fade-up" data-aos-delay="150">
-                <div class="portal-intro-lead">
-                    <span class="portal-intro-eyebrow">SAMA Alarm Alerts</span>
+                <div class="portal-intro-head">
                     <h5 class="portal-intro-title">Intelligent Event Notification &amp; Escalation Platform</h5>
                     <p class="portal-intro-desc"><strong>Configure Once. Monitor Thousands.</strong> Create a single alert definition at the required hierarchy level and automatically monitor every asset beneath it without repetitive configuration.</p>
                 </div>
-                <div class="portal-intro-platform">
-                    <h6 class="portal-platform-title">Intelligent Alert Sources</h6>
-                    <p class="portal-intro-desc portal-platform-desc">SAMA Alarm Alerts can intelligently generate notifications from multiple industrial alarm sources — combining process conditions and operational events across your entire hierarchy.</p>
-                    <ul class="portal-chips">
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Process Alarms &amp; Alarm Tags</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Operational Events, Trips &amp; Faults</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Message-Based Conditions</li>
-                    </ul>
+                <div class="portal-intro-action">
+                        <button type="button" class="portal-play-btn" (click)="openVideo('assets/images/SupraAlarmAlerts_video.mp4')">
+                            <span class="portal-play-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            </span>
+                            <span class="portal-play-text">
+                                <strong>Play Video</strong>
+                                <small>Watch the portal overview</small>
+                            </span>
+                        </button>
+                    </div>
+                <div class="portal-platform">
+                    <span class="portal-platform-bar"></span>
+                    <div class="portal-platform-body">
+                        <h6 class="portal-platform-title">Intelligent Alert Sources</h6>
+                        <p class="portal-platform-desc">SAMA Alarm Alerts can intelligently generate notifications from multiple industrial alarm sources — combining process conditions and operational events across your entire hierarchy.</p>
+                    </div>
                 </div>
+
+                <ul class="portal-chips">
+                    <li>Process Alarms &amp; Alarm Tags</li>
+                    <li>Operational Events, Trips &amp; Faults</li>
+                    <li>Message-Based Conditions</li>
+                </ul>
             </div>
 
             <div class="deploy-section">
@@ -406,21 +424,25 @@
             <h3 data-aos="fade-up">Change Management</h3>
 
             <div class="portal-intro" data-aos="fade-up" data-aos-delay="150">
-                <div class="portal-intro-lead">
-                    <span class="portal-intro-eyebrow">SAMA Alarm Change Management</span>
+                <div class="portal-intro-head">
                     <h5 class="portal-intro-title">Alarm Lifecycle Governance &amp; Change Control</h5>
                     <p class="portal-intro-desc">Ensure alarm configurations remain accurate, documented and compliant through discrepancy analysis, engineering workflows and controlled management of change.</p>
                 </div>
-                <div class="portal-intro-platform">
-                    <h6 class="portal-platform-title">Management of Change</h6>
-                    <p class="portal-intro-desc portal-platform-desc">Govern every alarm configuration change through a structured, auditable workflow built on a centralized master database.</p>
-                    <ul class="portal-chips">
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Structured Approval Workflow</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Discrepancy Analysis &amp; Reporting</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Centralized Master Alarm Database</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>ISA 18.2 Management of Change Compliance</li>
-                    </ul>
+
+                <div class="portal-platform">
+                    <span class="portal-platform-bar"></span>
+                    <div class="portal-platform-body">
+                        <h6 class="portal-platform-title">Management of Change</h6>
+                        <p class="portal-platform-desc">Govern every alarm configuration change through a structured, auditable workflow built on a centralized master database.</p>
+                    </div>
                 </div>
+
+                <ul class="portal-chips">
+                    <li>Structured Approval Workflow</li>
+                    <li>Discrepancy Analysis &amp; Reporting</li>
+                    <li>Centralized Master Alarm Database</li>
+                    <li>ISA 18.2 MoC Compliance</li>
+                </ul>
             </div>
 
             <div class="row wr-advantages">
@@ -505,21 +527,25 @@
             <h3 data-aos="fade-up">Alarm Rationalization</h3>
 
             <div class="portal-intro" data-aos="fade-up" data-aos-delay="150">
-                <div class="portal-intro-lead">
-                    <span class="portal-intro-eyebrow">SAMA Alarm Rationalization</span>
+                <div class="portal-intro-head">
                     <h5 class="portal-intro-title">Standards-Based Alarm Rationalization &amp; Engineering Decision Support</h5>
                     <p class="portal-intro-desc">Design, document and optimize alarm configurations using the ISA 18.2 alarm rationalization methodology, ensuring every alarm is justified, prioritized and aligned with operational objectives.</p>
                 </div>
-                <div class="portal-intro-platform">
-                    <h6 class="portal-platform-title">Rationalization Methodology</h6>
-                    <p class="portal-intro-desc portal-platform-desc">A structured, collaborative workflow that turns alarm rationalization into the engineering baseline for the entire alarm lifecycle.</p>
-                    <ul class="portal-chips">
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>ISA 18.2 Rationalization Workflow</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Consistent Priority Assessment</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Collaborative Review &amp; Approval</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Rationalized Alarm Database</li>
-                    </ul>
+
+                <div class="portal-platform">
+                    <span class="portal-platform-bar"></span>
+                    <div class="portal-platform-body">
+                        <h6 class="portal-platform-title">Rationalization Methodology</h6>
+                        <p class="portal-platform-desc">A structured, collaborative workflow that turns alarm rationalization into the engineering baseline for the entire alarm lifecycle.</p>
+                    </div>
                 </div>
+
+                <ul class="portal-chips">
+                    <li>ISA 18.2 Rationalization Workflow</li>
+                    <li>Consistent Priority Assessment</li>
+                    <li>Collaborative Review &amp; Approval</li>
+                    <li>Rationalized Alarm Database</li>
+                </ul>
             </div>
 
             <div class="row wr-advantages">
@@ -597,6 +623,26 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    
+    <!-- Video Popup Modal -->
+    <div class="video-popup-overlay" *ngIf="showVideoPopup" (click)="closeVideo()">
+        <div class="video-popup" (click)="$event.stopPropagation()">
+            <button class="video-popup-close" (click)="closeVideo()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <video class="video-popup-player"
+                autoplay
+                playsinline
+                disablePictureInPicture
+                controlsList="nodownload noplaybackrate noremoteplayback"
+                (contextmenu)="$event.preventDefault()"
+                *ngIf="currentVideoSrc">
+                <source [src]="currentVideoSrc" type="video/mp4">
+            </video>
+   
         </div>
     </div>
 </section>

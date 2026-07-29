@@ -4,24 +4,53 @@
             <h3 data-aos="fade-up">Enterprise Web Client</h3>
 
             <div class="portal-intro" data-aos="fade-up" data-aos-delay="150">
-                <div class="portal-intro-lead">
-                    <span class="portal-intro-eyebrow">Enterprise Portal</span>
-                    <h5 class="portal-intro-title">Enterprise Visualization &amp; Operations Portal</h5>
-                    <p class="portal-intro-desc">Monitor industrial operations through interactive dashboards, enterprise graphics, trends and reports — all delivered securely through centralized authentication, Area of Responsibility and role-based access.</p>
+                <div class="portal-intro-head">
+                    <div class="portal-intro-lead-text">
+                        <h5 class="portal-intro-title">Enterprise Visualization &amp; Operations Portal</h5>
+                        <p class="portal-intro-desc">Monitor industrial operations through interactive dashboards, enterprise graphics, trends and reports — all delivered securely through centralized authentication, Area of Responsibility and role-based access.</p>
+                    </div>
+
+                    <div class="portal-intro-action">
+                        <button type="button" class="portal-play-btn" (click)="openVideo('assets/images/alarmsdashboard.mp4')">
+                            <span class="portal-play-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            </span>
+                            <span class="portal-play-text">
+                                <strong>Play Video</strong>
+                                <small>Watch the portal overview</small>
+                            </span>
+                        </button>
+                    </div>
                 </div>
-                <div class="portal-intro-platform">
-                    <h6 class="portal-platform-title">Powered by the SAMA Enterprise Platform</h6>
-                    <ul class="portal-chips">
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Centralized Authentication</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Role-Based Access Control (RBAC)</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Area of Responsibility (AoR)</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Secure API Gateway</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Enterprise Report Publishing</li>
-                    </ul>
-                    <p class="portal-shared">Shared across <strong>SAMA Web Client, Web Reporter, E-Logbook</strong> and <strong>Mobile Applications</strong>.</p>
+
+                <div class="portal-platform">
+                    <span class="portal-platform-bar"></span>
+                    <div class="portal-platform-body">
+                        <h6 class="portal-platform-title">Powered by the SAMA Enterprise Platform</h6>
+                    </div>
                 </div>
+
+                <ul class="portal-chips">
+                    <li>Centralized Authentication</li>
+                    <li>Role-Based Access Control</li>
+                    <li>Area of Responsibility</li>
+                    <li>Secure API Gateway</li>
+                    <li>Enterprise Report Publishing</li>
+                </ul>
             </div>
 
+            <!-- 3. SHARED ACROSS — separate band -->
+            <div class="portal-shared-band" data-aos="fade-up" data-aos-delay="200">
+                <span class="portal-shared-label">Shared Across</span>
+                <ul class="portal-shared-list">
+                    <li>SAMA Web Client</li>
+                    <li>Web Reporter</li>
+                    <li>E-Logbook</li>
+                    <li>Mobile Applications</li>
+                </ul>
+            </div>
+          
+            
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" >
                     <h5>Enterprise Visualization &amp; Operations Portal</h5>
@@ -172,24 +201,41 @@
 
         <div class="body" id="web-reporter">
             <h3 data-aos="fade-up">SAMA Web Reporter</h3>
-
             <div class="portal-intro" data-aos="fade-up" data-aos-delay="150">
-                <div class="portal-intro-lead">
-                    <span class="portal-intro-eyebrow">SAMA Web Reporter</span>
-                    <h5 class="portal-intro-title">Enterprise Reporting, Dashboards &amp; Operational Intelligence</h5>
-                    <p class="portal-intro-desc">Transform industrial data into actionable insights through interactive dashboards, enterprise reporting and intelligent analytics — all delivered through a secure browser-based platform.</p>
+                <div class="portal-intro-head">
+                    <div class="portal-intro-lead-text">
+                        <h5 class="portal-intro-title">Enterprise Reporting, Dashboards &amp; Operational Intelligence</h5>
+                        <p class="portal-intro-desc">Transform industrial data into actionable insights through interactive dashboards, enterprise reporting and intelligent analytics — all delivered through a secure browser-based platform.</p>
+                    </div>
+
+                    <div class="portal-intro-action">
+                        <button type="button" class="portal-play-btn" (click)="openVideo('assets/images/webreporter.mp4')">
+                            <span class="portal-play-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            </span>
+                            <span class="portal-play-text">
+                                <strong>Play Video</strong>
+                                <small>Watch the Web Reporter overview</small>
+                            </span>
+                        </button>
+                    </div>
                 </div>
-                <div class="portal-intro-platform">
-                    <h6 class="portal-platform-title">Built on the SAMA Enterprise Platform</h6>
-                    <p class="portal-intro-desc portal-platform-desc">Delivering centralized authentication, role-based security, Area of Responsibility (AoR), enterprise data integration and secure information delivery across every dashboard and report.</p>
-                    <ul class="portal-chips">
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Centralized Authentication</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Role-Based Access Control</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Area of Responsibility (AoR)</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Enterprise Data Integration</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Secure Report Publishing</li>
-                    </ul>
+
+                <div class="portal-platform">
+                    <span class="portal-platform-bar"></span>
+                    <div class="portal-platform-body">
+                        <h6 class="portal-platform-title">Built on the SAMA Enterprise Platform</h6>
+                        <p class="portal-platform-desc">Delivering centralized authentication, role-based security, Area of Responsibility (AoR), enterprise data integration and secure information delivery across every dashboard and report.</p>
+                    </div>
                 </div>
+
+                <ul class="portal-chips">
+                    <li>Centralized Authentication</li>
+                    <li>Role-Based Access Control</li>
+                    <li>Area of Responsibility (AoR)</li>
+                    <li>Enterprise Data Integration</li>
+                    <li>Secure Report Publishing</li>
+                </ul>
             </div>
 
             <div class="row wr-advantages">
@@ -370,21 +416,39 @@
             <h3 data-aos="fade-up">SAMA Mobile App</h3>
 
             <div class="portal-intro" data-aos="fade-up" data-aos-delay="150">
-                <div class="portal-intro-lead">
-                    <span class="portal-intro-eyebrow">SAMA Mobile App</span>
-                    <h5 class="portal-intro-title">Enterprise Operational Intelligence on the Go</h5>
-                    <p class="portal-intro-desc">Monitor industrial operations anytime, anywhere through secure access to dashboards, trends, graphics, reports and KPIs from your smartphone or tablet.</p>
+                <div class="portal-intro-head">
+                    <div class="portal-intro-lead-text">
+                        <h5 class="portal-intro-title">Enterprise Operational Intelligence on the Go</h5>
+                        <p class="portal-intro-desc">Monitor industrial operations anytime, anywhere through secure access to dashboards, trends, graphics, reports and KPIs from your smartphone or tablet.</p>
+                    </div>
+
+                    <div class="portal-intro-action">
+                        <button type="button" class="portal-play-btn" (click)="openVideo('assets/images/mobileapp.mp4')">
+                            <span class="portal-play-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            </span>
+                            <span class="portal-play-text">
+                                <strong>Play Video</strong>
+                                <small>Watch the Mobile App overview</small>
+                            </span>
+                        </button>
+                    </div>
                 </div>
-                <div class="portal-intro-platform">
-                    <h6 class="portal-platform-title">Built on the SAMA Enterprise Platform</h6>
-                    <p class="portal-intro-desc portal-platform-desc">The SAMA Mobile App leverages the SAMA Enterprise Platform to securely deliver operational data, dashboards, reports and visualizations to authorized mobile users — ensuring a consistent user experience across desktop, web and mobile environments.</p>
-                    <ul class="portal-chips">
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Consistent Across Desktop, Web &amp; Mobile</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Secure, Authorized Access</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Real-Time &amp; Historical Data</li>
-                        <li><span class="portal-chip-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Available on iOS &amp; Android</li>
-                    </ul>
+
+                <div class="portal-platform">
+                    <span class="portal-platform-bar"></span>
+                    <div class="portal-platform-body">
+                        <h6 class="portal-platform-title">Built on the SAMA Enterprise Platform</h6>
+                        <p class="portal-platform-desc">The SAMA Mobile App leverages the SAMA Enterprise Platform to securely deliver operational data, dashboards, reports and visualizations to authorized mobile users — ensuring a consistent user experience across desktop, web and mobile environments.</p>
+                    </div>
                 </div>
+
+                <ul class="portal-chips">
+                    <li>Consistent Across Desktop, Web &amp; Mobile</li>
+                    <li>Secure, Authorized Access</li>
+                    <li>Real-Time &amp; Historical Data</li>
+                    <li>Available on iOS &amp; Android</li>
+                </ul>
             </div>
 
             <div class="row wr-advantages">
@@ -473,9 +537,16 @@
             <button class="video-popup-close" (click)="closeVideo()">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
-            <video class="video-popup-player" controls autoplay *ngIf="currentVideoSrc">
+            <video class="video-popup-player"
+                autoplay
+                playsinline
+                disablePictureInPicture
+                controlsList="nodownload noplaybackrate noremoteplayback"
+                (contextmenu)="$event.preventDefault()"
+                *ngIf="currentVideoSrc">
                 <source [src]="currentVideoSrc" type="video/mp4">
             </video>
+   
         </div>
     </div>
 </section>

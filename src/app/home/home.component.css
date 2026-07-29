@@ -1389,6 +1389,7 @@ p {
   align-items: stretch;
   width: 100%;
   min-width: 0;
+  height: 450px;
 }
 
 .orbit-diagram {
@@ -1603,7 +1604,7 @@ p {
   .alarm-dashboard-video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: fill;
     display: block;
   }
 
@@ -3119,7 +3120,7 @@ p {
   .btn-primary-cta, .btn-outline-cta { text-align: center; padding: 12px 24px; font-size: 13px; }
 
   /* dashboard full width, compact */
-  .hero-visual { width: 100%; }
+  .hero-visual { width: 100%; height: 300px;}
   .dashboard-preview { border-radius: 12px; }
   .drill-tab { font-size: 9px; padding: 8px 8px; }
   .drill-layer { padding: 10px; }
@@ -3176,7 +3177,7 @@ p {
   .hero-tagline { font-size: 18px; }
 
   /* dashboard full width */
-  .hero-visual { width: 100%; }
+  .hero-visual { width: 100%; height: 500px;}
   .drill-tab { font-size: 10px; padding: 9px 10px; }
   .drill-layer { padding: 12px; }
   .layer-body { grid-template-columns: 1fr minmax(140px, 180px); gap: 10px; }

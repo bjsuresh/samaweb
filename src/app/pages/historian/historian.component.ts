@@ -5,7 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './historian.component.html',
   styleUrls: [
     '../products1/products1.component.css',
-    '../products5/products5.component.css'
+    '../products5/products5.component.css',
+    './historian.component.css'
   ]
 })
 export class HistorianComponent {

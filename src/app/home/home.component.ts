@@ -104,7 +104,7 @@ export class HomeComponent  implements OnInit, OnDestroy {
       this.refreshMonthlyCapacity();
     });
 
-    // Auto-rotate tabs every 30s
+    // Auto-rotate tabs every 34s
     this.tabRotateSubscription = interval(30000).subscribe(() => {
       const idx = this.TAB_ORDER.indexOf(this.activeTab);
       this.activeTab = this.TAB_ORDER[(idx + 1) % this.TAB_ORDER.length];

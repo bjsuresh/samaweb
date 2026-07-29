@@ -1,0 +1,443 @@
+/* ========================================
+   SAP INTERFACE — intro card (matches the alarm / products pages)
+   ======================================== */
+.portal-intro {
+    display: block;
+    margin: 10px 0 36px;
+    padding: 34px 36px;
+    border-radius: 16px;
+    background: rgba(var(--accent-rgb, 249, 115, 22), 0.04);
+    border: 1px solid rgba(var(--accent-rgb, 249, 115, 22), 0.12);
+}
+
+.portal-intro-head {
+    max-width: 900px;
+}
+
+.portal-intro-eyebrow {
+    display: inline-block;
+    width: fit-content;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent, #f97316);
+    padding: 5px 13px;
+    border-radius: 30px;
+    background: rgba(var(--accent-rgb, 249, 115, 22), 0.1);
+    margin-bottom: 14px;
+}
+
+.portal-intro-title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 12px;
+    color: #ffffff;
+}
+
+.portal-intro-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0;
+}
+
+.portal-platform {
+    display: flex;
+    align-items: stretch;
+    gap: 14px;
+    margin-top: 26px;
+    max-width: 1000px;
+}
+
+.portal-platform-bar {
+    flex: 0 0 3px;
+    width: 3px;
+    border-radius: 3px;
+    background: var(--accent, #f97316);
+}
+
+.portal-platform-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.portal-platform-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 6px;
+}
+
+.portal-platform-desc {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0;
+}
+
+/* capability meta row — all items on one line */
+.portal-chips {
+    list-style: none;
+    padding: 18px 0 0;
+    margin: 24px 0 0;
+    border-top: 1px solid rgba(var(--accent-rgb, 249, 115, 22), 0.12);
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.portal-chips::-webkit-scrollbar {
+    display: none;
+}
+
+.portal-chips li {
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    color: rgba(255, 255, 255, 0.5);
+    transition: color 0.25s ease;
+}
+
+.portal-chips li:hover {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.portal-chips li + li::before {
+    content: "\00B7";
+    display: inline-block;
+    margin: 0 11px;
+    color: rgba(var(--accent-rgb, 249, 115, 22), 0.55);
+    font-weight: 700;
+}
+
+/* ========================================
+   SAP INTERFACE — Key Advantages (numbered list)
+   ======================================== */
+.wr-advantages {
+    margin-top: 10px;
+    align-items: flex-start;
+}
+
+.sap-adv-heading {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 20px;
+}
+
+.sap-adv-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: sapAdv;
+}
+
+.sap-adv-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(var(--accent-rgb, 249, 115, 22), 0.12);
+}
+
+.sap-adv-item:first-child {
+    padding-top: 0;
+}
+
+.sap-adv-item:last-child {
+    border-bottom: none;
+}
+
+.sap-adv-num {
+    flex: 0 0 auto;
+    min-width: 34px;
+    height: 34px;
+    padding: 0 8px;
+    border-radius: 9px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--accent, #f97316);
+    background: rgba(var(--accent-rgb, 249, 115, 22), 0.1);
+    border: 1px solid rgba(var(--accent-rgb, 249, 115, 22), 0.2);
+    transition: all 0.25s ease;
+}
+
+.sap-adv-item:hover .sap-adv-num {
+    background: rgba(var(--accent-rgb, 249, 115, 22), 0.18);
+    border-color: rgba(var(--accent-rgb, 249, 115, 22), 0.4);
+}
+
+.sap-adv-body {
+    min-width: 0;
+}
+
+.sap-adv-title {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 4px 0 7px;
+}
+
+.sap-adv-desc {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 992px) {
+    .portal-intro {
+        padding: 28px;
+    }
+    .portal-intro-title { font-size: 22px; }
+    .portal-chips {
+        flex-wrap: wrap;
+        row-gap: 10px;
+        overflow-x: visible;
+    }
+    .portal-chips li + li::before { margin: 0 9px; }
+    .wr-advantages .feat-panel { margin-top: 28px; }
+}
+
+@media (max-width: 576px) {
+    .portal-intro {
+        padding: 22px 18px;
+        border-radius: 14px;
+    }
+    .portal-intro-title { font-size: 19px; }
+    .portal-intro-desc { font-size: 14px; }
+    .portal-platform-desc { font-size: 13px; }
+    .portal-chips li { font-size: 12px; }
+    .sap-adv-heading { font-size: 18px; }
+}
+
+/* ========================================
+   LIGHT THEME
+   ======================================== */
+body.light-theme .portal-intro {
+    background: rgba(var(--accent-rgb, 249, 115, 22), 0.03);
+    border-color: rgba(var(--accent-rgb, 249, 115, 22), 0.15);
+}
+body.light-theme .portal-intro-title,
+body.light-theme .portal-platform-title,
+body.light-theme .sap-adv-heading,
+body.light-theme .sap-adv-title {
+    color: #0f172a;
+}
+body.light-theme .portal-intro-desc {
+    color: #475569;
+}
+body.light-theme .portal-platform-desc,
+body.light-theme .sap-adv-desc {
+    color: #64748b;
+}
+body.light-theme .portal-chips {
+    border-top-color: rgba(var(--accent-rgb, 249, 115, 22), 0.18);
+}
+body.light-theme .portal-chips li {
+    color: #64748b;
+}
+body.light-theme .portal-chips li:hover {
+    color: #0f172a;
+}
+
+/* ========================================
+   SAP INTERFACE — differentiator band
+   ======================================== */
+.sap-diff {
+    margin: 34px 0 10px;
+    padding: 32px 36px;
+    border-radius: 16px;
+    background:
+        linear-gradient(135deg,
+            rgba(var(--accent-rgb, 249, 115, 22), 0.10) 0%,
+            rgba(var(--accent-rgb, 249, 115, 22), 0.02) 55%,
+            rgba(var(--accent-rgb, 249, 115, 22), 0) 100%);
+    border: 1px solid rgba(var(--accent-rgb, 249, 115, 22), 0.18);
+}
+
+.sap-diff-copy {
+    max-width: 900px;
+}
+
+.sap-diff-eyebrow {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent, #f97316);
+    margin-bottom: 10px;
+}
+
+.sap-diff-title {
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #ffffff;
+    margin: 0 0 10px;
+}
+
+.sap-diff-desc {
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0;
+}
+
+/* --- sources -> historian -> ERP flow --- */
+.sap-diff-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 30px;
+    padding-top: 26px;
+    border-top: 1px solid rgba(var(--accent-rgb, 249, 115, 22), 0.14);
+}
+
+.sap-flow-col {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.sap-flow-label {
+    display: block;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 12px;
+}
+
+.sap-flow-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.sap-flow-list li {
+    padding: 7px 13px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.25s ease;
+}
+
+.sap-flow-list li:hover {
+    color: #ffffff;
+    border-color: rgba(var(--accent-rgb, 249, 115, 22), 0.3);
+}
+
+.sap-flow-target .sap-flow-list li {
+    color: var(--accent, #f97316);
+    background: rgba(var(--accent-rgb, 249, 115, 22), 0.08);
+    border-color: rgba(var(--accent-rgb, 249, 115, 22), 0.2);
+}
+
+.sap-flow-hub {
+    flex: 0 1 250px;
+    text-align: center;
+}
+
+.sap-flow-hub .sap-flow-label {
+    color: var(--accent, #f97316);
+}
+
+.sap-flow-node {
+    padding: 18px 16px;
+    border-radius: 14px;
+    background: rgba(var(--accent-rgb, 249, 115, 22), 0.09);
+    border: 1px solid rgba(var(--accent-rgb, 249, 115, 22), 0.32);
+    box-shadow: 0 12px 34px rgba(var(--accent-rgb, 249, 115, 22), 0.12);
+}
+
+.sap-flow-node svg {
+    width: 26px;
+    height: 26px;
+    color: var(--accent, #f97316);
+    margin: 0 0 8px !important;
+}
+
+.sap-flow-node strong {
+    display: block;
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.sap-flow-node small {
+    display: block;
+    font-size: 11px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.sap-flow-arrow {
+    flex: 0 0 34px;
+    color: rgba(var(--accent-rgb, 249, 115, 22), 0.55);
+    margin-top: 22px;
+}
+
+.sap-flow-arrow svg {
+    width: 34px;
+    height: 12px;
+    display: block;
+}
+
+@media (max-width: 992px) {
+    .sap-diff { padding: 28px; }
+    .sap-diff-flow {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+    .sap-flow-hub { flex: 1 1 auto; }
+    .sap-flow-arrow {
+        margin: 0 auto;
+        transform: rotate(90deg);
+    }
+}
+
+@media (max-width: 576px) {
+    .sap-diff {
+        padding: 22px 18px;
+        border-radius: 14px;
+    }
+    .sap-diff-title { font-size: 18px; }
+    .sap-diff-desc { font-size: 13.5px; }
+}
+
+/* light theme */
+body.light-theme .sap-diff-title { color: #0f172a; }
+body.light-theme .sap-diff-desc { color: #475569; }
+body.light-theme .sap-flow-label { color: #64748b; }
+body.light-theme .sap-flow-list li {
+    color: #334155;
+    background: rgba(15, 23, 42, 0.02);
+    border-color: rgba(15, 23, 42, 0.08);
+}
+body.light-theme .sap-flow-node strong { color: #0f172a; }
+body.light-theme .sap-flow-node small { color: #64748b; }

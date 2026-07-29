@@ -445,13 +445,13 @@ mat-toolbar.is-scrolled {
   height: 12px;
   margin-left: 4px;
   vertical-align: middle;
-  transition: transform 0.25s ease;
+  /* transition: transform 0.25s ease; */
   opacity: 0.75;
 }
 
 .megamenu:hover .caret-icon,
 .megamenu.active .caret-icon {
-  transform: rotate(180deg);
+  /* transform: rotate(180deg); */
   opacity: 1;
 }
 

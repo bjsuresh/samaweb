@@ -1,5 +1,4 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import Swiper from 'swiper';
 
 import SwiperCore, {
   Navigation,
@@ -20,21 +19,22 @@ SwiperCore.use([Navigation, Pagination, Autoplay]);
   ]
 })
 export class AlarmComponent {
-  @ViewChild('swiperContainer1') swiperContainer1: any = ElementRef;
 
-  ngAfterViewInit() {
-    let swiper1 = new Swiper(this.swiperContainer1.nativeElement, {
-      slidesPerView: 1,
-      loop: true,
-      speed: 200,
-      autoplay: {
-        delay: 5000,
-        pauseOnMouseEnter: true,
-        disableOnInteraction: false,
-      },
-    });
+  
+    showVideoPopup = false;
+    currentVideoSrc = '';
+  
+    openVideo(src: string) {
+      this.currentVideoSrc = src;
+      this.showVideoPopup = true;
+      document.body.style.overflow = 'hidden';
+    }
+  
+    closeVideo() {
+      this.showVideoPopup = false;
+      this.currentVideoSrc = '';
+      document.body.style.overflow = '';
+    }
 
-    swiper1.on('slideChange', function () {});
-  }
 
 }
