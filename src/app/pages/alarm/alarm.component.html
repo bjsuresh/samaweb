@@ -8,7 +8,17 @@
                     <h5 class="portal-intro-title">Enterprise Alarm Monitoring &amp; Performance Analysis</h5>
                     <p class="portal-intro-desc">Monitor, analyse and continuously improve alarm system performance using ISA 18.2, IEC 62682 and EEMUA 191 best practices.</p>
                 </div>
-
+                <div class="portal-intro-action">
+                    <button type="button" class="portal-play-btn" (click)="openVideo('assets/images/alarmsdashboard.mp4')">
+                        <span class="portal-play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </span>
+                        <span class="portal-play-text">
+                            <strong>Play Video</strong>
+                            <small>Watch the Alarm Analysis overview</small>
+                        </span>
+                    </button>
+                </div>
                 <div class="portal-platform">
                     <span class="portal-platform-bar"></span>
                     <div class="portal-platform-body">
@@ -55,7 +65,6 @@
             <div class="row wr-advantages">
                 <!-- LEFT: Key Advantages -->
                 <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
-                    <h5 class="wr-adv-heading">Key Advantages</h5>
                     <div class="historian-diagram">
                         <div class="orbit-ring"></div>
                         <div class="gear-center">
@@ -88,11 +97,11 @@
                     </div>
                 </div>
 
-                <!-- RIGHT: Key Capabilities -->
+                <!-- RIGHT: Features -->
                 <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
                     <div class="feat-panel">
                         <div class="feat-heading">
-                            <span class="feat-badge">Key Capabilities</span>
+                            <span class="feat-badge">Features</span>
                         </div>
                         <div class="feat-list">
                             <div class="feat-item" data-aos="fade-left" data-aos-delay="100">
@@ -188,7 +197,7 @@
                             </span>
                             <span class="portal-play-text">
                                 <strong>Play Video</strong>
-                                <small>Watch the portal overview</small>
+                                <small>Watch the Alarm Alerts overview</small>
                             </span>
                         </button>
                     </div>
@@ -252,7 +261,6 @@
             <div class="row wr-advantages">
                 <!-- LEFT: Key Advantages -->
                 <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
-                    <h5 class="wr-adv-heading">Key Advantages</h5>
                     <div class="historian-diagram">
                         <div class="orbit-ring"></div>
                         <div class="gear-center">
@@ -285,11 +293,11 @@
                     </div>
                 </div>
 
-                <!-- RIGHT: Key Capabilities -->
+                <!-- RIGHT: Features -->
                 <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
                     <div class="feat-panel">
                         <div class="feat-heading">
-                            <span class="feat-badge">Key Capabilities</span>
+                            <span class="feat-badge">Features</span>
                         </div>
                         <div class="feat-list">
                             <div class="feat-item" data-aos="fade-left" data-aos-delay="100">
@@ -448,7 +456,6 @@
             <div class="row wr-advantages">
                 <!-- LEFT: Key Advantages -->
                 <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
-                    <h5 class="wr-adv-heading">Key Advantages</h5>
                     <div class="historian-diagram">
                         <div class="orbit-ring"></div>
                         <div class="gear-center">
@@ -473,11 +480,11 @@
                     </div>
                 </div>
 
-                <!-- RIGHT: Key Capabilities -->
+                <!-- RIGHT: Features -->
                 <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
                     <div class="feat-panel">
                         <div class="feat-heading">
-                            <span class="feat-badge">Key Capabilities</span>
+                            <span class="feat-badge">Features</span>
                         </div>
                         <div class="feat-list">
                             <div class="feat-item" data-aos="fade-left" data-aos-delay="100">
@@ -551,7 +558,6 @@
             <div class="row wr-advantages">
                 <!-- LEFT: Key Advantages -->
                 <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
-                    <h5 class="wr-adv-heading">Key Advantages</h5>
                     <div class="historian-diagram">
                         <div class="orbit-ring"></div>
                         <div class="gear-center">
@@ -576,11 +582,11 @@
                     </div>
                 </div>
 
-                <!-- RIGHT: Key Capabilities -->
+                <!-- RIGHT: Features -->
                 <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
                     <div class="feat-panel">
                         <div class="feat-heading">
-                            <span class="feat-badge">Key Capabilities</span>
+                            <span class="feat-badge">Features</span>
                         </div>
                         <div class="feat-list">
                             <div class="feat-item" data-aos="fade-left" data-aos-delay="100">
@@ -635,7 +641,10 @@
             </button>
             <video class="video-popup-player"
                 autoplay
+                muted
+                loop
                 playsinline
+                preload="auto"
                 disablePictureInPicture
                 controlsList="nodownload noplaybackrate noremoteplayback"
                 (contextmenu)="$event.preventDefault()"

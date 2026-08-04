@@ -755,3 +755,11 @@ body.light-theme .policy-sec p {
 body.light-theme .policy-sec h5 {
     color: var(--accent);
 }
+
+/* --- light theme --- */
+body.light-theme .portal-play-text strong { 
+    color: #0f172a  !important;
+}
+body.light-theme .portal-play-text small { color: #0f172a !important; }
+body.light-theme .portal-shared-band { background: rgba(var(--accent-rgb), 0.03); }
+body.light-theme .portal-shared-label { color: #64748b; }

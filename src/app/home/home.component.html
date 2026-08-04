@@ -43,8 +43,8 @@
           <button class="drill-tab" [class.active]="activeTab === 'alarm'" (click)="switchTab('alarm', $event)">
             Alarm Dashboard
           </button>
-          <button class="drill-tab" [class.active]="activeTab === 'inverter'" (click)="switchTab('inverter', $event)">
-            Inverter Detail
+          <button class="drill-tab" [class.active]="activeTab === 'webreports'" (click)="switchTab('webreports', $event)">
+            Reporter Dashboard
           </button>
         </div>
 
@@ -458,18 +458,25 @@
 
 
         <div class="drill-layer" [class.active]="activeTab === 'alarm'" id="layer-alarm">
-          <div class="alarm-video-panel">
-            <div class="alarm-video-title">
-              <span class="alarm-live-dot"></span>Alarm Management Dashboard
-            </div>
+          <div class="">
             <div class="alarm-video-wrap">
-              <video class="alarm-dashboard-video" autoplay muted loop playsinline>
+              <video class="alarm-dashboard-video" autoplay muted loop playsinline disablePictureInPicture
+                controlsList="nodownload noplaybackrate noremoteplayback">
                 <source src="assets/images/alarmsdashboard.mp4" type="video/mp4">
               </video>
             </div>
           </div>
         </div>
-
+        <div class="drill-layer" [class.active]="activeTab === 'webreports'" id="layer-alarm">
+          <div class="">
+            <div class="alarm-video-wrap">
+              <video class="alarm-dashboard-video" autoplay muted loop playsinline disablePictureInPicture
+                controlsList="nodownload noplaybackrate noremoteplayback">
+                <source src="assets/images/reporter-dashboard.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

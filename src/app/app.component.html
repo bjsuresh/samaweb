@@ -40,7 +40,7 @@
                     <span class="mega-icon-wrap">
                       <svg class="mega-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5M12 7v5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </span>
-                    <h6>Historian</h6>
+                    <h6>Historian Suite</h6>
                   </div>
                   <ul class="mega-list">
                     <li><a [routerLink]="['/historian']" fragment="real-time-historian" (click)="closeNavbar()">Real Time Historian</a></li>
@@ -61,7 +61,7 @@
                     <li><a [routerLink]="['/enterprise']" fragment="web-serer" (click)="closeNavbar()">Enterprise Web Client</a></li>
                     <li><a [routerLink]="['/enterprise']" fragment="web-reporter" (click)="closeNavbar()">SAMA Web Reporter</a></li>
                     <li><a [routerLink]="['/enterprise']" fragment="mobile-app" (click)="closeNavbar()">SAMA Mobile App</a></li>
-                    <li><a [routerLink]="['/documentation']" fragment="logbook" (click)="closeNavbar()">E-Logbook</a></li>
+                    <li><a [routerLink]="['/enterprise']" fragment="logbook" (click)="closeNavbar()">E-Logbook</a></li>
                   </ul>
                 </div>
 
@@ -91,7 +91,6 @@
                   </div>
                   <ul class="mega-list">
                     <li><a [routerLink]="['/documentation']" fragment="doc-suite" (click)="closeNavbar()">Document Management System</a></li>
-                    <li><a [routerLink]="['/documentation']" fragment="logbook" (click)="closeNavbar()">E-Logbook</a></li>
                   </ul>
                 </div>
 
@@ -193,9 +192,11 @@
   </svg>
   <span class="book-demo-fab-label">Book a Demo</span>
 </button>
-<button class="scrolltop" *ngIf="showScrollTop" (click)="scrollToTop()">
-  <img src="../assets/images/top.svg" height="40px" width="40px" />
-  <!-- <img src="../assets/images/upload.gif" height="40px" width="40px"> -->
+<button class="scrolltop" *ngIf="showScrollTop" (click)="scrollToTop()" aria-label="Back to top">
+  <svg class="scrolltop-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
 </button>
 
 <div class="main-content">

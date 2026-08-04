@@ -423,7 +423,10 @@
             </button>
             <video class="video-popup-player"
                 autoplay
+                muted
+                loop
                 playsinline
+                preload="auto"
                 disablePictureInPicture
                 controlsList="nodownload noplaybackrate noremoteplayback"
                 (contextmenu)="$event.preventDefault()"

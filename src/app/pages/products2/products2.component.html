@@ -11,7 +11,7 @@
                     </div>
 
                     <div class="portal-intro-action">
-                        <button type="button" class="portal-play-btn" (click)="openVideo('assets/images/alarmsdashboard.mp4')">
+                        <button type="button" class="portal-play-btn" (click)="openVideo('assets/images/webclient.mp4')">
                             <span class="portal-play-icon">
                                 <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                             </span>
@@ -43,14 +43,13 @@
             <div class="portal-shared-band" data-aos="fade-up" data-aos-delay="200">
                 <span class="portal-shared-label">Shared Across</span>
                 <ul class="portal-shared-list">
-                    <li>SAMA Web Client</li>
-                    <li>Web Reporter</li>
-                    <li>E-Logbook</li>
-                    <li>Mobile Applications</li>
+                    <li><a [routerLink]="['/enterprise']" fragment="web-serer" >SAMA Web Client</a></li>
+                    <li><a [routerLink]="['/enterprise']" fragment="web-reporter" >SAMA Web Reporter</a></li>
+                    <li><a [routerLink]="['/enterprise']" fragment="mobile-app" >SAMA Mobile App</a></li>
+                    <li><a [routerLink]="['/enterprise']" fragment="logbook" >E-Logbook</a></li>
                 </ul>
             </div>
           
-            
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" >
                     <h5>Enterprise Visualization &amp; Operations Portal</h5>
@@ -209,13 +208,22 @@
                     </div>
 
                     <div class="portal-intro-action">
+                        <button type="button" class="portal-play-btn" (click)="openVideo('assets/images/reporter-overview.mp4')">
+                            <span class="portal-play-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            </span>
+                            <span class="portal-play-text">
+                                <strong>Play Video</strong>
+                                <small>Watch the Reporter overview</small>
+                            </span>
+                        </button>
                         <button type="button" class="portal-play-btn" (click)="openVideo('assets/images/webreporter.mp4')">
                             <span class="portal-play-icon">
                                 <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                             </span>
                             <span class="portal-play-text">
                                 <strong>Play Video</strong>
-                                <small>Watch the Web Reporter overview</small>
+                                <small>Watch the Reporter Dashboard</small>
                             </span>
                         </button>
                     </div>
@@ -241,7 +249,6 @@
             <div class="row wr-advantages">
                 <!-- LEFT: Why Choose -->
                 <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
-                    <h5 class="wr-adv-heading">Why Choose SAMA Web Reporter?</h5>
                     <div class="historian-diagram">
                         <div class="orbit-ring"></div>
                         <div class="gear-center">
@@ -278,7 +285,7 @@
                 <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
                     <div class="feat-panel">
                         <div class="feat-heading">
-                            <span class="feat-badge">Key Capabilities</span>
+                            <span class="feat-badge">Features</span>
                         </div>
                         <div class="feat-list">
                             <div class="feat-item" data-aos="fade-left" data-aos-delay="100">
@@ -287,7 +294,7 @@
                                 </div>
                                 <div class="feat-content">
                                     <span class="feat-label">Dataset Designer</span>
-                                    <p>Configure datasets by selecting database tables, columns or custom SQL queries to ensure dashboards retrieve only relevant operational data.</p>
+                                    <p>Configure Datasets from multiple or redundant sources by selecting database tables, columns or custom SQL queries to ensure dashboards retrieve only relevant operational data.</p>
                                 </div>
                             </div>
                             <div class="feat-item" data-aos="fade-left" data-aos-delay="150">
@@ -323,7 +330,7 @@
                                 </div>
                                 <div class="feat-content">
                                     <span class="feat-label">Global Filter Framework</span>
-                                    <p>Provide hierarchical filtering across plants, units, equipment and operational areas, enabling users to drill down into exactly the information they need.</p>
+                                    <p>Provide hierarchical filtering based on ISA 95, levels or any industrial hierarchy, enabling users to drill down into exactly the information they need.</p>
                                 </div>
                             </div>
                             <div class="feat-item" data-aos="fade-left" data-aos-delay="350">
@@ -454,7 +461,6 @@
             <div class="row wr-advantages">
                 <!-- LEFT: Key Advantages -->
                 <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
-                    <h5 class="wr-adv-heading">Key Advantages</h5>
                     <div class="historian-diagram">
                         <div class="orbit-ring"></div>
                         <div class="gear-center">
@@ -479,11 +485,11 @@
                     </div>
                 </div>
 
-                <!-- RIGHT: Key Capabilities -->
+                <!-- RIGHT: Features -->
                 <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
                     <div class="feat-panel">
                         <div class="feat-heading">
-                            <span class="feat-badge">Key Capabilities</span>
+                            <span class="feat-badge">Features</span>
                         </div>
                         <div class="feat-list">
                             <div class="feat-item" data-aos="fade-left" data-aos-delay="100">
@@ -528,25 +534,236 @@
             </div>
 
         </div>
-       
+
+        <div class="body" id="logbook">
+            <h3 data-aos="fade-up">SAMA E-Logbook</h3>
+
+            <div class="portal-intro" data-aos="fade-up" data-aos-delay="150">
+                <div class="portal-intro-head">
+                    <div class="portal-intro-lead-text">
+                        <h5 class="portal-intro-title">Digital Operations Logbook &amp; Shift Handover Management</h5>
+                        <p class="portal-intro-desc">Digitize operational logging, streamline shift handovers, standardize operating procedures and improve operational accountability through a secure, enterprise-ready digital logbook.</p>
+                    </div>
+                </div>
+
+                <div class="portal-platform">
+                    <span class="portal-platform-bar"></span>
+                    <div class="portal-platform-body">
+                        <h6 class="portal-platform-title">Built on the SAMA Enterprise Platform</h6>
+                        <p class="portal-platform-desc">Leverage centralized authentication, Area of Responsibility (AoR), enterprise hierarchy, role-based security and auditability through the SAMA Enterprise Platform.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row wr-advantages">
+                <!-- LEFT: Key Advantages -->
+                <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
+                    <div class="historian-diagram">
+                        <div class="orbit-ring"></div>
+                        <div class="gear-center">
+                            <svg class="gear-icon" fill="#f97316" height="200px" width="200px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 472.62 472.62" xml:space="preserve" stroke="#f97316" stroke-width="0.00472615"><g><g><path d="M472.615,274.117V198.4l-55.335-9.255c-4.332-16.64-10.929-32.492-19.692-47.458L430.178,96l-53.563-53.563 l-45.686,32.591c-14.966-8.763-30.917-15.36-47.557-19.692L274.215,0H198.4l-9.157,55.335 c-16.64,4.332-32.591,10.929-47.557,19.692L96,42.437L42.437,96l32.591,45.686c-8.763,14.966-15.36,30.818-19.692,47.458L0,198.4 v75.717l55.335,9.255c4.332,16.64,10.929,32.591,19.692,47.557l-32.591,45.686L96,430.178l45.686-32.689 c14.966,8.862,30.917,15.458,47.557,19.791l9.157,55.335h75.815l9.157-55.335c16.64-4.332,32.591-10.929,47.557-19.791 l45.686,32.689l53.563-53.563l-32.591-45.686c8.763-14.966,15.36-30.917,19.692-47.557L472.615,274.117z M236.308,334.769 c-54.252,0-98.462-44.209-98.462-98.462c0-54.351,44.209-98.462,98.462-98.462s98.462,44.111,98.462,98.462 C334.769,290.56,290.56,334.769,236.308,334.769z"></path></g></g></svg>
+                        </div>
+                        <div class="h-card h-card-1">
+                            <div class="h-card-title">Complete Operational Continuity</div>
+                            <div class="h-card-text h-card-text-left">Maintain a single, centralized record of operational events, ensuring critical information is never lost during shift changes or personnel transitions.</div>
+                        </div>
+                        <div class="h-card h-card-2">
+                            <div class="h-card-title">Intelligent Shift Handover</div>
+                            <div class="h-card-text h-card-text-right">Seamlessly transfer operational responsibility between shifts through configurable approval workflows, handover notes and supervisor authorization.</div>
+                        </div>
+                        <div class="h-card h-card-3">
+                            <div class="h-card-title">Digital Operating Procedures</div>
+                            <div class="h-card-text h-card-text-right">Replace paper-based procedures with configurable digital checklists for startup, shutdown, maintenance, inspections and safety operations.</div>
+                        </div>
+                        <div class="h-card h-card-4">
+                            <div class="h-card-title">Enterprise Governance</div>
+                            <div class="h-card-text h-card-text-right">Role-based approvals, Area of Responsibility, audit trails and configurable security ensure operational activities remain fully traceable and compliant.</div>
+                        </div>
+                        <div class="h-card h-card-5">
+                            <div class="h-card-title">Built for Every Industry</div>
+                            <div class="h-card-text h-card-text-left">Adapt workflows, logbook formats, job functions and approval processes to suit any manufacturing or process industry.</div>
+                        </div>
+                        <div class="h-card h-card-6">
+                            <div class="h-card-title">Anytime. Anywhere.</div>
+                            <div class="h-card-text h-card-text-left">Capture and review operational information from control rooms, mobile devices or tablets without compromising data integrity.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Features -->
+                <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" data-aos="fade-up">
+                    <div class="feat-panel">
+                        <div class="feat-heading">
+                            <span class="feat-badge">Features</span>
+                        </div>
+                        <div class="feat-list">
+                            <div class="feat-item" data-aos="fade-left" data-aos-delay="100">
+                                <div class="feat-icon">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M4 5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M15 3v5h5M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                </div>
+                                <div class="feat-content">
+                                    <span class="feat-label">Digital Log Sheets &amp; Log Books</span>
+                                    <p>Record operational events through configurable digital log sheets that automatically form searchable log books over any reporting period.</p>
+                                </div>
+                            </div>
+                            <div class="feat-item" data-aos="fade-left" data-aos-delay="150">
+                                <div class="feat-icon">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M3 8h13l-3-3M21 16H8l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="feat-content">
+                                    <span class="feat-label">Shift Handover Management</span>
+                                    <p>Transfer incomplete activities, outstanding issues and operational responsibilities between shifts with supervisor approval and configurable handover notes.</p>
+                                </div>
+                            </div>
+                            <div class="feat-item" data-aos="fade-left" data-aos-delay="200">
+                                <div class="feat-icon">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M9 6h11M9 12h11M9 18h11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M3 6l1.5 1.5L7 5M3 12l1.5 1.5L7 11M3 18l1.5 1.5L7 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="feat-content">
+                                    <span class="feat-label">Configurable Operator Checklists</span>
+                                    <p>Create unlimited digital checklists for startup procedures, shutdown procedures, safety inspections, equipment inspections, maintenance procedures and operator rounds — without programming.</p>
+                                </div>
+                            </div>
+                            <div class="feat-item" data-aos="fade-left" data-aos-delay="250">
+                                <div class="feat-icon">
+                                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6h.09A1.65 1.65 0 0 0 10.6 3.09V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="feat-content">
+                                    <span class="feat-label">Configurable Workflow</span>
+                                    <p>Configure shift or non-shift operations, approval requirements, job functions, mandatory fields, log sheet structure and notification rules to match plant-specific operational practices.</p>
+                                </div>
+                            </div>
+                            <div class="feat-item" data-aos="fade-left" data-aos-delay="300">
+                                <div class="feat-icon">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M6 8a6 6 0 1 1 12 0c0 5 3 7 3 7H3s3-2 3-7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 20a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                </div>
+                                <div class="feat-content">
+                                    <span class="feat-label">Notifications &amp; Alerts</span>
+                                    <p>Automatically notify users through configurable email notifications and workflow events whenever approvals or actions are required.</p>
+                                </div>
+                            </div>
+                            <div class="feat-item" data-aos="fade-left" data-aos-delay="350">
+                                <div class="feat-icon">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="feat-content">
+                                    <span class="feat-label">Enterprise Security</span>
+                                    <p>Leverage centralized authentication, Area of Responsibility, hierarchy-based access and role-based permissions through the SAMA Enterprise Platform.</p>
+                                </div>
+                            </div>
+                            <div class="feat-item" data-aos="fade-left" data-aos-delay="400">
+                                <div class="feat-icon">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="feat-content">
+                                    <span class="feat-label">Comprehensive Audit Trail</span>
+                                    <p>Maintain a complete history of every operational record including creation, modification, approvals, reassignment and shift handovers.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Multi-Platform Availability -->
+            <div class="wr-layers-section">
+                <h5 class="wr-layers-heading" data-aos="fade-up">Work Wherever Operations Take You</h5>
+                <div class="wr-layers">
+                    <div class="wr-layer" data-aos="fade-up" data-aos-delay="100">
+                        <div class="wr-layer-head">
+                            <span class="wr-layer-icon">
+                                <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="12" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            </span>
+                            <h6 class="wr-layer-title">Enterprise Workstation</h6>
+                        </div>
+                        <p class="wr-layer-desc">Ideal for control rooms, engineering offices and supervisory operations.</p>
+                    </div>
+
+                    <div class="wr-layer" data-aos="fade-up" data-aos-delay="200">
+                        <div class="wr-layer-head">
+                            <span class="wr-layer-icon">
+                                <svg viewBox="0 0 24 24" fill="none"><rect x="7" y="2" width="10" height="20" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M11 18h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            </span>
+                            <h6 class="wr-layer-title">Mobile Application</h6>
+                        </div>
+                        <p class="wr-layer-desc">Capture field observations, maintenance activities, inspections and operational events directly from the plant floor.</p>
+                    </div>
+
+                    <div class="wr-layer" data-aos="fade-up" data-aos-delay="300">
+                        <div class="wr-layer-head">
+                            <span class="wr-layer-icon">
+                                <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="2" width="16" height="20" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M10 18h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            </span>
+                            <h6 class="wr-layer-title">Tablet Application</h6>
+                        </div>
+                        <p class="wr-layer-desc">Perform operator rounds, equipment inspections, safety procedures and maintenance checklists using larger touch interfaces optimized for field operations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flagship differentiators -->
+            <div class="lb-flagship-section">
+                <div class="lb-flagship" data-aos="fade-up">
+                    <span class="lb-flagship-bar"></span>
+                    <div class="lb-flagship-body">
+                        <span class="lb-flagship-eyebrow">Flagship Differentiator</span>
+                        <h5 class="lb-flagship-title">From Event Logging to Operational Execution</h5>
+                        <p class="lb-flagship-desc">SAMA E-Logbook goes beyond recording operational events by managing the complete lifecycle of an activity — from reporting and assignment to approval, shift handover and closure — ensuring accountability throughout plant operations.</p>
+                        <ul class="lb-flagship-flow">
+                            <li>Reporting</li>
+                            <li>Assignment</li>
+                            <li>Approval</li>
+                            <li>Shift Handover</li>
+                            <li>Closure</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lb-flagship" data-aos="fade-up" data-aos-delay="150">
+                    <span class="lb-flagship-bar"></span>
+                    <div class="lb-flagship-body">
+                        <span class="lb-flagship-eyebrow">Flagship Differentiator</span>
+                        <h5 class="lb-flagship-title">Designed Around Industrial Operations</h5>
+                        <p class="lb-flagship-desc">Unlike generic note-taking or collaboration tools, SAMA E-Logbook understands:</p>
+                        <ul class="lb-flagship-tags">
+                            <li>Shift Operations</li>
+                            <li>Control Rooms</li>
+                            <li>Field Operators</li>
+                            <li>Maintenance Teams</li>
+                            <li>Supervisors</li>
+                            <li>Operational Hierarchies</li>
+                            <li>Enterprise Security</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
-    <!-- Video Popup Modal -->
-    <div class="video-popup-overlay" *ngIf="showVideoPopup" (click)="closeVideo()">
-        <div class="video-popup" (click)="$event.stopPropagation()">
-            <button class="video-popup-close" (click)="closeVideo()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </button>
-            <video class="video-popup-player"
-                autoplay
-                playsinline
-                disablePictureInPicture
-                controlsList="nodownload noplaybackrate noremoteplayback"
-                (contextmenu)="$event.preventDefault()"
-                *ngIf="currentVideoSrc">
-                <source [src]="currentVideoSrc" type="video/mp4">
-            </video>
-   
-        </div>
-    </div>
+<div class="video-popup-overlay" *ngIf="showVideoPopup" (click)="closeVideo()">
+  <div class="video-popup" (click)="$event.stopPropagation()">
+    <button class="video-popup-close" (click)="closeVideo()" aria-label="Close video">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <video class="video-popup-player"
+           *ngIf="currentVideoSrc"
+           autoplay
+           muted
+           loop
+           playsinline
+           preload="auto"
+           disablePictureInPicture
+           controlsList="nodownload noplaybackrate noremoteplayback"
+           (contextmenu)="$event.preventDefault()">
+      <source [src]="currentVideoSrc" type="video/mp4">
+    </video>
+  </div>
+</div>
 </section>

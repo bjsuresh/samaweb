@@ -1604,7 +1604,7 @@ p {
   .alarm-dashboard-video {
     width: 100%;
     height: 100%;
-    object-fit: fill;
+    object-fit: contain;
     display: block;
   }
 
@@ -3117,7 +3117,7 @@ p {
   .hero-subtitle { font-size: 14px; }
   .hero-tagline { font-size: 16px; }
   .hero-cta { flex-direction: column; }
-  .btn-primary-cta, .btn-outline-cta { text-align: center; padding: 12px 24px; font-size: 13px; }
+  .btn-primary-cta, .btn-outline-cta { text-align: center; padding: 12px 24px; font-size: 13px; width: 225px; }
 
   /* dashboard full width, compact */
   .hero-visual { width: 100%; height: 300px;}

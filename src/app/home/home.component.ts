@@ -61,7 +61,7 @@ export class HomeComponent  implements OnInit, OnDestroy {
 
   Math = Math;
   activeTab: string = 'alarm';
-  private readonly TAB_ORDER = ['alarm', 'inverter'];
+  private readonly TAB_ORDER = ['alarm', 'webreports'];
   kamudiMapUrl: SafeResourceUrl;
 
   // ── Capacity (monthly) ──

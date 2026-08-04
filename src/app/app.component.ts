@@ -11,7 +11,7 @@ import { ThemeService, ACCENT_THEMES } from './services/theme.service';
 })
 export class AppComponent {
 
-  isDark = true;
+  isDark = false;
   loaderVisible: boolean = true;
   showScrollTop: boolean = false;
   @ViewChild('navbarContent', { static: false }) navbarContent!: ElementRef;

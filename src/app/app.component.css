@@ -45,41 +45,62 @@ mat-toolbar {
 mat-toolbar.is-scrolled {
   background-color: #000;
 }
-
-
 .scrolltop {
   position: fixed;
-  bottom: 82px;
-  right: 24px;
+  bottom: 96px;
+  right: 32px;                    /* match the Schedule a Demopill */
   width: 44px;
   height: 44px;
-  background: #f97316;
-  border: none;
-  outline: none;
-  cursor: pointer;
+  padding: 0;
   border-radius: 50%;
+  cursor: pointer;
+  outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(249,115,22,0.45);
-  opacity: 0.92;
-  transition: all 0.3s ease;
   z-index: 999;
+
+  background: rgba(13, 22, 38, 0.92);
+  border: 1px solid rgba(var(--accent-rgb, 249, 115, 22), 0.35);
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  color: var(--accent, #f97316);
+  transition: background 0.25s ease, border-color 0.25s ease,
+              transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.scrolltop-arrow {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.25s ease;
 }
 
 .scrolltop:hover {
-  opacity: 1;
+  background: rgba(var(--accent-rgb, 249, 115, 22), 0.14);
+  border-color: rgba(var(--accent-rgb, 249, 115, 22), 0.7);
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(249,115,22,0.6);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.4),
+    0 0 0 4px rgba(var(--accent-rgb, 249, 115, 22), 0.1);
+}
+
+.scrolltop:hover .scrolltop-arrow {
+  transform: translateY(-2px);
 }
 
 :host-context(body.light-theme) .scrolltop {
-  background: #f97316;
-  box-shadow: 0 4px 14px rgba(249,115,22,0.35);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(var(--accent-rgb, 249, 115, 22), 0.35);
+  box-shadow:
+    0 6px 18px rgba(15, 23, 42, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
 }
 
 :host-context(body.light-theme) .scrolltop:hover {
-  box-shadow: 0 6px 20px rgba(249,115,22,0.55);
+  background: rgba(var(--accent-rgb, 249, 115, 22), 0.08);
+  border-color: rgba(var(--accent-rgb, 249, 115, 22), 0.6);
 }
 
 .book-demo-fab {
