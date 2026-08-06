@@ -287,7 +287,7 @@ ul.circle-checkmark {
     color: rgba(var(--accent-rgb),0.15);
     line-height: 1;
     margin-bottom: 6px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-display);
     transition: color 0.3s ease;
 }
 

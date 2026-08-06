@@ -378,7 +378,7 @@ body.light-theme .wr-layer-list li { color: #334155; }
     font-weight: 800;
     line-height: 1.2;
     color: rgba(var(--accent-rgb), 0.35);
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-display);
     min-width: 34px;
     transition: color 0.25s ease;
 }
@@ -568,7 +568,7 @@ body.light-theme .deploy-subtitle {
     color: rgba(var(--accent-rgb),0.15);
     line-height: 1;
     margin-bottom: 6px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-display);
     transition: color 0.3s ease;
 }
 

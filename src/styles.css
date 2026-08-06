@@ -44,21 +44,60 @@ body.theme-red {
   --accent-glow: rgba(239, 68, 68, 0.4);
 }
 
+/* ═══════════════════════════════════════════════
+   TYPEFACES
+   Three families, each doing the job it is built for:
+
+   --font-display  Plus Jakarta Sans — headings, hero, nav, buttons.
+                   Geometric and modern; made for landing pages,
+                   corporate sites and product showcases.
+
+   --font-body     IBM Plex Sans — paragraphs and technical copy.
+                   IBM's engineering typeface: highly legible at small
+                   sizes, the right voice for SCADA, historian, alarm
+                   analysis and industrial automation content.
+
+   --font-data     Source Sans 3 — tables, dashboards, dense numeric UI.
+                   Narrow and even-width, so figures line up and stay
+                   readable when packed tightly.
+   ═══════════════════════════════════════════════ */
+:root {
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body:    'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-data:    'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
 html, body { height: 100%; }
 body {
   margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   cursor: url('../src/assets/cursor.png'), auto;
 }
 
-/* Enforce Inter site-wide, overriding legacy Clarkson/Outfit/Rajdhani/Montserrat refs */
-body, h1, h2, h3, h4, h5, h6, p, a, span, div, li, ul, ol,
-button, input, textarea, select, label,
-.nav-link, .navbar, .btn, .card {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+/* Body/technical copy — also overrides the legacy Clarkson/Outfit/Rajdhani refs */
+body, p, a, span, div, li, ul, ol,
+input, textarea, select, label,
+.nav-link, .card {
+  font-family: var(--font-body);
+}
+
+/* Headings, nav and buttons carry the display face */
+h1, h2, h3, h4, h5, h6,
+button, .btn, .navbar,
+.badge-pill, .section-header h2 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+/* Dense data surfaces: the dashboard mock-up, tables and numeric readouts */
+table, th, td,
+.dashboard-preview, .dashboard-preview *,
+.dashboard-banner, .dashboard-banner *,
+.drill-tabs, .drill-tab, .layer-body, .layer-body *,
+.inv-table, .inv-table *, .report-table, .report-table * {
+  font-family: var(--font-data);
 }
 
 /* ═══════════════════════════════════════════════

@@ -7,7 +7,7 @@
   border-radius: 16px;
   position: relative;
   overflow: hidden;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-display);
 
   &::before {
     content: '';
@@ -180,7 +180,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 0.5rem;
-  font-family:Clarkson, "Helvetica", sans-serif;
+  font-family: var(--font-data);
 }
 
 .stat-value {
@@ -195,7 +195,7 @@
     font-weight: 700;
     color: #e0f4ff;
     line-height: 1;
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     transition: all  0.2s ease;
   }
   
@@ -418,7 +418,7 @@
     font-size: 0.875rem;
     color: #e0f4ff;
     font-weight: 600;
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     text-transform: uppercase;
     letter-spacing: 1px;
   }
@@ -438,7 +438,7 @@
 .status-time {
   font-size: 0.875rem;
   color: #b8dff5;
-  font-family:  Clarkson, "Helvetica", sans-serif;
+  font-family: var(--font-data);
 }
 
 .status-connection {
@@ -504,7 +504,7 @@
     font-size: 1.125rem;
     color: #e0f4ff;
     font-weight: 700;
-    font-family:  Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
   }
 }
 
@@ -1234,7 +1234,7 @@ p {
   .dashboard-dots span:nth-child(1) { background: #ef4444; }
   .dashboard-dots span:nth-child(2) { background: #eab308; }
   .dashboard-dots span:nth-child(3) { background: #10b981; }
-  .dashboard-title-bar { font-size: 12px; color: #64748b; font-family: Clarkson, "Helvetica", sans-serif; }
+  .dashboard-title-bar { font-size: 12px; color: #64748b; font-family: var(--font-data); }
   .dashboard-body { padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .mini-widget {
     background: rgba(0,0,0,0.25); border: 1px solid rgba(var(--accent-rgb), 0.25);
@@ -1242,7 +1242,7 @@ p {
   }
   .mini-widget-label {
     font-size: var(--fs-2xs); color: var(--text-muted); text-transform: uppercase;
-    letter-spacing: 1px; margin-bottom: 8px; font-family: Clarkson, "Helvetica", sans-serif;
+    letter-spacing: 1px; margin-bottom: 8px; font-family: var(--font-data);
   }
   .mini-widget-value { font-size: var(--fs-h3); font-weight: 700; letter-spacing: -1px; }
   .mini-widget-value.green { color: #10b981; }
@@ -1259,11 +1259,11 @@ p {
   }
   .alarm-ticker-title {
     font-size: 10px; color: #64748b; text-transform: uppercase;
-    letter-spacing: 1px; margin-bottom: 10px; font-family: Clarkson, "Helvetica", sans-serif;
+    letter-spacing: 1px; margin-bottom: 10px; font-family: var(--font-data);
   }
   .alarm-row {
     display: flex; align-items: center; gap: 10px; padding: 6px 0;
-    font-size: var(--fs-xs); font-family: Clarkson, "Helvetica", sans-serif;
+    font-size: var(--fs-xs); font-family: var(--font-data);
     border-bottom: 1px solid rgba(255,255,255,0.03);
   }
   .alarm-row:last-child { border: none; }
@@ -1560,7 +1560,7 @@ p {
   .drill-tabs::-webkit-scrollbar { display: none; }
   .drill-tab {
     padding: 11px 18px;
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     font-size: 12px;
     font-weight: 600;
     /* letter-spacing: 1px; */
@@ -1630,7 +1630,7 @@ p {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -1690,7 +1690,7 @@ p {
     position: relative;
   }
   .map-panel-title {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: var(--font-data);
     font-size: 10px;
     font-weight: 600;
     color: #00ff88;
@@ -1770,7 +1770,7 @@ p {
   .state-pulse-label {
     display: flex;
     flex-direction: column;
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     font-size: 7px;
     color: rgba(0,255,136,0.92);
     background: rgba(0,0,0,0.65);
@@ -1794,7 +1794,7 @@ p {
     font-weight: 400;
     opacity: 0.7;
     margin-left: 6px;
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     letter-spacing: 0.03em;
   }
   /* ── KAMUTHI HEATMAP ON INDIA MAP ── */
@@ -1816,7 +1816,7 @@ p {
     display: flex;
     align-items: center;
     gap: 5px;
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     font-size: 9px;
     font-weight: 600;
     color: rgba(255,220,180,1);
@@ -1855,7 +1855,7 @@ p {
   .hsb-labels {
     display: flex;
     justify-content: space-between;
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     font-size: 7px;
     font-weight: 500;
     color: rgba(255,255,255,0.7);
@@ -1909,7 +1909,7 @@ p {
   .plant-outline-label {
     display: flex;
     flex-direction: column;
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     font-size: 6.5px;
     color: rgba(0, 255, 136, 0.92);
     background: rgba(0, 0, 0, 0.7);
@@ -1954,7 +1954,7 @@ p {
     box-shadow: 0 0 0 3px rgba(240,160,48,0.2), 0 0 10px rgba(240,160,48,0.5);
   }
   .map-pin-label {
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     font-size: 8px;
     color: #00ff88;
     white-space: nowrap;
@@ -2000,7 +2000,7 @@ p {
     display: flex;
     align-items: center;
     gap: 6px;
-    font-family: 'Rajdhani', sans-serif;
+    font-family: var(--font-data);
     font-size: var(--fs-xs);
     font-weight: 700;
     color: #e0f4ff;
@@ -2013,7 +2013,7 @@ p {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     font-size: 8px;
     color: rgba(184,223,245,0.7);
     span { display: flex; align-items: center; gap: 4px; }
@@ -2025,7 +2025,7 @@ p {
     display: inline-block;
   }
   .trends-period {
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     font-size: 8px;
     color: rgba(8,131,149,0.9);
     border: 1px solid rgba(8,131,149,0.3);
@@ -2050,7 +2050,7 @@ p {
     to   { transform: scaleY(1); opacity: 1; }
   }
   .tbar-time {
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     font-size: 5.5px;
     fill: rgba(184,223,245,0.45);
     text-anchor: middle;
@@ -2061,7 +2061,7 @@ p {
     justify-content: space-between;
     padding-top: 6px;
     border-top: 1px solid rgba(8,131,149,0.15);
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     font-size: 9px;
     color: rgba(184,223,245,0.55);
     strong { color: #e0f4ff; }
@@ -2100,7 +2100,7 @@ p {
     }
   }
   .inv-kpi-label {
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     font-size: 8px;
     color: rgba(184,223,245,0.55);
     text-transform: uppercase;
@@ -2108,13 +2108,13 @@ p {
     margin-bottom: 5px;
   }
   .inv-kpi-value {
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     font-size: 14px;
     font-weight: 700;
     line-height: 1;
   }
   .inv-kpi-delta {
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     font-size: 9px;
     color: #ff4444;
     margin-top: 3px;
@@ -2156,7 +2156,7 @@ p {
     overflow: hidden;
   }
   .inv-section-title {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: var(--font-data);
     font-size: 10px;
     font-weight: 700;
     color: #e0f4ff;
@@ -2169,7 +2169,7 @@ p {
   .inv-table {
     width: 100%;
     border-collapse: collapse;
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     font-size: 8.5px;
     th {
       color: rgba(8,131,149,0.9);
@@ -2220,7 +2220,7 @@ p {
     margin-bottom: 6px;
   }
   .inv-chart-title {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: var(--font-data);
     font-size: 9px;
     font-weight: 700;
     color: #e0f4ff;
@@ -2230,7 +2230,7 @@ p {
   .inv-legend {
     display: flex;
     gap: 6px;
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     font-size: 7px;
     color: rgba(184,223,245,0.6);
     span { display: flex; align-items: center; gap: 3px; }
@@ -2263,7 +2263,7 @@ p {
     justify-content: space-between;
   }
   .chart-panel-title {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: var(--font-data);
     font-size: 11px;
     font-weight: 700;
     color: #e0f4ff;
@@ -2271,7 +2271,7 @@ p {
     text-transform: uppercase;
   }
   .chart-unit {
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     font-size: 9px;
     color: rgba(8,131,149,0.9);
     letter-spacing: 0.5px;
@@ -2292,7 +2292,7 @@ p {
     gap: 8px;
   }
   .bar-label {
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     font-size: 9px;
     color: rgba(184,223,245,0.65);
     width: 38px;
@@ -2350,7 +2350,7 @@ p {
   }
 
   .bar-value {
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     font-size: 8.5px;
     font-weight: 700;
     color: #e0f4ff;
@@ -2370,7 +2370,7 @@ p {
     justify-content: space-between;
     padding-top: 6px;
     border-top: 1px solid rgba(8,131,149,0.15);
-    font-family: Clarkson, "Helvetica", sans-serif;
+    font-family: var(--font-data);
     font-size: 9px;
     color: rgba(184,223,245,0.55);
     strong {
@@ -2562,7 +2562,7 @@ p {
 }
 
 .ticker-item {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--font-display);
   font-size: 16px;
   letter-spacing: 3px;
   color: #050810;

@@ -5,7 +5,7 @@
   border-radius: 16px;
   max-width: 560px;
   width: 100%;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-display);
   position: relative;
 }
 
