@@ -200,7 +200,7 @@ mat-toolbar.is-scrolled {
   /* border-radius: 50%; */
 }
 .logo-sec .title {
-  font-size: 17px;
+  font-size: 25px;
   font-weight: 700;
   margin-left: 10px;
   letter-spacing: 1px;
@@ -546,7 +546,7 @@ mat-toolbar.is-scrolled {
 .footer-sec a {
   text-decoration: none !important;
   color: #999;
-  font-size: 20px;
+  font-size: 16px;
   /* cursor: url('../assets/images/loading.png'), auto; */
 }
 
@@ -556,6 +556,7 @@ mat-toolbar.is-scrolled {
 
 .footer-sec .copyright {
   color: #999;
+  font-size: 16px;
 }
 
 @media (min-width:0px) and (max-width: 768px) {

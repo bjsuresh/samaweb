@@ -5,7 +5,7 @@
 }
 h3 {
     text-align: start;
-    font-size: 45px;
+    /* font-size: 45px; */
     font-weight: 700;
     line-height: .88em;
     text-transform: uppercase;
@@ -14,11 +14,11 @@ h3 {
 }
 h5 {
     color: var(--accent);
-    font-size: 30px;
+    font-size: 16px;
 }
 p {
     color: #ffffff;
-    font-size: 20px;
+    font-size: 14px;
 }
 .body {
     padding: 40px 10px;
@@ -32,7 +32,7 @@ p {
     width: 100%;
 }
 ul {
-	font-size: 20px;
+	font-size: 14px;
 	line-height: 1.5em;
 	margin: 5px 0 15px;
 	padding: 10px 0px;

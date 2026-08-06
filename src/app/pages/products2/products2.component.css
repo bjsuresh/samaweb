@@ -1076,16 +1076,19 @@ p:hover use{
 
 .video-popup {
     /* tune these two only */
-    --vp-max-width: 960px;   /* desktop cap */
+    --vp-max-width: 1280px;  /* desktop cap */
     --vp-gutter: 120px;      /* vertical breathing room: padding*2 + margin */
+
+    /* real ratio of the loaded video; set by the component on loadedmetadata */
+    --vp-ratio: 1.7778;
 
     position: relative;
     width: min(
         var(--vp-max-width),
         100%,
-        calc((100dvh - var(--vp-gutter)) * 16 / 9)   /* height-driven width */
+        calc((100dvh - var(--vp-gutter)) * var(--vp-ratio))   /* height-driven width */
     );
-    aspect-ratio: 16 / 9;
+    aspect-ratio: var(--vp-ratio);
     border-radius: 16px;
     overflow: hidden;
     background: #000;
@@ -1126,13 +1129,6 @@ p:hover use{
     margin: 0 !important;
 }
 .video-popup-close:hover { background: var(--accent); }
-
-.video-popup-player {
-    width: 100%;
-    display: block;
-    border-radius: 16px;
-    max-height: 100vh;
-}
 
 @keyframes vpFadeIn {
     from { opacity: 0; }

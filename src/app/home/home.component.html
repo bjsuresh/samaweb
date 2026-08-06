@@ -9,37 +9,38 @@
   </div>
 
   <div class="container hero-grid">
+    <!-- Full width: headline shared by both columns -->
+    <div class="hero-head" data-aos="fade-up">
+      <h1>
+        <span class="accent">SAMA</span> Operational Intelligence Platform
+      </h1>
+    </div>
+
     <!-- Left: Text -->
     <div class="hero-text" data-aos="fade-right">
-      <span class="badge-pill">Advanced Manufacturing Analytics</span>
-      <h1>
-        Introducing <span class="accent">SAMA</span>
-      </h1>
-      <p class="hero-subtitle">Supra Advanced Manufacturing Analytics</p>
-      <p class="hero-tagline">Monitor, Analyze and <span class="accent">Predict</span> Your Data</p>
+      <p class="hero-tagline">Transform Industrial Data into <span class="accent">Operational Intelligence</span>.</p>
+      <p class="hero-desc">Acquire, contextualize, analyze and visualize operational data through an integrated platform for historians, reporting, alarm management, dashboards, document management and enterprise collaboration.</p>
       <div class="hero-cta">
         <a routerLink="/historian" class="btn-primary-cta">Explore Products</a>
-          <button class="btn-outline-cta" (click)="openDemoDialog()">
+          <button class="btn-primary-cta" (click)="openDemoDialog()">
             Schedule a Demo
           </button>
         <!-- <a routerLink="/contactus" class="btn-outline-cta">Contact Us</a> -->
       </div>
+
+      <ul class="hero-stat-line">
+        <li>26 Years</li>
+        <li>95% Refineries</li>
+      </ul>
+      <ul class="hero-stat-line">
+        <li>9 Countries</li>
+        <li>50+ Power</li>
+      </ul>
     </div>
 
     <div class="hero-visual">
       <div class="dashboard-preview">
-        <div class="dashboard-header">
-          <div class="dashboard-dots"><span></span><span></span><span></span></div>
-          <div class="dashboard-title-bar">DASHBOARD </div>
-        </div>
-              
         <div class="drill-tabs">
-          <!-- <button class="drill-tab" [class.active]="activeTab === 'overview'" (click)="switchTab('overview', $event)">
-            National Overview
-          </button>
-          <button class="drill-tab" [class.active]="activeTab === 'plant'" (click)="switchTab('plant', $event)">
-            Plant Level
-          </button> -->
           <button class="drill-tab" [class.active]="activeTab === 'alarm'" (click)="switchTab('alarm', $event)">
             Alarm Dashboard
           </button>
@@ -48,576 +49,110 @@
           </button>
         </div>
 
-        <div class="drill-layer" [class.active]="activeTab === 'overview'" id="layer-overview">
-          <div class="layer-body">
-
-            <div class="stats-grid">
-
-              <div class="stat-card production-rate">
-                <div class="stat-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                    <circle cx="12" cy="10" r="3"/>
-                  </svg>
-                </div>
-                <div class="stat-label">Locations</div>
-                <div class="stat-value">2 <span class="stat-unit">Plants</span></div>
-                <div class="pulse-indicator"></div>
-              </div>
-
-                  <div class="stat-card capacity">
-                    <div class="stat-icon">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="2" y="3" width="20" height="14" rx="2"/>
-                        <line x1="8" y1="21" x2="16" y2="21"/>
-                        <line x1="12" y1="17" x2="12" y2="21"/>
-                      </svg>
-                    </div>
-                    <div class="stat-content">
-                      <div class="stat-label">Capacity
-                        <span class="capacity-period-badge">{{ capacityMonth }}</span>
-                      </div>
-                      <div class="stat-value capacity-val">{{ capacityMW | number:'1.2-2' }} <span class="stat-unit">MW</span></div>
-                      <div class="stat-trend" [class.positive]="capacityTrend >= 0" [class.negative]="capacityTrend < 0">
-                        <svg class="trend-icon" viewBox="0 0 24 24" fill="currentColor">
-                          <path *ngIf="capacityTrend >= 0" d="M7 14l5-5 5 5H7z"/>
-                          <path *ngIf="capacityTrend < 0" d="M7 10l5 5 5-5H7z"/>
-                        </svg>
-                        <span>{{ capacityTrend >= 0 ? '+' : '' }}{{ capacityTrend | number:'1.1-1' }}%</span>
-                        <span class="trend-label">vs last month</span>
-                      </div>
-                    </div>
-                    <div class="stat-mini-chart">
-                      <svg viewBox="0 0 100 40" preserveAspectRatio="none">
-                        <polyline
-                          class="chart-line"
-                          [attr.points]="capacityChartPoints"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                        />
-                      </svg>
-                    </div>
-                    <div class="pulse-indicator"></div>
-                  </div>
-
-            </div>
-
-            <div class="map-panel">
-              <div class="map-panel-title">India Power Plants</div>
-              <div class="india-map-wrap">
-                <div class="map-grid-overlay"></div>
-                <img class="india-map-img" src="assets/india-map.svg" alt="India map"/>
-                <div class="state-pulse-wrap" style="top:46%;left:36%;">
-                  <div class="state-pulse green"></div>
-                </div>
-                <div class="state-pulse-wrap" style="top:79%;left:40%;">
-                  <div class="state-pulse amber"></div>
-                </div>
-              </div>
-            </div>
-
+        <div class="drill-layer drill-layer-video" [class.active]="activeTab === 'alarm'" id="layer-alarm">
+          <div class="alarm-video-wrap ratio-alarm">
+            <video #dashVideo class="alarm-dashboard-video"
+              autoplay muted loop playsinline preload="auto" disablePictureInPicture
+              controlsList="nodownload noplaybackrate noremoteplayback">
+              <!-- <source src="assets/images/SAMA AE Web Client.webm" type="video/webm"> -->
+              <source src="assets/images/Recording 2026-08-04 195100.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
-
-
-        <div class="drill-layer" [class.active]="activeTab === 'plant'" id="layer-plant">
-          <div class="layer-body">
-
-            <div class="stats-grid">
-
-              <div class="chart-panel">
-                <div class="chart-panel-header">
-                  <span class="chart-panel-title">Production</span>
-                  <span class="chart-unit">MW</span>
-                </div>
-                <div class="bar-chart-wrap">
-                  <div class="bar-row">
-                    <span class="bar-label">ICR-01</span>
-                    <div class="bar-track">
-                      <div class="bar-fill prod" style="width:90%">
-                        <span class="bar-value">58.4</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="bar-row">
-                    <span class="bar-label">ICR-02</span>
-                    <div class="bar-track">
-                      <div class="bar-fill prod hi" style="width:94%">
-                        <span class="bar-value">61.2</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="bar-row">
-                    <span class="bar-label">ICR-03</span>
-                    <div class="bar-track">
-                      <div class="bar-fill prod" style="width:83%">
-                        <span class="bar-value">53.7</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="chart-footer">
-                  Total&nbsp;<strong>173.3 MW</strong>
-                  <span class="chart-badge up">▲ 12.3% vs yesterday</span>
-                </div>
-              </div>
-
-              <div class="chart-panel">
-                <div class="chart-panel-header">
-                  <span class="chart-panel-title">AC Voltage</span>
-                  <span class="chart-unit">V</span>
-                </div>
-                <div class="bar-chart-wrap">
-                  <div class="bar-row">
-                    <span class="bar-label">ICR-01</span>
-                    <div class="bar-track">
-                      <div class="bar-fill volt" style="width:78%">
-                        <span class="bar-value">1,502</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="bar-row">
-                    <span class="bar-label">ICR-02</span>
-                    <div class="bar-track">
-                      <div class="bar-fill volt lo" style="width:73%">
-                        <span class="bar-value">1,498</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="bar-row">
-                    <span class="bar-label">ICR-03</span>
-                    <div class="bar-track">
-                      <div class="bar-fill volt lo" style="width:71%">
-                        <span class="bar-value">1,497</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="chart-footer">
-                  Avg&nbsp;<strong>1,499 V</strong>
-                  <span class="chart-badge stable">● Stable ±0.2%</span>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="map-panel">
-              <div class="map-panel-title">Plant Locations</div>
-              <div class="india-map-wrap">
-                <div class="map-grid-overlay"></div>
-                <img class="india-map-img" src="assets/india-map.svg" alt="India map"/>
-                <div class="kamudi-heat-wrap" style="top:78%;left:43%;">
-                  <svg class="kamudi-heat-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <radialGradient id="kh1" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%"   stop-color="#ff0000" stop-opacity="0.95"/>
-                        <stop offset="15%"  stop-color="#ff1a00" stop-opacity="0.85"/>
-                        <stop offset="35%"  stop-color="#ff6600" stop-opacity="0.65"/>
-                        <stop offset="55%"  stop-color="#ffcc00" stop-opacity="0.38"/>
-                        <stop offset="75%"  stop-color="#ffff00" stop-opacity="0.14"/>
-                        <stop offset="100%" stop-color="#ffff00" stop-opacity="0"/>
-                      </radialGradient>
-                      <radialGradient id="kh2" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%"   stop-color="#ff0000" stop-opacity="0.9"/>
-                        <stop offset="20%"  stop-color="#ff2200" stop-opacity="0.78"/>
-                        <stop offset="45%"  stop-color="#ff8800" stop-opacity="0.52"/>
-                        <stop offset="70%"  stop-color="#ffdd00" stop-opacity="0.22"/>
-                        <stop offset="100%" stop-color="#ffff00" stop-opacity="0"/>
-                      </radialGradient>
-                      <radialGradient id="kh3" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%"   stop-color="#ff2200" stop-opacity="0.82"/>
-                        <stop offset="30%"  stop-color="#ff7700" stop-opacity="0.58"/>
-                        <stop offset="60%"  stop-color="#ffcc00" stop-opacity="0.28"/>
-                        <stop offset="100%" stop-color="#ffff00" stop-opacity="0"/>
-                      </radialGradient>
-                      <radialGradient id="kh4" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%"   stop-color="#ff4400" stop-opacity="0.72"/>
-                        <stop offset="40%"  stop-color="#ff9900" stop-opacity="0.4"/>
-                        <stop offset="100%" stop-color="#ffee00" stop-opacity="0"/>
-                      </radialGradient>
-                      <filter id="khblur">
-                        <feGaussianBlur stdDeviation="3.5"/>
-                      </filter>
-                    </defs>
-                    <g filter="url(#khblur)">
-                      <ellipse cx="48" cy="50" rx="28" ry="22" fill="url(#kh1)"/>
-                      <ellipse cx="62" cy="45" rx="22" ry="18" fill="url(#kh2)"/>
-                      <ellipse cx="42" cy="42" rx="18" ry="15" fill="url(#kh3)"/>
-                      <ellipse cx="55" cy="58" rx="16" ry="12" fill="url(#kh4)"/>
-                      <ellipse cx="35" cy="55" rx="14" ry="10" fill="url(#kh4)"/>
-                    </g>
-                    <polygon
-                      points="20,26 84,24 87,72 18,74"
-                      fill="none"
-                      stroke="#00ff88"
-                      stroke-width="1.2"
-                      stroke-dasharray="4 2"
-                      opacity="0.85"/>
-                  </svg>
-                </div>
-
-                <!-- heatmap scale bar -->
-                <div class="heat-scale-bar">
-                  <div class="hsb-gradient"></div>
-                  <div class="hsb-labels"><span>Low</span><span>High MW</span></div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-
-        <div class="drill-layer" [class.active]="activeTab === 'inverter'" id="layer-inverter">
-
-          <div class="inv-grid">
-            <div class="inv-kpi">
-              <div class="inv-kpi-label">Voltage (V)</div>
-              <div class="inv-kpi-value" style="color:#e0f4ff;">1,505.75</div>
-            </div>
-            <div class="inv-kpi">
-              <div class="inv-kpi-label">Power (MW)</div>
-              <div class="inv-kpi-value" style="color:#f0a030;">0.5721</div>
-              <div class="inv-kpi-delta">▼ 34.6%</div>
-            </div>
-            <div class="inv-kpi">
-              <div class="inv-kpi-label">Current (A)</div>
-              <div class="inv-kpi-value" style="color:#e0f4ff;">−12.16</div>
-            </div>
-            <div class="inv-kpi icr-map-kpi">
-              <div class="inv-kpi-label">ICR Map</div>
-              <svg class="icr-map-svg" viewBox="0 0 60 46" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <pattern id="icrGrid" width="6" height="6" patternUnits="userSpaceOnUse">
-                    <path d="M 6 0 L 0 0 0 6" fill="none" stroke="rgba(0,255,136,0.12)" stroke-width="0.3"/>
-                  </pattern>
-                  <radialGradient id="icrH1" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%"   stop-color="#ff0000" stop-opacity="0.95"/>
-                    <stop offset="15%"  stop-color="#ff1a00" stop-opacity="0.85"/>
-                    <stop offset="35%"  stop-color="#ff6600" stop-opacity="0.65"/>
-                    <stop offset="55%"  stop-color="#ffcc00" stop-opacity="0.38"/>
-                    <stop offset="75%"  stop-color="#ffff00" stop-opacity="0.14"/>
-                    <stop offset="100%" stop-color="#ffff00" stop-opacity="0"/>
-                  </radialGradient>
-                  <radialGradient id="icrH2" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%"   stop-color="#ff0000" stop-opacity="0.9"/>
-                    <stop offset="20%"  stop-color="#ff2200" stop-opacity="0.78"/>
-                    <stop offset="45%"  stop-color="#ff8800" stop-opacity="0.52"/>
-                    <stop offset="70%"  stop-color="#ffdd00" stop-opacity="0.22"/>
-                    <stop offset="100%" stop-color="#ffff00" stop-opacity="0"/>
-                  </radialGradient>
-                  <radialGradient id="icrH3" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%"   stop-color="#ff2200" stop-opacity="0.82"/>
-                    <stop offset="30%"  stop-color="#ff7700" stop-opacity="0.58"/>
-                    <stop offset="60%"  stop-color="#ffcc00" stop-opacity="0.28"/>
-                    <stop offset="100%" stop-color="#ffff00" stop-opacity="0"/>
-                  </radialGradient>
-                  <radialGradient id="icrH4" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%"   stop-color="#ff4400" stop-opacity="0.72"/>
-                    <stop offset="40%"  stop-color="#ff9900" stop-opacity="0.4"/>
-                    <stop offset="100%" stop-color="#ffee00" stop-opacity="0"/>
-                  </radialGradient>
-                  <filter id="icrBlur">
-                    <feGaussianBlur stdDeviation="2.2"/>
-                  </filter>
-                  <clipPath id="icrBlock05">
-                    <rect x="18" y="11" width="24" height="22" rx="2"/>
-                  </clipPath>
-                </defs>
-
-                <!-- Background grid -->
-                <rect x="0" y="0" width="60" height="46" fill="url(#icrGrid)"/>
-
-                <rect x="16" y="9" width="28" height="26" rx="3"
-                  fill="none" stroke="#00ff88" stroke-width="0.9" stroke-dasharray="3 1.5" opacity="0.85"/>
-
-                <!-- Multi-layer heatmap clipped to block -->
-                <g clip-path="url(#icrBlock05)" filter="url(#icrBlur)">
-                  <ellipse cx="29" cy="22" rx="12" ry="10" fill="url(#icrH1)"/>
-                  <ellipse cx="35" cy="19" rx="9"  ry="7"  fill="url(#icrH2)"/>
-                  <ellipse cx="27" cy="18" rx="7"  ry="6"  fill="url(#icrH3)"/>
-                  <ellipse cx="33" cy="26" rx="6"  ry="5"  fill="url(#icrH4)"/>
-                  <ellipse cx="22" cy="25" rx="5"  ry="4"  fill="url(#icrH4)"/>
-                </g>
-
-                <!-- Fault pulse -->
-                <circle cx="30" cy="22" r="2" fill="#ff4400" opacity="0.95">
-                  <animate attributeName="r"       values="1.5;5;1.5" dur="2s" repeatCount="indefinite"/>
-                  <animate attributeName="opacity" values="0.9;0;0.9"  dur="2s" repeatCount="indefinite"/>
-                </circle>
-              </svg>
-            </div>
-          </div>
-
-          <div class="inv-detail-grid">
-
-            <div class="inv-table-card">
-              <div class="inv-section-title">Inverter SCB Data</div>
-              <table class="inv-table">
-                <thead>
-                  <tr>
-                    <th>Time Slot</th><th>Type</th><th>Voltage</th>
-                    <th>Current</th><th>Power</th><th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>09:00</td><td>SCB1</td><td>1,502.5 V</td>
-                    <td>4.82 A</td><td>0.182 MW</td>
-                    <td><span class="scb-badge ok">OK</span></td>
-                  </tr>
-                  <tr>
-                    <td>09:00</td><td>SCB2</td><td>1,498.2 V</td>
-                    <td>4.61 A</td><td>0.172 MW</td>
-                    <td><span class="scb-badge ok">OK</span></td>
-                  </tr>
-                  <tr class="row-fault">
-                    <td>09:00</td><td>SCB3</td><td>1,501.8 V</td>
-                    <td>4.24 A</td><td>0.159 MW</td>
-                    <td><span class="scb-badge fault">FAULT</span></td>
-                  </tr>
-                  <tr>
-                    <td>09:00</td><td>SCB4</td><td>1,499.4 V</td>
-                    <td>4.55 A</td><td>0.170 MW</td>
-                    <td><span class="scb-badge warn">WARN</span></td>
-                  </tr>
-                  <tr>
-                    <td>09:15</td><td>SCB1</td><td>1,503.1 V</td>
-                    <td>4.88 A</td><td>0.186 MW</td>
-                    <td><span class="scb-badge ok">OK</span></td>
-                  </tr>
-                  <tr class="row-fault">
-                    <td>09:15</td><td>SCB3</td><td>1,501.2 V</td>
-                    <td>3.82 A</td><td>0.144 MW</td>
-                    <td><span class="scb-badge fault">FAULT</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div class="inv-charts">
-
-              <div class="inv-chart-card">
-                <div class="inv-chart-header">
-                  <span class="inv-chart-title">Realtime Power</span>
-                  <div class="inv-legend">
-                    <span><i class="inv-legend-dot" style="background:#05c3dd;"></i>SCB1</span>
-                    <span><i class="inv-legend-dot" style="background:#ff4444;"></i>SCB3</span>
-                    <span><i class="inv-legend-dot" style="background:#f0a030;"></i>SCB4</span>
-                  </div>
-                </div>
-                <svg class="inv-chart-svg" viewBox="0 0 200 50" preserveAspectRatio="none">
-                  <defs>
-                    <linearGradient id="scb1Grad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#05c3dd" stop-opacity="0.25"/>
-                      <stop offset="100%" stop-color="#05c3dd" stop-opacity="0"/>
-                    </linearGradient>
-                  </defs>
-                  <path fill="url(#scb1Grad)"
-                    d="M0,30 C20,25 40,28 60,20 C80,12 100,18 120,22 C140,16 160,10 180,15 L200,12 L200,50 L0,50 Z"/>
-                  <path fill="none" stroke="#05c3dd" stroke-width="1.5"
-                    d="M0,30 C20,25 40,28 60,20 C80,12 100,18 120,22 C140,16 160,10 180,15 L200,12"/>
-                  <path fill="none" stroke="#ff4444" stroke-width="1.2" opacity="0.65"
-                    d="M0,35 C20,32 40,38 60,30 C80,25 100,32 120,28 C140,22 160,18 180,25 L200,20"/>
-                  <path fill="none" stroke="#f0a030" stroke-width="1.2" opacity="0.55"
-                    d="M0,38 C20,35 40,40 60,35 C80,28 100,35 120,32 C140,26 160,22 180,28 L200,25"/>
-                </svg>
-              </div>
-
-              <div class="inv-chart-card">
-                <div class="inv-chart-header">
-                  <span class="inv-chart-title">Yield (MWh)</span>
-                  <div class="inv-legend">
-                    <span><i class="inv-legend-dot" style="background:#00b4d8;"></i>SCB1</span>
-                    <span><i class="inv-legend-dot" style="background:#00ff88;"></i>SCB2</span>
-                    <span><i class="inv-legend-dot" style="background:#f0a030;"></i>SCB4</span>
-                  </div>
-                </div>
-                <svg class="inv-chart-svg" viewBox="0 0 200 50" preserveAspectRatio="none">
-                  <line x1="0" y1="49" x2="200" y2="49" stroke="rgba(8,131,149,0.3)" stroke-width="1"/>
-                  <rect x="8"  y="30" width="10" height="19" rx="2" fill="rgba(0,180,216,0.7)"/>
-                  <rect x="20" y="22" width="10" height="27" rx="2" fill="rgba(0,255,136,0.65)"/>
-                  <rect x="32" y="27" width="10" height="22" rx="2" fill="rgba(240,160,48,0.65)"/>
-                  <rect x="56" y="26" width="10" height="23" rx="2" fill="rgba(0,180,216,0.7)"/>
-                  <rect x="68" y="18" width="10" height="31" rx="2" fill="rgba(0,255,136,0.65)"/>
-                  <rect x="80" y="24" width="10" height="25" rx="2" fill="rgba(240,160,48,0.65)"/>
-                  <rect x="104" y="20" width="10" height="29" rx="2" fill="rgba(0,180,216,0.7)"/>
-                  <rect x="116" y="13" width="10" height="36" rx="2" fill="rgba(0,255,136,0.65)"/>
-                  <rect x="128" y="19" width="10" height="30" rx="2" fill="rgba(240,160,48,0.65)"/>
-                  <rect x="152" y="16" width="10" height="33" rx="2" fill="rgba(0,180,216,0.7)"/>
-                  <rect x="164" y="10" width="10" height="39" rx="2" fill="rgba(0,255,136,0.65)"/>
-                  <rect x="176" y="15" width="10" height="34" rx="2" fill="rgba(240,160,48,0.65)"/>
-                </svg>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-
-
-        <div class="drill-layer" [class.active]="activeTab === 'alarm'" id="layer-alarm">
-          <div class="">
-            <div class="alarm-video-wrap">
-              <video class="alarm-dashboard-video" autoplay muted loop playsinline disablePictureInPicture
-                controlsList="nodownload noplaybackrate noremoteplayback">
-                <source src="assets/images/alarmsdashboard.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-        <div class="drill-layer" [class.active]="activeTab === 'webreports'" id="layer-alarm">
-          <div class="">
-            <div class="alarm-video-wrap">
-              <video class="alarm-dashboard-video" autoplay muted loop playsinline disablePictureInPicture
-                controlsList="nodownload noplaybackrate noremoteplayback">
-                <source src="assets/images/reporter-dashboard.mp4" type="video/mp4">
-              </video>
-            </div>
+        <div class="drill-layer drill-layer-video" [class.active]="activeTab === 'webreports'" id="layer-webreports">
+          <div class="alarm-video-wrap ratio-report">
+            <video #dashVideo class="alarm-dashboard-video"
+              autoplay muted loop playsinline preload="auto" disablePictureInPicture
+              controlsList="nodownload noplaybackrate noremoteplayback">
+              <!-- <source src="assets/images/webreportsvideo.webm" type="video/webm"> -->
+              <source src="assets/images/Dashboard_light.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="stats-section">
-  <div class="stats-border"></div>
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-card" data-aos="zoom-in" data-aos-delay="0">
-        <div class="stat-icon-box">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <!-- Trusted-by strip -->
+    <div class="hero-trust" data-aos="fade-up">
+      <span class="hero-trust-label">OUR CUSTOMERS</span>
+      <div class="logo-slider">
+        <div class="logo-track">
+              <div class="logo-item">
+                <img src="../../assets/customers/Dangote.png" alt="Dangote">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/adnoc-logo-png_seeklogo-313025.png" alt="Adnoc">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/Reliance_logo.jpg" alt="Reliance">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/IndianOilLogo1024x768.jpg" alt="Indian Oil">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/hmel_logo.jfif" alt="HMEL">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/hpcl_logo.png" alt="HPCL">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/Chennai_Petroleum_Corporation_logo.svg.png" alt="CPCL">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/Eni-Logo.wine.png" alt="Eni">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/indonesia_power.png" alt="Indonesia Power">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/power_grid.png" alt="Power Gird">
+              </div>
+               <div class="logo-item">
+                <img src="../../assets/customers/abb_logo.png" alt="ABB">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/emerson-logo.svg" alt="Emerson">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/hitachi_energy.png" alt="Hitachi Energy">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/honeywell_logo.png" alt="Honeywell">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/yokagawa_logo.jpg" alt="Yokagawa">
+              </div>
+               <div class="logo-item">
+                <img src="../../assets/customers/Schneider_Electric-Logo.wine.png" alt="Schneider">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/siemens.svg" alt="Siemens">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/aarti_industries_logo" alt="Aarti Industries">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/hurl.jfif" alt="HURL">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/iggl-customer-logo.png" alt="IGGL">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/gail-india-limited-vector-logo.png" alt="GAIL">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/rockwell_automation.svg" alt="Rockwell Automation">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/Adani_2012_logo.png" alt="Adani">
+              </div>
+               <div class="logo-item">
+                <img src="../../assets/customers/tata_projects.png" alt="TATA Projects">
+              </div>
+              <div class="logo-item">
+                <img src="../../assets/customers/jayaswal_neco_logo.png" alt="Jayaswal">
+              </div>
         </div>
-        <div class="stat-number">26+</div>
-        <div class="stat-label">Years of Experience</div>
-      </div>
-
-      <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
-        <div class="stat-icon-box">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        </div>
-        <div class="stat-number">9</div>
-        <div class="stat-label">Countries Worldwide</div>
-      </div>
-
-      <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
-        <div class="stat-icon-box">
-          <circle-progress
-            [percent]="95"
-            [radius]="28"
-            [outerStrokeWidth]="5"
-            [innerStrokeWidth]="1"
-            [outerStrokeColor]="'#f97316'"
-            [innerStrokeColor]="'rgba(249,115,22,0.2)'"
-            [backgroundColor]="'transparent'"
-            [animation]="true"
-            [lazy]="true"
-            [animationDuration]="800"
-            titleFontSize="16"
-            [showSubtitle]="false"
-            [showUnits]="false"
-            titleColor="#f97316"
-          ></circle-progress>
-        </div>
-        <div class="stat-number">95%</div>
-        <div class="stat-label">Refineries in India</div>
-      </div>
-
-      <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
-        <div class="stat-icon-box">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-        <div class="stat-number">50+</div>
-        <div class="stat-label">Power Installations</div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="customers-section">
-  <div class="container">
-    <div class="section-header" data-aos="fade-up">
-      <span class="badge-pill">Trusted Partners</span>
-      <h2>Our Customers</h2>
-    </div>
-  </div>
-  <div class="logo-slider" data-aos="fade-up">
-    <div class="logo-track">
-      <div class="logo-item">
-        <img src="../../assets/customers/Dangote.png" alt="Dangote">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/adnoc-logo-png_seeklogo-313025.png" alt="Adnoc">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/Reliance_logo.jpg" alt="Reliance">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/IndianOilLogo1024x768.jpg" alt="Indian Oil">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/hmel_logo.jfif" alt="HMEL">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/hpcl_logo.png" alt="HPCL">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/Chennai_Petroleum_Corporation_logo.svg.png" alt="CPCL">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/Eni-Logo.wine.png" alt="Eni">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/indonesia_power.png" alt="Indonesia Power">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/power_grid.png" alt="Power Gird">
-      </div>
-       <div class="logo-item">
-        <img src="../../assets/customers/abb_logo.png" alt="ABB">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/emerson-logo.svg" alt="Emerson">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/hitachi_energy.png" alt="Hitachi Energy">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/honeywell_logo.png" alt="Honeywell">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/yokagawa_logo.jpg" alt="Yokagawa">
-      </div>
-       <div class="logo-item">
-        <img src="../../assets/customers/Schneider_Electric-Logo.wine.png" alt="Schneider">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/siemens.svg" alt="Siemens">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/aarti_industries_logo" alt="Aarti Industries">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/hurl.jfif" alt="HURL">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/iggl-customer-logo.png" alt="IGGL">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/gail-india-limited-vector-logo.png" alt="GAIL">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/rockwell_automation.svg" alt="Rockwell Automation">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/Adani_2012_logo.png" alt="Adani">
-      </div>
-       <div class="logo-item">
-        <img src="../../assets/customers/tata_projects.png" alt="TATA Projects">
-      </div>
-      <div class="logo-item">
-        <img src="../../assets/customers/jayaswal_neco_logo.png" alt="Jayaswal">
       </div>
     </div>
   </div>
@@ -627,13 +162,9 @@
 <section class="services-section">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
-      <span class="badge-pill">Our Expertise</span>
-      <h2>What We Do</h2>
-      <p class="section-subtitle">
-        End-to-end industrial software that turns raw process data into reliable
-        operational intelligence &mdash; from real-time collection to analytics,
-        reporting and secure collaboration.
-      </p>
+      <h2>
+        <span class="accent">One Platform</span> Multiple Solutions
+      </h2>
     </div>
 
     <div class="solutions-grid">
@@ -650,16 +181,15 @@
             <span class="solution-tagline">Capture, store and analyze high-speed industrial process data.</span>
           </div>
         </div>
-        <p class="solution-desc">
-          Enterprise historian designed for long-term data storage, real-time
-          retrieval, calculations and high-performance analytics.
-        </p>
         <ul class="solution-highlights">
           <li>Real-time data collection</li>
           <li>High-speed time-series database with proprietary compression</li>
           <li>Template based calculations</li>
           <li>Multi protocol connectivity</li>
         </ul>
+        <a class="solution-cta" [routerLink]="['/historian']" fragment="real-time-historian">
+          Learn More <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </article>
 
       <!-- Alarm Management Suite -->
@@ -674,16 +204,15 @@
             <span class="solution-tagline">Reduce alarm overload and improve operator performance.</span>
           </div>
         </div>
-        <p class="solution-desc">
-          Complete alarm lifecycle management platform built on ISA 18.2,
-          IEC 62682 and EEMUA 191 best practices.
-        </p>
         <ul class="solution-highlights">
           <li>Alarm analytics</li>
           <li>Alarm rationalization</li>
           <li>KPI reporting</li>
           <li>Alarm notifications</li>
         </ul>
+        <a class="solution-cta" [routerLink]="['/alarm']" fragment="alarm-analysis">
+          Learn More <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </article>
 
       <!-- Reporting Suite -->
@@ -698,16 +227,15 @@
             <span class="solution-tagline">Transform industrial data into reports, dashboards and operational intelligence.</span>
           </div>
         </div>
-        <p class="solution-desc">
-          Integrated reporting platform for Excel, web reports and dashboards,
-          alarm reporting and batch reporting.
-        </p>
         <ul class="solution-highlights">
           <li>Excel reporting</li>
           <li>Web reports and dashboards</li>
           <li>Alarm reporting</li>
           <li>Batch reporting</li>
         </ul>
+        <a class="solution-cta" [routerLink]="['/batch']" fragment="reporter">
+          Learn More <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </article>
 
       <!-- Document Manager -->
@@ -722,16 +250,15 @@
             <span class="solution-tagline">Manage engineering documents throughout their lifecycle.</span>
           </div>
         </div>
-        <p class="solution-desc">
-          Centralized document management with version control, workflows,
-          approvals and secure collaboration.
-        </p>
         <ul class="solution-highlights">
           <li>RAG search</li>
           <li>Version control</li>
           <li>Approval workflows and audit trail</li>
           <li>Secure access</li>
         </ul>
+        <a class="solution-cta" [routerLink]="['/documentation']" fragment="doc-suite">
+          Learn More <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </article>
 
       <!-- Data Connectivity -->
@@ -746,16 +273,15 @@
             <span class="solution-tagline">Connect every industrial data source to a unified platform.</span>
           </div>
         </div>
-        <p class="solution-desc">
-          Reliable connectivity for PLCs, DCS, SCADA, EMS, historians, databases
-          and enterprise applications.
-        </p>
         <ul class="solution-highlights">
           <li>OPC UA / DA</li>
           <li>MQTT / API</li>
           <li>Modbus</li>
           <li>Database integration</li>
         </ul>
+        <a class="solution-cta" [routerLink]="['/connectivity-suite']" fragment="ae-gateway">
+          Learn More <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </article>
 
     </div>
@@ -763,7 +289,7 @@
 </section>
 
 <!-- ═══════════════ WHY CHOOSE SECTION ═══════════════ -->
-<section class="why-section">
+<!-- <section class="why-section">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
       <span class="badge-pill">Our Advantages</span>
@@ -808,7 +334,7 @@
 
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- ═══════════════ TESTIMONIALS SECTION ═══════════════ -->
 <section class="testimonials-grid-section">
@@ -819,17 +345,34 @@
     </div>
 
     <div class="testimonials-grid">
-      <div class="testimonial-card" *ngFor="let item of testimonialItems; let i = index"
+      <div class="testimonial-card" *ngFor="let item of visibleTestimonials; let i = index"
            data-aos="fade-up" [attr.data-aos-delay]="i * 100">
-        <div class="quote-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="rgba(249,115,22,0.3)" stroke="none">
-            <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21c0 1 0 1 1 1z"/>
-            <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
-          </svg>
+
+        <div class="testimonial-head">
+          <div class="testimonial-logo" *ngIf="item.logo">
+            <img [src]="item.logo" [alt]="item.company_name"
+                 (error)="onLogoError($event)" loading="lazy">
+          </div>
+          <div class="testimonial-titles">
+            <h4>{{ item.title }}</h4>
+            <span class="company-badge">{{ item.company_name }}</span>
+          </div>
         </div>
-        <h4>{{ item.title }}</h4>
-        <span class="company-badge">{{ item.company_name }}</span>
         <p>{{ item.description }}</p>
+      </div>
+
+      <!-- Last column: call to action -->
+      <div class="testimonial-cta-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonial-cta-copy">
+          <h4>Ready to see it on your plant?</h4>
+          <p>Explore the platform or book a walkthrough with our team.</p>
+        </div>
+        <div class="testimonial-cta-actions">
+          <a routerLink="/historian" class="btn-primary-cta">Explore Products</a>
+          <button type="button" class="btn-outline-cta" (click)="openDemoDialog()">
+            Schedule a Demo
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -844,57 +387,57 @@
     <img src="../../assets/images/worldmap.png" class="map-img map-img-light" />
     <img src="../../assets/images/worldmapfullimage.png" class="map-img map-img-dark" />
 
-    <div class="pin ind" style="animation-delay: 0.2s">
+    <div tabindex="0" class="pin ind" style="animation-delay: 0.2s">
       <span class="pin-ring"></span>
       <span class="pin-ring ring-2"></span>
       <span class="pin-label">India</span>
     </div>
-    <div class="pin chn" style="animation-delay: 0.4s">
+    <div tabindex="0" class="pin chn" style="animation-delay: 0.4s">
       <span class="pin-ring"></span>
       <span class="pin-ring ring-2"></span>
       <span class="pin-label">Chennai</span>
     </div>
-    <div class="pin nig" style="animation-delay: 0.6s">
+    <div tabindex="0" class="pin nig" style="animation-delay: 0.6s">
       <span class="pin-ring"></span>
       <span class="pin-ring ring-2"></span>
       <span class="pin-label">Nigeria</span>
     </div>
-    <div class="pin uae" style="animation-delay: 0.8s">
+    <div tabindex="0" class="pin uae" style="animation-delay: 0.8s">
       <span class="pin-ring"></span>
       <span class="pin-ring ring-2"></span>
       <span class="pin-label">UAE</span>
     </div>
-    <div class="pin bhutan" style="animation-delay: 1.0s">
+    <div tabindex="0" class="pin bhutan" style="animation-delay: 1.0s">
       <span class="pin-ring"></span>
       <span class="pin-ring ring-2"></span>
       <span class="pin-label">Bhutan</span>
     </div>
-    <div class="pin lagos" style="animation-delay: 1.2s">
+    <div tabindex="0" class="pin lagos" style="animation-delay: 1.2s">
       <span class="pin-ring"></span>
       <span class="pin-ring ring-2"></span>
       <span class="pin-label">Malaysia</span>
     </div>
-    <div class="pin indo" style="animation-delay: 1.4s">
+    <div tabindex="0" class="pin indo" style="animation-delay: 1.4s">
       <span class="pin-ring"></span>
       <span class="pin-ring ring-2"></span>
       <span class="pin-label">Indonesia</span>
     </div>
-    <div class="pin uae2" style="animation-delay: 1.6s">
+    <div tabindex="0" class="pin uae2" style="animation-delay: 1.6s">
       <span class="pin-ring"></span>
       <span class="pin-ring ring-2"></span>
       <span class="pin-label">Oman</span>
     </div>
-    <div class="pin bangladesh" style="animation-delay: 1.8s">
+    <div tabindex="0" class="pin bangladesh" style="animation-delay: 1.8s">
       <span class="pin-ring"></span>
       <span class="pin-ring ring-2"></span>
       <span class="pin-label">Bangladesh</span>
     </div>
-    <div class="pin philip" style="animation-delay: 2.0s">
+    <div tabindex="0" class="pin philip" style="animation-delay: 2.0s">
       <span class="pin-ring"></span>
       <span class="pin-ring ring-2"></span>
       <span class="pin-label">Philippines</span>
     </div>
-    <div class="pin afg" style="animation-delay: 2.2s">
+    <div tabindex="0" class="pin afg" style="animation-delay: 2.2s">
       <span class="pin-ring"></span>
       <span class="pin-ring ring-2"></span>
       <span class="pin-label">Afghanistan</span>

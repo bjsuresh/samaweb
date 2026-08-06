@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { interval, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
@@ -21,7 +21,9 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
     ])
   ]
 })
-export class HomeComponent  implements OnInit, OnDestroy {
+export class HomeComponent  implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChildren('dashVideo') dashVideos!: QueryList<ElementRef<HTMLVideoElement>>;
+
   // Active Devices
   activeDevices: number = 147;
   totalDevices: number = 150;
@@ -108,6 +110,31 @@ export class HomeComponent  implements OnInit, OnDestroy {
     this.tabRotateSubscription = interval(30000).subscribe(() => {
       const idx = this.TAB_ORDER.indexOf(this.activeTab);
       this.activeTab = this.TAB_ORDER[(idx + 1) % this.TAB_ORDER.length];
+      this.playActiveVideo();
+    });
+  }
+
+  ngAfterViewInit(): void {
+    this.playActiveVideo();
+  }
+
+  /**
+   * Mobile/tablet browsers don't fire `autoplay` for a <video> that is inside a
+   * `display:none` tab layer, and toggling display back on never re-triggers it —
+   * so the newly-shown clip would sit on a blank frame. After each tab change we
+   * explicitly (re)start the video that is now visible.
+   */
+  private playActiveVideo(): void {
+    // Defer so Angular has applied the `.active` class / display change first.
+    setTimeout(() => {
+      this.dashVideos?.forEach(ref => {
+        const video = ref.nativeElement;
+        // offsetParent is null while the element (or an ancestor) is display:none.
+        if (video.offsetParent !== null) {
+          const attempt = video.play();
+          attempt?.catch(() => { /* ignore autoplay rejection */ });
+        }
+      });
     });
   }
 
@@ -252,18 +279,29 @@ export class HomeComponent  implements OnInit, OnDestroy {
     {
       title: 'SAMA Web Server & Alerts at REMC Telangana',
       company_name: 'Hitachi Energy',
+      logo: 'assets/customers/tstransco.png',
       description:
         'We confirm that M/s Supra Controls has successfully completed the work pertaining to Telangana REMC project and the systems are in operation without any failures.',
     },
     {
       title: 'CRUDE BLENDING & BOILER CONTROLS',
       company_name: 'PETRONAS PENAPISAN (MELAKA) SDN BHD',
+      logo: 'assets/customers/petronas.png',
       description:
         'With reference to the above work which you have completed last July 2000, we wish to express our appreciation for a job well done. I am sure you will be pleased to hear that the crude blending controls are now working very well.',
     },
     {
       title: 'UHN IOCL Bongaigaon LPG Unit',
       company_name: 'Fabtech',
+      logo: 'assets/customers/IndianOilLogo1024x768.png',
+      description:
+        'Nice working with you in IOCL BGR and we are delighted to inform you that BGR project has been successfully completed.',
+    },
+    
+    {
+      title: 'UHN IOCL Bongaigaon LPG Unit',
+      company_name: 'Fabtech',
+      logo: 'assets/customers/IndianOilLogo1024x768.png',
       description:
         'Nice working with you in IOCL BGR and we are delighted to inform you that BGR project has been successfully completed.',
     },
@@ -271,6 +309,19 @@ export class HomeComponent  implements OnInit, OnDestroy {
 
   switchTab(layer: string, event: Event) {
     this.activeTab = layer;
+    this.playActiveVideo();
   }
+
+  /** Two cards render — the third grid column is the call-to-action cell. */
+  get visibleTestimonials() {
+    return this.testimonialItems.slice(0, 4);
+  }
+
+  /** Hide the logo slot if the image file is missing, rather than showing a broken icon. */
+  onLogoError(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    img.closest('.testimonial-logo')?.remove();
+  }
+
 
 }

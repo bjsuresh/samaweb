@@ -36,6 +36,13 @@ export class Products2Component {
     this.showClientDetail = false;
   }
 
+  /** Size the popup frame to the video's true aspect ratio so it never stretches or letterboxes. */
+  fitVideoFrame(video: HTMLVideoElement, frame: HTMLElement): void {
+    if (video.videoWidth > 0 && video.videoHeight > 0) {
+      frame.style.setProperty('--vp-ratio', String(video.videoWidth / video.videoHeight));
+    }
+  }
+
   openVideo(src: string) {
     this.currentVideoSrc = src;
     this.showVideoPopup = true;
