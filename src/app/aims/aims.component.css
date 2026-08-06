@@ -5,7 +5,7 @@
 }
 h3 {
     text-align: center;
-    font-size: 65px;
+    font-size: var(--fs-display);
     font-weight: 700;
     line-height: .88em;
     text-transform: uppercase;
@@ -26,7 +26,7 @@ h3 {
     transform: translateY(-0.4rem);
 }
 .tile-card .title {
-    font-size: 30px;
+    font-size: var(--fs-h2);
     font-weight: 600;
     text-align: center;
     text-transform: uppercase;
@@ -38,7 +38,7 @@ h3 {
 }
 .tile-card p {
     color: #8f9297;
-    font-size: 15px;
+    font-size: var(--fs-body);
     line-height: 1.5;
 }
 .tile-img {
@@ -58,7 +58,7 @@ h3 {
     flex-wrap: wrap;
 }
 .tile-body {
-    font-size: 30px;
+    font-size: var(--fs-h2);
     padding: 30px 20px;
 }
 
@@ -111,7 +111,6 @@ h3 {
 
 @media (min-width:0px) and (max-width: 479px) {
     h3 {
-        font-size: 40px;
     }
     .body {
         padding: 10px;

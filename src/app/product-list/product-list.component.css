@@ -17,7 +17,7 @@
 
 .ind-top-node {
     display: inline-block;
-    font-size: 22px;
+    font-size: var(--fs-h3);
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -119,7 +119,7 @@
 }
 
 .ind-card-head h4 {
-    font-size: 15px;
+    font-size: var(--fs-body);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -141,7 +141,7 @@
    ======================================== */
 .ind-chip {
     display: block;
-    font-size: 11.5px;
+    font-size: var(--fs-xs);
     font-weight: 500;
     color: rgba(255, 255, 255, 0.7);
     padding: 7px 12px;
@@ -172,7 +172,7 @@
 
 .ind-group-label {
     display: block;
-    font-size: 11px;
+    font-size: var(--fs-xs);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -198,7 +198,7 @@
 
 .ind-cat-label {
     display: block;
-    font-size: 10px;
+    font-size: var(--fs-2xs);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -210,7 +210,7 @@
 }
 
 .ind-sub-col .ind-chip {
-    font-size: 11.5px;
+    font-size: var(--fs-xs);
     padding: 5px 8px;
     text-align: center;
 }
@@ -249,11 +249,9 @@
     }
 
     .ind-card-head h4 {
-        font-size: 14px;
     }
 
     .ind-top-node {
-        font-size: 18px;
         padding: 10px 30px;
     }
 }
@@ -267,7 +265,6 @@
     }
 
     .ind-top-node {
-        font-size: 16px;
         padding: 10px 28px;
         letter-spacing: 2px;
     }
@@ -300,7 +297,6 @@
     }
 
     .ind-card-head h4 {
-        font-size: 13px;
         letter-spacing: 1px;
     }
 
@@ -315,12 +311,10 @@
     }
 
     .ind-chip {
-        font-size: 11px;
         padding: 6px 10px;
     }
 
     .ind-group-label {
-        font-size: 10px;
         padding: 4px 10px;
     }
 
@@ -334,7 +328,6 @@
     }
 
     .ind-sub-col .ind-chip {
-        font-size: 10px;
     }
 }
 
@@ -347,11 +340,9 @@
     }
 
     .ind-card-head h4 {
-        font-size: 16px;
     }
 
     .ind-chip {
-        font-size: 12.5px;
         padding: 8px 14px;
     }
 }

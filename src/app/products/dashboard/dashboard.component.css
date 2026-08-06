@@ -5,7 +5,7 @@
 }
 h3 {
     text-align: center;
-    font-size: 25px;
+    font-size: var(--fs-h3);
     font-weight: 700;
     line-height: .88em;
     text-transform: uppercase;
@@ -31,7 +31,7 @@ h3 {
 }
 .tile-card p {
     color: #8f9297;
-    font-size: 15px;
+    font-size: var(--fs-body);
     line-height: 1.5;
 }
 .tile-img {
@@ -46,7 +46,7 @@ h3 {
     filter: drop-shadow(5px 5px 5px #202c50);
 }
 .tile-body {
-    font-size: 15px;
+    font-size: var(--fs-body);
     padding: 10px 20px;
     font-weight: 400;
 }
@@ -97,7 +97,6 @@ h3 {
 
 @media (min-width:0px) and (max-width: 479px) {
     h3 {
-        font-size: 20px;
     }
     .body {
         padding: 10px;
@@ -111,7 +110,7 @@ h3 {
     /* background: rgba(204,204,204,0.2); */
     /* border-radius: 7px; */
     /* box-shadow: 0px 2px 10px rgb(169 147 147 / 40%); */
-    font-size: 15px;
+    font-size: var(--fs-body);
 }
 
 .features p {
@@ -175,7 +174,7 @@ use{
 }
 
 p:hover use{
-	font-size: 15px;
+	font-size: var(--fs-body);
 	stroke-width: 2px;
 }
 /* 

@@ -1113,7 +1113,7 @@
 
 .badge-pill {
   display: inline-block;
-  font-size: 11px;
+  font-size: var(--fs-xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -1135,7 +1135,7 @@
 }
 
 .section-header h2 {
-  font-size: 30px;
+  font-size: var(--fs-h2);
   font-weight: 700;
   text-transform: uppercase;
   color: var(--text-heading);
@@ -1145,7 +1145,7 @@
 
 p {
   color: var(--text-body);
-  font-size: 16px;
+  font-size: var(--fs-body);
   font-weight: 400;
   line-height: 1.6;
   transition: color 0.4s ease;
@@ -1241,10 +1241,10 @@ p {
     border-radius: 10px; padding: 14px;
   }
   .mini-widget-label {
-    font-size: 10px; color: var(--text-muted); text-transform: uppercase;
+    font-size: var(--fs-2xs); color: var(--text-muted); text-transform: uppercase;
     letter-spacing: 1px; margin-bottom: 8px; font-family: Clarkson, "Helvetica", sans-serif;
   }
-  .mini-widget-value { font-size: 26px; font-weight: 700; letter-spacing: -1px; }
+  .mini-widget-value { font-size: var(--fs-h3); font-weight: 700; letter-spacing: -1px; }
   .mini-widget-value.green { color: #10b981; }
   .mini-widget-value.orange { color: var(--accent); }
   .mini-widget-value.blue { color: #3b82f6; }
@@ -1263,7 +1263,7 @@ p {
   }
   .alarm-row {
     display: flex; align-items: center; gap: 10px; padding: 6px 0;
-    font-size: 12px; font-family: Clarkson, "Helvetica", sans-serif;
+    font-size: var(--fs-xs); font-family: Clarkson, "Helvetica", sans-serif;
     border-bottom: 1px solid rgba(255,255,255,0.03);
   }
   .alarm-row:last-child { border: none; }
@@ -1273,7 +1273,7 @@ p {
   .alarm-dot.info { background: var(--accent-cyan); }
   .alarm-time { color: var(--text-muted); }
   .alarm-msg { color: var(--text-secondary); flex: 1; }
-  .alarm-tag { font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 500; }
+  .alarm-tag { font-size: var(--fs-2xs); padding: 2px 8px; border-radius: 4px; font-weight: 500; }
   .alarm-tag.critical { background: rgba(239,68,68,0.15); color: var(--accent-red); }
   .alarm-tag.warning { background: rgba(234,179,8,0.15); color: var(--accent-yellow); }
   .alarm-tag.info { background: rgba(6,182,212,0.15); color: var(--accent-cyan); }
@@ -1297,7 +1297,10 @@ p {
 .hero-grid {
   display: grid;
   /* visual column carries the product shot — give it the larger share */
-  grid-template-columns: 0.75fr 1.7fr;
+  /* minmax(0, ...) not plain fr: a bare 1fr is minmax(auto, 1fr), and that
+     auto floor is min-content — the 1920px video inflates the track far past
+     the container. minmax(0, ...) lets the track shrink to the column. */
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.7fr);
   gap: 28px;
   align-items: stretch;
   position: relative;
@@ -1316,7 +1319,7 @@ p {
 }
 
 .hero-head h1 {
-  font-size: 46px;
+  font-size: var(--fs-display);
   font-weight: 800;
   color: var(--text-heading);
   text-transform: uppercase;
@@ -1326,14 +1329,14 @@ p {
 }
 
 .hero-subtitle {
-  font-size: 18px;
+  font-size: var(--fs-lead);
   color: var(--text-muted);
   margin-bottom: 8px;
   transition: color 0.4s ease;
 }
 
 .hero-tagline {
-  font-size: 22px;
+  font-size: var(--fs-h3);
   font-weight: 600;
   color: var(--text-tagline);
   margin-bottom: 14px;
@@ -1341,7 +1344,7 @@ p {
 }
 
 .hero-desc {
-  font-size: 16px;
+  font-size: var(--fs-body);
   line-height: 1.7;
   color: var(--text-muted);
   max-width: 620px;
@@ -1360,7 +1363,7 @@ p {
   padding: 14px 32px;
   background: var(--accent);
   color: #fff;
-  font-size: 14px;
+  font-size: var(--fs-sm);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -1389,7 +1392,7 @@ p {
   padding: 14px 32px;
   background: transparent;
   color: var(--accent);
-  font-size: 14px;
+  font-size: var(--fs-sm);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -1508,7 +1511,7 @@ p {
 }
 
 .float-card span {
-  font-size: 12.5px;
+  font-size: var(--fs-xs);
   font-weight: 600;
   color: var(--accent);
   white-space: nowrap;
@@ -1998,7 +2001,7 @@ p {
     align-items: center;
     gap: 6px;
     font-family: 'Rajdhani', sans-serif;
-    font-size: 11px;
+    font-size: var(--fs-xs);
     font-weight: 700;
     color: #e0f4ff;
     letter-spacing: 1px;
@@ -2447,7 +2450,7 @@ p {
 .hero-trust-label {
   display: block;
   text-align: center;
-  font-size: 14.5px;
+  font-size: var(--fs-sm);
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -2481,7 +2484,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  font-size: 14.5px;
+  font-size: var(--fs-sm);
   font-weight: 700;
   letter-spacing: 0.2px;
   color: var(--text-heading);
@@ -2588,7 +2591,7 @@ p {
 .section-subtitle {
   max-width: 720px;
   margin: 16px auto 0;
-  font-size: 16px;
+  font-size: var(--fs-body);
   line-height: 1.7;
   color: var(--text-muted, #94a3b8);
   transition: color 0.4s ease;
@@ -2668,7 +2671,7 @@ p {
 }
 
 .solution-card h4 {
-  font-size: 19px;
+  font-size: var(--fs-h4);
   font-weight: 700;
   color: var(--text-heading);
   margin: 2px 0 6px;
@@ -2677,7 +2680,7 @@ p {
 
 .solution-tagline {
   display: block;
-  font-size: 13.5px;
+  font-size: var(--fs-sm);
   font-weight: 500;
   line-height: 1.5;
   color: var(--accent);
@@ -2703,7 +2706,7 @@ p {
   margin-top: 18px;
   padding: 8px 15px;
   border-radius: 8px;
-  font-size: 11.5px;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: 0.9px;
   text-transform: uppercase;
@@ -2740,7 +2743,7 @@ p {
 .solution-highlights li {
   position: relative;
   padding-left: 28px;
-  font-size: 14px;
+  font-size: var(--fs-sm);
   line-height: 1.5;
   color: var(--text-heading);
   transition: color 0.4s ease;
@@ -2810,7 +2813,7 @@ p {
 }
 
 .why-card h4 {
-  font-size: 18px;
+  font-size: var(--fs-lead);
   font-weight: 700;
   color: var(--accent);
   margin-bottom: 14px;
@@ -2822,7 +2825,7 @@ p {
 }
 
 .why-card p {
-  font-size: 14px;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
   line-height: 1.6;
   transition: color 0.4s ease;
@@ -2901,7 +2904,7 @@ p {
 }
 
 .testimonial-card h4 {
-  font-size: 15.5px;
+  font-size: var(--fs-body);
   font-weight: 700;
   color: var(--accent);
   margin-bottom: 7px;
@@ -2910,7 +2913,7 @@ p {
 
 .company-badge {
   display: inline-block;
-  font-size: 11px;
+  font-size: var(--fs-xs);
   font-weight: 600;
   color: var(--badge-text);
   background: var(--badge-bg);
@@ -2922,7 +2925,7 @@ p {
 }
 
 .testimonial-card p {
-  font-size: 14px;
+  font-size: var(--fs-sm);
   color: var(--testimonial-text);
   line-height: 1.65;
   transition: color 0.4s ease;
@@ -2951,7 +2954,7 @@ p {
 }
 
 .testimonial-cta-copy h4 {
-  font-size: 18px;
+  font-size: var(--fs-lead);
   font-weight: 700;
   line-height: 1.3;
   color: var(--text-heading);
@@ -2959,7 +2962,7 @@ p {
 }
 
 .testimonial-cta-copy p {
-  font-size: 13.5px;
+  font-size: var(--fs-sm);
   line-height: 1.6;
   color: var(--text-muted);
   margin: 0;
@@ -3035,7 +3038,7 @@ p {
   object-fit: contain;
 }
 .logo-item span {
-  font-size: 15px;
+  font-size: var(--fs-body);
   font-weight: 700;
   color: var(--logo-text);
   letter-spacing: 0.5px;
@@ -3104,7 +3107,7 @@ p {
 }
 
 .demo-content h2 {
-  font-size: 38px;
+  font-size: var(--fs-h1);
   font-weight: 700;
   text-transform: uppercase;
   color: var(--text-heading);
@@ -3114,7 +3117,7 @@ p {
 }
 
 .demo-content p {
-  font-size: 16px;
+  font-size: var(--fs-body);
   color: var(--text-body);
   line-height: 1.7;
   margin-bottom: 32px;
@@ -3127,7 +3130,7 @@ p {
   padding: 16px 36px;
   background: var(--accent);
   color: #fff;
-  font-size: 15px;
+  font-size: var(--fs-body);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -3170,7 +3173,7 @@ p {
 
 .testimonials-sec h3 {
   text-align: center;
-  font-size: 24px;
+  font-size: var(--fs-h3);
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: 0.4px;
@@ -3271,7 +3274,7 @@ p {
   transform: translateX(-50%) translateY(5px);
   background: #061823;
   color: var(--accent);
-  font-size: 10px;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   padding: 3px 8px;
   border-radius: 4px;
@@ -3371,13 +3374,13 @@ p {
    ═══════════════════════════════════════════════ */
 @media (max-width: 479px) {
   .hero-section { min-height: auto; padding: 40px 0 30px; }
-  .hero-grid { grid-template-columns: 1fr; gap: 24px; }
-  .hero-head h1 { font-size: 28px; }
-  .hero-subtitle { font-size: 14px; }
-  .hero-tagline { font-size: 16px; }
-  .hero-desc { font-size: 13.5px; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .hero-head h1 {  }
+  .hero-subtitle {  }
+  .hero-tagline {  }
+  .hero-desc {  }
   .hero-cta { flex-direction: column; }
-  .btn-primary-cta, .btn-outline-cta { text-align: center; padding: 12px 24px; font-size: 13px; width: 225px; }
+  .btn-primary-cta, .btn-outline-cta { text-align: center; padding: 12px 24px;  width: 225px; }
 
   /* dashboard full width, compact */
   .hero-visual { width: 100%; height: auto; }
@@ -3386,7 +3389,7 @@ p {
   .drill-layer { padding: 10px; }
   .layer-body { grid-template-columns: 1fr; gap: 10px; }
   .stats-grid { grid-template-columns: 1fr; gap: 8px; }
-  .hero-stat-line { margin-top: 20px; font-size: 12.5px; }
+  .hero-stat-line { margin-top: 20px; }
   .hero-stat-line li + li::before { margin: 0 8px; }
   .bar-label { font-size: 8px; }
   .bar-value { font-size: 7px; }
@@ -3404,8 +3407,8 @@ p {
   .services-grid { grid-template-columns: 1fr; gap: 12px; }
   .solutions-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
   .solution-card { padding: 24px 22px; }
-  .section-subtitle { font-size: 15px; }
-  .section-header h2 { font-size: 28px; }
+  .section-subtitle {  }
+  .section-header h2 {  }
   .why-section { padding: 40px 0; }
   .why-grid { grid-template-columns: 1fr; gap: 16px; }
   .why-card { padding: 24px 20px; }
@@ -3416,7 +3419,7 @@ p {
   .logo-item { width: 150px; height: 60px; margin: 0 10px; }
   .hero-trust { margin-top: 24px; padding-top: 16px; }
   .hero-trust .logo-item { width: 104px; height: 42px; margin: 0 6px; }
-  .testimonials-sec h3 { font-size: 19px; margin-bottom: 4px; }
+  .testimonials-sec h3 {  margin-bottom: 4px; }
   .testimonials-sec { padding: 26px 16px 22px; }
   .pin { width: 5px; height: 5px; }
   .pin-label { font-size: 9px; padding: 2px 6px; }
@@ -3438,10 +3441,10 @@ p {
    ═══════════════════════════════════════════════ */
 @media (min-width: 480px) and (max-width: 768px) {
   .hero-section { min-height: auto; padding: 50px 0 30px; }
-  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
-  .hero-head h1 { font-size: 36px; }
-  .hero-tagline { font-size: 18px; }
-  .hero-desc { font-size: 15px; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .hero-head h1 {  }
+  .hero-tagline {  }
+  .hero-desc {  }
 
   /* dashboard full width */
   .hero-visual { width: 100%; height: auto; }
@@ -3455,7 +3458,7 @@ p {
   .stats-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .services-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
   .solutions-grid { grid-template-columns: 1fr; gap: 18px; }
-  .section-header h2 { font-size: 30px; }
+  .section-header h2 {  }
   .why-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
   .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
   .testimonial-cta-card { grid-column: auto; grid-row: auto; }
@@ -3465,10 +3468,10 @@ p {
    RESPONSIVE: 769px – 1024px  (tablet / small laptop)
    ═══════════════════════════════════════════════ */
 @media (min-width: 769px) and (max-width: 1024px) {
-  .hero-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .hero-head h1 { font-size: 38px; }
-  .hero-tagline { font-size: 19px; }
-  .hero-desc { font-size: 15.5px; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; }
+  .hero-head h1 {  }
+  .hero-tagline {  }
+  .hero-desc {  }
 
   /* dashboard fills its column */
   .layer-body { grid-template-columns: 1fr minmax(140px, 190px); gap: 10px; }
@@ -3489,7 +3492,7 @@ p {
    ═══════════════════════════════════════════════ */
 @media (min-width: 1025px) and (max-width: 1280px) {
   .hero-grid { gap: 36px; }
-  .hero-head h1 { font-size: 44px; }
+  .hero-head h1 {  }
   .layer-body { grid-template-columns: 1fr minmax(160px, 210px); }
 }
 .india-map {

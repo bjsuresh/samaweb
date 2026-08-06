@@ -1,5 +1,5 @@
 :host {
-  font-size: 14px;
+  font-size: var(--fs-sm);
   color: #333;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -122,7 +122,7 @@ mat-toolbar.is-scrolled {
   opacity: 0.95;
   transition: all 0.3s ease;
   z-index: 999;
-  font-size: 14px;
+  font-size: var(--fs-sm);
   font-weight: 600;
   letter-spacing: 0.2px;
 }
@@ -179,7 +179,7 @@ mat-toolbar.is-scrolled {
   padding: 3px 8px 3px 0;
   /* background: var(--accent); */
   color: #fff;
-  font-size: 14px;
+  font-size: var(--fs-sm);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -200,7 +200,7 @@ mat-toolbar.is-scrolled {
   /* border-radius: 50%; */
 }
 .logo-sec .title {
-  font-size: 25px;
+  font-size: var(--fs-h3);
   font-weight: 700;
   margin-left: 10px;
   letter-spacing: 1px;
@@ -248,7 +248,7 @@ mat-toolbar.is-scrolled {
 
 .navbar li a{
   text-decoration: none;
-  font-size: 18px;
+  font-size: var(--fs-lead);
   font-weight: 500;
   padding: 9px 5px;
   border-radius: 5px;
@@ -286,7 +286,7 @@ mat-toolbar.is-scrolled {
   width: 100%;
 }
 .navbar li .heading {
-  font-size: 20px;
+  font-size: var(--fs-h4);
   padding-left: 10px;
 }
 .bg-grey {
@@ -345,7 +345,7 @@ mat-toolbar.is-scrolled {
 
 .mega-eyebrow {
   display: inline-block;
-  font-size: 11px;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
@@ -354,7 +354,7 @@ mat-toolbar.is-scrolled {
 }
 
 .mega-title {
-  font-size: 20px;
+  font-size: var(--fs-h4);
   font-weight: 700;
   color: #ffffff;
   margin: 0 0 4px;
@@ -362,7 +362,7 @@ mat-toolbar.is-scrolled {
 }
 
 .mega-subtitle {
-  font-size: 13px;
+  font-size: var(--fs-sm);
   color: rgba(255, 255, 255, 0.6);
   margin: 0;
   font-weight: 400;
@@ -415,7 +415,7 @@ mat-toolbar.is-scrolled {
 }
 
 .mega-col-head h6 {
-  font-size: 13px;
+  font-size: var(--fs-sm);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.2px;
@@ -439,7 +439,7 @@ mat-toolbar.is-scrolled {
 
 .mega-list li a {
   display: block;
-  font-size: 13.5px !important;
+  font-size: var(--fs-sm) !important;
   font-weight: 400 !important;
   color: rgba(255, 255, 255, 0.7) !important;
   padding: 7px 12px !important;
@@ -508,7 +508,7 @@ mat-toolbar.is-scrolled {
   margin-bottom: 10px;
 }
 .footer-sec .logo-sec span {
-  font-size: 17px;
+  font-size: var(--fs-lead);
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -532,7 +532,7 @@ mat-toolbar.is-scrolled {
 }
 
 .footer-sec .footer-heading {
-  font-size: 20px;
+  font-size: var(--fs-h4);
   font-weight: 600;
   color: #fff;
   text-transform: uppercase;
@@ -546,7 +546,7 @@ mat-toolbar.is-scrolled {
 .footer-sec a {
   text-decoration: none !important;
   color: #999;
-  font-size: 16px;
+  font-size: var(--fs-body);
   /* cursor: url('../assets/images/loading.png'), auto; */
 }
 
@@ -556,7 +556,7 @@ mat-toolbar.is-scrolled {
 
 .footer-sec .copyright {
   color: #999;
-  font-size: 16px;
+  font-size: var(--fs-body);
 }
 
 @media (min-width:0px) and (max-width: 768px) {
@@ -599,7 +599,6 @@ mat-toolbar.is-scrolled {
     width: 30px;
   }
   .logo-sec .title {
-    font-size: 16px;
   }
   #navbarContent {
       height: 100%;
@@ -676,9 +675,9 @@ mat-toolbar.is-scrolled {
     margin-bottom: 14px;
   }
 
-  .mega-eyebrow  { font-size: 10px; letter-spacing: 2px; }
-  .mega-title    { font-size: 16px; }
-  .mega-subtitle { font-size: 12px; }
+  .mega-eyebrow  {  letter-spacing: 2px; }
+  .mega-title    {  }
+  .mega-subtitle {  }
 
   .mega-grid {
     grid-template-columns: 1fr;
@@ -701,12 +700,8 @@ mat-toolbar.is-scrolled {
   .mega-icon-wrap { width: 30px; height: 30px; }
   .mega-icon      { width: 16px; height: 16px; }
 
-  .mega-col-head h6 {
-    font-size: 12.5px;
-  }
 
   .mega-list li a {
-    font-size: 13px !important;
     padding: 8px 10px !important;
   }
   .mega-list li a:hover {

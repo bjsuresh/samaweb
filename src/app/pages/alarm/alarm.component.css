@@ -16,7 +16,7 @@
 
 
 .portal-intro-title {
-    font-size: 24px;
+    font-size: var(--fs-h3);
     font-weight: 700;
     line-height: 1.3;
     margin: 0 0 12px;
@@ -24,7 +24,7 @@
 }
 
 .portal-intro-desc {
-    font-size: 15px;
+    font-size: var(--fs-body);
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.65);
     margin: 0;
@@ -52,14 +52,14 @@
 }
 
 .portal-platform-title {
-    font-size: 14px;
+    font-size: var(--fs-sm);
     font-weight: 700;
     color: #ffffff;
     margin: 0 0 6px;
 }
 
 .portal-platform-desc {
-    font-size: 13.5px;
+    font-size: var(--fs-sm);
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.55);
     margin: 0;
@@ -86,7 +86,7 @@
 
 .portal-chips li {
     white-space: nowrap;
-    font-size: 12px;
+    font-size: var(--fs-xs);
     font-weight: 500;
     letter-spacing: 0.2px;
     color: rgba(255, 255, 255, 0.5);
@@ -113,13 +113,13 @@
 }
 
 .deploy-heading {
-    font-size: 20px;
+    font-size: var(--fs-h4);
     font-weight: 700;
     margin-bottom: 6px;
 }
 
 .deploy-subtitle {
-    font-size: 14px;
+    font-size: var(--fs-sm);
     color: rgba(255, 255, 255, 0.6);
     margin: 0 0 24px;
 }
@@ -165,14 +165,14 @@
 }
 
 .deploy-title {
-    font-size: 16px;
+    font-size: var(--fs-body);
     font-weight: 700;
     color: #ffffff;
     margin: 0 0 8px;
 }
 
 .deploy-desc {
-    font-size: 13.5px;
+    font-size: var(--fs-sm);
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.6);
     margin: 0;
@@ -191,7 +191,7 @@
 
 .src-examples-label {
     display: block;
-    font-size: 11px;
+    font-size: var(--fs-xs);
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -209,7 +209,7 @@
 }
 
 .src-list li {
-    font-size: 12.5px;
+    font-size: var(--fs-xs);
     font-weight: 500;
     color: rgba(255, 255, 255, 0.82);
     padding: 5px 12px;
@@ -230,7 +230,7 @@ body.light-theme .src-list li {
 }
 
 .wr-layers-heading {
-    font-size: 20px;
+    font-size: var(--fs-h4);
     font-weight: 700;
     text-align: center;
     margin-bottom: 28px;
@@ -284,7 +284,7 @@ body.light-theme .src-list li {
 }
 
 .wr-layer-title {
-    font-size: 16px;
+    font-size: var(--fs-body);
     font-weight: 700;
     color: #ffffff;
     margin: 0;
@@ -302,7 +302,7 @@ body.light-theme .src-list li {
 .wr-layer-list li {
     position: relative;
     padding-left: 20px;
-    font-size: 14px;
+    font-size: var(--fs-sm);
     font-weight: 500;
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.4;
@@ -327,7 +327,7 @@ body.light-theme .src-list li {
     .wr-layers { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 576px) {
-    .wr-layers-heading { font-size: 18px; }
+    .wr-layers-heading {  }
 }
 
 body.light-theme .wr-layer {
@@ -346,7 +346,7 @@ body.light-theme .wr-layer-list li { color: #334155; }
 }
 
 .wr-adv-heading {
-    font-size: 20px;
+    font-size: var(--fs-h4);
     font-weight: 700;
     margin-bottom: 22px;
 }
@@ -374,7 +374,7 @@ body.light-theme .wr-layer-list li { color: #334155; }
 
 .wr-adv-num {
     flex-shrink: 0;
-    font-size: 22px;
+    font-size: var(--fs-h3);
     font-weight: 800;
     line-height: 1.2;
     color: rgba(var(--accent-rgb), 0.35);
@@ -388,7 +388,7 @@ body.light-theme .wr-layer-list li { color: #334155; }
 }
 
 .wr-adv-title {
-    font-size: 15.5px;
+    font-size: var(--fs-body);
     font-weight: 700;
     color: #ffffff;
     margin: 0 0 6px;
@@ -396,7 +396,7 @@ body.light-theme .wr-layer-list li { color: #334155; }
 }
 
 .wr-adv-desc {
-    font-size: 13.5px;
+    font-size: var(--fs-sm);
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.6);
     margin: 0;
@@ -409,7 +409,7 @@ body.light-theme .wr-layer-list li { color: #334155; }
     .portal-intro {
         padding: 28px;
     }
-    .portal-intro-title { font-size: 22px; }
+    .portal-intro-title {  }
     .portal-chips {
         flex-wrap: wrap;
         row-gap: 10px;
@@ -425,12 +425,12 @@ body.light-theme .wr-layer-list li { color: #334155; }
         padding: 22px 18px;
         border-radius: 14px;
     }
-    .portal-intro-title { font-size: 19px; }
-    .portal-intro-desc { font-size: 14px; }
-    .portal-platform-desc { font-size: 13px; }
-    .portal-chips li { font-size: 12px; }
+    .portal-intro-title {  }
+    .portal-intro-desc {  }
+    .portal-platform-desc {  }
+    .portal-chips li {  }
     .wr-adv-heading,
-    .deploy-heading { font-size: 18px; }
+    .deploy-heading {  }
 }
 
 /* ========================================
@@ -563,7 +563,7 @@ body.light-theme .deploy-subtitle {
 .h-card-6:hover { transform-origin: center left; }
 
 .h-card-num {
-    font-size: 28px;
+    font-size: var(--fs-h2);
     font-weight: 800;
     color: rgba(var(--accent-rgb),0.15);
     line-height: 1;
@@ -573,7 +573,7 @@ body.light-theme .deploy-subtitle {
 }
 
 .h-card-title {
-    font-size: 14px;
+    font-size: var(--fs-sm);
     font-weight: 700;
     color: rgba(var(--accent-rgb), 1);
     line-height: 1.25;
@@ -584,7 +584,7 @@ body.light-theme .deploy-subtitle {
 }
 
 .h-card-text {
-    font-size: 12.5px;
+    font-size: var(--fs-xs);
     font-weight: 600;
     color: var(--accent);
     line-height: 1.4;
@@ -601,7 +601,7 @@ body.light-theme .deploy-subtitle {
     border-left: 2px solid rgba(var(--accent-rgb),0.3);
 }
 .historian-diagram .h-card-text {
-    font-size: 11.5px;
+    font-size: var(--fs-xs);
     font-weight: 500;
     color: #b7c0c9;
     max-width: 160px;
@@ -731,10 +731,8 @@ body.light-theme .deploy-subtitle {
         height: 140px;
     }
     .h-card-num {
-        font-size: 24px;
     }
     .h-card-text {
-        font-size: 11px;
         max-width: 125px;
     }
 }
@@ -757,11 +755,9 @@ body.light-theme .deploy-subtitle {
         height: 32px !important;
     }
     .h-card-num {
-        font-size: 20px;
         margin-bottom: 3px;
     }
     .h-card-text {
-        font-size: 10px;
         max-width: 110px;
         padding-left: 7px;
     }
@@ -1001,13 +997,13 @@ body.light-theme .deploy-subtitle {
 }
 
 .portal-play-text strong {
-    font-size: 14.5px;
+    font-size: var(--fs-sm);
     font-weight: 700;
     color: #ffffff;
 }
 
 .portal-play-text small {
-    font-size: 12px;
+    font-size: var(--fs-xs);
     color: rgba(255, 255, 255, 0.55);
 }
 
@@ -1025,7 +1021,7 @@ body.light-theme .deploy-subtitle {
 }
 
 .portal-shared-label {
-    font-size: 11.5px;
+    font-size: var(--fs-xs);
     font-weight: 700;
     letter-spacing: 1.6px;
     text-transform: uppercase;
@@ -1047,7 +1043,7 @@ body.light-theme .deploy-subtitle {
     gap: 8px;
     padding: 7px 16px;
     border-radius: 30px;
-    font-size: 13.5px;
+    font-size: var(--fs-sm);
     font-weight: 600;
     color: var(--accent);
     background: rgba(var(--accent-rgb), 0.10);

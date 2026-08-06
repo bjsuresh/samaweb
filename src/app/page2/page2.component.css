@@ -4,7 +4,7 @@
   
   ::ng-deep .tooltip-header {
     margin-bottom: 5px;
-    font-size: 16px;
+    font-size: var(--fs-body);
     font-weight: 500;
     padding-bottom: 5px;
     border-bottom: 1px solid #c5c5c5;
