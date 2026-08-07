@@ -428,11 +428,7 @@ label {
     width: calc(100% - 100px);
   }
 
-  .hero-content h1 {
-  }
 
-  .benefits-section h2 {
-  }
 }
 
 /* Tablet: 480px - 768px */
@@ -441,11 +437,7 @@ label {
     width: 100%;
   }
 
-  .hero-content h1 {
-  }
 
-  .hero-content p {
-  }
 
   .benefits-section {
     padding: 50px 20px;
@@ -463,8 +455,6 @@ label {
     padding: 30px 20px;
   }
 
-  .careers-sec h3 {
-  }
 
   .col-md-6 {
     flex: 0 0 100%;
@@ -491,8 +481,6 @@ label {
     letter-spacing: 1px;
   }
 
-  .hero-content p {
-  }
 
   .circle-1 {
     width: 150px;
@@ -532,11 +520,7 @@ label {
     height: 30px;
   }
 
-  .benefit-card h4 {
-  }
 
-  .benefit-card p {
-  }
 
   .col-md-4 {
     flex: 0 0 100%;

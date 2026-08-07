@@ -326,10 +326,6 @@ body.light-theme .src-list li {
 @media (min-width: 577px) and (max-width: 992px) {
     .wr-layers { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 576px) {
-    .wr-layers-heading {  }
-}
-
 body.light-theme .wr-layer {
     background: rgba(var(--accent-rgb), 0.03);
     border-color: rgba(var(--accent-rgb), 0.15);
@@ -409,7 +405,6 @@ body.light-theme .wr-layer-list li { color: #334155; }
     .portal-intro {
         padding: 28px;
     }
-    .portal-intro-title {  }
     .portal-chips {
         flex-wrap: wrap;
         row-gap: 10px;
@@ -425,12 +420,6 @@ body.light-theme .wr-layer-list li { color: #334155; }
         padding: 22px 18px;
         border-radius: 14px;
     }
-    .portal-intro-title {  }
-    .portal-intro-desc {  }
-    .portal-platform-desc {  }
-    .portal-chips li {  }
-    .wr-adv-heading,
-    .deploy-heading {  }
 }
 
 /* ========================================
@@ -729,8 +718,6 @@ body.light-theme .deploy-subtitle {
     .orbit-ring {
         width: 140px;
         height: 140px;
-    }
-    .h-card-num {
     }
     .h-card-text {
         max-width: 125px;

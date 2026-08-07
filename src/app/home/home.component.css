@@ -1354,8 +1354,96 @@ p {
 
 .hero-cta {
   display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+/* ── Hero CTAs: same treatment as the "Play Video" button on the
+      product pages — pill, circular accent icon, two-line label. ── */
+.hero-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 24px 10px 10px;
+  border-radius: 50px;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  background: rgba(var(--accent-rgb), 0.08);
+  border: 1px solid rgba(var(--accent-rgb), 0.25);
+  transition: background 0.3s ease, border-color 0.3s ease,
+              transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-cta-btn:hover,
+.hero-cta-btn:focus-visible {
+  background: rgba(var(--accent-rgb), 0.14);
+  border-color: rgba(var(--accent-rgb), 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(var(--accent-rgb), 0.18);
+  text-decoration: none;
+}
+
+.hero-cta-icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.4);
+  transition: transform 0.3s ease;
+}
+
+/* the same outward pulse the play button uses */
+.hero-cta-icon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  animation: heroCtaPulse 2.2s ease-out infinite;
+}
+
+@keyframes heroCtaPulse {
+  0%   { transform: scale(1);    opacity: 0.7; }
+  70%  { transform: scale(1.45); opacity: 0; }
+  100% { transform: scale(1.45); opacity: 0; }
+}
+
+.hero-cta-btn:hover .hero-cta-icon {
+  transform: scale(1.07);
+}
+
+.hero-cta-icon svg {
+  width: 16px;
+  height: 16px;
+  color: #ffffff;
+  margin: 0 !important;
+}
+
+.hero-cta-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.35;
+}
+
+.hero-cta-text strong {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.hero-cta-text small {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cta-icon::after { animation: none; }
 }
 
 .btn-primary-cta {
@@ -1661,23 +1749,27 @@ p {
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  aspect-ratio: 16 / 9;
+  /* ONE shared frame for both tabs, so the panel never changes height when
+     you switch. The clips differ in shape — alarm is 1920x868 (2.212:1),
+     reporter is 2560x1440 (1.778:1) — so this ratio sits between them and
+     each is padded by roughly the same small amount. */
+  aspect-ratio: 2 / 1;
   flex: 0 0 auto;
   overflow: hidden;
   border-radius: 0 0 9px 9px;
 }
 
-.alarm-video-wrap.ratio-alarm  { aspect-ratio: 1920 / 868; }   /* Recording 2026-08-04 195100.mp4 */
-.alarm-video-wrap.ratio-report { aspect-ratio: 1920 / 1080; }  /* Dashboard_light.mp4 */
-
 .alarm-dashboard-video {
   /* Pinned to the frame's box, so layout is driven by the frame alone —
-     the element's 1920px intrinsic width contributes nothing. */
+     the element's intrinsic width contributes nothing. */
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;   /* frame ratio matches the clip → nothing cropped */
+  /* contain, not cover: with one shared frame a cover fit would crop ~20%
+     off whichever clip doesn't match. Nothing is cut; the small leftover
+     area shows the panel behind it rather than a black bar. */
+  object-fit: contain;
   display: block;
   background: transparent;
 }
@@ -2477,29 +2569,41 @@ p {
 }
 
 /* ── Hero credentials: one inline row, pipe separated ── */
-.hero-stat-line {
+/* ── Hero credentials: 2×2 figure + caption, no card chrome ── */
+.hero-stats {
   list-style: none;
   margin: 26px 0 0;
   padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 26px;
+  /* deliberately transparent — no plate, border or shadow */
+  background: none;
+  border: 0;
+}
+
+.hero-stats li {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  font-size: var(--fs-sm);
-  font-weight: 700;
-  letter-spacing: 0.2px;
-  color: var(--text-heading);
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.hero-stat-num {
+  font-size: var(--fs-h4);
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--accent);
+}
+
+.hero-stat-label {
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.3;
+  color: var(--text-muted);
   transition: color 0.4s ease;
-}
-
-.hero-stat-line li {
-  white-space: nowrap;
-}
-
-.hero-stat-line li + li::before {
-  content: "|";
-  margin: 0 12px;
-  font-weight: 400;
-  color: rgba(var(--accent-rgb), 0.55);
 }
 
 /* Compact horizontal stat: small icon beside the figure */
@@ -2612,7 +2716,7 @@ p {
   background: var(--glass-bg-2);
   border: 1px solid var(--glass-border);
   border-radius: 16px;
-  padding: 30px 28px;
+  padding: 22px 22px 20px;
   cursor: default;
   overflow: hidden;
   transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
@@ -2644,8 +2748,8 @@ p {
 .solution-head {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 18px;
+  gap: 14px;
+  margin-bottom: 14px;
 }
 
 .solution-icon-box {
@@ -2666,8 +2770,13 @@ p {
   transform: scale(1.06);
 }
 
+/* title, tagline and the Learn More link share the header block,
+   so the CTA sits with the title rather than at the card's foot */
 .solution-titles {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .solution-card h4 {
@@ -2691,53 +2800,42 @@ p {
   padding: 0;
   margin: auto 0 0;
   border-top: 1px solid var(--glass-border);
-  padding-top: 18px;
+  padding-top: 14px;
   display: flex;
   flex-direction: column;
-  gap: 11px;
+  gap: 8px;
 }
 
 /* ── Learn More link on each solution card ── */
-.solution-cta {
-  align-self: flex-start;
+/* Arrow link sitting beside the card title */
+.solution-arrow {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  margin-top: 18px;
-  padding: 8px 15px;
-  border-radius: 8px;
-  font-size: var(--fs-xs);
-  font-weight: 700;
-  letter-spacing: 0.9px;
-  text-transform: uppercase;
-  text-decoration: none;
+  justify-content: center;
+  vertical-align: middle;
+  margin-left: 7px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
   color: var(--accent);
-  background: rgba(var(--accent-rgb), 0.08);
+  background: rgba(var(--accent-rgb), 0.1);
   border: 1px solid rgba(var(--accent-rgb), 0.25);
-  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  text-decoration: none;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 
-.solution-cta:hover,
-.solution-cta:focus-visible {
-  background: rgba(var(--accent-rgb), 0.2);
+.solution-arrow:hover,
+.solution-arrow:focus-visible {
+  background: var(--accent);
   border-color: var(--accent);
   color: #ffffff;
+  transform: translateX(3px);
   text-decoration: none;
 }
 
-.solution-cta svg {
-  width: 14px;
-  height: 14px;
-  transition: transform 0.25s ease;
-}
-
-.solution-cta:hover svg {
-  transform: translateX(3px);
-}
-
-:host-context(body.light-theme) .home-wrapper .solution-cta:hover {
-  background: var(--accent);
-  color: #ffffff;
+.solution-arrow svg {
+  width: 13px;
+  height: 13px;
 }
 
 .solution-highlights li {
@@ -2840,13 +2938,13 @@ p {
    ═══════════════════════════════════════════════ */
 .testimonials-grid-section {
   background: var(--bg-section);
-  padding: 70px 0;
+  padding: 50px 0;
   transition: background-color 0.4s ease;
 }
 
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -2934,14 +3032,15 @@ p {
 /* ── Third column: call-to-action cell, merged down both rows ──
    Placed explicitly, so the four cards auto-flow into columns 1–2. */
 .testimonial-cta-card {
-  grid-column: 3;
-  grid-row: 1 / span 2;
+  grid-column: 1 / -1;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 22px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px 28px;
   border-radius: 16px;
-  padding: 30px 24px;
+  padding: 18px 26px;
   background: rgba(var(--accent-rgb), 0.07);
   border: 1px solid rgba(var(--accent-rgb), 0.22);
   transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
@@ -2958,7 +3057,7 @@ p {
   font-weight: 700;
   line-height: 1.3;
   color: var(--text-heading);
-  margin: 0 0 8px;
+  margin: 0;
 }
 
 .testimonial-cta-copy p {
@@ -2968,18 +3067,22 @@ p {
   margin: 0;
 }
 
-/* the two buttons stack — one per row */
+/* buttons sit inline beside the heading */
 .testimonial-cta-actions {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 12px;
 }
 
-.testimonial-cta-actions .btn-primary-cta,
-.testimonial-cta-actions .btn-outline-cta {
-  width: 100%;
-  text-align: center;
-  justify-content: center;
+.testimonial-cta-actions .hero-cta-btn {
+  white-space: nowrap;
+}
+
+/* stack the bar on phones */
+@media (max-width: 575px) {
+  .testimonial-cta-card { flex-direction: column; align-items: stretch; text-align: center; }
+  .testimonial-cta-actions { justify-content: center; }
 }
 
 /* ═══════════════════════════════════════════════
@@ -3310,13 +3413,13 @@ p {
 
 .nig { top: 63%; left: 49%; }
 .afg { top: 53%; left: 64%; }
-.ind { top: 60%; left: 68%; }
-.chn { top: 62.5%; left: 67.9%; }
+.ind { top: 60.5%; left: 68.5%; }
+.chn { top: 62.7%; left: 68.2%; }
 .uae { top: 59%; left: 62%; }
 .uae2 { top: 59%; left: 60%; }
 .bhutan { top: 57%; left: 71%; }
 .bangladesh { top: 58%; left: 70%; }
-.lagos { top: 62%; left: 75%; }
+.lagos { top: 62.8%; left: 75.5%; }
 .indo { top: 69%; left: 75%; }
 .philip { top: 61.5%; left: 79.5%; }
 
@@ -3375,10 +3478,6 @@ p {
 @media (max-width: 479px) {
   .hero-section { min-height: auto; padding: 40px 0 30px; }
   .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
-  .hero-head h1 {  }
-  .hero-subtitle {  }
-  .hero-tagline {  }
-  .hero-desc {  }
   .hero-cta { flex-direction: column; }
   .btn-primary-cta, .btn-outline-cta { text-align: center; padding: 12px 24px;  width: 225px; }
 
@@ -3389,8 +3488,7 @@ p {
   .drill-layer { padding: 10px; }
   .layer-body { grid-template-columns: 1fr; gap: 10px; }
   .stats-grid { grid-template-columns: 1fr; gap: 8px; }
-  .hero-stat-line { margin-top: 20px; }
-  .hero-stat-line li + li::before { margin: 0 8px; }
+  .hero-stats { margin-top: 20px; gap: 16px 18px; }
   .bar-label { font-size: 8px; }
   .bar-value { font-size: 7px; }
   .map-panel { min-height: 180px; }
@@ -3407,14 +3505,12 @@ p {
   .services-grid { grid-template-columns: 1fr; gap: 12px; }
   .solutions-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
   .solution-card { padding: 24px 22px; }
-  .section-subtitle {  }
-  .section-header h2 {  }
   .why-section { padding: 40px 0; }
   .why-grid { grid-template-columns: 1fr; gap: 16px; }
   .why-card { padding: 24px 20px; }
   .testimonials-grid-section { padding: 40px 0; }
   .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
-  .testimonial-cta-card { grid-column: auto; grid-row: auto; }
+  .testimonial-cta-card { grid-column: 1 / -1; }
   .customers-section { padding: 40px 0 30px; }
   .logo-item { width: 150px; height: 60px; margin: 0 10px; }
   .hero-trust { margin-top: 24px; padding-top: 16px; }
@@ -3442,9 +3538,6 @@ p {
 @media (min-width: 480px) and (max-width: 768px) {
   .hero-section { min-height: auto; padding: 50px 0 30px; }
   .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-  .hero-head h1 {  }
-  .hero-tagline {  }
-  .hero-desc {  }
 
   /* dashboard full width */
   .hero-visual { width: 100%; height: auto; }
@@ -3458,10 +3551,9 @@ p {
   .stats-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .services-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
   .solutions-grid { grid-template-columns: 1fr; gap: 18px; }
-  .section-header h2 {  }
   .why-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
   .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
-  .testimonial-cta-card { grid-column: auto; grid-row: auto; }
+  .testimonial-cta-card { grid-column: 1 / -1; }
 }
 
 /* ═══════════════════════════════════════════════
@@ -3469,9 +3561,6 @@ p {
    ═══════════════════════════════════════════════ */
 @media (min-width: 769px) and (max-width: 1024px) {
   .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; }
-  .hero-head h1 {  }
-  .hero-tagline {  }
-  .hero-desc {  }
 
   /* dashboard fills its column */
   .layer-body { grid-template-columns: 1fr minmax(140px, 190px); gap: 10px; }
@@ -3492,7 +3581,6 @@ p {
    ═══════════════════════════════════════════════ */
 @media (min-width: 1025px) and (max-width: 1280px) {
   .hero-grid { gap: 36px; }
-  .hero-head h1 {  }
   .layer-body { grid-template-columns: 1fr minmax(160px, 210px); }
 }
 .india-map {

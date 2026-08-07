@@ -272,7 +272,6 @@
         border-left: none;
         border-top: 1px solid rgba(var(--accent-rgb), 0.15);
     }
-    .portal-intro-title {  }
     .deploy-grid { grid-template-columns: 1fr; }
     .wr-advantages .feat-panel { margin-top: 28px; }
 }
@@ -282,11 +281,6 @@
         padding: 22px 18px;
         border-radius: 14px;
     }
-    .portal-intro-title {  }
-    .portal-intro-desc {  }
-    .portal-chips li {  }
-    .wr-adv-heading,
-    .deploy-heading {  }
 }
 
 /* ========================================
@@ -573,8 +567,6 @@ body.light-theme .deploy-subtitle {
     .orbit-ring {
         width: 140px;
         height: 140px;
-    }
-    .h-card-num {
     }
     .h-card-text {
         max-width: 125px;

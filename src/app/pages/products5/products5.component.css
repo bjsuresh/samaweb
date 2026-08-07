@@ -548,7 +548,6 @@ ul.featured-checklist li:hover .check-icon {
 @media (min-width: 480px) and (max-width: 768px) {
     .log-diagram { height: 440px; max-width: 460px; }
     .log-diagram .orbit-ring { width: 140px; height: 140px; }
-    .l-card-num  {  }
     .l-card-text {  max-width: 125px; }
 }
 
@@ -663,10 +662,6 @@ ul.featured-checklist li:hover .check-icon {
 }
 
 @media (min-width:0px) and (max-width: 479px) {
-    h3 {
-    }
-    h5 {
-    }
     .body {
         padding: 10px 0;
     } 
@@ -686,10 +681,6 @@ ul.featured-checklist li:hover .check-icon {
     .feat-icon svg {
         width: 15px !important;
         height: 15px !important;
-    }
-    .feat-label {
-    }
-    .feat-content p {
     }
     .feat-list {
         gap: 8px;

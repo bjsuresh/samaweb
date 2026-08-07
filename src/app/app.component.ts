@@ -143,10 +143,37 @@ export class AppComponent {
     this.renderer.removeClass(navbar, 'navbar-black');
   }
 
+  /** Drawer state — bound to .show, the backdrop and the toggler's aria-expanded. */
+  navOpen = false;
+
+  toggleNav(): void {
+    this.navOpen ? this.closeNavbar() : this.openNavbar();
+  }
+
+  openNavbar(): void {
+    this.navOpen = true;
+    // stop the page behind the drawer from scrolling
+    document.body.style.overflow = 'hidden';
+  }
+
   closeNavbar() {
-    const navbar = this.navbarContent.nativeElement;
-    if (navbar.classList.contains('show')) {
-      navbar.classList.remove('show'); // Remove the 'show' class to collapse the navbar
+    this.navOpen = false;
+    document.body.style.overflow = '';
+  }
+
+  /** Esc closes the drawer, as expected of an overlay. */
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    if (this.navOpen) {
+      this.closeNavbar();
+    }
+  }
+
+  /** Resizing up to desktop hides the drawer, so drop the scroll lock with it. */
+  @HostListener('window:resize')
+  onResize(): void {
+    if (this.navOpen && window.innerWidth >= 992) {
+      this.closeNavbar();
     }
   }
 

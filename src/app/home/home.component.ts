@@ -297,7 +297,20 @@ export class HomeComponent  implements OnInit, AfterViewInit, OnDestroy {
       description:
         'Nice working with you in IOCL BGR and we are delighted to inform you that BGR project has been successfully completed.',
     },
-    
+   {
+      title: 'SAMA Web Server & Alerts at REMC Telangana',
+      company_name: 'Hitachi Energy',
+      logo: 'assets/customers/tstransco.png',
+      description:
+        'We confirm that M/s Supra Controls has successfully completed the work pertaining to Telangana REMC project and the systems are in operation without any failures.',
+    },
+    {
+      title: 'CRUDE BLENDING & BOILER CONTROLS',
+      company_name: 'PETRONAS PENAPISAN (MELAKA) SDN BHD',
+      logo: 'assets/customers/petronas.png',
+      description:
+        'With reference to the above work which you have completed last July 2000, we wish to express our appreciation for a job well done. I am sure you will be pleased to hear that the crude blending controls are now working very well.',
+    },
     {
       title: 'UHN IOCL Bongaigaon LPG Unit',
       company_name: 'Fabtech',
@@ -314,7 +327,7 @@ export class HomeComponent  implements OnInit, AfterViewInit, OnDestroy {
 
   /** Two cards render — the third grid column is the call-to-action cell. */
   get visibleTestimonials() {
-    return this.testimonialItems.slice(0, 4);
+    return this.testimonialItems.slice(0, 6);
   }
 
   /** Hide the logo slot if the image file is missing, rather than showing a broken icon. */

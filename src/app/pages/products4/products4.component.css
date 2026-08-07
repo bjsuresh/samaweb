@@ -676,10 +676,6 @@ ul.featured-checklist li:hover .check-icon {
     color: #ffffff; 
 }
 @media (min-width:0px) and (max-width: 479px) {
-    h3 {
-    }
-    h5 {
-    }
     .body {
         padding: 10px 0;
     }
@@ -699,10 +695,6 @@ ul.featured-checklist li:hover .check-icon {
     .feat-icon svg {
         width: 15px !important;
         height: 15px !important;
-    }
-    .feat-label {
-    }
-    .feat-content p {
     }
     .feat-list {
         gap: 8px;

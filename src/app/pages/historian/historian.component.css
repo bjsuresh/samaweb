@@ -203,7 +203,6 @@
     .portal-intro {
         padding: 28px;
     }
-    .portal-intro-title {  }
     .portal-chips {
         flex-wrap: wrap;
         row-gap: 10px;
@@ -218,11 +217,6 @@
         padding: 22px 18px;
         border-radius: 14px;
     }
-    .portal-intro-title {  }
-    .portal-intro-desc {  }
-    .portal-platform-desc {  }
-    .portal-chips li {  }
-    .sap-adv-heading {  }
 }
 
 /* ========================================
@@ -426,8 +420,6 @@ body.light-theme .portal-chips li:hover {
         padding: 22px 18px;
         border-radius: 14px;
     }
-    .sap-diff-title {  }
-    .sap-diff-desc {  }
 }
 
 /* light theme */

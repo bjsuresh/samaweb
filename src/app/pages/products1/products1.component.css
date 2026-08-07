@@ -308,7 +308,6 @@ ul.circle-checkmark {
     font-weight: 600;
     color: var(--accent);
     line-height: 1.4;
-    max-width: 150px;
     position: relative;
     padding-left: 10px;
     border-left: 2px solid rgba(var(--accent-rgb),0.3);
@@ -721,17 +720,11 @@ ul.circle-checkmark {
     font-weight: 400;
 }
 @media (min-width:0px) and (max-width: 479px) {
-    h3 {
-    }
-    h5 {
-    }
     .body {
         padding: 10px 0;
     }
     .feat-panel {
         padding: 20px 0 0;
-    }
-    .feat-title {
     }
     .feat-item {
         padding: 10px 12px;
@@ -745,10 +738,6 @@ ul.circle-checkmark {
     .feat-icon svg {
         width: 15px !important;
         height: 15px !important;
-    }
-    .feat-label {
-    }
-    .feat-content p {
     }
     .feat-list {
         gap: 8px;
@@ -1024,8 +1013,6 @@ p:hover use{
     .orbit-ring {
         width: 140px;
         height: 140px;
-    }
-    .h-card-num {
     }
     .h-card-text {
         max-width: 125px;
@@ -1389,9 +1376,13 @@ p:hover use{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 1px solid rgba(var(--accent-rgb), 0.25);
-    background: rgba(var(--accent-rgb), 0.08);
-    color: rgba(255, 255, 255, 0.7);
+    /* solid fill: the button sits over the blurred backdrop on desktop and
+       over the panel itself on small screens — a translucent tint reads as
+       invisible against both */
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -1402,10 +1393,35 @@ p:hover use{
 }
 
 .rp-popup-close:hover {
-    background: rgba(var(--accent-rgb), 0.2);
-    border-color: var(--accent);
+    background: var(--accent-hover, #ea6a10);
+    border-color: var(--accent-hover, #ea6a10);
     color: #ffffff;
     /* transform: rotate(90deg) scale(1.1); */
+}
+
+/* Small screens: the panel fills the overlay, so an absolutely-positioned
+   button would sit on top of the card's own content. Put it in flow above
+   the card instead, where it can't collide with anything. */
+@media (max-width: 900px) {
+    .rp-popup {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        padding: 16px 12px;
+        overflow-y: auto;
+    }
+
+    .rp-popup-close {
+        position: static;
+        flex: 0 0 auto;
+        align-self: flex-end;
+        margin: 0 0 12px;
+    }
+
+    .rp-pp {
+        max-height: none;
+        margin: 0;
+    }
 }
 
 .rp-popup-close svg {
@@ -1513,8 +1529,88 @@ p:hover use{
 }
 
 /* ── Responsive ── */
+/* ═══════════════════════════════════════════════
+   REPORTER DIAGRAM — small screens
+
+   The orbit layout positions four 300px cards absolutely at the corners of
+   a fixed-height scene. Below ~900px they overlap each other and the
+   connector lines run through the text, so the diagram becomes a plain
+   stacked list instead.
+   ═══════════════════════════════════════════════ */
 @media (max-width: 900px) {
-    .rp-scene { height: 420px; }
+    .rp-scene {
+        height: auto;
+        max-width: 620px;
+    }
+
+    .rp-diagram {
+        position: static;
+        inset: auto;
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    /* orbit furniture has no meaning once the cards are stacked */
+    .rp-diagram .orbit-ring,
+    .rp-diagram .gear-center,
+    .rp-diagram .rp-links {
+        display: none;
+    }
+
+    .rp-diagram .h-card {
+        position: static;
+        inset: auto;
+        width: 100%;
+        max-width: none;
+        opacity: 1;
+        transform: none !important;
+        animation: none;
+        padding: 16px 18px;
+        border-radius: 14px;
+        background: rgba(var(--accent-rgb), 0.05);
+        border: 1px solid rgba(var(--accent-rgb), 0.16);
+    }
+
+    .rp-diagram .h-card:hover {
+        transform: none !important;
+        border-color: rgba(var(--accent-rgb), 0.35);
+    }
+
+    /* cards 2 and 4 are right-aligned in the orbit — reset for a list */
+    .rp-diagram .h-card-text,
+    .rp-diagram .h-card-2 .h-card-text,
+    .rp-diagram .h-card-3 .h-card-text,
+    .rp-diagram .h-card-4 .h-card-text {
+        max-width: none;
+        text-align: left;
+        margin-left: 0;
+        padding-left: 0;
+        padding-right: 0;
+        border-left: none;
+        border-right: none;
+    }
+
+    .rp-diagram .zz-desc {
+        max-width: none;
+        text-align: left;
+    }
+
+    .rp-diagram .rp-see-more {
+        width: auto;
+        margin-top: 12px;
+        padding: 6px 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .rp-diagram {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
     .rp-node { width: 120px; padding: 10px; }
     .rp-node-tl { top: 18px; left: 14px; }
     .rp-node-tr { top: 18px; right: 14px; }
@@ -1527,7 +1623,7 @@ p:hover use{
 }
 
 @media (max-width: 480px) {
-    .rp-scene { height: 380px; }
+    .rp-scene { height: auto; }   /* stacked list, not a fixed-height orbit */
     .rp-node { width: 100px; padding: 8px; border-radius: 10px; }
     .rp-node-tl { top: 12px; left: 8px; }
     .rp-node-tr { top: 12px; right: 8px; }
@@ -1538,7 +1634,7 @@ p:hover use{
     .rp-popup { padding: 14px 10px; }
     .rp-pp { padding: 20px 16px; border-radius: 16px; }
     .rp-pp-video { height: 150px; }
-    .rp-popup-close { top: 14px; right: 16px; width: 34px; height: 34px; }
+    .rp-popup-close { width: 36px; height: 36px; }   /* in flow above the card */
     .rp-pp-info .featured-checklist li {  padding: 5px 0; }
     .rp-see-more { font-size: 8px; margin-top: 6px; }
 }

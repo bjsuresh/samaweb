@@ -192,8 +192,6 @@ h3 {
 }
 
 @media (min-width:0px) and (max-width: 479px) {
-    h3 {
-    }
     .body {
         padding: 10px;
     } 

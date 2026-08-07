@@ -67,6 +67,47 @@ body.theme-red {
   --font-data:    'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+/* ═══════════════════════════════════════════════
+   SCROLLBAR
+   Accent-coloured, slim and rounded — applied site-wide and to any
+   scrollable panel. Both properties are inherited, so components that
+   deliberately hide their scrollbar (.portal-chips, .rp-pp, .hero-stats)
+   keep doing so via their own scrollbar-width: none.
+   ═══════════════════════════════════════════════ */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) rgba(var(--accent-rgb), 0.10);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(var(--accent-rgb), 0.07);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb {
+  /* transparent border + content-box clip insets the thumb, so it reads as
+     a floating pill rather than filling the whole gutter */
+  background: linear-gradient(180deg, var(--accent), var(--accent-hover));
+  background-clip: content-box;
+  border: 2px solid transparent;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--accent-hover), var(--accent));
+  background-clip: content-box;
+  border-width: 1px;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 html, body { height: 100%; }
 body {
   margin: 0;

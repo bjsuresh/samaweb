@@ -154,7 +154,6 @@ body.light-theme .opc-ideal-list li { color: #334155; }
 
 @media (max-width: 768px) {
     .opc-card { padding: 24px 20px; }
-    .opc-card-title {  }
     .opc-card-grid { grid-template-columns: 1fr; gap: 22px; }
     .opc-diff-list { grid-template-columns: 1fr; }
 }

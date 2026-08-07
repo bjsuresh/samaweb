@@ -471,17 +471,11 @@ ul.featured-checklist li:hover .check-icon {
     font-weight: 400;
 }
 @media (min-width:0px) and (max-width: 479px) {
-    h3 {
-    }
-    h5 {
-    }
     .body {
         padding: 10px 0;
     }
     .feat-panel {
         padding: 20px 0 0;
-    }
-    .feat-title {
     }
     .feat-item {
         padding: 10px 12px;
@@ -495,10 +489,6 @@ ul.featured-checklist li:hover .check-icon {
     .feat-icon svg {
         width: 15px !important;
         height: 15px !important;
-    }
-    .feat-label {
-    }
-    .feat-content p {
     }
     .feat-list {
         gap: 8px;
@@ -1462,7 +1452,6 @@ p:hover use{
     .ws-hub, .ws-hub-core { width: 110px; height: 110px; }
     .ws-hub-core svg      { width: 32px; height: 32px; }
     .ws-card              { width: 220px; padding: 14px; }
-    .ws-card-desc         {  }
     .ws-card-1            { left: 10px; }
     .ws-card-2            { right: 10px; }
     .ws-diagram::before,
@@ -1474,8 +1463,6 @@ p:hover use{
     .ws-orbit-section {
         padding: 30px 10px 10px;
     }
-    .ws-orbit-title    {  }
-    .ws-orbit-subtitle {  }
 
     .ws-scene {
         height: auto;
@@ -1745,7 +1732,6 @@ body.light-theme .ws-hub-core {
         display: block;
     }
     .ws-pp-video { height: 150px; }
-    .ws-pp-info .zz-desc {  }
 }
 
 /* Light theme popup */
@@ -1972,10 +1958,6 @@ body.light-theme .ws-popup-close:hover {
 @media (max-width: 992px) {
     .wr-advantages .feat-panel { margin-top: 28px; }
 }
-@media (max-width: 576px) {
-    .wr-adv-heading {  }
-}
-
 /* Why Choose light theme */
 body.light-theme .wr-adv-title { color: #0f172a; }
 body.light-theme .wr-adv-desc { color: #475569; }
@@ -2092,10 +2074,6 @@ body.light-theme .wr-adv-desc { color: #475569; }
 @media (min-width: 577px) and (max-width: 992px) {
     .wr-layers { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 576px) {
-    .wr-layers-heading {  }
-}
-
 /* Platform Architecture light theme */
 body.light-theme .wr-layer {
     background: rgba(var(--accent-rgb), 0.03);
@@ -2244,7 +2222,6 @@ body.light-theme .wr-layer-desc { color: #334155; }
 
 @media (max-width: 576px) {
     .lb-flagship { padding: 24px 20px; }
-    .lb-flagship-title {  }
     .lb-flagship-flow li:not(:last-child)::after { display: none; }
 }
 
@@ -2345,7 +2322,6 @@ body.light-theme .lb-flagship-flow li { color: #334155; }
 }
 @media (max-width: 576px) {
     .adv-grid { grid-template-columns: 1fr; }
-    .adv-heading {  }
 }
 
 /* Advantages light theme */
@@ -2365,7 +2341,6 @@ body.light-theme .adv-desc { color: #475569; }
         flex-direction: column;
         gap: 22px;
     }
-    .portal-intro-title {  }
     .portal-chips {
         flex-wrap: wrap;
         row-gap: 10px;
@@ -2380,10 +2355,6 @@ body.light-theme .adv-desc { color: #475569; }
         padding: 22px 18px;
         border-radius: 14px;
     }
-    .portal-intro-title {  }
-    .portal-intro-desc {  }
-    .portal-platform-desc {  }
-    .portal-chips li {  }
 }
 
 /* Light theme */
@@ -2678,8 +2649,6 @@ body.light-theme .portal-shared {
         width: 140px;
         height: 140px;
     }
-    .h-card-num {
-    }
     .h-card-text {
         max-width: 125px;
     }
@@ -2872,7 +2841,6 @@ body.light-theme .portal-shared {
 @media (max-width: 767px) {
     .plat-panel { padding: 20px 16px 18px; }
     .plat-services li { flex: 1 1 110px; padding: 13px 8px; }
-    .plat-service-label {  }
 }
 
 /* light theme */
