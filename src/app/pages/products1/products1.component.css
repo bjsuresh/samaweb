@@ -203,6 +203,12 @@ ul.circle-checkmark {
     height: 480px;
     margin: 20px auto;
 }
+#rt-calc .historian-diagram {
+    height: 500px !important;
+}
+#sap-interface .historian-diagram {
+    height: 400px !important;
+}
 
 /* Orbit Ring */
 .orbit-ring {
@@ -1088,7 +1094,9 @@ p:hover use{
     transition: filter 0.42s ease, opacity 0.42s ease;
 }
 
-
+#reporter ,.rp-diagram {
+    padding: 20px 0px;
+}
 /* ── Hub: centered anchor ── */
 .rp-hub {
     position: absolute;
@@ -1333,7 +1341,7 @@ p:hover use{
 .rp-see-more:hover {
     background: rgba(var(--accent-rgb), 0.22);
     border-color: var(--accent);
-    color: #ffffff;
+    color: var(--accent);
     transform: translateY(-1px);
 }
 

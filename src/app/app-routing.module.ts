@@ -20,6 +20,7 @@ import { AlarmComponent } from './pages/alarm/alarm.component';
 import { DocumentationComponent } from './pages/documentation/documentation.component';
 import { ConnectivitySuiteComponent } from './pages/connectivity/connectivity.component';
 import { BatchComponent } from './pages/batch/batch.component';
+import { SecurityComponent } from './pages/security/security.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -43,6 +44,7 @@ const routes: Routes = [
   { path: 'documentation', component: DocumentationComponent },
   { path: 'connectivity-suite', component: ConnectivitySuiteComponent },
   { path: 'batch', component: BatchComponent },
+  { path: 'security', component: SecurityComponent },
 
   // ── Legacy product routes → redirect to the new suite pages ──
   { path: 'products1', redirectTo: 'historian', pathMatch: 'full' },

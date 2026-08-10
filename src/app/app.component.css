@@ -491,11 +491,11 @@ mat-toolbar.is-scrolled {
   opacity: 1;
 }
 
-/* Wide desktops — spread to 6 columns */
+/* Wide desktops — one row per suite column (7 suites) */
 @media (min-width: 1200px) {
   .mega-grid {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 26px;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 20px;
   }
 }
 

@@ -2391,6 +2391,9 @@ body.light-theme .portal-shared {
 #mobile-app .historian-diagram {
     height: 400px !important;
 }
+#industrial-siem .historian-diagram {
+    height: 400px !important;
+}
 /* ========================================
    ANIMATED HISTORIAN DIAGRAM (Operations Portal)
    ======================================== */
@@ -3009,6 +3012,7 @@ body.light-theme .plat-shared-label { color: #64748b; }
     .portal-play-btn {
         width: 100%;
         justify-content: flex-start;
+        margin-bottom: 10px;
     }
 }
 

@@ -4,6 +4,17 @@ import { interval, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
+/** A customer quote. `points` / `closing` are only used where the source
+ *  letter has a numbered list, so it can be reproduced as written. */
+interface Testimonial {
+  title: string;
+  company_name: string;
+  logo: string;
+  description: string;
+  points?: string[];
+  closing?: string;
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -55,7 +66,6 @@ export class HomeComponent  implements OnInit, AfterViewInit, OnDestroy {
   
   // Subscriptions
   private updateSubscription?: Subscription;
-  private tabRotateSubscription?: Subscription;
 
   // Chart data arrays
   private devicesData: number[] = [];
@@ -106,12 +116,8 @@ export class HomeComponent  implements OnInit, AfterViewInit, OnDestroy {
       this.refreshMonthlyCapacity();
     });
 
-    // Auto-rotate tabs every 34s
-    this.tabRotateSubscription = interval(30000).subscribe(() => {
-      const idx = this.TAB_ORDER.indexOf(this.activeTab);
-      this.activeTab = this.TAB_ORDER[(idx + 1) % this.TAB_ORDER.length];
-      this.playActiveVideo();
-    });
+    // Tabs no longer rotate on a timer — each clip plays to the end and the
+    // (ended) handler advances to the next tab. See onVideoEnded().
   }
 
   ngAfterViewInit(): void {
@@ -131,8 +137,12 @@ export class HomeComponent  implements OnInit, AfterViewInit, OnDestroy {
         const video = ref.nativeElement;
         // offsetParent is null while the element (or an ancestor) is display:none.
         if (video.offsetParent !== null) {
+          // rewind so the clip always runs from the beginning on its tab
+          video.currentTime = 0;
           const attempt = video.play();
           attempt?.catch(() => { /* ignore autoplay rejection */ });
+        } else {
+          video.pause();
         }
       });
     });
@@ -141,7 +151,6 @@ export class HomeComponent  implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     this.updateSubscription?.unsubscribe();
     this.monthlySubscription?.unsubscribe();
-    this.tabRotateSubscription?.unsubscribe();
   }
 
   private initCapacity(): void {
@@ -275,7 +284,7 @@ export class HomeComponent  implements OnInit, AfterViewInit, OnDestroy {
     this.lastUpdateTime = new Date();
   }
 
-  testimonialItems = [
+  testimonialItems: Testimonial[] = [
     {
       title: 'SAMA Web Server & Alerts at REMC Telangana',
       company_name: 'Hitachi Energy',
@@ -297,37 +306,37 @@ export class HomeComponent  implements OnInit, AfterViewInit, OnDestroy {
       description:
         'Nice working with you in IOCL BGR and we are delighted to inform you that BGR project has been successfully completed.',
     },
-   {
-      title: 'SAMA Web Server & Alerts at REMC Telangana',
-      company_name: 'Hitachi Energy',
-      logo: 'assets/customers/tstransco.png',
-      description:
-        'We confirm that M/s Supra Controls has successfully completed the work pertaining to Telangana REMC project and the systems are in operation without any failures.',
-    },
     {
-      title: 'CRUDE BLENDING & BOILER CONTROLS',
-      company_name: 'PETRONAS PENAPISAN (MELAKA) SDN BHD',
-      logo: 'assets/customers/petronas.png',
+      title: 'SAMA Alarm Management System',
+      company_name: 'Dangote Petroleum Refinery & Petrochemicals FZE',
+      logo: 'assets/customers/Dangote.png',
+      // Quoted verbatim from the customer letter — wording left exactly as written.
       description:
-        'With reference to the above work which you have completed last July 2000, we wish to express our appreciation for a job well done. I am sure you will be pleased to hear that the crude blending controls are now working very well.',
-    },
-    {
-      title: 'UHN IOCL Bongaigaon LPG Unit',
-      company_name: 'Fabtech',
-      logo: 'assets/customers/IndianOilLogo1024x768.png',
-      description:
-        'Nice working with you in IOCL BGR and we are delighted to inform you that BGR project has been successfully completed.',
+        '4 sets of Supra SAMA Alarm Management Software, along with an Entreprise server, were supplied as part of the DCS package, through Schneider Electric, India, to Dangote Petroleum Refinery & Petrochemicals FZE. The supplied software package has the following features. 4 local AIMS system, connected to DCS and the Entreprise server, handling about 300,000 tags, without any delay. 12 triconex sOE systems connected and, multiple SRRs , Analytics as per EEUMA 1912 & ISA 18.2 has been implemented.',
+   
+      closing:
+        'This software was commissioned on 24th October, 2024 and, it has been performing satisfactorily.',
     },
   ];
 
-  switchTab(layer: string, event: Event) {
+  switchTab(layer: string, event?: Event) {
     this.activeTab = layer;
     this.playActiveVideo();
   }
 
+  /**
+   * Each clip runs start to finish; when it ends we move to the next tab.
+   * This replaces the old fixed 30s interval, which cut clips off part-way
+   * (and left short ones sitting on a frozen last frame).
+   */
+  onVideoEnded(): void {
+    const idx = this.TAB_ORDER.indexOf(this.activeTab);
+    this.switchTab(this.TAB_ORDER[(idx + 1) % this.TAB_ORDER.length]);
+  }
+
   /** Two cards render — the third grid column is the call-to-action cell. */
   get visibleTestimonials() {
-    return this.testimonialItems.slice(0, 6);
+    return this.testimonialItems.slice(0, 4);
   }
 
   /** Hide the logo slot if the image file is missing, rather than showing a broken icon. */

@@ -19,7 +19,7 @@
     <!-- Left: Text -->
     <div class="hero-text" data-aos="fade-right">
       <p class="hero-tagline">Transform Industrial Data into <span class="accent">Operational Intelligence</span></p>
-      <p class="hero-desc">Acquire, contextualize, analyze and visualize operational data through an integrated platform for historians, reporting, alarm management, dashboards, document management and enterprise collaboration.</p>
+      <p class="hero-desc">Acquire, contextualize, analyze and visualize operational data through an integrated industrial platform for historians, AI-powered analytics, alarm management, reporting, dashboards, document management and enterprise collaboration.</p>
       <div class="hero-cta">
         <a routerLink="/historian" class="hero-cta-btn">
           <span class="hero-cta-icon">
@@ -84,7 +84,8 @@
         <div class="drill-layer drill-layer-video" [class.active]="activeTab === 'alarm'" id="layer-alarm">
           <div class="alarm-video-wrap">
             <video #dashVideo class="alarm-dashboard-video"
-              autoplay muted loop playsinline preload="auto" disablePictureInPicture
+              (ended)="onVideoEnded()"
+              autoplay muted playsinline preload="auto" disablePictureInPicture
               controlsList="nodownload noplaybackrate noremoteplayback">
               <!-- <source src="assets/images/SAMA AE Web Client.webm" type="video/webm"> -->
               <source src="assets/images/Recording 2026-08-04 195100.mp4" type="video/mp4">
@@ -94,7 +95,8 @@
         <div class="drill-layer drill-layer-video" [class.active]="activeTab === 'webreports'" id="layer-webreports">
           <div class="alarm-video-wrap">
             <video #dashVideo class="alarm-dashboard-video"
-              autoplay muted loop playsinline preload="auto" disablePictureInPicture
+              (ended)="onVideoEnded()"
+              autoplay muted playsinline preload="auto" disablePictureInPicture
               controlsList="nodownload noplaybackrate noremoteplayback">
               <!-- <source src="assets/images/webreportsvideo.webm" type="video/webm"> -->
               <source src="assets/images/webreportszoom1.mp4" type="video/mp4">
@@ -161,7 +163,7 @@
                 <img src="../../assets/customers/siemens.svg" alt="Siemens">
               </div>
               <div class="logo-item">
-                <img src="../../assets/customers/aarti_industries_logo" alt="Aarti Industries">
+                <img src="../../assets/customers/aarti_industries_logo.png" alt="Aarti Industries">
               </div>
               <div class="logo-item">
                 <img src="../../assets/customers/hurl.jfif" alt="HURL">
@@ -386,10 +388,16 @@
           </div>
         </div>
         <p>{{ item.description }}</p>
+
+        <ol class="testimonial-points" *ngIf="item.points?.length">
+          <li *ngFor="let point of item.points">{{ point }}</li>
+        </ol>
+
+        <p *ngIf="item.closing">{{ item.closing }}</p>
       </div>
 
       <!-- Full-width call-to-action bar, below all cards -->
-      <div class="testimonial-cta-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="testimonial-cta-card">
         <div class="testimonial-cta-copy">
           <h4>Ready to see it on your plant?</h4>
         </div>

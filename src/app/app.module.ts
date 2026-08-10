@@ -50,6 +50,7 @@ import { AlarmComponent } from './pages/alarm/alarm.component';
 import { DocumentationComponent } from './pages/documentation/documentation.component';
 import { ConnectivitySuiteComponent } from './pages/connectivity/connectivity.component';
 import { BatchComponent } from './pages/batch/batch.component';
+import { SecurityComponent } from './pages/security/security.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { BatchComponent } from './pages/batch/batch.component';
     DocumentationComponent,
     ConnectivitySuiteComponent,
     BatchComponent,
+    SecurityComponent,
   ],
   imports: [
     BrowserModule,
