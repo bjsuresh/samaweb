@@ -2875,6 +2875,7 @@ body.light-theme .plat-shared-label { color: #64748b; }
     background: rgba(var(--accent-rgb), 0.08);
     border: 1px solid rgba(var(--accent-rgb), 0.25);
     transition: all 0.3s ease;
+    margin-right: 10px;
 }
 
 .portal-play-btn:hover {

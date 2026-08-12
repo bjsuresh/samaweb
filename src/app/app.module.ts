@@ -9,14 +9,10 @@ import {MatTableModule} from '@angular/material/table';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
-import { Page1Component } from './page1/page1.component';
-import { Page2Component } from './page2/page2.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { DxChartModule, DxDataGridModule, DxPieChartModule } from 'devextreme-angular';
 import { HomeComponent } from './home/home.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-import { ProductsComponent } from './products/products.component';
-import { AimsComponent } from './aims/aims.component';
 import { SwiperModule } from 'swiper/angular';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -29,11 +25,6 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CustomCursorDirective } from './custom-cursor.directive';
-import { DashboardComponent } from './products/dashboard/dashboard.component';
-import { ConnectivityComponent } from './products/connectivity/connectivity.component';
-import { AnalyticsComponent } from './products/analytics/analytics.component';
-import { HistoriansComponent } from './products/historians/historians.component';
-import { DigitalisationComponent } from './products/digitalisation/digitalisation.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { Products1Component } from './pages/products1/products1.component';
 import { Products2Component } from './pages/products2/products2.component';
@@ -55,18 +46,9 @@ import { SecurityComponent } from './pages/security/security.component';
 @NgModule({
   declarations: [
     AppComponent,
-    Page1Component,
-    Page2Component,
     HomeComponent,
-    ProductsComponent,
-    AimsComponent,
     ContactUsComponent,
     CustomCursorDirective,
-    DashboardComponent,
-    ConnectivityComponent,
-    AnalyticsComponent,
-    HistoriansComponent,
-    DigitalisationComponent,
     ProductListComponent,
     Products1Component,
     Products2Component,

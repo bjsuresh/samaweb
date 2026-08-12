@@ -81,28 +81,27 @@
           </button>
         </div>
 
-        <div class="drill-layer drill-layer-video" [class.active]="activeTab === 'alarm'" id="layer-alarm">
-          <div class="alarm-video-wrap">
-            <video #dashVideo class="alarm-dashboard-video"
-              (ended)="onVideoEnded()"
-              autoplay muted playsinline preload="auto" disablePictureInPicture
-              controlsList="nodownload noplaybackrate noremoteplayback">
-              <!-- <source src="assets/images/SAMA AE Web Client.webm" type="video/webm"> -->
-              <source src="assets/images/Recording 2026-08-04 195100.mp4" type="video/mp4">
-            </video>
-          </div>
+       <div class="drill-layer drill-layer-video" [class.active]="activeTab === 'alarm'" id="layer-alarm">
+        <div class="alarm-video-wrap">
+          <video #dashVideo class="alarm-dashboard-video"
+            (ended)="onVideoEnded(0)"
+            [muted]="true" autoplay playsinline preload="auto" disablePictureInPicture
+            controlsList="nodownload noplaybackrate noremoteplayback">
+            <source src="assets/images/alarm_dashboard.mp4" type="video/mp4">
+          </video>
         </div>
-        <div class="drill-layer drill-layer-video" [class.active]="activeTab === 'webreports'" id="layer-webreports">
-          <div class="alarm-video-wrap">
-            <video #dashVideo class="alarm-dashboard-video"
-              (ended)="onVideoEnded()"
-              autoplay muted playsinline preload="auto" disablePictureInPicture
-              controlsList="nodownload noplaybackrate noremoteplayback">
-              <!-- <source src="assets/images/webreportsvideo.webm" type="video/webm"> -->
-              <source src="assets/images/webreportszoom1.mp4" type="video/mp4">
-            </video>
-          </div>
+      </div>
+
+      <div class="drill-layer drill-layer-video" [class.active]="activeTab === 'webreports'" id="layer-webreports">
+        <div class="alarm-video-wrap">
+          <video #dashVideo class="alarm-dashboard-video"
+            (ended)="onVideoEnded(1)"
+            [muted]="true" autoplay playsinline preload="auto" disablePictureInPicture
+            controlsList="nodownload noplaybackrate noremoteplayback">
+            <source src="assets/images/webreportszoom1.mp4" type="video/mp4">
+          </video>
         </div>
+      </div>
       </div>
     </div>
 

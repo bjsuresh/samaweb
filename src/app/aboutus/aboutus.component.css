@@ -1,13 +1,14 @@
 
 h3 {
     text-align: center;
-    /* font-size: var(--fs-display); */
+    font-size: var(--fs-display);
     font-weight: 700;
     line-height: .88em;
     text-transform: uppercase;
-    margin-bottom: 40px;
-    color: var(--accent);
+    padding: 20px 0px;
+    color: var(--accent) !important;
 }
+
 h5 {
     font-size: var(--fs-body);
     padding: 20px;
@@ -16,4 +17,14 @@ h5 {
     background-color: #061823;
     padding: 40px 0px;
     color: #d6dbe1;
+}
+
+strong {
+    color: var(--accent);
+    font-size: var(--fs-h4);
+}
+
+b {
+    /* color: var(--accent); */
+    font-size: var(--fs-h4);
 }

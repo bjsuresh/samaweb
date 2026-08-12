@@ -31,6 +31,17 @@ export class AlarmComponent {
       }
     }
 
+    private prefetched = new Set<string>();
+
+    prefetch(src: string): void {
+      if (this.prefetched.has(src)) { return; }
+      this.prefetched.add(src);
+      const link = document.createElement('link');
+      link.rel = 'prefetch';       // use 'preload' + as='video' for the hero clip only
+      link.href = src;
+      document.head.appendChild(link);
+    }
+
     openVideo(src: string) {
       this.currentVideoSrc = src;
       this.showVideoPopup = true;

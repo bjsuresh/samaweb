@@ -120,33 +120,6 @@ export class HomeComponent  implements OnInit, AfterViewInit, OnDestroy {
     // (ended) handler advances to the next tab. See onVideoEnded().
   }
 
-  ngAfterViewInit(): void {
-    this.playActiveVideo();
-  }
-
-  /**
-   * Mobile/tablet browsers don't fire `autoplay` for a <video> that is inside a
-   * `display:none` tab layer, and toggling display back on never re-triggers it —
-   * so the newly-shown clip would sit on a blank frame. After each tab change we
-   * explicitly (re)start the video that is now visible.
-   */
-  private playActiveVideo(): void {
-    // Defer so Angular has applied the `.active` class / display change first.
-    setTimeout(() => {
-      this.dashVideos?.forEach(ref => {
-        const video = ref.nativeElement;
-        // offsetParent is null while the element (or an ancestor) is display:none.
-        if (video.offsetParent !== null) {
-          // rewind so the clip always runs from the beginning on its tab
-          video.currentTime = 0;
-          const attempt = video.play();
-          attempt?.catch(() => { /* ignore autoplay rejection */ });
-        } else {
-          video.pause();
-        }
-      });
-    });
-  }
 
   ngOnDestroy(): void {
     this.updateSubscription?.unsubscribe();
@@ -324,15 +297,75 @@ export class HomeComponent  implements OnInit, AfterViewInit, OnDestroy {
     this.playActiveVideo();
   }
 
-  /**
-   * Each clip runs start to finish; when it ends we move to the next tab.
-   * This replaces the old fixed 30s interval, which cut clips off part-way
-   * (and left short ones sitting on a frozen last frame).
-   */
-  onVideoEnded(): void {
-    const idx = this.TAB_ORDER.indexOf(this.activeTab);
-    this.switchTab(this.TAB_ORDER[(idx + 1) % this.TAB_ORDER.length]);
-  }
+  private fallbackTimer?: any;
+
+ngAfterViewInit(): void {
+  // Belt and braces: force the muted PROPERTY so autoplay isn't blocked.
+  this.dashVideos.forEach(ref => {
+    ref.nativeElement.muted = true;
+    ref.nativeElement.defaultMuted = true;
+  });
+  this.dashVideos.changes.subscribe(() => this.playActiveVideo());
+  this.playActiveVideo();
+}
+
+private get activeIndex(): number {
+  return this.TAB_ORDER.indexOf(this.activeTab);
+}
+
+private playActiveVideo(): void {
+  clearTimeout(this.fallbackTimer);
+
+  setTimeout(() => {
+    const videos = this.dashVideos?.toArray() ?? [];
+    const active = this.activeIndex;
+
+    videos.forEach((ref, i) => {
+      const v = ref.nativeElement;
+
+      if (i !== active) {
+        v.pause();
+        return;
+      }
+
+      v.muted = true;
+
+      const start = () => {
+        try { v.currentTime = 0; } catch { /* not seekable yet */ }
+        v.play().catch(() => { /* autoplay refused — watchdog still rotates */ });
+        this.armWatchdog(v);
+      };
+
+      // readyState >= 2 means we have a current frame; safe to seek + play.
+      if (v.readyState >= 2) {
+        start();
+      } else {
+        v.addEventListener('loadeddata', start, { once: true });
+        v.load();          // force a fetch if preload never kicked in
+        this.armWatchdog(v); // cover the case where the file 404s
+      }
+    });
+  });
+}
+
+/** If `ended` never fires (blocked autoplay, missing file, decode error),
+ *  advance anyway so the carousel doesn't stall on one tab. */
+private armWatchdog(v: HTMLVideoElement): void {
+  clearTimeout(this.fallbackTimer);
+  const ms = (isFinite(v.duration) && v.duration > 0 ? v.duration * 1000 : 15000) + 1500;
+  this.fallbackTimer = setTimeout(() => this.advanceTab(), ms);
+}
+
+onVideoEnded(index?: number): void {
+  // Ignore `ended` bubbling up from the tab that isn't on screen.
+  if (index !== undefined && index !== this.activeIndex) { return; }
+  this.advanceTab();
+}
+
+private advanceTab(): void {
+  const idx = this.activeIndex;
+  this.switchTab(this.TAB_ORDER[(idx + 1) % this.TAB_ORDER.length]);
+}
 
   /** Two cards render — the third grid column is the call-to-action cell. */
   get visibleTestimonials() {

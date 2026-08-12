@@ -11,13 +11,27 @@
                     </div>
 
                     <div class="portal-intro-action">
-                        <button type="button" class="portal-play-btn" (click)="openVideo('assets/images/webclient.mp4')">
+                        <button type="button" class="portal-play-btn"  (mouseenter)="prefetch('assets/images/webclient.mp4')"
+                        (touchstart)="prefetch('assets/images/webclient.mp4')" 
+                        (click)="openVideo('assets/images/webclient.mp4')">
                             <span class="portal-play-icon">
                                 <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                             </span>
                             <span class="portal-play-text">
                                 <strong>Play Video</strong>
-                                <small>Watch the Client overview</small>
+                                <small>Watch the Client Trends overview</small>
+                            </span>
+                        </button>
+                        <button type="button" class="portal-play-btn" 
+                         (mouseenter)="prefetch('assets/images/webclientgraphics.mp4')"
+                        (touchstart)="prefetch('assets/images/webclientgraphics.mp4')" 
+                        (click)="openVideo('assets/images/webclientgraphics.mp4')">
+                            <span class="portal-play-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            </span>
+                            <span class="portal-play-text">
+                                <strong>Play Video</strong>
+                                <small>Watch the Client Dashboard & Graphics</small>
                             </span>
                         </button>
                     </div>
@@ -208,7 +222,9 @@
                     </div>
 
                     <div class="portal-intro-action">
-                        <button type="button" class="portal-play-btn" (click)="openVideo('assets/images/reporter-overview.mp4')">
+                        <button type="button" class="portal-play-btn" 
+                       
+                        (click)="openVideo('assets/images/webreporter.mp4')">
                             <span class="portal-play-icon">
                                 <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                             </span>
@@ -430,7 +446,10 @@
                     </div>
 
                     <div class="portal-intro-action">
-                        <button type="button" class="portal-play-btn" (click)="openVideo('assets/images/mobileapp.mp4')">
+                        <button type="button" class="portal-play-btn"
+                         (mouseenter)="prefetch('assets/images/mobileapp.mp4')"
+                        (touchstart)="prefetch('assets/images/mobileapp.mp4')" 
+                        (click)="openVideo('assets/images/mobileapp.mp4')">
                             <span class="portal-play-icon">
                                 <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                             </span>
