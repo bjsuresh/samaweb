@@ -1,0 +1,45 @@
+/* ========================================
+   VIDEO POPUP — LOADING STATE
+   Base .video-popup-overlay / .video-popup / .video-popup-player /
+   .video-popup-close rules live in products1.component.css (loaded first
+   via styleUrls). This file only adds the new thumbnail/spinner layer used
+   while a video is opening or re-buffering.
+   ======================================== */
+.video-popup-loader {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.video-popup-spinner {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.28);
+    border-top-color: var(--accent, #ffffff);
+    animation: vpSpin 0.8s linear infinite;
+}
+
+@keyframes vpSpin {
+    to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .video-popup-spinner {
+        animation: none;
+        opacity: 0.85;
+    }
+}
+
+@media (max-width: 479px) {
+    .video-popup-spinner {
+        width: 36px;
+        height: 36px;
+    }
+}
