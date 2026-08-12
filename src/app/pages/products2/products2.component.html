@@ -772,6 +772,7 @@
 
     <video class="video-popup-player" #vpPlayer (loadedmetadata)="fitVideoFrame(vpPlayer, vpFrame)"
            *ngIf="currentVideoSrc"
+           [poster]="currentVideoPoster"
            autoplay
            muted
            loop
@@ -779,9 +780,16 @@
            preload="auto"
            disablePictureInPicture
            controlsList="nodownload noplaybackrate noremoteplayback"
-           (contextmenu)="$event.preventDefault()">
+           (contextmenu)="$event.preventDefault()"
+           (playing)="onVideoPlaying()"
+           (waiting)="onVideoWaiting()"
+           (error)="onVideoError()">
       <source [src]="currentVideoSrc" type="video/mp4">
     </video>
+
+    <div class="video-popup-loader" *ngIf="videoLoading" aria-hidden="true">
+      <span class="video-popup-spinner"></span>
+    </div>
   </div>
 </div>
 </section>

@@ -23,6 +23,8 @@ export class Products2Component {
 
   showVideoPopup = false;
   currentVideoSrc = '';
+  currentVideoPoster = '';
+  videoLoading = true;
 
   activeClient = -1;
   showClientDetail = false;
@@ -52,8 +54,16 @@ export class Products2Component {
     link.href = src;
     document.head.appendChild(link);
   }
+
+  /** Poster shown until the video has real frames to paint, e.g. assets/images/webclient.mp4 -> assets/images/webclient-poster.jpg */
+  private posterFor(src: string): string {
+    return src.replace(/\.[^./]+$/, '-poster.jpg');
+  }
+
   openVideo(src: string) {
     this.currentVideoSrc = src;
+    this.currentVideoPoster = this.posterFor(src);
+    this.videoLoading = true;
     this.showVideoPopup = true;
     document.body.style.overflow = 'hidden';
   }
@@ -61,7 +71,24 @@ export class Products2Component {
   closeVideo() {
     this.showVideoPopup = false;
     this.currentVideoSrc = '';
+    this.currentVideoPoster = '';
+    this.videoLoading = true;
     document.body.style.overflow = '';
+  }
+
+  /** Video now has a real frame to show — hide the thumbnail/spinner. */
+  onVideoPlaying(): void {
+    this.videoLoading = false;
+  }
+
+  /** Buffering or re-buffering mid-playback — bring the spinner back so it doesn't look frozen. */
+  onVideoWaiting(): void {
+    this.videoLoading = true;
+  }
+
+  /** Load failed — stop the spinner so it doesn't spin forever. */
+  onVideoError(): void {
+    this.videoLoading = false;
   }
 
   ngAfterViewInit() {
