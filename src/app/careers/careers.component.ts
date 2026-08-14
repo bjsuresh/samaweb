@@ -95,7 +95,7 @@ export class CareersComponent implements OnInit {
 
       this.files.forEach((file) => formData.append('attachments', file));
 
-      this.http.post('http://localhost:3000/careers-email', formData, { responseType: 'text' }).subscribe({
+      this.http.post('/api/mail.php?action=careers', formData, { responseType: 'text' }).subscribe({
         next: (response) => {
           console.log('Application sent successfully:', response);
           alert('Thank you for applying! We will review your application and contact you soon.');

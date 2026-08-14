@@ -111,7 +111,7 @@ export class ContactUsComponent implements OnInit {
 
       this.files.forEach((file) => formData.append('attachments', file));
 
-      this.http.post('http://localhost:3000/contact-email', formData, { responseType: 'text' }).subscribe({
+      this.http.post('/api/mail.php?action=contact', formData, { responseType: 'text' }).subscribe({
         next: (response) => {
           console.log('Email sent successfully:', response);
           alert('Thank you for contacting us! We will get back to you soon.');

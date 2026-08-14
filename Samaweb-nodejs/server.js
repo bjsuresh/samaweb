@@ -18,8 +18,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: 'support@supracontrols.com',
-    pass: 'UAem 6Qe1 40S4',            // Zoho App Password
+    user: process.env.ZOHO_SMTP_USER || 'support@supracontrols.com',
+    pass: process.env.ZOHO_SMTP_PASSWORD,
   },
 });
 

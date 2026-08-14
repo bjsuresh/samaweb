@@ -34,7 +34,7 @@ export class ScheduleDemoDialogComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
     if (this.demoForm.valid) {
-      this.http.post('http://localhost:3000/demo-email', this.demoForm.value, { responseType: 'text' })
+      this.http.post('/api/mail.php?action=demo', this.demoForm.value, { responseType: 'text' })
         .subscribe({
           next: () => {
             alert('Thank you! Your demo request has been submitted. We will contact you soon.');
