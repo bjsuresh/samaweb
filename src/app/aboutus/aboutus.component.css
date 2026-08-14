@@ -28,3 +28,6 @@ b {
     /* color: var(--accent); */
     font-size: var(--fs-h4);
 }
+.highlight b {
+    font-size: 16px !important;
+}

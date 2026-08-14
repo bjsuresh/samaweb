@@ -400,6 +400,13 @@ label {
   border: 0;
 }
 
+/* Real, functional deep link to Google Maps. Only shown on mobile (see media query below) -
+   the compass/locate-me controls in a native Google Maps view can't be reproduced with real
+   functionality here, so this is scoped to the one overlay that actually does something. */
+.map-open-link {
+  display: none;
+}
+
 /* ========================================
    WAVE DECORATION
    ======================================== */
@@ -546,12 +553,17 @@ label {
 
   .info-section {
     padding: 40px 15px;
+    background: #f3f5f7;
   }
 
   .info-item {
     flex-direction: column;
     text-align: center;
-    padding: 20px;
+    gap: 6px;
+    padding: 28px 20px;
+    background: #ffffff;
+    border: none;
+    box-shadow: 0 8px 24px rgba(6, 24, 35, 0.08);
   }
 
   .info-item:hover {
@@ -562,16 +574,50 @@ label {
     margin: 0 auto 15px;
   }
 
+  @media (min-width: 0px) and (max-width: 479px) {
+    .info-content {
+      margin: auto;
+    }
 
+  }
+  .info-content p {
+    color: rgba(6, 24, 35, 0.65);
+  }
 
   .map-wrapper {
-    margin-top: 30px;
+    margin-top: 20px;
     min-height: 280px;
-    border-radius: 15px;
+    border-radius: 18px;
+    border: none;
+    box-shadow: 0 8px 24px rgba(6, 24, 35, 0.08);
+    position: relative;
   }
 
   .map-wrapper iframe {
     min-height: 280px;
+  }
+
+  .map-open-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(6, 24, 35, 0.2);
+  }
+
+  .map-open-link svg {
+    width: 14px;
+    height: 14px;
   }
 
   .wave-decoration svg {

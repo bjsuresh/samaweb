@@ -86,7 +86,7 @@
           <video #dashVideo class="alarm-dashboard-video"
             (ended)="onVideoEnded(0)"
             [muted]="true" autoplay playsinline preload="auto" disablePictureInPicture
-            controlsList="nodownload noplaybackrate noremoteplayback">
+            controlsList="nodownload noplaybackrate noremoteplayback" (contextmenu)="$event.preventDefault()" >
             <source src="assets/images/alarm_dashboard.mp4" type="video/mp4">
           </video>
         </div>
@@ -97,7 +97,7 @@
           <video #dashVideo class="alarm-dashboard-video"
             (ended)="onVideoEnded(1)"
             [muted]="true" autoplay playsinline preload="auto" disablePictureInPicture
-            controlsList="nodownload noplaybackrate noremoteplayback">
+            controlsList="nodownload noplaybackrate noremoteplayback" (contextmenu)="$event.preventDefault()">
             <source src="assets/images/webreportszoom1.mp4" type="video/mp4">
           </video>
         </div>

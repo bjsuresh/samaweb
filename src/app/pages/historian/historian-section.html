@@ -17,9 +17,7 @@
                     </div>
                 </div>
             </div>
-            <div class="historian-lightbox-scroll">
-                <img src="../../../assets/images/sama-historian-architecture.png" alt="" class="historian-lightbox-img" data-historian-lightbox-img />
-            </div>
+
             <div class="row" data-aos="fade-up">
                 <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12" >
                     <h5>Enterprise Historian Built For Modern Industrial Operations</h5>
@@ -133,6 +131,41 @@
                         </div>
                     </div>
                 </div>           
+            </div>
+
+            <!-- ============================================
+                 Full architecture diagram
+                 ============================================ -->
+            <div class="historian-arch" data-aos="fade-up">
+                <span class="historian-arch-eyebrow">Architecture Overview</span>
+                <button type="button" class="historian-arch-frame" data-historian-zoom aria-haspopup="dialog" aria-controls="historianArchLightbox">
+                    <picture>
+                        <source srcset="images/sama-historian-architecture.webp" type="image/webp">
+                        <img
+                            src="images/sama-historian-architecture.png"
+                            width="940" height="627"
+                            alt="SAMA Historian architecture diagram: data sources — PLC/DCS/SCADA, OPC UA/OPC DA, databases, files, Modbus/ICE104 and other sources — feed the SAMA Real Time Historian, which performs high speed acquisition, redundancy, deadband options, condition-based triggers, 20+ built-in calculations and query building, then stores everything in its time-series database. Calculated values flow to the SAMA Template Calculator and out to enterprise systems (ERP/SAP, CMMS, BI tools, corporate data lake), while the historian itself serves the Enterprise Web Client, XL Reporter, Web Reporter, Advanced XL Reporter and OPC output products."
+                            loading="lazy"
+                            decoding="async"
+                            class="historian-arch-img" />
+                    </picture>
+                </button>
+                <span class="historian-arch-hint">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M11 4a7 7 0 100 14 7 7 0 000-14zM21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 8v6M8 11h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                    Tap the diagram to enlarge
+                </span>
+            </div>
+
+            <div class="historian-lightbox" id="historianArchLightbox" role="dialog" aria-modal="true" aria-label="SAMA Historian architecture diagram, enlarged" hidden>
+                <div class="historian-lightbox-backdrop" data-historian-close></div>
+                <div class="historian-lightbox-panel">
+                    <button type="button" class="historian-lightbox-close" data-historian-close aria-label="Close enlarged diagram">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </button>
+                    <div class="historian-lightbox-scroll">
+                        <img src="images/sama-historian-architecture.png" alt="" class="historian-lightbox-img" data-historian-lightbox-img />
+                    </div>
+                </div>
             </div>
         </div>
         <div class="body" id="rt-calc">
@@ -367,3 +400,54 @@
         </div>
     </div>
 </section>
+
+<script>
+    // Architecture diagram lightbox — tap/click to enlarge, click again to zoom in and pan.
+    (function () {
+        var triggers = document.querySelectorAll('[data-historian-zoom]');
+        var lightbox = document.getElementById('historianArchLightbox');
+        if (!triggers.length || !lightbox) return;
+
+        var closers = lightbox.querySelectorAll('[data-historian-close]');
+        var closeBtn = lightbox.querySelector('.historian-lightbox-close');
+        var zoomImg = lightbox.querySelector('[data-historian-lightbox-img]');
+        var lastFocused = null;
+
+        function onKeydown(e) {
+            if (e.key === 'Escape' || e.key === 'Esc') closeLightbox();
+        }
+
+        function openLightbox() {
+            lastFocused = document.activeElement;
+            lightbox.hidden = false;
+            document.body.classList.add('historian-lightbox-open');
+            document.addEventListener('keydown', onKeydown);
+            if (closeBtn) closeBtn.focus();
+        }
+
+        function closeLightbox() {
+            lightbox.hidden = true;
+            document.body.classList.remove('historian-lightbox-open');
+            if (zoomImg) zoomImg.classList.remove('is-zoomed');
+            document.removeEventListener('keydown', onKeydown);
+            if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+        }
+
+        triggers.forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                openLightbox();
+            });
+        });
+
+        closers.forEach(function (el) {
+            el.addEventListener('click', closeLightbox);
+        });
+
+        if (zoomImg) {
+            zoomImg.addEventListener('click', function () {
+                zoomImg.classList.toggle('is-zoomed');
+            });
+        }
+    })();
+</script>

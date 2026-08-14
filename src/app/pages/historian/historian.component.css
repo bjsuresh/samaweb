@@ -433,3 +433,25 @@ body.light-theme .sap-flow-list li {
 }
 body.light-theme .sap-flow-node strong { color: #0f172a; }
 body.light-theme .sap-flow-node small { color: #64748b; }
+
+.historian-lightbox-scroll {
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+}
+
+.historian-lightbox-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: auto;
+    cursor: zoom-in;
+    transition: width 0.25s ease;
+}
+
+.historian-lightbox-img.is-zoomed {
+    width: 200%;
+    max-width: none;
+    cursor: zoom-out;
+}
