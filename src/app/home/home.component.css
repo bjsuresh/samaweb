@@ -843,23 +843,78 @@
   color: #64748b;
 }
 
-/* Tabs */
-:host-context(body.light-theme) .home-wrapper .drill-tabs {
-  background: rgba(255,255,255,0.7);
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+/* Dashboard preview carousel */
+:host-context(body.light-theme) .home-wrapper .dash-carousel {
+  background: linear-gradient(160deg, #ffffff 0%, #eef3f8 100%);
+  border: 1px solid rgba(0,0,0,0.10);
+  box-shadow: 0 24px 60px -26px rgba(15,23,42,0.28), 0 0 0 1px rgba(0,0,0,0.04) inset;
 }
 
-:host-context(body.light-theme) .home-wrapper .drill-tab {
-  color: #64748b;
+:host-context(body.light-theme) .home-wrapper .dash-chrome {
+  background: rgba(255,255,255,0.85);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
-:host-context(body.light-theme) .home-wrapper .drill-tab:hover {
+:host-context(body.light-theme) .home-wrapper .dash-chrome-title { color: #334155; }
+
+:host-context(body.light-theme) .home-wrapper .dash-tab { color: #64748b; }
+:host-context(body.light-theme) .home-wrapper .dash-tab:hover {
+  color: #0f172a;
+  background: rgba(15, 23, 42, 0.06);
+}
+:host-context(body.light-theme) .home-wrapper .dash-tab.is-active {
+  color: #0e7490;
+  background: rgba(8, 145, 178, 0.10);
+  border-color: rgba(8, 145, 178, 0.30);
+}
+:host-context(body.light-theme) .home-wrapper .dash-tab-fill {
+  background: linear-gradient(90deg, #0891b2, rgba(8, 145, 178, 0.75));
+}
+
+:host-context(body.light-theme) .home-wrapper .dash-live {
   color: #0891b2;
+  background: rgba(8,145,178,0.08);
+  border-color: rgba(8,145,178,0.25);
+}
+:host-context(body.light-theme) .home-wrapper .dash-live-dot { background: #0891b2; }
+
+:host-context(body.light-theme) .home-wrapper .dash-slide { background: #e8eef5; }
+
+:host-context(body.light-theme) .home-wrapper .dash-caption {
+  background: rgba(255,255,255,0.75);
+  border-top: 1px solid rgba(0,0,0,0.07);
+}
+:host-context(body.light-theme) .home-wrapper .dash-caption-text { color: #475569; }
+:host-context(body.light-theme) .home-wrapper .dash-caption-index {
+  color: #0891b2;
+  background: rgba(8,145,178,0.10);
+  border-color: rgba(8,145,178,0.22);
 }
 
-:host-context(body.light-theme) .home-wrapper .drill-tab.active {
-  color: #0891b2;
-  border-bottom-color: #0891b2;
+:host-context(body.light-theme) .home-wrapper .dash-arrow {
+  background: rgba(255,255,255,0.75);
+  border-color: rgba(0,0,0,0.10);
+  color: #475569;
+}
+:host-context(body.light-theme) .home-wrapper .dash-arrow:hover {
+  background: rgba(8,145,178,0.12);
+  border-color: rgba(8,145,178,0.45);
+  color: #0e7490;
+}
+
+:host-context(body.light-theme) .home-wrapper .dash-dots {
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+:host-context(body.light-theme) .home-wrapper .dash-dot {
+  background: rgba(100,116,139,0.38);
+}
+:host-context(body.light-theme) .home-wrapper .dash-dot:hover { background: rgba(8,145,178,0.45); }
+:host-context(body.light-theme) .home-wrapper .dash-dot.is-active {
+  background: rgba(100,116,139,0.20);
+}
+:host-context(body.light-theme) .home-wrapper .dash-dot-fill {
+  background: linear-gradient(90deg, #0891b2, rgba(8,145,178,0.75));
 }
 
 /* Stat cards inside dashboard */
@@ -1161,7 +1216,7 @@ p {
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 35px 0 40px;
+  padding: 20px 0 40px;
   transition: background-color 0.4s ease;
 }
 
@@ -1633,73 +1688,351 @@ p {
   transition: all 0.3s ease;
 }
 
-  /* ── TABS ── */
-  .drill-tabs {
+  /* ═══════════════════════════════════════════════
+     DASHBOARD PREVIEW — CAROUSEL
+     Replaces the old .drill-tabs / .drill-layer tab panel.
+     ═══════════════════════════════════════════════ */
+  .dash-carousel {
+    position: relative;
     display: flex;
-    gap: 0;
-    border-bottom: 1px solid var(--border);
-    background: rgba(0,0,0,0.2);
-    border-radius: 9px 9px 0 0;
-    padding: 0 12px;
-    flex-shrink: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    background: linear-gradient(160deg, #131a2b 0%, #0d1421 100%);
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    box-shadow:
+      0 34px 80px -28px rgba(0, 0, 0, 0.75),
+      0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+      0 0 90px -34px rgba(var(--accent-rgb), 0.55);
+    isolation: isolate;
   }
-  .drill-tabs::-webkit-scrollbar { display: none; }
-  .drill-tab {
-    padding: 11px 18px;
+
+  /* thin accent light along the top edge */
+  .dash-carousel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+      transparent,
+      rgba(5, 195, 221, 0.9) 25%,
+      rgba(var(--accent-rgb), 0.9) 60%,
+      transparent);
+    opacity: 0.85;
+    z-index: 4;
+  }
+
+  /* ── Top chrome bar ── */
+  .dash-chrome {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 16px;
+    background: rgba(255, 255, 255, 0.025);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+    flex-shrink: 0;
+  }
+  .dash-window-dots { display: flex; gap: 6px; }
+  .dash-window-dots i {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    display: block;
+    background: rgba(148, 163, 184, 0.35);
+  }
+  .dash-window-dots i:nth-child(1) { background: #ff5f57; }
+  .dash-window-dots i:nth-child(2) { background: #febc2e; }
+  .dash-window-dots i:nth-child(3) { background: #28c840; }
+
+  .dash-chrome-title {
+    flex: 1;
+    min-width: 0;
     font-family: var(--font-data);
     font-size: 12px;
     font-weight: 600;
-    /* letter-spacing: 1px; */
-    color: var(--text-muted);
-    background: none;
-    border: none;
-    border-bottom: 2px solid transparent;
-    cursor: pointer;
-    transition: color 0.2s, border-color 0.2s;
+    letter-spacing: 0.4px;
+    color: #cbd5e1;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* ── Tab strip in the chrome bar: one tab per dashboard ── */
+  .dash-tabs {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .dash-tabs::-webkit-scrollbar { display: none; }
+
+  .dash-tab {
     position: relative;
+    flex: 0 0 auto;
+    max-width: 190px;
+    padding: 5px 12px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: transparent;
+    font-family: var(--font-data);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: #94a3b8;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: color 220ms ease, background 220ms ease, border-color 220ms ease;
+  }
+  .dash-tab .dash-tab-label {
+    position: relative;
+    z-index: 1;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .dash-tab:hover {
+    color: #e2e8f0;
+    background: rgba(255, 255, 255, 0.06);
+  }
+  .dash-tab.is-active {
+    color: #05c3dd;
+    background: rgba(5, 195, 221, 0.10);
+    border-color: rgba(5, 195, 221, 0.30);
+  }
+  .dash-tab:focus-visible { outline: 2px solid #05c3dd; outline-offset: 2px; }
+
+  /* progress sweep on the active tab, in step with the clip */
+  .dash-tab-fill {
+    position: absolute;
+    left: 0; bottom: 0;
+    height: 2px;
+    width: 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #05c3dd, rgba(var(--accent-rgb), 0.9));
+    transition: width 220ms linear;
+    pointer-events: none;
+  }
+  .dash-tab:not(.is-active) .dash-tab-fill { display: none; }
+
+  .dash-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-family: var(--font-data);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: #05c3dd;
+    background: rgba(5, 195, 221, 0.10);
+    border: 1px solid rgba(5, 195, 221, 0.28);
+    flex-shrink: 0;
+  }
+  .dash-live-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #05c3dd;
+    animation: dashLivePulse 1.8s ease-out infinite;
+  }
+  @keyframes dashLivePulse {
+    0%   { box-shadow: 0 0 0 0 rgba(5,195,221,0.55); }
+    70%  { box-shadow: 0 0 0 7px rgba(5,195,221,0); }
+    100% { box-shadow: 0 0 0 0 rgba(5,195,221,0); }
+  }
+
+  /* ── Sliding viewport ── */
+  .dash-viewport {
+    position: relative;
+    width: 100%;
+    min-width: 0;
     overflow: hidden;
   }
-  /* auto-rotate progress sweep on active tab */
-  .drill-tab.active::after {
+
+  .dash-track {
+    display: flex;
+    width: 100%;
+    transition: transform 620ms cubic-bezier(0.65, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .dash-slide {
+    position: relative;
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 0;
+    /* One shared frame for every clip, so the panel never jumps height on
+       slide change. Sits between the alarm clip (2.212:1) and the reporter
+       clip (1.778:1) so each is padded by about the same small amount. */
+    aspect-ratio: 2 / 1;
+    background: #0b1220;
+    opacity: 0.35;
+    transform: scale(0.97);
+    transition: opacity 500ms ease, transform 620ms cubic-bezier(0.65, 0, 0.2, 1);
+  }
+  .dash-slide.is-active { opacity: 1; transform: scale(1); }
+
+  .dash-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    /* contain, not cover: a cover fit would crop ~20% off whichever clip
+       doesn't match the shared frame. */
+    object-fit: contain;
+    display: block;
+    background: transparent;
+  }
+
+  /* ── Dot indicators (overlaid on the lower edge of the footage) ── */
+  .dash-dots {
+    position: absolute;
+    left: 50%;
+    bottom: 12px;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: rgba(8, 15, 30, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0.55;
+    transition: opacity 0.3s ease;
+  }
+  /* stay out of the way until the viewer reaches for them */
+  .dash-carousel:hover .dash-dots,
+  .dash-dots:focus-within { opacity: 1; }
+
+  .dash-dot {
+    position: relative;
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background: rgba(226, 232, 240, 0.45);
+    cursor: pointer;
+    overflow: hidden;
+    transition: width 420ms cubic-bezier(0.65, 0, 0.2, 1),
+                background 0.3s ease;
+  }
+  .dash-dot::after {
+    /* invisible padding so the tap target stays finger-sized */
     content: '';
     position: absolute;
-    bottom: 0; left: 0;
-    height: 2px;
-    width: 100%;
-    background: #05c3dd;
-    transform-origin: left;
-    animation: tabProgress 30s linear infinite;
+    inset: -9px;
   }
-  @keyframes tabProgress {
-    from { transform: scaleX(0); }
-    to   { transform: scaleX(1); }
-  }
-  .drill-tab:hover { color: #05c3dd; }
-  .drill-tab.active {
-    color: #05c3dd;
-    border-bottom-color: #05c3dd;
+  .dash-dot:hover { background: rgba(5, 195, 221, 0.75); }
+
+  /* the active dot stretches into a track that fills with the clip */
+  .dash-dot.is-active {
+    width: 44px;
+    background: rgba(226, 232, 240, 0.28);
   }
 
-  /* ── LAYER CONTENT ── */
-  .drill-layer { display: none; padding: 14px; }
-  .drill-layer.active {
+  .dash-dot-fill {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #05c3dd, rgba(var(--accent-rgb), 0.95));
+    transition: width 240ms linear;
+    pointer-events: none;
+  }
+  .dash-dot:not(.is-active) .dash-dot-fill { display: none; }
+
+  .dash-dot:focus-visible { outline: 2px solid #05c3dd; outline-offset: 3px; }
+
+  /* ── Caption bar (below the footage, never over it) ──
+     Also hosts the prev/next arrows on its right edge. */
+  .dash-caption {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px 10px 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(148, 163, 184, 0.10);
+    flex-shrink: 0;
+  }
+  .dash-caption-index {
+    font-family: var(--font-data);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #05c3dd;
+    padding: 2px 7px;
+    border-radius: 5px;
+    background: rgba(5, 195, 221, 0.12);
+    border: 1px solid rgba(5, 195, 221, 0.25);
+    flex-shrink: 0;
+  }
+  .dash-caption-text {
+    font-size: 12px;
+    line-height: 1.4;
+    color: rgba(226, 232, 240, 0.88);
     flex: 1;
-    min-height: 0;
+    min-width: 0;
   }
 
-  /* video layers: give the footage the whole panel, centred */
-  .drill-layer-video.active {
+  /* arrow pair, pinned to the end of the caption row */
+  .dash-caption-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    margin-left: auto;
+    padding-left: 4px;
+  }
+
+  /* ── Arrows (on the caption row, so the video is never covered) ── */
+  .dash-arrow {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
     padding: 0;
-    gap: 0;
-    flex: 0 0 auto;
-    min-width: 0;
-    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgba(148, 163, 184, 0.20);
+    background: rgba(255, 255, 255, 0.04);
+    color: #cbd5e1;
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease,
+                color 0.25s ease, transform 0.2s ease;
+  }
+  .dash-arrow svg { width: 16px; height: 16px; }
+  .dash-arrow:hover {
+    background: rgba(5, 195, 221, 0.16);
+    border-color: rgba(5, 195, 221, 0.55);
+    color: #fff;
+  }
+  .dash-arrow:active { transform: scale(0.94); }
+  .dash-arrow:focus-visible { outline: 2px solid #05c3dd; outline-offset: 2px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dash-track,
+    .dash-slide,
+    .dash-arrow,
+    .dash-dot,
+    .dash-tab,
+    .dash-tab-fill,
+    .dash-thumb-img,
+    .dash-dot-fill { transition: none; }
+    .dash-live-dot { animation: none; }
   }
 
   /* ── ALARM DASHBOARD VIDEO LAYER ── */
@@ -1740,39 +2073,6 @@ p {
   /* Frame just centres — the video carries its own size and ratio,
      so no letterbox bars and no stretching whatever the clip's shape. */
 
-.alarm-video-wrap {
-  /* The frame owns the geometry: full column width, height from the clip's
-     ratio. The video is absolutely positioned inside it (below), so its
-     1920px intrinsic width can never push the panel wider than the screen. */
-  position: relative;
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  /* ONE shared frame for both tabs, so the panel never changes height when
-     you switch. The clips differ in shape — alarm is 1920x868 (2.212:1),
-     reporter is 2560x1440 (1.778:1) — so this ratio sits between them and
-     each is padded by roughly the same small amount. */
-  aspect-ratio: 2 / 1;
-  flex: 0 0 auto;
-  overflow: hidden;
-  border-radius: 0 0 9px 9px;
-}
-
-.alarm-dashboard-video {
-  /* Pinned to the frame's box, so layout is driven by the frame alone —
-     the element's intrinsic width contributes nothing. */
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  /* contain, not cover: with one shared frame a cover fit would crop ~20%
-     off whichever clip doesn't match. Nothing is cut; the small leftover
-     area shows the panel behind it rather than a black bar. */
-  object-fit: contain;
-  display: block;
-  background: transparent;
-}
   /* ── MAP PANEL ── */
   .map-panel {
     background: rgba(0,0,0,0.3);
@@ -3508,8 +3808,23 @@ p {
   /* dashboard full width, compact */
   .hero-visual { width: 100%; height: auto; }
   .dashboard-preview { border-radius: 12px; }
-  .drill-tab { font-size: 9px; padding: 8px 8px; }
-  .drill-layer { padding: 10px; }
+  .dash-carousel { border-radius: 12px; }
+  .dash-chrome { padding: 9px 12px; }
+  .dash-chrome-title { font-size: 10px; }
+  .dash-chrome { gap: 8px; }
+  .dash-tabs { gap: 3px; }
+  .dash-tab { font-size: 9.5px; padding: 4px 9px; max-width: 120px; }
+  .dash-dots { bottom: 8px; padding: 6px 10px; gap: 7px; opacity: 1; }
+  .dash-dot { width: 7px; height: 7px; }
+  .dash-dot.is-active { width: 34px; }
+  .dash-thumbs { padding: 8px 10px 10px; gap: 6px; }
+  .dash-thumb { min-width: 84px; padding: 4px; }
+  .dash-thumb-label { font-size: 9px; }
+  .dash-caption { padding: 8px 8px 8px 12px; gap: 8px; }
+  .dash-caption-text { font-size: 10px; }
+  .dash-caption-nav { gap: 4px; }
+  .dash-arrow { width: 26px; height: 26px; }
+  .dash-arrow svg { width: 13px; height: 13px; }
   .layer-body { grid-template-columns: 1fr; gap: 10px; }
   .stats-grid { grid-template-columns: 1fr; gap: 8px; }
   .hero-stats { margin-top: 20px; gap: 16px 18px; }
@@ -3565,8 +3880,8 @@ p {
 
   /* dashboard full width */
   .hero-visual { width: 100%; height: auto; }
-  .drill-tab { font-size: 10px; padding: 9px 10px; }
-  .drill-layer { padding: 12px; }
+  .dash-dot.is-active { width: 40px; }
+  .dash-caption-text { font-size: 11px; }
   .layer-body { grid-template-columns: 1fr minmax(140px, 180px); gap: 10px; }
   .bar-label { font-size: 9px; }
   .inv-detail-grid { grid-template-columns: 1fr; }
@@ -3588,7 +3903,7 @@ p {
 
   /* dashboard fills its column */
   .layer-body { grid-template-columns: 1fr minmax(140px, 190px); gap: 10px; }
-  .drill-tab { font-size: 10px; padding: 9px 10px; }
+  .dash-dot.is-active { width: 40px; }
   .bar-label { font-size: 9px; }
   .inv-table th, .inv-table td { font-size: 8px; }
 

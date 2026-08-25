@@ -6,6 +6,13 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 /** A customer quote. `points` / `closing` are only used where the source
  *  letter has a numbered list, so it can be reproduced as written. */
+interface DashboardSlide {
+  id: string;
+  label: string;
+  caption: string;
+  src: string;
+}
+
 interface Testimonial {
   title: string;
   company_name: string;
@@ -72,8 +79,41 @@ export class HomeComponent  implements OnInit, AfterViewInit, OnDestroy {
   private productionData: number[] = [];
 
   Math = Math;
-  activeTab: string = 'alarm';
-  private readonly TAB_ORDER = ['alarm', 'webreports'];
+
+  // ── Dashboard preview carousel ──
+  readonly slides: DashboardSlide[] = [
+    
+    {
+      id: 'webreports',
+      label: 'Reporter Dashboard',
+      caption: 'Scheduled web reports and dashboards generated straight from the historian',
+      src: 'assets/images/webreportszoom1.mp4'
+    },
+    {
+      id: 'alarm',
+      label: 'Alarm Dashboard',
+      caption: 'Live alarm rationalisation, flood analysis and KPIs to EEMUA 191 / ISA 18.2',
+      src: 'assets/images/alarm_dashboard.mp4'
+    },
+    {
+      id: 'syslog',
+      label: 'SYSLOG Dashboard',
+      caption: 'Browser-based trends, faceplates and live plant mimics on any device',
+      src: 'assets/images/SyslogDashboard.mp4'
+    }
+  ];
+
+  /** Longest a slide may sit on screen. A clip shorter than this still
+   *  advances the moment it ends; a longer one (or one that never plays)
+   *  is cut off here so the carousel always keeps moving. */
+  private readonly SLIDE_MAX_MS = 12000;
+
+  /** Index of the slide currently on screen. */
+  activeIndex = 0;
+  /** 0-100 — playback position of the active clip, drives the pill fill. */
+  progress = 0;
+  private autoplayPaused = false;
+  private touchStartX = 0;
   kamudiMapUrl: SafeResourceUrl;
 
   // ── Capacity (monthly) ──
@@ -116,14 +156,15 @@ export class HomeComponent  implements OnInit, AfterViewInit, OnDestroy {
       this.refreshMonthlyCapacity();
     });
 
-    // Tabs no longer rotate on a timer — each clip plays to the end and the
-    // (ended) handler advances to the next tab. See onVideoEnded().
+    // Slides don't rotate on a timer — each clip plays to the end and the
+    // (ended) handler advances the carousel. See onVideoEnded().
   }
 
 
   ngOnDestroy(): void {
     this.updateSubscription?.unsubscribe();
     this.monthlySubscription?.unsubscribe();
+    clearTimeout(this.fallbackTimer);
   }
 
   private initCapacity(): void {
@@ -292,9 +333,71 @@ export class HomeComponent  implements OnInit, AfterViewInit, OnDestroy {
     },
   ];
 
-  switchTab(layer: string, event?: Event) {
-    this.activeTab = layer;
+  /** Only the visible clip and the one after it are worth fetching up front —
+   *  five hero videos loading at once would stall the rest of the page. The
+   *  rest load on demand when playActiveVideo() calls load(). */
+  preloadFor(index: number): string {
+    const next = (this.activeIndex + 1) % this.slides.length;
+    return index === this.activeIndex || index === next ? 'auto' : 'none';
+  }
+
+  /** Track offset — one slide per 100% of the viewport width. */
+  get trackTransform(): string {
+    return `translate3d(-${this.activeIndex * 100}%, 0, 0)`;
+  }
+
+  goToSlide(index: number): void {
+    const count = this.slides.length;
+    this.activeIndex = ((index % count) + count) % count;
+    this.progress = 0;
     this.playActiveVideo();
+  }
+
+  nextSlide(): void { this.goToSlide(this.activeIndex + 1); }
+  prevSlide(): void { this.goToSlide(this.activeIndex - 1); }
+
+  /** Fill the pill in step with the clip so the wait is visible. */
+  onTimeUpdate(event: Event, index: number): void {
+    if (index !== this.activeIndex) { return; }
+    const v = event.target as HTMLVideoElement;
+    if (!isFinite(v.duration) || v.duration <= 0) { return; }
+    // Measure against however long this slide will actually stay up, so the
+    // bar reaches the end exactly as the carousel moves on.
+    const span = Math.min(v.duration, this.SLIDE_MAX_MS / 1000);
+    this.progress = Math.min(100, (v.currentTime / span) * 100);
+  }
+
+  /** Hold the current slide while the pointer is over it. */
+  pauseAutoplay(): void {
+    this.autoplayPaused = true;
+    clearTimeout(this.fallbackTimer);
+    this.currentVideo?.pause();
+  }
+
+  resumeAutoplay(): void {
+    if (!this.autoplayPaused) { return; }
+    this.autoplayPaused = false;
+    const v = this.currentVideo;
+    if (v) {
+      v.muted = true;
+      v.play().catch(() => { /* autoplay refused — watchdog still rotates */ });
+      this.armWatchdog(v);
+    }
+  }
+
+  onTouchStart(event: TouchEvent): void {
+    this.touchStartX = event.changedTouches[0].clientX;
+  }
+
+  /** Swipe left / right to change slide; ignore small drags and taps. */
+  onTouchEnd(event: TouchEvent): void {
+    const dx = event.changedTouches[0].clientX - this.touchStartX;
+    if (Math.abs(dx) < 45) { return; }
+    if (dx < 0) { this.nextSlide(); } else { this.prevSlide(); }
+  }
+
+  private get currentVideo(): HTMLVideoElement | undefined {
+    return this.dashVideos?.toArray()[this.activeIndex]?.nativeElement;
   }
 
   private fallbackTimer?: any;
@@ -307,10 +410,6 @@ ngAfterViewInit(): void {
   });
   this.dashVideos.changes.subscribe(() => this.playActiveVideo());
   this.playActiveVideo();
-}
-
-private get activeIndex(): number {
-  return this.TAB_ORDER.indexOf(this.activeTab);
 }
 
 private playActiveVideo(): void {
@@ -349,22 +448,20 @@ private playActiveVideo(): void {
 }
 
 /** If `ended` never fires (blocked autoplay, missing file, decode error),
- *  advance anyway so the carousel doesn't stall on one tab. */
+ *  advance anyway so the carousel doesn't stall on one slide. */
 private armWatchdog(v: HTMLVideoElement): void {
   clearTimeout(this.fallbackTimer);
-  const ms = (isFinite(v.duration) && v.duration > 0 ? v.duration * 1000 : 15000) + 1500;
-  this.fallbackTimer = setTimeout(() => this.advanceTab(), ms);
+  if (this.autoplayPaused) { return; }
+  const clip = isFinite(v.duration) && v.duration > 0
+    ? v.duration * 1000 + 400   // let `ended` fire first for a normal clip
+    : this.SLIDE_MAX_MS;        // duration unknown — fall back to the cap
+  this.fallbackTimer = setTimeout(() => this.nextSlide(), Math.min(clip, this.SLIDE_MAX_MS));
 }
 
 onVideoEnded(index?: number): void {
-  // Ignore `ended` bubbling up from the tab that isn't on screen.
+  // Ignore `ended` bubbling up from a slide that isn't on screen.
   if (index !== undefined && index !== this.activeIndex) { return; }
-  this.advanceTab();
-}
-
-private advanceTab(): void {
-  const idx = this.activeIndex;
-  this.switchTab(this.TAB_ORDER[(idx + 1) % this.TAB_ORDER.length]);
+  this.nextSlide();
 }
 
   /** Two cards render — the third grid column is the call-to-action cell. */

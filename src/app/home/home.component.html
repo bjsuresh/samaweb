@@ -18,7 +18,7 @@
 
     <!-- Left: Text -->
     <div class="hero-text" data-aos="fade-right">
-      <p class="hero-tagline">Transform Industrial Data into <span class="accent">Operational Intelligence</span></p>
+      <p class="hero-tagline">Transform Industrial Data into <span class="accent">Operational Intelligence and AI Powered Analytics</span></p>
       <p class="hero-desc">Acquire, contextualize, analyze and visualize operational data through an integrated industrial platform for historians, AI-powered analytics, alarm management, reporting, dashboards, document management and enterprise collaboration.</p>
       <div class="hero-cta">
         <a routerLink="/historian" class="hero-cta-btn">
@@ -71,37 +71,94 @@
     </div>
 
     <div class="hero-visual">
-      <div class="dashboard-preview">
-        <div class="drill-tabs">
-          <button class="drill-tab" [class.active]="activeTab === 'alarm'" (click)="switchTab('alarm', $event)">
-            Alarm Dashboard
-          </button>
-          <button class="drill-tab" [class.active]="activeTab === 'webreports'" (click)="switchTab('webreports', $event)">
-            Reporter Dashboard
-          </button>
+      <!-- ── DASHBOARD PREVIEW CAROUSEL ── -->
+      <div class="dash-carousel"
+           (mouseenter)="pauseAutoplay()"
+           (mouseleave)="resumeAutoplay()"
+           (touchstart)="onTouchStart($event)"
+           (touchend)="onTouchEnd($event)">
+
+        <!-- top bar -->
+        <div class="dash-chrome">
+          <span class="dash-window-dots"><i></i><i></i><i></i></span>
+          <!-- one tab per dashboard; clicking a tab jumps to that clip -->
+          <div class="dash-tabs" role="tablist" aria-label="Dashboard previews">
+            <button type="button" class="dash-tab"
+                    *ngFor="let slide of slides; let i = index"
+                    [class.is-active]="i === activeIndex"
+                    (click)="goToSlide(i)"
+                    role="tab"
+                    [id]="'dash-tab-' + slide.id"
+                    [attr.aria-selected]="i === activeIndex"
+                    [attr.tabindex]="i === activeIndex ? 0 : -1"
+                    [attr.title]="slide.label">
+              <span class="dash-tab-label">{{ slide.label }}</span>
+              <span class="dash-tab-fill" [style.width.%]="i === activeIndex ? progress : 0"></span>
+            </button>
+          </div>
         </div>
 
-       <div class="drill-layer drill-layer-video" [class.active]="activeTab === 'alarm'" id="layer-alarm">
-        <div class="alarm-video-wrap">
-          <video #dashVideo class="alarm-dashboard-video"
-            (ended)="onVideoEnded(0)"
-            [muted]="true" autoplay playsinline preload="auto" disablePictureInPicture
-            controlsList="nodownload noplaybackrate noremoteplayback" (contextmenu)="$event.preventDefault()" >
-            <source src="assets/images/alarm_dashboard.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
+        <!-- slides -->
+        <div class="dash-viewport">
+          <div class="dash-track" [style.transform]="trackTransform">
+            <div class="dash-slide"
+                 *ngFor="let slide of slides; let i = index"
+                 [class.is-active]="i === activeIndex"
+                 [attr.aria-hidden]="i !== activeIndex">
+              <video #dashVideo class="dash-video"
+                     (ended)="onVideoEnded(i)"
+                     (timeupdate)="onTimeUpdate($event, i)"
+                     [muted]="true" playsinline disablePictureInPicture
+                     [attr.preload]="preloadFor(i)"
+                     controlsList="nodownload noplaybackrate noremoteplayback"
+                     (contextmenu)="$event.preventDefault()"> 
+                <source [attr.src]="slide.src" type="video/mp4">
+              </video>
+            </div>
+          </div>
 
-      <div class="drill-layer drill-layer-video" [class.active]="activeTab === 'webreports'" id="layer-webreports">
-        <div class="alarm-video-wrap">
-          <video #dashVideo class="alarm-dashboard-video"
-            (ended)="onVideoEnded(1)"
-            [muted]="true" autoplay playsinline preload="auto" disablePictureInPicture
-            controlsList="nodownload noplaybackrate noremoteplayback" (contextmenu)="$event.preventDefault()">
-            <source src="assets/images/webreportszoom1.mp4" type="video/mp4">
-          </video>
+          <!-- dot indicators, overlaid on the lower edge of the footage; the
+               active one stretches into a bar that fills in step with the clip -->
+          <div class="dash-dots" role="tablist" aria-label="Dashboard slides">
+            <button type="button" class="dash-dot"
+                    *ngFor="let slide of slides; let i = index"
+                    [class.is-active]="i === activeIndex"
+                    (click)="goToSlide(i)"
+                    role="tab"
+                    [attr.aria-selected]="i === activeIndex"
+                    [attr.aria-label]="slide.label"
+                    [attr.title]="slide.label">
+              <span class="dash-dot-fill" [style.width.%]="i === activeIndex ? progress : 0"></span>
+            </button>
+          </div>
         </div>
-      </div>
+
+        <!-- caption sits under the footage, not over it, so nothing covers
+             the video; the prev/next arrows live on this same row -->
+        <div class="dash-caption">
+          <span class="dash-caption-index">{{ activeIndex + 1 }}/{{ slides.length }}</span>
+          <!-- <span class="dash-caption-text">{{ slides[activeIndex].caption }}</span> -->
+
+          <!-- controls sit at the end of the caption bar -->
+          <div class="dash-caption-nav">
+            <button type="button" class="dash-arrow" (click)="prevSlide()"
+                    aria-label="Previous dashboard">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.2"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+
+            <button type="button" class="dash-arrow" (click)="nextSlide()"
+                    aria-label="Next dashboard">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.2"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -217,7 +274,7 @@
           </div>
         </div>
         <ul class="solution-highlights">
-          <li>Real-time data collection</li>
+          <li>Real-time data collection with built in redundancy</li>
           <li>High-speed time-series database with proprietary compression</li>
           <li>Template based calculations</li>
           <li>Multi protocol connectivity</li>
