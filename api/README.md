@@ -1,5 +1,15 @@
 # Bluehost PHP mail API
 
+## Important: do not rename this file back to `mail.php`
+
+Bluehost runs a server-level anti-spam-mailer rule that blocks any URL whose
+filename contains `mail`, `contact`, or `send`. Such requests never reach PHP -
+Apache answers with `409 Conflict` and a JavaScript cookie challenge body
+(`<script>document.cookie = "humans_...";</script>`). A browser page load can
+satisfy that challenge; an XHR/fetch from Angular cannot, so every form silently
+failed. Keep this endpoint named `enquiry.php` (or any name without those
+substrings).
+
 This folder replaces `Samaweb-nodejs/server.js` on standard Bluehost PHP hosting.
 
 1. Build Angular with `npm run build` and upload the browser build to `public_html`.
@@ -8,6 +18,6 @@ This folder replaces `Samaweb-nodejs/server.js` on standard Bluehost PHP hosting
 4. Update the domains in `config.php` if the production hostname differs.
 5. Test each website form. Failed sends are recorded in the hosting PHP error log.
 
-The API URLs are relative (`/api/mail.php?action=...`), so no Node process, port 3000, or CORS configuration is needed in production. The endpoint validates required fields, escapes all submitted content, limits each attachment to 10 MB, and supports contact, careers, support, and demo requests.
+The API URLs are relative (`/api/enquiry.php?action=...`), so no Node process, port 3000, or CORS configuration is needed in production. The endpoint validates required fields, escapes all submitted content, limits each attachment to 10 MB, and supports contact, careers, support, and demo requests.
 
 If the domain's mail is hosted at Zoho and Bluehost `mail()` has poor deliverability, configure SPF/DKIM in DNS or replace `send_html_mail()` with PHPMailer using Zoho SMTP. Do not put the SMTP password in a public or committed file.

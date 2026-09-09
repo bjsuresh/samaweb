@@ -42,7 +42,7 @@ export class AppComponent {
   
   ngOnInit() {
 
-      this.title.setTitle('SAMA Website');
+    this.title.setTitle('Supra Controls Pvt Ltd');
     this.meta.addTags([
       { name: 'description', content: 'This is an awesome page description' },
       { name: 'keywords', content: 'Supra controls,Real Time Historian,Real Time Calculator,Web Client and Dashboards,Web Analytics,Mobile App,Alerts,Reports,SAP Interface,Web Server,Data Collectors and OPC Integrators,Alarm Management System,AE Reporter,Alarm Alerts,AE Web Client,Change Management,Root Cause Analysis,Alarm Rationalisation,Document Management System,OPC Products,Digital E-Logbook, AIMS, PIMS,EMS,Supra Advanced Manufacturing Analytics, SAMA, Grid Management System, Smart City System, Pipeline Management System, IIOT, MES, Operations Technology, Web Reporter ' }

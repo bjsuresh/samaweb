@@ -109,9 +109,9 @@ export class ContactUsComponent implements OnInit {
       formData.append('message', this.registerForm.get('message')?.value);
       formData.append('subject', this.registerForm.get('subject')?.value);
 
-      this.files.forEach((file) => formData.append('attachments', file));
+      this.files.forEach((file) => formData.append('attachments[]', file));
 
-      this.http.post('/api/mail.php?action=contact', formData, { responseType: 'text' }).subscribe({
+      this.http.post('/api/enquiry.php?action=contact', formData, { responseType: 'text' }).subscribe({
         next: (response) => {
           console.log('Email sent successfully:', response);
           alert('Thank you for contacting us! We will get back to you soon.');
@@ -119,8 +119,7 @@ export class ContactUsComponent implements OnInit {
         },
         error: (error) => {
           console.error('Error sending email:', error);
-          alert('Thank you for your message. We will respond shortly.');
-          window.location.reload();
+          alert('Sorry, your message could not be sent. Please try again, or email us directly at support@supracontrols.com.');
         },
       });
     }

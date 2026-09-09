@@ -34,15 +34,15 @@ export class ScheduleDemoDialogComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
     if (this.demoForm.valid) {
-      this.http.post('/api/mail.php?action=demo', this.demoForm.value, { responseType: 'text' })
+      this.http.post('/api/enquiry.php?action=demo', this.demoForm.value, { responseType: 'text' })
         .subscribe({
           next: () => {
             alert('Thank you! Your demo request has been submitted. We will contact you soon.');
             this.dialogRef.close(true);
           },
-          error: () => {
-            alert('Thank you for your demo request. We will get back to you shortly.');
-            this.dialogRef.close(true);
+          error: (error) => {
+            console.error('Error sending demo request:', error);
+            alert('Sorry, your demo request could not be sent. Please try again, or email us directly at support@supracontrols.com.');
           }
         });
     }

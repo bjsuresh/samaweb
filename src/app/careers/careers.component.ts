@@ -93,9 +93,9 @@ export class CareersComponent implements OnInit {
       formData.append('mobile', this.emailForm.get('mobile')?.value);
       formData.append('message', this.emailForm.get('message')?.value);
 
-      this.files.forEach((file) => formData.append('attachments', file));
+      this.files.forEach((file) => formData.append('attachments[]', file));
 
-      this.http.post('/api/mail.php?action=careers', formData, { responseType: 'text' }).subscribe({
+      this.http.post('/api/enquiry.php?action=careers', formData, { responseType: 'text' }).subscribe({
         next: (response) => {
           console.log('Application sent successfully:', response);
           alert('Thank you for applying! We will review your application and contact you soon.');
@@ -103,8 +103,7 @@ export class CareersComponent implements OnInit {
         },
         error: (error) => {
           console.error('Error sending application:', error);
-          alert('Thank you for your application. We will get back to you soon.');
-          window.location.reload();
+          alert('Sorry, your application could not be sent. Please try again, or email us directly at support@supracontrols.com.');
         },
       });
     }

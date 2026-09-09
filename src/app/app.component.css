@@ -394,10 +394,11 @@ mat-toolbar.is-scrolled {
 /* Column Header */
 .mega-col-head {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
   padding-bottom: 10px;
   margin-bottom: 8px;
+  height: 60px;
 }
 
 .mega-icon-wrap {

@@ -23,7 +23,6 @@ import { MatInputModule } from '@angular/material/input';
 import { NgxCaptchaModule } from '@binssoft/ngx-captcha';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CustomCursorDirective } from './custom-cursor.directive';
 import { ProductListComponent } from './product-list/product-list.component';
 import { Products1Component } from './pages/products1/products1.component';
@@ -102,9 +101,7 @@ import { SecurityComponent } from './pages/security/security.component';
     NgxCaptchaModule,
     HttpClientModule
   ],
-  providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
